@@ -1,12 +1,13 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { AppContainer } from 'react-hot-loader'
+import './index.css';
 
 // Your top level component
-import App from './App'
+import Shell from './shell/Shell';
 
 // Export your top level component as JSX (for static rendering)
-export default App
+export default Shell
 
 // Render your app
 if (typeof document !== 'undefined') {
@@ -16,7 +17,7 @@ if (typeof document !== 'undefined') {
     ? ReactDOM.hydrate
     : ReactDOM.render
 
-  const render = (Comp: Function) => {
+  const render = (Comp) => {
     renderMethod(
       <AppContainer>
         <Comp />
@@ -26,12 +27,12 @@ if (typeof document !== 'undefined') {
   }
 
   // Render!
-  render(App)
+  render(Shell)
 
   // Hot Module Replacement
   if (module && module.hot) {
-    module.hot.accept('./App', () => {
-      render(App)
+    module.hot.accept('./shell/Shell', () => {
+      render(Shell)
     })
   }
 }
