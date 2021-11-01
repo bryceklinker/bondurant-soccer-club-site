@@ -13,9 +13,7 @@ export const DesktopNavbar: FunctionComponent<DesktopNavbarProps> = ({children})
             <Visibility once={false}>
                 <Segment inverted textAlign={'center'} vertical>
                     <Menu inverted>
-                        <Container>
-                            <NavMenuItems />
-                        </Container>
+                        <NavMenuItems/>
                     </Menu>
                 </Segment>
             </Visibility>

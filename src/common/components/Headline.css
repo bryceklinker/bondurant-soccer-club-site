@@ -1,18 +1,13 @@
 .headline-container {
     background: center / cover no-repeat url("../../assets/heading-background.jpg");
+    max-height: 500px;
+    height: 500px;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 768px) {
     .headline-container {
         max-height: 200px;
         height: 200px;
-    }
-}
-
-@media (min-width: 1024px) {
-    .headline-container {
-        max-height: 500px;
-        height: 500px;
     }
 }
 
@@ -26,4 +21,8 @@
     align-items: center;
     font-size: 54px;
     background-color: rgba(0, 0, 0, 0.5);
+}
+
+.headline-action {
+    margin-top: 2em !important;
 }

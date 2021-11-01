@@ -1,4 +1,4 @@
-import {Grid} from 'semantic-ui-react';
+import {Button, Grid} from 'semantic-ui-react';
 import {Media} from './MediaContextProvider';
 import React, {FunctionComponent} from 'react';
 
@@ -18,8 +18,17 @@ export const Headline: FunctionComponent = () => {
                         <Media at={'mobile'}>
                             BSC
                         </Media>
+                        <Button as={'a'}
+                                target={'_blank'}
+                                className={'headline-action'}
+                                href={'https://bondurantsc.demosphere-secure.com/_registration'}>
+                            Register Here
+                        </Button>
                     </div>
                 </Grid.Column>
+            </Grid.Row>
+            <Grid.Row>
+
             </Grid.Row>
         </Grid>
     )

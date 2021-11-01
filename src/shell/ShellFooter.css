@@ -1,0 +1,12 @@
+.shell-footer {
+    position: absolute !important;
+    bottom: 0 !important;
+    width: 100%;
+    padding-right: 1em !important;
+    padding-left: 1em !important;
+}
+
+.right-footer {
+    display: flex !important;
+    align-items: end;
+}

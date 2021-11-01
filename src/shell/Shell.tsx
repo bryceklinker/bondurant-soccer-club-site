@@ -4,6 +4,7 @@ import {MediaContextProvider} from '../common';
 import {ShellNavbar} from './ShellNavbar';
 import {ShellMainContent} from './ShellMainContent';
 import {Router} from '@reach/router';
+import {ShellFooter} from './ShellFooter';
 
 export const Shell = () => {
     return (
@@ -15,6 +16,8 @@ export const Shell = () => {
                             <Routes path="*"/>
                         </Router>
                     </ShellMainContent>
+
+                    <ShellFooter />
                 </ShellNavbar>
             </MediaContextProvider>
         </Root>
