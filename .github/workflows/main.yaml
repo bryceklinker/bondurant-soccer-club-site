@@ -9,6 +9,7 @@ jobs:
   test:
     name: Build And Deploy
     runs-on: ubuntu-20.04
+    environment: prod
     env:
       TARGET_ENV: prod
       PLAN_PATH: ${{ github.workspace }}/infra/prod/prod.tfplan
