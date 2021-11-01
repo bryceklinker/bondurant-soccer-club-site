@@ -1,6 +1,5 @@
 import React from 'react';
-import {Grid} from 'semantic-ui-react';
-import {Headline, JumpToLinks, MissionStatement} from '../common';
+import {Headline, JumpToLinks} from '../common';
 
 import './index.css';
 
@@ -9,7 +8,9 @@ export const Index = () => {
         <div className={'content'}>
             <Headline/>
 
-            <JumpToLinks />
+            <div className={'vertical-spacer'}/>
+
+            <JumpToLinks/>
         </div>
     );
 };

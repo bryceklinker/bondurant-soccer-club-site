@@ -1,3 +1,8 @@
+.jump-links-container {
+    margin-right: 1em !important;
+    margin-left: 1em !important;
+}
+
 .jump-link-container {
     display: flex !important;
     justify-content: center;

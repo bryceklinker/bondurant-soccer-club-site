@@ -7,38 +7,40 @@ import './JumpToLinks.css';
 export interface JumpToButtonProps {
     to: string;
 }
+
 export const JumpToButton: FunctionComponent<JumpToButtonProps> = ({to, children}) => {
     return (
-        <Link to={to}>
-            <Button size={'massive'} circular color={'blue'} className={'jump-link'}>
-                {children}
-            </Button>
-        </Link>
+        <Grid.Column className={'jump-link-container'}>
+            <Link to={to}>
+                <Button size={'massive'} circular color={'blue'} className={'jump-link'}>
+                    {children}
+                </Button>
+            </Link>
+        </Grid.Column>
 
-    )
-}
+    );
+};
 
 export const JumpToLinks: FunctionComponent = () => {
     return (
-        <Grid columns={4} stackable centered textAlign={'center'} verticalAlign={'middle'}>
-            <Grid.Column className={'jump-link-container'}>
-                <JumpToButton to={'get-involved'}>Get Involved</JumpToButton>
-            </Grid.Column>
-            <Grid.Column className={'jump-link-container'}>
-                <JumpToButton to={'contact-us'}>
-                    Contact Us
-                </JumpToButton>
-            </Grid.Column>
-            <Grid.Column className={'jump-link-container'}>
-                <JumpToButton to={'about'}>
-                    About
-                </JumpToButton>
-            </Grid.Column>
-            <Grid.Column className={'jump-link-container'}>
-                <JumpToButton to={'locations'}>
-                    Locations
-                </JumpToButton>
-            </Grid.Column>
+        <Grid columns={4}
+              stackable
+              centered
+              textAlign={'center'}
+              verticalAlign={'middle'}
+              className={'jump-links-container'}>
+            <JumpToButton to={'get-involved'}>
+                Get Involved
+            </JumpToButton>
+            <JumpToButton to={'contact-us'}>
+                Contact Us
+            </JumpToButton>
+            <JumpToButton to={'about'}>
+                About
+            </JumpToButton>
+            <JumpToButton to={'locations'}>
+                Locations
+            </JumpToButton>
         </Grid>
-    )
-}
+    );
+};
