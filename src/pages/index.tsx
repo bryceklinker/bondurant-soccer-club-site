@@ -6,18 +6,11 @@ import './index.css';
 
 export const Index = () => {
     return (
-        <Grid columns={1}>
-            <Grid.Row>
-                <Grid.Column>
-                    <Headline/>
-                </Grid.Column>
-            </Grid.Row>
-            <Grid.Row>
-                <Grid.Column>
-                    <JumpToLinks />
-                </Grid.Column>
-            </Grid.Row>
-        </Grid>
+        <div className={'content'}>
+            <Headline/>
+
+            <JumpToLinks />
+        </div>
     );
 };
 
