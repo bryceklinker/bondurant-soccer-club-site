@@ -13,7 +13,7 @@ body,
 }
 
 .ui.blue.button {
-    background-color: var(--blue-background-color);
+    background-color: var(--blue-background-color) !important;
 }
 
 .bg-facebook-blue {
