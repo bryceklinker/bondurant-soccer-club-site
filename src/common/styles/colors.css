@@ -1,3 +1,8 @@
+:root {
+    --blue: rgb(20, 46, 192);
+    --blue-background-color: var(--blue);
+}
+
 .ui.blue.button {
-    background-color: rgb(20, 46, 192);
+    background-color: var(--blue-background-color);
 }

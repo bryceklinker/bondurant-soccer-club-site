@@ -20,6 +20,7 @@ export const Headline: FunctionComponent = () => {
                 <Button as={'a'}
                         target={'_blank'}
                         className={'headline-action'}
+                        color={'blue'}
                         href={'https://bondurantsc.demosphere-secure.com/_registration'}>
                     Register Here
                 </Button>

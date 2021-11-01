@@ -1,8 +1,6 @@
 import React from 'react';
 import {Headline, JumpToLinks} from '../common';
 
-import './index.css';
-
 export const Index = () => {
     return (
         <div className={'content'}>
