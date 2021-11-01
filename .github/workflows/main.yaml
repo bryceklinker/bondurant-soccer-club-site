@@ -1,0 +1,20 @@
+name: Main
+on: [push]
+jobs:
+  test:
+    name: Test
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+        name: Checkout
+
+      - uses: actions/setup-node@v2
+        name: Setup Node
+        with:
+          node-version: '14'
+
+      - run: yarn install
+        name: Install Dependencies
+
+      - run: yarn test
+        name: Run Tests
