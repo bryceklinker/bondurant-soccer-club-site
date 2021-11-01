@@ -4,12 +4,3 @@
     --facebook-blue: rgb(34, 122, 238);
     --blue-background-color: var(--blue);
 }
-
-.ui.blue.button {
-    background-color: var(--blue-background-color);
-}
-
-.bg-facebook-blue {
-    background-color: var(--facebook-blue) !important;
-    color: var(--white) !important;
-}

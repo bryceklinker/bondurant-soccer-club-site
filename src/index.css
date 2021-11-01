@@ -12,5 +12,11 @@ body,
     height: 100%;
 }
 
+.ui.blue.button {
+    background-color: var(--blue-background-color);
+}
 
-
+.bg-facebook-blue {
+    background-color: var(--facebook-blue) !important;
+    color: var(--white) !important;
+}
