@@ -12,7 +12,7 @@ export const JumpToButton: FunctionComponent<JumpToButtonProps> = ({to, children
     return (
         <Grid.Column className={'jump-link-container'}>
             <Link to={to}>
-                <Button size={'massive'} circular color={'blue'} className={'jump-link'}>
+                <Button size={'massive'} color={'blue'} circular className={'jump-link bg-blue'}>
                     {children}
                 </Button>
             </Link>

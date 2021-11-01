@@ -1,4 +1,6 @@
 @import '~semantic-ui-css/semantic.css';
+@import './common/styles/colors.css';
+
 html,
 body,
 #root {
