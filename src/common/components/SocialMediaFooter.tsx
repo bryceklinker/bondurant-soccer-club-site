@@ -9,6 +9,7 @@ export const SocialMediaFooter: FunctionComponent = () => {
                         color={'blue'}
                         icon
                         labelPosition={'right'}
+                        target={'_blank'}
                         href={'https://www.facebook.com/bondurantsoccerclub/'}>
                     <Icon name={'facebook official'} />
                     Facebook
