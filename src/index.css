@@ -1,4 +1,5 @@
 @import '~semantic-ui-css/semantic.css';
+@import './common/styles/utilities.css';
 @import './common/styles/colors.css';
 
 html,
@@ -11,6 +12,5 @@ body,
     height: 100%;
 }
 
-.vertical-spacer {
-    height: 2em;
-}
+
+

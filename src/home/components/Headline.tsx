@@ -1,5 +1,5 @@
 import {Button, Grid} from 'semantic-ui-react';
-import {Media} from './MediaContextProvider';
+import {Media} from '../../common/components/MediaContextProvider';
 import React, {FunctionComponent} from 'react';
 
 import './Headline.css';

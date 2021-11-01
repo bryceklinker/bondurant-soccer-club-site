@@ -1,6 +1,6 @@
 import React, {FunctionComponent} from 'react';
 import {Grid, Segment} from 'semantic-ui-react';
-import {Copyright, SocialMediaFooter} from '../common';
+import {Copyright, SocialMediaFooter} from './components';
 
 import './ShellFooter.css';
 

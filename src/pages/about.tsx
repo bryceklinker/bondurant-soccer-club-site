@@ -1,7 +1,3 @@
-import React from 'react'
+import {AboutPage} from '../about/components/AboutPage';
 
-export default () => (
-  <div>
-    <p>React Static is a progressive static site generator for React.</p>
-  </div>
-)
+export default AboutPage

@@ -1,10 +1,10 @@
 import React, {FunctionComponent, useCallback, useState} from 'react';
 import {Container, Grid, Icon, Menu, Segment, Sidebar} from 'semantic-ui-react';
-import {Copyright, Media} from '../common';
 import {NavMenuItems} from './NavMenuItems';
+import {Copyright, SocialMediaFooter} from './components';
+import { Media } from '../common';
 
 import './MobileNavbar.css';
-import {SocialMediaFooter} from '../common/components/SocialMediaFooter';
 export const MobileNavbar: FunctionComponent = ({children}) => {
     const [visible, setVisible] = useState(false);
     const toggleSidebar = useCallback(() => setVisible(true), [setVisible]);

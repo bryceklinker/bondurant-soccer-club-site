@@ -1,12 +1,3 @@
-import React, {FunctionComponent} from 'react';
-import {Header, Segment} from 'semantic-ui-react';
+import {GetInvolvedPage} from '../get-involved/components/GetInvolvedPage';
 
-export const GetInvolved: FunctionComponent = () => {
-    return (
-        <Segment>
-            <Header as={'h2'}>Get Involved</Header>
-        </Segment>
-    )
-}
-
-export default GetInvolved
+export default GetInvolvedPage
