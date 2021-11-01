@@ -4,3 +4,4 @@ export * from './Headline';
 export * from './MissionStatement';
 export * from './JumpToLinks';
 export * from './Copyright';
+export * from './SocialMediaFooter';

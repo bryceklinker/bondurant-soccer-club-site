@@ -1,9 +1,8 @@
 import React, {FunctionComponent} from 'react';
 import {Grid, Segment} from 'semantic-ui-react';
-import {Copyright} from '../common';
+import {Copyright, SocialMediaFooter} from '../common';
 
 import './ShellFooter.css';
-import {SocialMediaFooter} from '../common/components/SocialMediaFooter';
 
 export const ShellFooter: FunctionComponent = () => {
     return (

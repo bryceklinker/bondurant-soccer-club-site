@@ -6,7 +6,7 @@ export const SocialMediaFooter: FunctionComponent = () => {
         <Grid stackable>
             <Grid.Column>
                 <Button as={'a'}
-                        color={'blue'}
+                        className={'bg-facebook-blue'}
                         icon
                         labelPosition={'right'}
                         target={'_blank'}
