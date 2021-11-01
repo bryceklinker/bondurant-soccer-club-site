@@ -1,35 +1,51 @@
 import React, {FunctionComponent, useCallback, useState} from 'react';
-import {Container, Icon, Menu, Segment, Sidebar} from 'semantic-ui-react';
-import {Media} from '../common';
+import {Container, Grid, Icon, Menu, Segment, Sidebar} from 'semantic-ui-react';
+import {Copyright, Media} from '../common';
 import {NavMenuItems} from './NavMenuItems';
 
-export interface MobileNavbarProps {
-
-}
-
-export const MobileNavbar: FunctionComponent<MobileNavbarProps> = ({children}) => {
+import './MobileNavbar.css';
+import {SocialMediaFooter} from '../common/components/SocialMediaFooter';
+export const MobileNavbar: FunctionComponent = ({children}) => {
     const [visible, setVisible] = useState(false);
     const toggleSidebar = useCallback(() => setVisible(true), [setVisible]);
     const hideSidebar = useCallback(() => setVisible(false), [setVisible]);
     return (
-        <Media at={'mobile'}>
+        <Media at={'mobile'} className={'mobile-container'}>
             <Sidebar.Pushable>
                 <Sidebar as={Menu}
                          animation={'overlay'}
                          inverted
                          visible={visible}
                          vertical
+                         direction={'right'}
                          onHide={hideSidebar}>
-                    <NavMenuItems/>
+                    <Grid columns={1} container>
+                        <Grid.Row>
+                            <Grid.Column>
+                                <NavMenuItems onClick={hideSidebar}/>
+                            </Grid.Column>
+                        </Grid.Row>
+                        <Grid.Row stretched>
+                            <Grid.Column stretched />
+                        </Grid.Row>
+                        <Grid.Row verticalAlign={'bottom'}>
+                            <Grid.Column verticalAlign={'bottom'}>
+                                <SocialMediaFooter />
+                                <Copyright />
+                            </Grid.Column>
+                        </Grid.Row>
+                    </Grid>
                 </Sidebar>
 
                 <Sidebar.Pusher dimmed={visible}>
                     <Segment inverted textAlign={'center'} vertical>
                         <Container>
                             <Menu inverted pointing secondary size={'large'}>
-                                <Menu.Item onClick={toggleSidebar}>
-                                    <Icon name={'sidebar'}/>
-                                </Menu.Item>
+                                <Menu.Menu position={'right'}>
+                                    <Menu.Item onClick={toggleSidebar}>
+                                        <Icon name={'sidebar'}/>
+                                    </Menu.Item>
+                                </Menu.Menu>
                             </Menu>
                         </Container>
                     </Segment>

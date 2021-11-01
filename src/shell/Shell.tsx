@@ -1,6 +1,6 @@
 import React from 'react';
 import {Root, Routes} from 'react-static';
-import {MediaContextProvider} from '../common';
+import {Media, MediaContextProvider} from '../common';
 import {ShellNavbar} from './ShellNavbar';
 import {ShellMainContent} from './ShellMainContent';
 import {Router} from '@reach/router';
@@ -17,7 +17,9 @@ export const Shell = () => {
                         </Router>
                     </ShellMainContent>
 
-                    <ShellFooter />
+                    <Media greaterThan={'mobile'}>
+                        <ShellFooter />
+                    </Media>
                 </ShellNavbar>
             </MediaContextProvider>
         </Root>
