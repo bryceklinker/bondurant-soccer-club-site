@@ -18,7 +18,7 @@ module "site" {
   name = "${local.name}-site"
   location = local.location
   resource_group_name = local.resource_group_name
-  site_directory = "${local.dist_directory}/apps/web-ui"
+  site_directory = local.dist_directory
 
   depends_on = [azurerm_resource_group.resource_group]
 }
