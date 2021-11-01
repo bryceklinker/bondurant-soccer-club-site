@@ -1,6 +1,5 @@
-.shell-footer {
-    position: absolute !important;
-    bottom: 0 !important;
+.ui.vertical.segment.shell-footer {
+    margin-top: 2em;
     width: 100%;
     padding-right: 1em !important;
     padding-left: 1em !important;

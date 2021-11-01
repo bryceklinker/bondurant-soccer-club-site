@@ -12,7 +12,7 @@ export const Shell = () => {
             <MediaContextProvider>
                 <ShellNavbar>
                     <ShellMainContent>
-                        <Router>
+                        <Router >
                             <Routes path="*"/>
                         </Router>
                     </ShellMainContent>

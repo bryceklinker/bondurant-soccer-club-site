@@ -1,0 +1,5 @@
+main {
+    height: -moz-calc(100% - 146px); /* Firefox */
+    height: -webkit-calc(100% - 146px); /* Chrome, Safari */
+    height: calc(100% - 146px);
+}

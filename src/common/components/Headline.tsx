@@ -27,9 +27,6 @@ export const Headline: FunctionComponent = () => {
                     </div>
                 </Grid.Column>
             </Grid.Row>
-            <Grid.Row>
-
-            </Grid.Row>
         </Grid>
     )
 }

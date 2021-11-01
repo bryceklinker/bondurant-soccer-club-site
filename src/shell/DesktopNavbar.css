@@ -1,0 +1,8 @@
+.media-wrapper {
+}
+
+@media (min-width: 768px)  {
+    .media-wrapper {
+        height: 100%;
+    }
+}
