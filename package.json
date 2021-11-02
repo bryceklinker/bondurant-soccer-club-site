@@ -34,6 +34,7 @@
     "@types/react": "17.0.33",
     "@types/react-dom": "17.0.10",
     "compression-webpack-plugin": "6.1.1",
+    "glob": "7.2.0",
     "react-hot-loader": "4.13.0",
     "react-static-plugin-typescript": "7.6.2",
     "serve": "11.3.2",
