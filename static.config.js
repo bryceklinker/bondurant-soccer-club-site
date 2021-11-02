@@ -31,6 +31,7 @@ export default {
                 <link rel="icon" href="./favicon.ico"/>
                 <meta name="viewport" content="width=device-width, initial-scale=1"/>
                 <title>Bondurant Soccer Club</title>
+                <meta name={'description'} content={'Official Bondurant Soccer Club website'} />
             </Head>
             <Body>{children}</Body>
         </Html>

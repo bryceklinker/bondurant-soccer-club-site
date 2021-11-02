@@ -12,15 +12,18 @@
 }
 
 .headline {
-    color: white;
     display: flex;
     height: 100%;
     flex: 1;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    font-size: 54px;
     background-color: rgba(0, 0, 0, 0.5);
+}
+
+.headline h1.ui.header {
+    color: white;
+    font-size: 54px;
 }
 
 .headline-action {

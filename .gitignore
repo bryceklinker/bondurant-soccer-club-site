@@ -3,3 +3,4 @@ artifacts/
 tmp/
 dist/
 .idea/
+.DS_Store
