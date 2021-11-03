@@ -18,14 +18,9 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.4);
 }
 
-.headline h1.ui.header {
+.headline-title {
     color: white;
-    font-size: 54px;
-}
-
-.headline-action {
-    margin-top: 2em !important;
 }

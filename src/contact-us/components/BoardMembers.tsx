@@ -1,6 +1,7 @@
 import React, {FunctionComponent} from 'react';
+import {List} from '@fluentui/react';
 import {BoardMemberData} from '../state';
-import {Header, List, Segment} from 'semantic-ui-react';
+import {Section, Title, SubTitle} from '../../common';
 
 export interface BoardMemberProps {
     member: BoardMemberData;
@@ -8,11 +9,11 @@ export interface BoardMemberProps {
 
 export const BoardMember: FunctionComponent<BoardMemberProps> = ({member}) => {
     return (
-        <Segment>
-            <Header as={'h3'}>{member.role}</Header>
-            <Header as={'h5'}>{member.name}</Header>
+        <Section>
+            <Title>{member.role}</Title>
+            <SubTitle>{member.name}</SubTitle>
             <a href={`mailto:${member.email}`}>Email</a>
-        </Segment>
+        </Section>
     );
 };
 

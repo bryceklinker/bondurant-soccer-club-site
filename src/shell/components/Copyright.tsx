@@ -1,10 +1,10 @@
 import React, {FunctionComponent} from 'react';
-import {Header} from 'semantic-ui-react';
+import {SubTitle} from '../../common';
 
 export const Copyright: FunctionComponent = () => {
     return (
-        <Header as={'h5'} inverted>
+        <SubTitle>
             © Bondurant Soccer Club 2021
-        </Header>
+        </SubTitle>
     )
 }

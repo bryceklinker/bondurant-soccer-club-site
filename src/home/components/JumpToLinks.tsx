@@ -1,6 +1,6 @@
-import React, {FunctionComponent, useCallback} from 'react';
-import {Button, Grid} from 'semantic-ui-react';
-import {Link, useNavigate} from '@reach/router';
+import React, {FunctionComponent} from 'react';
+import {Link} from '@reach/router';
+import {PrimaryButton, Stack} from '@fluentui/react';
 
 import './JumpToLinks.css';
 
@@ -10,25 +10,20 @@ export interface JumpToButtonProps {
 
 export const JumpToButton: FunctionComponent<JumpToButtonProps> = ({to, children}) => {
     return (
-        <Grid.Column className={'jump-link-container'}>
+        <div className={'jump-link-container'}>
             <Link to={to}>
-                <Button size={'massive'} color={'blue'} circular className={'jump-link bg-blue'}>
+                <PrimaryButton className={'jump-link'}>
                     {children}
-                </Button>
+                </PrimaryButton>
             </Link>
-        </Grid.Column>
+        </div>
 
     );
 };
 
 export const JumpToLinks: FunctionComponent = () => {
     return (
-        <Grid columns={4}
-              stackable
-              centered
-              textAlign={'center'}
-              verticalAlign={'middle'}
-              className={'jump-links-container'}>
+        <Stack horizontal horizontalAlign={'center'} wrap>
             <JumpToButton to={'get-involved'}>
                 Get Involved
             </JumpToButton>
@@ -41,6 +36,6 @@ export const JumpToLinks: FunctionComponent = () => {
             <JumpToButton to={'locations'}>
                 Locations
             </JumpToButton>
-        </Grid>
+        </Stack>
     );
 };

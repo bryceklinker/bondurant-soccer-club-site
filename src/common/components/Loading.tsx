@@ -1,6 +1,10 @@
-import React from 'react';
-import {Loader} from 'semantic-ui-react';
+import React, {FunctionComponent} from 'react';
+import {Spinner, SpinnerSize} from '@fluentui/react';
 
-export const Loading = () => {
-    return <Loader active inline={'centered'} />
+export interface LoadingProps {
+    size?: SpinnerSize
+}
+
+export const Loading: FunctionComponent<LoadingProps> = ({size = SpinnerSize.large}) => {
+    return <Spinner size={size} />
 }
