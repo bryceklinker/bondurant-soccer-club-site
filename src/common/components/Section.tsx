@@ -1,13 +1,14 @@
+import {IStackProps, Stack} from '@fluentui/react';
 import React, {FunctionComponent} from 'react';
 
-export interface SectionProps extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
+export interface SectionProps extends IStackProps {
     inverted?: boolean;
 }
 
 export const Section: FunctionComponent<SectionProps> = ({children, ...rest}) => {
     return (
-        <section {...rest}>
+        <Stack {...rest}>
             {children}
-        </section>
+        </Stack>
     )
 }

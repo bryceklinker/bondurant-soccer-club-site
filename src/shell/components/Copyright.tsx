@@ -1,10 +1,10 @@
 import React, {FunctionComponent} from 'react';
-import {SubTitle} from '../../common';
+import {Paragraph} from '../../common';
 
 export const Copyright: FunctionComponent = () => {
     return (
-        <SubTitle>
+        <Paragraph className={'copyright'}>
             © Bondurant Soccer Club 2021
-        </SubTitle>
+        </Paragraph>
     )
 }

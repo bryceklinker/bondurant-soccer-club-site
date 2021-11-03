@@ -3,22 +3,14 @@ import {Copyright, SocialMediaFooter} from './components';
 import {Section} from '../common';
 
 import './ShellFooter.css';
+import { Stack } from '@fluentui/react';
 
 export const ShellFooter: FunctionComponent = () => {
     return (
-        <Section className={'shell-footer'}>
-            <div>
-                <div>
-                    <Copyright/>
-                </div>
-
-                <div>
-
-                </div>
-                <div className={'right-footer'}>
-                    <SocialMediaFooter/>
-                </div>
-            </div>
+        <Section horizontal className={'shell-footer'} verticalAlign={'center'}>
+            <Copyright/>
+            <Stack grow={true} />
+            <SocialMediaFooter/>
         </Section>
     );
 };

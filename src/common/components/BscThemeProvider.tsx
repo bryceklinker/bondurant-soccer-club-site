@@ -9,7 +9,7 @@ const theme = createTheme({
 
 export const BscThemeProvider: FunctionComponent = ({children}) => {
     return (
-        <ThemeProvider theme={theme}>
+        <ThemeProvider theme={theme} style={{height: '100%'}}>
             {children}
         </ThemeProvider>
     );

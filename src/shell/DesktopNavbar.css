@@ -1,3 +1,5 @@
+@import "../common/styles/colors.css";
+
 .media-wrapper {
 }
 
@@ -5,4 +7,19 @@
     .media-wrapper {
         height: 100%;
     }
+}
+
+.navbar {
+    background-color: var(--dark-background-color);
+    color: var(--white);
+    padding-bottom: 1em;
+    padding-top: 1em;
+}
+
+.navbar .nav-button {
+    font-size: 1rem;
+    color: var(--white);
+    background-color: transparent;
+    border: none;
+    border-right: rgba(255,255,255,0.2) solid 1px;
 }

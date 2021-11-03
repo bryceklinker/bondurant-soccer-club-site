@@ -1,32 +1,27 @@
 import React, {FunctionComponent} from 'react';
 import {Link} from '@reach/router';
-import {ICommandBarItemProps} from '@fluentui/react';
+import {INavLink} from '@fluentui/react';
 
-export const NAV_MENU_ITEMS: Array<ICommandBarItemProps> = [
+export const NAV_MENU_ITEMS: Array<INavLink> = [
     {
-        key: 'home',
-        text: 'Home',
-        href: '/'
+        name: 'Home',
+        url: '/'
     },
     {
-        key: 'get involved',
-        text: 'Get Involved',
-        href: '/get-involved'
+        name: 'Get Involved',
+        url: '/get-involved'
     },
     {
-        key: 'contact us',
-        text: 'Contact Us',
-        href: '/contact-us'
+        name: 'Contact Us',
+        url: '/contact-us'
     },
     {
-        key: 'about',
-        text: 'About',
-        href: '/about'
+        name: 'About',
+        url: '/about'
     },
     {
-        key: 'locations',
-        text: 'Locations',
-        href: '/locations'
+        name: 'Locations',
+        url: '/locations'
     }
 ];
 

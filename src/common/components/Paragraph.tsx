@@ -1,6 +1,10 @@
-import {FunctionComponent} from 'react';
-import {Text} from '@fluentui/react';
+import React, {FunctionComponent} from 'react';
+import {Text, ITextProps} from '@fluentui/react';
 
-export const Paragraph: FunctionComponent = ({children}) => {
-    return <Text as={'p'}>{children}</Text>
+export interface ParagraphProps extends Omit<ITextProps, 'as'> {
+
+}
+
+export const Paragraph: FunctionComponent<ParagraphProps> = ({children, ...rest}) => {
+    return <Text as={'p'} {...rest}>{children}</Text>
 }

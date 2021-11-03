@@ -1,6 +1,6 @@
 import React, {FunctionComponent} from 'react';
 import {Link} from '@reach/router';
-import {PrimaryButton, Stack} from '@fluentui/react';
+import {IStackProps, IStackTokens, ITheme, PrimaryButton, Stack} from '@fluentui/react';
 
 import './JumpToLinks.css';
 
@@ -10,20 +10,22 @@ export interface JumpToButtonProps {
 
 export const JumpToButton: FunctionComponent<JumpToButtonProps> = ({to, children}) => {
     return (
-        <div className={'jump-link-container'}>
             <Link to={to}>
-                <PrimaryButton className={'jump-link'}>
+                <PrimaryButton className={'jump-link large-button'}>
                     {children}
                 </PrimaryButton>
             </Link>
-        </div>
-
     );
 };
 
 export const JumpToLinks: FunctionComponent = () => {
+    const tokens = (props: IStackProps, theme: ITheme): IStackTokens => {
+        return {
+            childrenGap: theme.spacing.l2
+        };
+    }
     return (
-        <Stack horizontal horizontalAlign={'center'} wrap>
+        <Stack horizontal horizontalAlign={'center'}  wrap tokens={tokens} className={'jump-link-container'}>
             <JumpToButton to={'get-involved'}>
                 Get Involved
             </JumpToButton>

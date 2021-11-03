@@ -1,7 +1,19 @@
+:root {
+    --large-button-font-size: 1.3rem;
+}
+
 .vertical-spacer {
     height: 2em;
 }
 
 .padded-content {
     padding: 2em;
+}
+
+.large-button {
+    font-size: var(--large-button-font-size);
+}
+
+.rounded-button {
+    border-radius: 0.2em;
 }

@@ -1,12 +1,8 @@
-.jump-links-container {
-    margin-right: 1em !important;
-    margin-left: 1em !important;
-}
-
-.jump-link-container {
-    display: flex !important;
-    justify-content: center;
-    align-items: center;
+@media screen and (max-width: 640px) {
+    .jump-link-container .ms-Stack-inner {
+        flex-direction: column;
+        align-content: center;
+    }
 }
 
 .jump-link {

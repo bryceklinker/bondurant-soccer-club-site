@@ -1,10 +1,11 @@
-.ui.vertical.segment.shell-footer {
-    width: 100%;
-    padding-right: 1em !important;
-    padding-left: 1em !important;
+@import "../common/styles/colors.css";
+
+.shell-footer {
+    background-color: var(--dark-background-color);
+    color: var(--white);
+    padding: 1em;
 }
 
-.right-footer {
-    display: flex !important;
-    align-items: end;
+.shell-footer .copyright {
+    color: inherit;
 }
