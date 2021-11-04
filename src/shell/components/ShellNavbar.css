@@ -1,0 +1,62 @@
+@import "../../common/styles/colors.css";
+
+.nav-button {
+    font-size: 1rem;
+    color: var(--white);
+    background-color: transparent;
+    border: none;
+}
+
+.active {
+    border-bottom-color: white;
+}
+
+.navbar {
+    background-color: var(--dark-background-color);
+    color: var(--white);
+    padding: 1em;
+}
+
+.navbar .nav-button {
+    border-right: rgba(255,255,255,0.2) solid 1px;
+}
+
+.navbar .nav-menu-button {
+    visibility: collapse;
+}
+
+.navpanel {
+    background-color: var(--dark-background-color);
+    color: var(--white);
+}
+
+.navpanel .nav-link {
+    width: 100%;
+    margin-bottom: 1em;
+}
+
+.navpanel .nav-link .nav-button {
+    width: 100%;
+}
+
+@media (min-width: 768px)  {
+    .media-wrapper {
+        height: 100%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .navbar .nav-link {
+        visibility: collapse;
+    }
+
+    .navbar .nav-menu-button {
+        visibility: visible;
+    }
+}
+
+
+
+
+
+

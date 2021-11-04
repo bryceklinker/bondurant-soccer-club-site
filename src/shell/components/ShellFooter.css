@@ -1,0 +1,14 @@
+@import "../../common/styles/colors.css";
+
+.shell-footer {
+    background-color: var(--dark-background-color);
+    color: var(--white);
+    padding: 1em;
+}
+
+
+@media screen and (max-width: 768px) {
+    .shell-footer {
+        visibility: collapse;
+    }
+}

@@ -17,3 +17,8 @@
 .rounded-button {
     border-radius: 0.2em;
 }
+
+.flex {
+    display: flex;
+    flex: 1;
+}

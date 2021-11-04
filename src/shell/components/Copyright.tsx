@@ -1,6 +1,7 @@
 import React, {FunctionComponent} from 'react';
 import {Paragraph} from '../../common';
 
+import './Copyright.css';
 export const Copyright: FunctionComponent = () => {
     return (
         <Paragraph className={'copyright'}>

@@ -1,5 +1,5 @@
 import React, {FunctionComponent} from 'react';
-import {Loading} from '../common';
+import {Loading} from '../../common';
 
 import './ShellMainContent.css';
 
