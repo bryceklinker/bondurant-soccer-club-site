@@ -4,8 +4,24 @@ export enum BoardMemberRoleGroup {
     AtLarge = 'At Large Members'
 }
 
+export enum BoardMemberRole {
+    President = 'President',
+    VicePresident = 'Vice President',
+    Treasurer = 'Treasurer',
+    Secretary = 'Secretary',
+    Registrar = 'Registar',
+    DirectorOfReferees = 'Director of Referees',
+    DirectorOfFields = 'Director of Fields',
+    DirectorOfCoaches = 'Director of Coaches',
+    DirectorOfCommunications = 'Director of Communications',
+    DirectorOfConcessions = 'Director of Concessions',
+    DirectorOfEquipment = 'Director of Equipment',
+    AtLarge = 'At-Large'
+}
+
 export interface BoardMemberData {
-    role: string;
+    roleTitle: string;
+    role: BoardMemberRole;
     name: string;
     email: string;
     roleGroup: BoardMemberRoleGroup;
@@ -13,111 +29,150 @@ export interface BoardMemberData {
 
 export const BOARD_MEMBERS: Array<BoardMemberData> = [
     {
-        role: 'President',
+        roleTitle: 'President',
+        role: BoardMemberRole.President,
         name: 'Brandon Cook',
         email: 'bonsoccerprez@gmail.com',
         roleGroup: BoardMemberRoleGroup.Elected
     },
     {
-        role: 'Treasurer',
+        roleTitle: 'Vice President',
+        role: BoardMemberRole.VicePresident,
+        name: 'N/A',
+        email: '',
+        roleGroup: BoardMemberRoleGroup.Elected
+    },
+    {
+        roleTitle: 'Treasurer',
+        role: BoardMemberRole.Treasurer,
         name: 'Bryce Klinker',
         email: 'bonsoccertreasurer@gmail.com',
         roleGroup: BoardMemberRoleGroup.Elected
     },
     {
-        role: 'Secretary',
+        roleTitle: 'Secretary',
+        role: BoardMemberRole.Secretary,
         name: 'Michelle Berger',
         email: 'mmatitaly@hotmail.com',
         roleGroup: BoardMemberRoleGroup.Elected
     },
     {
-        role: 'Registrar',
+        roleTitle: 'Registrar',
+        role: BoardMemberRole.Registrar,
         name: 'Rebecca Sly',
         email: 'bonsoccerregistrar@gmail.com',
         roleGroup: BoardMemberRoleGroup.Directors
     },
     {
-        role: 'Director of Referees',
+        roleTitle: 'Director of Referees',
+        role: BoardMemberRole.DirectorOfReferees,
         name: 'Mark Feld',
         email: 'mark.feld7@gmail.com',
         roleGroup: BoardMemberRoleGroup.Directors
     },
     {
-        role: 'Director of East Fields',
+        roleTitle: 'Director of East Fields',
+        role: BoardMemberRole.DirectorOfFields,
         name: 'Jason Greubel',
         email: 'jasonericca@gmail.com',
         roleGroup: BoardMemberRoleGroup.Directors
     },
     {
-        role: 'Director of West Fields',
+        roleTitle: 'Director of West Fields',
+        role: BoardMemberRole.DirectorOfFields,
         name: 'Tom Trammell',
         email: 'tssafety@tssafetyinc.com',
         roleGroup: BoardMemberRoleGroup.Directors
     },
     {
-        role: 'Director of U5/U6',
-        name: 'Andrea Haselhoff',
-        email: 'u6soccer@yahoo.com',
-        roleGroup: BoardMemberRoleGroup.Directors
-    },
-    {
-        role: 'Director of Communications',
+        roleTitle: 'Director of Communications',
+        role: BoardMemberRole.DirectorOfCommunications,
         name: 'Nicole Van Houten',
         email: 'nicole.vanhouten@gmail.com',
         roleGroup: BoardMemberRoleGroup.Directors
     },
     {
-        role: 'Director of Concessions',
+        roleTitle: 'Director of Concessions',
+        role: BoardMemberRole.DirectorOfConcessions,
         name: 'Sunny Huisman',
         email: 'bonsoccerconcessions@gmail.com',
         roleGroup: BoardMemberRoleGroup.Directors
     },
     {
-        role: 'Director of Coaches (U9+)',
+        roleTitle: 'Director of U5/U6',
+        role: BoardMemberRole.DirectorOfCoaches,
+        name: 'Andrea Haselhoff',
+        email: 'u6soccer@yahoo.com',
+        roleGroup: BoardMemberRoleGroup.Directors
+    },
+    {
+        roleTitle: 'Director of Coaches (U9+)',
+        role: BoardMemberRole.DirectorOfCoaches,
         name: 'Nick Quinlan',
         email: 'nickolas.quinlan@dsmschooles.org',
         roleGroup: BoardMemberRoleGroup.Directors
     },
     {
-        role: 'Director of Coaches (U7-U8)',
+        roleTitle: 'Director of Coaches (U7-U8)',
+        role: BoardMemberRole.DirectorOfCoaches,
         name: 'Cole LaZella',
         email: 'callezal@yahoo.com',
         roleGroup: BoardMemberRoleGroup.Directors
     },
     {
-        role: 'Director of Uniforms',
+        roleTitle: 'Director of Uniforms',
+        role: BoardMemberRole.DirectorOfEquipment,
         name: 'Rania Robb',
         email: 'raniarobbsoccer@outlook.com',
         roleGroup: BoardMemberRoleGroup.Directors
     },
     {
-        role: 'At-Large',
+        roleTitle: 'At-Large',
+        role: BoardMemberRole.AtLarge,
         name: 'Chan Cavan',
         email: 'madden515@yahoo.com',
         roleGroup: BoardMemberRoleGroup.AtLarge
     },
     {
-        role: 'At-Large',
+        roleTitle: 'At-Large',
+        role: BoardMemberRole.AtLarge,
         name: 'Matt Chambers',
         email: 'matthew_d_chambers@hotmail.com',
         roleGroup: BoardMemberRoleGroup.AtLarge
     },
     {
-        role: 'At-Large',
+        roleTitle: 'At-Large',
+        role: BoardMemberRole.AtLarge,
         name: 'David Gossard',
         email: 'david.j.gossard@live.com',
         roleGroup: BoardMemberRoleGroup.AtLarge
     },
     {
-        role: 'At-Large',
+        roleTitle: 'At-Large',
+        role: BoardMemberRole.AtLarge,
         name: 'Alan Knuth',
         email: 'knuthconstruction@hotmail.com',
         roleGroup: BoardMemberRoleGroup.AtLarge
     },
     {
-        role: 'At-Large',
+        roleTitle: 'At-Large',
+        role: BoardMemberRole.AtLarge,
         name: 'John Waldrop',
         email: 'john.waldrop@jci.com',
         roleGroup: BoardMemberRoleGroup.AtLarge
     }
 ]
+
+export const DIRECTORS_OF_COACHES = BOARD_MEMBERS.filter(b => b.role === BoardMemberRole.DirectorOfCoaches);
+export const DIRECTORS_OF_FIELDS = BOARD_MEMBERS.filter(b => b.role === BoardMemberRole.DirectorOfFields);
+export const DIRECTORS_OF_REFEREES = BOARD_MEMBERS.filter(b => b.role === BoardMemberRole.DirectorOfReferees);
+export const PRESIDENTS = BOARD_MEMBERS.filter(b => b.role === BoardMemberRole.President);
+
+export const BoardMemberData = {
+    getEmails: (members: Array<BoardMemberData>): Array<string> => {
+        return members.map(m => m.email);
+    },
+    getMailtoEmails: (members: Array<BoardMemberData>): string => {
+        return BoardMemberData.getEmails(members).join(',');
+    }
+}

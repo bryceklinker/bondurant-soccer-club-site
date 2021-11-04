@@ -1,7 +1,8 @@
 import React, {FunctionComponent} from 'react';
 import {GetInvolvedData} from '../state';
-import {Section, LinkData, Paragraph, SectionTitle, SubTitle, Divider} from '../../common';
-import {Link} from '@fluentui/react';
+import {Section, LinkData, Paragraph, SectionTitle, SubTitle, CollapsiblePanel} from '../../common';
+import {Link as ExternalLink, Stack} from '@fluentui/react';
+import {Link as PageLink} from '@reach/router';
 import './GetInvolvedOption.css';
 
 export interface GetInvolvedLinkProps {
@@ -9,13 +10,26 @@ export interface GetInvolvedLinkProps {
 }
 
 export const GetInvolvedLink: FunctionComponent<GetInvolvedLinkProps> = ({data}) => {
+    if (data.url.startsWith('http') || data.url.startsWith('mailto')) {
+        return (
+            <Paragraph>
+                <ExternalLink as={'a'}
+                              href={data.url}
+                              underline={false}
+                              target={'_blank'}>
+                    {data.text}
+                </ExternalLink>
+            </Paragraph>
+        );
+    }
+
+
     return (
-        <Link as={'a'}
-              href={data.url}
-              underline={false}
-              target={'_blank'}>
-            {data.text}
-        </Link>
+        <Paragraph>
+            <PageLink to={data.url}>
+                {data.text}
+            </PageLink>
+        </Paragraph>
     );
 };
 
@@ -26,11 +40,14 @@ export interface GetInvolvedOptionProps {
 export const GetInvolvedOption: FunctionComponent<GetInvolvedOptionProps> = ({data}) => {
     const links = data.links.map((l, i) => <GetInvolvedLink data={l} key={i}/>);
     return (
-        <Section shadow padded className={'flex'}>
-            <SectionTitle>{data.title}</SectionTitle>
-            <Paragraph>{data.description}</Paragraph>
-            <SubTitle>Links</SubTitle>
-            {links}
+        <Section shadow padded>
+            <CollapsiblePanel title={<SectionTitle>{data.title}</SectionTitle>}>
+                <Stack>
+                    <Paragraph>{data.description}</Paragraph>
+                    <SubTitle>Links</SubTitle>
+                    {links}
+                </Stack>
+            </CollapsiblePanel>
         </Section>
     );
 };

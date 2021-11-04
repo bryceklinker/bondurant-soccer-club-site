@@ -2,27 +2,28 @@ import React, {FunctionComponent} from 'react';
 import {LinkData} from '../../common';
 import {Link} from '@reach/router';
 import {DefaultButton} from '@fluentui/react';
+import {RouteNames} from '../../common/route-names';
 
 const NAV_LINKS: Array<LinkData> = [
     {
         text: 'Home',
-        url: '/'
+        url: RouteNames.Home
     },
     {
         text: 'Get Involved',
-        url: '/get-involved'
+        url: RouteNames.GetInvolved
     },
     {
         text: 'Contact Us',
-        url: '/contact-us'
+        url: RouteNames.ContactUs
     },
     {
         text: 'About',
-        url: '/about'
+        url: RouteNames.About
     },
     {
         text: 'Locations',
-        url: '/locations'
+        url: RouteNames.Locations
     }
 ];
 

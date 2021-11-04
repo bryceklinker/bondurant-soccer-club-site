@@ -1,9 +1,20 @@
-import {LinkData} from '../../common/state';
+import {LinkData, RouteNames} from '../../common';
+import {
+    BoardMemberData,
+    DIRECTORS_OF_COACHES,
+    DIRECTORS_OF_FIELDS,
+    DIRECTORS_OF_REFEREES, PRESIDENTS
+} from '../../contact-us/state';
 
 export interface GetInvolvedData {
     title: string;
     description: string;
     links: Array<LinkData>;
+}
+
+const LAWS_OF_THE_GAME: LinkData = {
+    text: 'Laws of the Game',
+    url: 'https://www.theifab.com/documents'
 }
 
 export const GET_INVOLVED_OPTIONS: Array<GetInvolvedData> = [
@@ -14,6 +25,11 @@ export const GET_INVOLVED_OPTIONS: Array<GetInvolvedData> = [
             {
                 text: 'Coaching License',
                 url: 'https://learning.ussoccer.com/coach'
+            },
+            LAWS_OF_THE_GAME,
+            {
+                text: 'Contact Director of Coaches',
+                url: `mailto:${BoardMemberData.getMailtoEmails(DIRECTORS_OF_COACHES)}`
             }
         ]
     },
@@ -24,6 +40,11 @@ export const GET_INVOLVED_OPTIONS: Array<GetInvolvedData> = [
             {
                 text: 'Referee License',
                 url: 'https://learning.ussoccer.com/referee'
+            },
+            LAWS_OF_THE_GAME,
+            {
+                text: 'Contact Director of Referees',
+                url: `mailto:${BoardMemberData.getMailtoEmails(DIRECTORS_OF_REFEREES)}`
             }
         ]
     },
@@ -32,8 +53,8 @@ export const GET_INVOLVED_OPTIONS: Array<GetInvolvedData> = [
         description: 'picking up trash around the field that you may see before/during/after a game or practice. Help put up/take down goals and nets; set up/take down fields for the season; clean/ready the concession stand. Typically at the beginning and end of each season. Use a riding mower to trim the fields in preparation for practices and games. Paint field lines with a nice sprayer to allow you to help keep the field lines visible to all.',
         links: [
             {
-                text: 'Contact',
-                url: 'mailto:bonsoccerprez@gmail.com'
+                text: 'Contact Director of Fields',
+                url: `mailto:${BoardMemberData.getMailtoEmails(DIRECTORS_OF_FIELDS)}`
             }
         ]
     },
@@ -43,7 +64,11 @@ export const GET_INVOLVED_OPTIONS: Array<GetInvolvedData> = [
         links: [
             {
                 text: 'Contact',
-                url: 'mailto:bonsoccerprez@gmail.com'
+                url: `mailto:${BoardMemberData.getMailtoEmails(PRESIDENTS)}`
+            },
+            {
+                text: 'Current Board',
+                url: RouteNames.ContactUs
             }
         ]
     },
