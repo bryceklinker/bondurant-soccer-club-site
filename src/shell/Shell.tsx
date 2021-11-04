@@ -3,18 +3,22 @@ import {Root, Routes} from 'react-static';
 import {BscThemeProvider} from '../common';
 import {ShellNavbar, ShellMainContent, ShellFooter} from './components';
 import {Router} from '@reach/router';
+import {Stack} from '@fluentui/react';
 
+import './Shell.css';
 export const Shell = () => {
     return (
         <Root>
             <BscThemeProvider>
-                <ShellNavbar/>
-                <ShellMainContent>
-                    <Router>
-                        <Routes path="*"/>
-                    </Router>
-                </ShellMainContent>
-                <ShellFooter/>
+                <Stack className={'flex shell'}>
+                    <ShellNavbar/>
+                    <ShellMainContent>
+                        <Router>
+                            <Routes path="*"/>
+                        </Router>
+                    </ShellMainContent>
+                    <ShellFooter/>
+                </Stack>
             </BscThemeProvider>
         </Root>
     );

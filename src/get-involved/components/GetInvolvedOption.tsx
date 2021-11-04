@@ -1,8 +1,8 @@
 import React, {FunctionComponent, useCallback, useState} from 'react';
 import {GetInvolvedData} from '../state';
-import {LinkData} from '../../common/state';
-import {Section} from '../../common';
+import {Section, LinkData, SubTitle, Paragraph} from '../../common';
 import {GroupedList} from '@fluentui/react';
+import './GetInvolvedOption.css';
 
 export interface GetInvolvedLinkProps {
     data: LinkData;
@@ -19,30 +19,12 @@ export interface GetInvolvedOptionProps {
 }
 
 export const GetInvolvedOption: FunctionComponent<GetInvolvedOptionProps> = ({data}) => {
-    const [isOpen, setIsOpen] = useState(false);
-    const toggleOpen = useCallback(() => setIsOpen(!isOpen), [isOpen, setIsOpen]);
     const links = data.links.map((l, i) => <GetInvolvedLink data={l} key={i}/>);
-    const renderLink = useCallback((depth?: number, link?: LinkData, ) => {
-        if (!link) return null;
-
-        return <GetInvolvedLink data={link} />;
-    }, []);
     return (
-        <Section>
-            <GroupedList items={data.links} onRenderCell={renderLink}>
-                {/*<Accordion.Title active={isOpen} onClick={toggleOpen}>*/}
-                {/*    <Header as={'h3'}>*/}
-                {/*        <Icon name='dropdown' />*/}
-                {/*        {data.title}*/}
-                {/*    </Header>*/}
-                {/*</Accordion.Title>*/}
-                {/*<Accordion.Content active={isOpen}>*/}
-                {/*    <p>{data.description}</p>*/}
-                {/*    {*/}
-                {/*        links.length > 0 ? links : null*/}
-                {/*    }*/}
-                {/*</Accordion.Content>*/}
-            </GroupedList>
+        <Section shadow className={'padded-content'}>
+            <SubTitle>{data.title}</SubTitle>
+            <Paragraph>{data.description}</Paragraph>
+            {links}
         </Section>
     );
 };

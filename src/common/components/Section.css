@@ -1,0 +1,13 @@
+@import '../styles/colors.css';
+
+.section {
+    background-color: var(--white);
+    border-bottom: 0.5em solid var(--blue);
+}
+
+.section .shadow {
+    border-top: rgba(0, 0, 0, 0.3) solid 1px;
+    border-right: rgba(0, 0, 0, 0.3) solid 1px;
+    border-left: rgba(0, 0, 0, 0.3) solid 1px;
+    border-radius: 0.25em;
+}

@@ -1,10 +1,9 @@
 import React, {FunctionComponent} from 'react';
-import {DefaultButton} from '@fluentui/react';
-import {Section} from '../../common';
+import {DefaultButton, Stack} from '@fluentui/react';
 
 export const SocialMediaFooter: FunctionComponent = () => {
     return (
-        <Section>
+        <Stack>
             <DefaultButton as={'a'}
                            className={'bg-facebook-blue'}
                            iconProps={{iconName: 'FacebookLogoIcon'}}
@@ -12,6 +11,6 @@ export const SocialMediaFooter: FunctionComponent = () => {
                            href={'https://www.facebook.com/bondurantsoccerclub/'}>
                 Facebook
             </DefaultButton>
-        </Section>
+        </Stack>
     );
 };

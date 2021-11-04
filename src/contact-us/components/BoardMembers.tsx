@@ -9,7 +9,7 @@ export interface BoardMemberProps {
 
 export const BoardMember: FunctionComponent<BoardMemberProps> = ({member}) => {
     return (
-        <Section>
+        <Section shadow className={'padded-content'}>
             <Title>{member.role}</Title>
             <SubTitle>{member.name}</SubTitle>
             <a href={`mailto:${member.email}`}>Email</a>

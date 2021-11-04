@@ -1,5 +1,5 @@
-main {
-    height: -moz-calc(100% - 135.5px); /* Firefox */
-    height: -webkit-calc(100% - 135.5px); /* Chrome, Safari */
-    height: calc(100% - 135.5px);
+@import '../../common/styles/colors.css';
+
+.main-content {
+    background-color: var(--default-background-color);
 }

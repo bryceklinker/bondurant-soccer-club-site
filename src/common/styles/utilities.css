@@ -22,3 +22,12 @@
     display: flex;
     flex: 1;
 }
+
+.shadow {
+    box-shadow: 3px 3px 3px dimgray;
+}
+
+.shadow-border {
+    border: rgba(0, 0, 0, 0.3) solid 1px;
+    border-radius: 0.25em;
+}

@@ -5,7 +5,7 @@ import './Headline.css';
 import {JumboTitle} from '../../common/components/JumboTitle';
 export const Headline: FunctionComponent = () => {
     return (
-        <Stack className={'headline-container'}>
+        <Stack className={'headline-container shadow'}>
             <Stack className={'headline'}>
                 <JumboTitle className={'headline-title'}>
                     Bondurant Soccer Club

@@ -4,12 +4,15 @@
 html,
 body,
 #root {
-    height: 100%;
+    display: flex;
     margin: 0;
+    height: 100%;
+    width: 100%;
 }
 
 #root > div {
-    height: 100%;
+    display: flex;
+    flex: 1;
 }
 
 .bg-facebook-blue {

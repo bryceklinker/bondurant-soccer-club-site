@@ -1,14 +1,16 @@
 import React, {FunctionComponent} from 'react';
 import {Copyright, SocialMediaFooter} from './index';
-import {Section, Spacer} from '../../common';
+import {Spacer} from '../../common';
+import {Stack} from '@fluentui/react';
 
 import './ShellFooter.css';
+
 export const ShellFooter: FunctionComponent = () => {
     return (
-        <Section horizontal className={'shell-footer'} verticalAlign={'center'}>
+        <Stack horizontal className={'shell-footer'} verticalAlign={'center'}>
             <Copyright/>
-            <Spacer />
+            <Spacer/>
             <SocialMediaFooter/>
-        </Section>
+        </Stack>
     );
 };

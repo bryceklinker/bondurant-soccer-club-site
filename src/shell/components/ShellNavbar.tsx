@@ -26,12 +26,12 @@ export const ShellNavbar: FunctionComponent = ({children}) => {
                     <Copyright/>
                 </Stack>
             </Panel>
-            <Section as={'nav'} horizontal className={'navbar'}>
+            <Stack as={'nav'} horizontal className={'navbar'}>
                 <NavLinks onClick={toggleOff} />
                 <DefaultButton className={'nav-button nav-menu-button'}
                                onClick={toggleOn}
                                iconProps={{iconName: 'GlobalNavButton'}}/>
-            </Section>
+            </Stack>
         </>
     );
 };
