@@ -1,23 +1,22 @@
 import React, {FunctionComponent, useCallback} from 'react';
 import {LocationData} from '../state';
-import {Paragraph, Section, Spacer, SubTitle, AgeGroup} from '../../common';
-import {List, PrimaryButton} from '@fluentui/react';
+import {Paragraph, Section, Spacer, SubTitle, AgeGroup, SectionTitle} from '../../common';
+import {List, PrimaryButton, Stack} from '@fluentui/react';
 
 export interface LocationSegmentProps {
     data: LocationData;
 }
 
 export const LocationSegment: FunctionComponent<LocationSegmentProps> = ({data}) => {
-    const renderAgeGroup = useCallback((ageGroup?: AgeGroup) => {
-        if (!ageGroup) return null;
-
-        return <Paragraph>{ageGroup.name}</Paragraph>
-    }, []);
+    const ageGroups = data.ageGroups.map(a => a.name).join(', ');
     return (
         <Section shadow className={'padded-content'}>
-            <SubTitle>{data.title}</SubTitle>
-            <SubTitle>Age Groups:</SubTitle>
-            <List items={data.ageGroups} onRenderCell={renderAgeGroup} />
+            <SectionTitle>{data.title}</SectionTitle>
+            <Stack horizontal verticalAlign={'center'}>
+                <SubTitle>Age Groups:&nbsp;</SubTitle>
+                <Paragraph>{ageGroups}</Paragraph>
+            </Stack>
+
             <Spacer />
             <PrimaryButton as={'a'} target={'_blank'} href={data.mapsUrl}>Google Map Location</PrimaryButton>
         </Section>

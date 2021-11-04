@@ -4,7 +4,7 @@ import {MissionStatement} from './MissionStatement';
 
 export const AboutPage: FunctionComponent = () => {
     return (
-        <Stack className={'padded-content'}>
+        <Stack className={'padded-content flex'}>
             <MissionStatement />
         </Stack>
     )

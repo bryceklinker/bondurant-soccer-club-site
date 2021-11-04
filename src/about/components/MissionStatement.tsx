@@ -1,10 +1,10 @@
 import React, {FunctionComponent} from 'react';
-import {Section, Divider, Paragraph, SubTitle} from '../../common';
+import {Section, Divider, Paragraph, SectionTitle} from '../../common';
 
 export const MissionStatement: FunctionComponent = () => {
     return (
         <Section shadow className={'padded-content'}>
-            <SubTitle>Mission Statement</SubTitle>
+            <SectionTitle>Mission Statement</SectionTitle>
             <Divider/>
             <Paragraph>
                 The mission of Bondurant Soccer Club is to:

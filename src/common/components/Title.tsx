@@ -5,5 +5,5 @@ export interface TitleProps {
 }
 
 export const Title: FunctionComponent<TitleProps> = ({children}) => {
-    return <Text as={'h3'} variant={'mega'}>{children}</Text>
+    return <Text as={'h3'} variant={'xxLarge'}>{children}</Text>
 }

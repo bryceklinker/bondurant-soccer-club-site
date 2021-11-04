@@ -7,7 +7,7 @@ import {Title} from '../../common';
 export const ContactUsPage: FunctionComponent = () => {
     const {boardMembers} = useSiteState();
     return (
-        <Stack className={'padded-content'}>
+        <Stack className={'padded-content flex'}>
             <Title>Board Members</Title>
 
             <BoardMembers members={boardMembers}/>
