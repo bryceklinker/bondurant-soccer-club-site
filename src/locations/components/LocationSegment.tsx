@@ -1,24 +1,28 @@
 import React, {FunctionComponent} from 'react';
 import {LocationData} from '../state';
-import {Paragraph, Section, Spacer, SubTitle, SectionTitle} from '../../common';
-import {List, PrimaryButton, Stack} from '@fluentui/react';
+import {Paragraph, Section, SubTitle, SectionTitle, EmbeddedMap, CollapsiblePanel} from '../../common';
+import {Stack} from '@fluentui/react';
+import './LocationSegment.css';
 
 export interface LocationSegmentProps {
     data: LocationData;
 }
 
 export const LocationSegment: FunctionComponent<LocationSegmentProps> = ({data}) => {
-    const ageGroups = data.ageGroups.map(a => a.name).join(', ');
+    const ageGroups = data.ageGroups.map(a => <Paragraph>{a.name}</Paragraph>);
     return (
-        <Section shadow horizontalAlign={'start'} className={'padded-content'}>
-            <SectionTitle>{data.title}</SectionTitle>
-            <Stack horizontal verticalAlign={'center'}>
-                <SubTitle>Age Groups:&nbsp;</SubTitle>
-                <Paragraph>{ageGroups}</Paragraph>
-            </Stack>
+        <Section shadow padded>
+            <CollapsiblePanel title={<SectionTitle>{data.title}</SectionTitle>}>
+                <Stack horizontal tokens={{childrenGap: '1em'}} className={'location-section'}>
+                    <Stack>
+                        <SubTitle>Age Groups:</SubTitle>
+                        {ageGroups}
+                    </Stack>
 
-            <Spacer />
-            <PrimaryButton as={'a'} target={'_blank'} href={data.mapsUrl}>Google Map Location</PrimaryButton>
+                    <EmbeddedMap url={data.mapsUrl}/>
+                </Stack>
+
+            </CollapsiblePanel>
         </Section>
-    )
-}
+    );
+};

@@ -8,3 +8,5 @@ export * from './Paragraph';
 export * from './SubTitle';
 export * from './SectionTitle';
 export * from './Spacer';
+export * from './CollapsiblePanel';
+export * from './EmbeddedMap';

@@ -26,7 +26,7 @@ export interface GetInvolvedOptionProps {
 export const GetInvolvedOption: FunctionComponent<GetInvolvedOptionProps> = ({data}) => {
     const links = data.links.map((l, i) => <GetInvolvedLink data={l} key={i}/>);
     return (
-        <Section shadow className={'padded-content flex'}>
+        <Section shadow padded className={'flex'}>
             <SectionTitle>{data.title}</SectionTitle>
             <Paragraph>{data.description}</Paragraph>
             <SubTitle>Links</SubTitle>

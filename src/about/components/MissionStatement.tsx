@@ -3,7 +3,7 @@ import {Section, Divider, Paragraph, SectionTitle} from '../../common';
 
 export const MissionStatement: FunctionComponent = () => {
     return (
-        <Section shadow className={'padded-content'}>
+        <Section shadow padded>
             <SectionTitle>Mission Statement</SectionTitle>
             <Divider/>
             <Paragraph>

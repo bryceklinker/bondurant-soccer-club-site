@@ -1,11 +1,13 @@
 import React, {FunctionComponent} from 'react';
 import {Section, Spacer, useBooleanToggle} from '../../common';
 import {DefaultButton, Panel, Stack} from '@fluentui/react';
-import {Copyright, SocialMediaFooter, NavLinks} from './index';
+import { NavLinks } from './NavLinks';
+import { SocialMedia } from './SocialMedia';
+import { Copyright } from './Copyright';
 
 import './ShellNavbar.css';
 
-export const ShellNavbar: FunctionComponent = ({children}) => {
+export const ShellNavbar: FunctionComponent = () => {
     const {value, toggleOff, toggleOn} = useBooleanToggle();
     return (
         <>
@@ -22,7 +24,7 @@ export const ShellNavbar: FunctionComponent = ({children}) => {
                 <Stack className={'navpanel flex'} horizontalAlign={'center'}>
                     <NavLinks onClick={toggleOff} />
                     <Spacer/>
-                    <SocialMediaFooter/>
+                    <SocialMedia/>
                     <Copyright/>
                 </Stack>
             </Panel>

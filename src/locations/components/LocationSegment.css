@@ -1,0 +1,9 @@
+.location-section {
+
+}
+
+@media screen and (max-width: 768px) {
+    .location-section {
+        flex-direction: column-reverse;
+    }
+}
