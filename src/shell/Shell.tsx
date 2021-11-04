@@ -5,15 +5,14 @@ import {ShellNavbar, ShellMainContent, ShellFooter} from './components';
 import {Router} from '@reach/router';
 import {Stack} from '@fluentui/react';
 
-import './Shell.css';
 export const Shell = () => {
     return (
         <Root>
             <BscThemeProvider>
-                <Stack className={'flex shell'}>
+                <Stack className={'flex'}>
                     <ShellNavbar/>
                     <ShellMainContent>
-                        <Router>
+                        <Router className={'flex'}>
                             <Routes path="*"/>
                         </Router>
                     </ShellMainContent>
