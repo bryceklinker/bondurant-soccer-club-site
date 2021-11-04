@@ -11,6 +11,7 @@
 }
 
 .large-button {
+    padding: 1em;
     font-size: var(--large-button-font-size);
 }
 

@@ -13,7 +13,7 @@ export const Headline: FunctionComponent = () => {
                 <PrimaryButton as={'a'}
                                target={'_blank'}
                                color={'blue'}
-                               className={'large-button rounded-button'}
+                               className={'shadow large-button rounded-button'}
                                href={'https://bondurantsc.demosphere-secure.com/_registration'}>
                     Register Here
                 </PrimaryButton>

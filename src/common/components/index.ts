@@ -1,5 +1,6 @@
 export * from './BscThemeProvider';
 export * from './Loading';
+export * from './GappedStack';
 export * from './Section';
 export * from './Divider';
 export * from './Title';

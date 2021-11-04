@@ -1,7 +1,6 @@
 import React, {FunctionComponent} from 'react';
-import {List} from '@fluentui/react';
 import {BoardMemberData} from '../state';
-import {Section, Title, SubTitle} from '../../common';
+import {Section, SubTitle, Paragraph, GappedStack} from '../../common';
 
 export interface BoardMemberProps {
     member: BoardMemberData;
@@ -10,8 +9,8 @@ export interface BoardMemberProps {
 export const BoardMember: FunctionComponent<BoardMemberProps> = ({member}) => {
     return (
         <Section shadow className={'padded-content'}>
-            <Title>{member.role}</Title>
-            <SubTitle>{member.name}</SubTitle>
+            <SubTitle>{member.role}</SubTitle>
+            <Paragraph>{member.name}</Paragraph>
             <a href={`mailto:${member.email}`}>Email</a>
         </Section>
     );
@@ -25,8 +24,8 @@ export const BoardMembers: FunctionComponent<BoardMembersProps> = ({members}) =>
     const items = members.map((m, i) => <BoardMember key={i} member={m}/>);
 
     return (
-        <List>
+        <GappedStack>
             {items}
-        </List>
+        </GappedStack>
     );
 };
