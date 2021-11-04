@@ -1,6 +1,6 @@
-import React, {FunctionComponent, useCallback} from 'react';
+import React, {FunctionComponent} from 'react';
 import {LocationData} from '../state';
-import {Paragraph, Section, Spacer, SubTitle, AgeGroup, SectionTitle} from '../../common';
+import {Paragraph, Section, Spacer, SubTitle, SectionTitle} from '../../common';
 import {List, PrimaryButton, Stack} from '@fluentui/react';
 
 export interface LocationSegmentProps {
@@ -10,7 +10,7 @@ export interface LocationSegmentProps {
 export const LocationSegment: FunctionComponent<LocationSegmentProps> = ({data}) => {
     const ageGroups = data.ageGroups.map(a => a.name).join(', ');
     return (
-        <Section shadow className={'padded-content'}>
+        <Section shadow horizontalAlign={'start'} className={'padded-content'}>
             <SectionTitle>{data.title}</SectionTitle>
             <Stack horizontal verticalAlign={'center'}>
                 <SubTitle>Age Groups:&nbsp;</SubTitle>
