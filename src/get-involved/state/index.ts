@@ -1,3 +1,4 @@
+import {FunctionComponent} from 'react';
 import {LinkData, RouteNames} from '../../common';
 import {
     BoardMemberData,
@@ -5,10 +6,12 @@ import {
     DIRECTORS_OF_FIELDS,
     DIRECTORS_OF_REFEREES, PRESIDENTS
 } from '../../contact-us/state';
+import {BecomeACoach} from '../components/BecomeACoach';
+import {BecomeAReferee} from '../components/BecomeAReferee';
 
 export interface GetInvolvedData {
     title: string;
-    description: string;
+    description: string | FunctionComponent;
     links: Array<LinkData>;
 }
 
@@ -20,7 +23,7 @@ const LAWS_OF_THE_GAME: LinkData = {
 export const GET_INVOLVED_OPTIONS: Array<GetInvolvedData> = [
     {
         title: 'Become A Coach',
-        description: 'set up practices, work with the kids, enjoy the game, learn lots from the kids.',
+        description: BecomeACoach,
         links: [
             {
                 text: 'Coaching License',
@@ -35,7 +38,7 @@ export const GET_INVOLVED_OPTIONS: Array<GetInvolvedData> = [
     },
     {
         title: 'Become A Referee',
-        description: 'attend monthly meetings, volunteer to help the club succeed, make strategic decisions for the entire Bondurant Soccer Family',
+        description: BecomeAReferee,
         links: [
             {
                 text: 'Referee License',
@@ -45,6 +48,14 @@ export const GET_INVOLVED_OPTIONS: Array<GetInvolvedData> = [
             {
                 text: 'Contact Director of Referees',
                 url: `mailto:${BoardMemberData.getMailtoEmails(DIRECTORS_OF_REFEREES)}`
+            },
+            {
+               text: 'Terry Vaughn Referee Academy',
+               url: 'http://www.iowasoccer.org/terry_vaughn_referee_academy/'
+            },
+            {
+                text: 'Free Online Modules',
+                url: 'http://www.iowasoccer.org/recertification_modules/'
             }
         ]
     },
@@ -72,5 +83,23 @@ export const GET_INVOLVED_OPTIONS: Array<GetInvolvedData> = [
             }
         ]
     },
-
 ];
+
+export const COACHING_DRILLS: Array<LinkData> = [
+    {
+        text: 'Games for U5/U6/U7 and U8',
+        url: 'https://www.soccerxpert.com/u6-u8-soccer-drills.aspx'
+    },
+    {
+        text: 'Games for U6 to U8',
+        url: 'http://www.freeyouthsoccerdrills.com/free-soccer-drills.html'
+    },
+    {
+        text: 'Games for U6 to U8',
+        url: 'https://www.soccercoachweekly.net/tag/u6/'
+    },
+    {
+        text: 'Games for U6 all the way to U14',
+        url: 'http://www.coachingsoccer101.com/drills.htm'
+    }
+]

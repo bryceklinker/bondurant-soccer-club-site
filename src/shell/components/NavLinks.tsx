@@ -24,6 +24,10 @@ const NAV_LINKS: Array<LinkData> = [
     {
         text: 'Locations',
         url: RouteNames.Locations
+    },
+    {
+        text: 'Schedules',
+        url: RouteNames.Schedules
     }
 ];
 

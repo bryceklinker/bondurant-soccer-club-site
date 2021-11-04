@@ -39,11 +39,14 @@ export interface GetInvolvedOptionProps {
 
 export const GetInvolvedOption: FunctionComponent<GetInvolvedOptionProps> = ({data}) => {
     const links = data.links.map((l, i) => <GetInvolvedLink data={l} key={i}/>);
+    const description = typeof data.description === 'string'
+        ? <Paragraph>{data.description}</Paragraph>
+        : <data.description />
     return (
         <Section shadow padded>
             <CollapsiblePanel title={<SectionTitle>{data.title}</SectionTitle>}>
                 <Stack>
-                    <Paragraph>{data.description}</Paragraph>
+                    {description}
                     <SubTitle>Links</SubTitle>
                     {links}
                 </Stack>

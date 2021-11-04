@@ -3,5 +3,6 @@ export const RouteNames = {
     GetInvolved: 'get-involved',
     About: 'about',
     Home: '/',
-    Locations: 'locations'
+    Locations: 'locations',
+    Schedules: 'schedules',
 }
