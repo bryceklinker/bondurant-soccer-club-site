@@ -1,0 +1,6 @@
+@import '../common/styles/colors.css';
+
+.shell {
+    height: 100%;
+    background-color: var(--default-background-color);
+}

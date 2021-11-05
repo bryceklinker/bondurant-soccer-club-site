@@ -4,18 +4,13 @@
 html,
 body,
 #root {
-    display: flex;
+    display: block;
     margin: 0;
     height: 100%;
     width: 100%;
+    background-color: var(--default-background-color);
 }
 
 #root > div {
-    display: flex;
-    flex: 1;
-}
-
-.bg-facebook-blue {
-    background-color: var(--facebook-blue) !important;
-    color: var(--white) !important;
+    height: 100%;
 }

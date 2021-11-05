@@ -1,23 +1,22 @@
 import React from 'react';
 import {Root, Routes} from 'react-static';
-import {BscThemeProvider} from '../common';
+import {BscThemeProvider, Spacer} from '../common';
 import {ShellNavbar, ShellMainContent, ShellFooter} from './components';
 import {Router} from '@reach/router';
-import {Stack} from '@fluentui/react';
+import './Shell.css';
 
 export const Shell = () => {
     return (
         <Root>
             <BscThemeProvider>
-                <Stack className={'flex'}>
                     <ShellNavbar/>
                     <ShellMainContent>
                         <Router className={'flex'}>
                             <Routes path="*"/>
                         </Router>
                     </ShellMainContent>
+                    <Spacer />
                     <ShellFooter/>
-                </Stack>
             </BscThemeProvider>
         </Root>
     );

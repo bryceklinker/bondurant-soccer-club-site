@@ -1,5 +1,6 @@
 import React, {FunctionComponent} from 'react';
 import {Stack, createTheme, ThemeProvider} from '@fluentui/react';
+import './BscThemeProvider.css';
 
 const theme = createTheme({
     palette: {
@@ -12,7 +13,7 @@ const theme = createTheme({
 
 export const BscThemeProvider: FunctionComponent = ({children}) => {
     return (
-        <ThemeProvider theme={theme} className={'flex'}>
+        <ThemeProvider theme={theme} as={Stack} className={'theme-provider'}>
             {children}
         </ThemeProvider>
     );
