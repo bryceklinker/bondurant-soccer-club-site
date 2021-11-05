@@ -15,6 +15,7 @@ export const ShellNavbar: FunctionComponent = () => {
                    onDismiss={toggleOff}
                    hasCloseButton={false}
                    isLightDismiss
+
                    styles={{
                        commands: 'navpanel',
                        main: 'navpanel',

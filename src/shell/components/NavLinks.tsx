@@ -1,8 +1,7 @@
 import React, {FunctionComponent} from 'react';
-import {LinkData} from '../../common';
+import {LinkData, RouteNames} from '../../common';
 import {Link} from '@reach/router';
 import {DefaultButton} from '@fluentui/react';
-import {RouteNames} from '../../common/route-names';
 
 const NAV_LINKS: Array<LinkData> = [
     {
@@ -37,9 +36,8 @@ export interface NavLinkProps {
 }
 
 export const NavLink: FunctionComponent<NavLinkProps> = ({data, onClick}) => {
-    const className = 'nav-link';
     return (
-        <Link to={data.url} onClick={onClick} className={className}>
+        <Link to={data.url} onClick={onClick} className={'nav-link'}>
             <DefaultButton className={'nav-button'}>
                 {data.text}
             </DefaultButton>
