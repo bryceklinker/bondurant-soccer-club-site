@@ -28,7 +28,7 @@ export const ShellNavbar: FunctionComponent = () => {
                     <Copyright/>
                 </Stack>
             </Panel>
-            <Stack as={'nav'} horizontal className={'navbar'}>
+            <Stack as={'nav'} horizontal className={'navbar'} horizontalAlign={'start'}>
                 <NavLinks onClick={toggleOff} />
                 <DefaultButton className={'nav-button nav-menu-button'}
                                onClick={toggleOn}

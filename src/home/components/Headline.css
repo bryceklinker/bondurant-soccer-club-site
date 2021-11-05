@@ -13,7 +13,7 @@
 
 .headline {
     display: flex;
-    height: 100%;
+    height: 100vh;
     flex: 1;
     flex-direction: column;
     justify-content: center;
