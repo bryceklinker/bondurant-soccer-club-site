@@ -29,10 +29,10 @@ export const ShellNavbar: FunctionComponent = () => {
                 </Stack>
             </Panel>
             <Stack as={'nav'} horizontal className={'navbar'} horizontalAlign={'start'}>
-                <NavLinks onClick={toggleOff} />
                 <DefaultButton className={'nav-button nav-menu-button'}
                                onClick={toggleOn}
                                iconProps={{iconName: 'GlobalNavButton'}}/>
+                <NavLinks onClick={toggleOff} />
             </Stack>
         </>
     );
