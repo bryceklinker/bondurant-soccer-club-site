@@ -15,6 +15,7 @@
     background-color: var(--dark-background-color);
     color: var(--white);
     padding: 1em;
+    width: 100vw;
 }
 
 .navbar .nav-button {
