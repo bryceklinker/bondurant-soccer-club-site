@@ -21,8 +21,8 @@ function getRegistrationSeason(): RegistrationSeasonData {
         season,
         ages: ALL_AGE_GROUPS.map(g => ({
             ageGroup: g,
-            endYear: season.endYear - g.minAge,
-            startYear: season.endYear - g.maxAge
+            maxBirthYear: season.endYear - g.minAge,
+            minBirthYear: season.endYear - g.maxAge
         }))
     }
 }

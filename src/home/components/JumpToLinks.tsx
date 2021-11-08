@@ -1,6 +1,7 @@
 import React, {FunctionComponent} from 'react';
 import {Link} from '@reach/router';
 import {IStackProps, IStackTokens, ITheme, PrimaryButton, Stack} from '@fluentui/react';
+import {RouteNames} from '../../common';
 
 import './JumpToLinks.css';
 
@@ -26,17 +27,17 @@ export const JumpToLinks: FunctionComponent = () => {
     }
     return (
         <Stack horizontal horizontalAlign={'center'}  wrap tokens={tokens} className={'jump-link-container'}>
-            <JumpToButton to={'get-involved'}>
+            <JumpToButton to={RouteNames.GetInvolved}>
                 Get Involved
             </JumpToButton>
-            <JumpToButton to={'contact-us'}>
+            <JumpToButton to={RouteNames.ContactUs}>
                 Contact Us
             </JumpToButton>
-            <JumpToButton to={'about'}>
-                About
-            </JumpToButton>
-            <JumpToButton to={'locations'}>
+            <JumpToButton to={RouteNames.Locations}>
                 Locations
+            </JumpToButton>
+            <JumpToButton to={RouteNames.Schedules}>
+                Schedules
             </JumpToButton>
         </Stack>
     );

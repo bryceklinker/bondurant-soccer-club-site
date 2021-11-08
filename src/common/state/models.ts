@@ -80,8 +80,8 @@ export interface LocationData {
 
 export interface AgeRegistrationData {
     ageGroup: AgeGroup,
-    startYear: number;
-    endYear: number;
+    minBirthYear: number;
+    maxBirthYear: number;
 }
 
 export interface RegistrationSeasonData {

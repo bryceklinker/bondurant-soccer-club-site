@@ -1,15 +1,22 @@
 import React, {FunctionComponent} from 'react';
 import {Headline} from './Headline';
 import {JumpToLinks} from './JumpToLinks';
+import {GappedStack, useCurrentSeason, useMaxRegistrationBirthYear, useMinRegistrationBirthYear} from '../../common';
+import {Description} from './Description';
 
 export const HomePage: FunctionComponent = () => {
+    const season = useCurrentSeason();
+    const minRegistrationYear = useMinRegistrationBirthYear();
+    const maxRegistrationYear = useMaxRegistrationBirthYear();
     return (
-        <div className={'content'}>
+        <GappedStack flex gap={'2em'}>
             <Headline/>
 
-            <div className={'vertical-spacer'}/>
-
             <JumpToLinks/>
-        </div>
+
+            <Description season={season}
+                         maxBirthYear={maxRegistrationYear}
+                         minBirthYear={minRegistrationYear}/>
+        </GappedStack>
     );
 };

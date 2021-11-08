@@ -32,7 +32,7 @@ export const RegistrationAgeRow: FunctionComponent<RegistrationAgeRowProps> = ({
     return (
         <tr>
             <td>{age.ageGroup.name}</td>
-            <td>{age.startYear}, {age.endYear}</td>
+            <td>{age.minBirthYear}, {age.maxBirthYear}</td>
             <td>{age.ageGroup.cost}</td>
         </tr>
     );
