@@ -1,6 +1,14 @@
 import React, {FunctionComponent} from 'react';
-import {CollapsiblePanel, Dates, Paragraph, PlainStack, Section, SectionTitle, SubTitle} from '../../common';
-import {RegistrationDatesData} from '../state';
+import {
+    CollapsiblePanel,
+    Dates,
+    Paragraph,
+    PlainStack,
+    RegistrationDatesData,
+    Section,
+    SectionTitle,
+    SubTitle
+} from '../../common';
 
 export interface RegistrationDateProps {
     date: RegistrationDatesData;

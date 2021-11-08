@@ -1,6 +1,5 @@
 import React, {FunctionComponent} from 'react';
-import {GappedStack, Title} from '../../common';
-import {useRegistrationDates, useRegistrationSeason} from '../hooks';
+import {GappedStack, Title, useRegistrationDates, useRegistrationSeason} from '../../common';
 import {RegistrationAgeGroups} from './RegistrationAgeGroups';
 import {RegistrationInfoWelcome} from './RegistrationInfoWelcome';
 import {ScholarshipInfo} from './ScholarshipInfo';

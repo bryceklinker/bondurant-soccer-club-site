@@ -1,5 +1,5 @@
 import {Dates} from './dates';
-import {DateRange} from '../state';
+import {DateRange} from '../state/models';
 
 describe('Dates', () => {
     describe('formatDate', () => {

@@ -1,7 +1,6 @@
-import {BoardMemberData} from '../state';
 import React, {FunctionComponent} from 'react';
 import {BoardMember} from './BoardMember';
-import {CollapsiblePanel, Section, SectionTitle} from '../../common';
+import {BoardMemberData, CollapsiblePanel, Section, SectionTitle} from '../../common';
 
 interface BoardMemberGroupProps {
     name: string;

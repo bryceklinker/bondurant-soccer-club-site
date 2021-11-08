@@ -1,7 +1,7 @@
 import React, {FunctionComponent} from 'react';
 import {Text, ITextProps} from '@fluentui/react';
 
-export interface ParagraphProps extends Omit<ITextProps, 'as'> {
+export interface ParagraphProps extends ITextProps {
 
 }
 

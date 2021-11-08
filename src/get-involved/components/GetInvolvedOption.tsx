@@ -1,6 +1,5 @@
 import React, {FunctionComponent} from 'react';
-import {GetInvolvedData} from '../state';
-import {Section, LinkData, Paragraph, SectionTitle, SubTitle, CollapsiblePanel} from '../../common';
+import {Section, LinkData, Paragraph, SectionTitle, SubTitle, CollapsiblePanel, GetInvolvedData} from '../../common';
 import {Link as ExternalLink, Stack} from '@fluentui/react';
 import {Link as PageLink} from '@reach/router';
 import './GetInvolvedOption.css';

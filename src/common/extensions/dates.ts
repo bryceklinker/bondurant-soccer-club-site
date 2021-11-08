@@ -1,5 +1,5 @@
 import {format} from 'date-fns';
-import {DateRange} from '../state';
+import {DateRange} from '../state/models';
 
 function formatDate(date?: Date): string {
     return date ? format(date, 'MM/dd/yyyy') : 'N/A';

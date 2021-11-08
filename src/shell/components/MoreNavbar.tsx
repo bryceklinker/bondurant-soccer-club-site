@@ -1,15 +1,8 @@
 import React, {FunctionComponent} from 'react';
 import {CommandButton, DefaultButton, IContextualMenuItem, IContextualMenuProps} from '@fluentui/react';
 import {Link} from '@reach/router';
-import {LinkData, RouteNames} from '../../common';
+import {MORE_INFO_NAVIGATION_LINKS} from '../../common';
 import './MoreNavbar.css';
-
-const MORE_INFO_LINKS: Array<LinkData> = [
-    {
-        text: 'Registration Info',
-        url: RouteNames.RegistrationInfo
-    }
-]
 
 function renderMenuItem(item: IContextualMenuItem, dismissMenu: (ev?: any, dismissAll?: boolean) => void) {
     const handleClick = () => {
@@ -37,7 +30,7 @@ export const MoreNavbar: FunctionComponent<MoreInfoLinksProps> = ({onClick}) => 
         calloutProps: {
           className: 'nav-menu-callout',
         },
-        items: MORE_INFO_LINKS.map((l, i) => ({
+        items: MORE_INFO_NAVIGATION_LINKS.map((l, i) => ({
             key: `${i}`,
             text: l.text,
             href: l.url,

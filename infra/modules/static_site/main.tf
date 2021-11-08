@@ -42,3 +42,26 @@ resource "azurerm_storage_blob" "site_content" {
   content_md5 = each.value.digests.md5
   type = "Block"
 }
+
+resource "azurerm_cdn_profile" "cdn_profile" {
+  name = "cdnp-${var.name}"
+  resource_group_name = var.resource_group_name
+  location = var.location
+  sku = "Standard_Microsoft"
+}
+
+resource "azurerm_cdn_endpoint" "cdn_endpoint" {
+  name = "cdne-${var.name}"
+  profile_name = azurerm_cdn_profile.cdn_profile.name
+  location = azurerm_cdn_profile.cdn_profile.location
+  resource_group_name = var.resource_group_name
+  is_compression_enabled = true
+  is_http_allowed = false
+  optimization_type = "GeneralWebDelivery"
+
+
+  origin {
+    host_name = azurerm_storage_account.site_storage.primary_web_host
+    name      = azurerm_storage_account.site_storage.name
+  }
+}

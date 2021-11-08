@@ -1,6 +1,5 @@
 import React, {FunctionComponent} from 'react';
-import {LocationData} from '../state';
-import {Paragraph, Section, SubTitle, SectionTitle, EmbeddedMap, CollapsiblePanel} from '../../common';
+import {Paragraph, Section, SubTitle, SectionTitle, EmbeddedMap, CollapsiblePanel, LocationData} from '../../common';
 import {Stack} from '@fluentui/react';
 import './LocationSegment.css';
 

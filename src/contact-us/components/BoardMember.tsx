@@ -1,7 +1,6 @@
 import React, {FunctionComponent} from 'react';
 import {Link, Stack} from '@fluentui/react';
-import {SubTitle} from '../../common';
-import {BoardMemberData} from '../state';
+import {BoardMemberData, SubTitle} from '../../common';
 
 export interface BoardMemberProps {
     member: BoardMemberData;

@@ -1,11 +1,12 @@
 import React, {FunctionComponent} from 'react';
-import {Paragraph} from '../../common';
+import {Paragraph, useCurrentYear} from '../../common';
 
 import './Copyright.css';
 export const Copyright: FunctionComponent = () => {
+    const year = useCurrentYear();
     return (
         <Paragraph className={'copyright'}>
-            © Bondurant Soccer Club 2021
+            © Bondurant Soccer Club {year}
         </Paragraph>
     )
 }

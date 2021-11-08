@@ -7,7 +7,7 @@ interface ExternalLinkProps extends Omit<ILinkProps, 'target'> {
 
 export const ExternalLink: FunctionComponent<ExternalLinkProps> = ({children, ...rest}) => {
     return (
-        <Paragraph>
+        <Paragraph as={'span'} block={false}>
             <Link target={'_blank'} {...rest}>
                 {children}
             </Link>

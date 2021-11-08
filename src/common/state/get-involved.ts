@@ -1,19 +1,8 @@
-import {FunctionComponent} from 'react';
-import {LinkData, RouteNames} from '../../common';
-import {
-    BoardMemberData,
-    DIRECTORS_OF_COACHES,
-    DIRECTORS_OF_FIELDS,
-    DIRECTORS_OF_REFEREES, PRESIDENTS
-} from '../../contact-us/state';
-import {BecomeACoach} from '../components/BecomeACoach';
-import {BecomeAReferee} from '../components/BecomeAReferee';
-
-export interface GetInvolvedData {
-    title: string;
-    description: string | FunctionComponent;
-    links: Array<LinkData>;
-}
+import {BoardMemberData, GetInvolvedData, LinkData} from './models';
+import {BecomeACoach} from '../../get-involved/components/BecomeACoach';
+import {BecomeAReferee} from '../../get-involved/components/BecomeAReferee';
+import {RouteNames} from '../routing';
+import {DIRECTORS_OF_COACHES, DIRECTORS_OF_FIELDS, DIRECTORS_OF_REFEREES, PRESIDENTS} from './board-members';
 
 const LAWS_OF_THE_GAME: LinkData = {
     text: 'Laws of the Game',
@@ -50,8 +39,8 @@ export const GET_INVOLVED_OPTIONS: Array<GetInvolvedData> = [
                 url: `mailto:${BoardMemberData.getMailtoEmails(DIRECTORS_OF_REFEREES)}`
             },
             {
-               text: 'Terry Vaughn Referee Academy',
-               url: 'http://www.iowasoccer.org/terry_vaughn_referee_academy/'
+                text: 'Terry Vaughn Referee Academy',
+                url: 'http://www.iowasoccer.org/terry_vaughn_referee_academy/'
             },
             {
                 text: 'Free Online Modules',

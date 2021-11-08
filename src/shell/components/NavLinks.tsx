@@ -1,34 +1,7 @@
 import React, {FunctionComponent} from 'react';
-import {LinkData, RouteNames} from '../../common';
+import {LinkData, MAIN_NAVIGATION_LINKS} from '../../common';
 import {Link} from '@reach/router';
 import {DefaultButton} from '@fluentui/react';
-
-export const NAV_LINKS: Array<LinkData> = [
-    {
-        text: 'Home',
-        url: RouteNames.Home
-    },
-    {
-        text: 'Get Involved',
-        url: RouteNames.GetInvolved
-    },
-    {
-        text: 'Contact Us',
-        url: RouteNames.ContactUs
-    },
-    {
-        text: 'About',
-        url: RouteNames.About
-    },
-    {
-        text: 'Locations',
-        url: RouteNames.Locations
-    },
-    {
-        text: 'Schedules',
-        url: RouteNames.Schedules
-    }
-];
 
 export interface NavLinkProps {
     data: LinkData;
@@ -50,7 +23,7 @@ export interface NavLinksProps {
 }
 
 export const NavLinks: FunctionComponent<NavLinksProps> = ({onClick}) => {
-    const links = NAV_LINKS.map((link, index) => <NavLink key={index} data={link} onClick={onClick}/>);
+    const links = MAIN_NAVIGATION_LINKS.map((link, index) => <NavLink key={index} data={link} onClick={onClick}/>);
     return (
         <>
             {links}

@@ -1,26 +1,8 @@
-import {AgeGroup, ALL_AGE_GROUPS, DateRange, Season, SeasonName} from '../../common';
+import {RegistrationDatesData, RegistrationSeasonData, Season, SeasonName} from './models';
+import {ALL_AGE_GROUPS} from './age-groups';
 import {parseISO} from 'date-fns';
 
-export interface AgeRegistrationData {
-    ageGroup: AgeGroup,
-    startYear: number;
-    endYear: number;
-}
-
-export interface RegistrationSeasonData {
-    season: Season,
-    ages: Array<AgeRegistrationData>;
-}
-
-export interface RegistrationDatesData {
-    season: SeasonName;
-    earlyBird?: DateRange;
-    regular?: DateRange;
-    late?: DateRange;
-    cutoff?: Date;
-}
-
-export function getSeason(): Season {
+function getSeason(): Season {
     const currentDate = new Date();
     const seasonName = currentDate.getMonth() >= 5 ? SeasonName.Fall : SeasonName.Spring;
     const startYear = seasonName === SeasonName.Fall
@@ -33,7 +15,7 @@ export function getSeason(): Season {
     }
 }
 
-export function getRegistrationSeason(): RegistrationSeasonData {
+function getRegistrationSeason(): RegistrationSeasonData {
     const season = getSeason();
     return {
         season,
@@ -45,7 +27,7 @@ export function getRegistrationSeason(): RegistrationSeasonData {
     }
 }
 
-export function getRegistrationDates(): Array<RegistrationDatesData> {
+function getRegistrationDates(): Array<RegistrationDatesData> {
     return [
         {
             season: SeasonName.Fall,
@@ -80,4 +62,10 @@ export function getRegistrationDates(): Array<RegistrationDatesData> {
             cutoff: parseISO('2022-02-15'),
         }
     ]
+}
+
+export const Registration = {
+    getSeason,
+    getRegistrationDates,
+    getRegistrationSeason
 }

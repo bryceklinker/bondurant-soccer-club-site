@@ -1,10 +1,9 @@
 import React, {FunctionComponent} from 'react';
-import {useSiteState} from '../../state';
 import {BoardMembers} from './BoardMembers';
-import {GappedStack, Title} from '../../common';
+import {GappedStack, Title, useBoardMembers} from '../../common';
 
 export const ContactUsPage: FunctionComponent = () => {
-    const {boardMembers} = useSiteState();
+    const boardMembers = useBoardMembers();
     return (
         <GappedStack padded flex>
             <Title>Board Members</Title>

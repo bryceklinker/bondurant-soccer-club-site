@@ -1,10 +1,9 @@
 import {Stack} from '@fluentui/react';
 import React, {FunctionComponent} from 'react';
-import {ExternalLink, Paragraph, SubTitle} from '../../common';
-import {COACHING_DRILLS} from '../state';
+import {ExternalLink, Paragraph, SubTitle, useCoachingDrills} from '../../common';
 
 export const BecomeACoach: FunctionComponent = () => {
-    const drills = COACHING_DRILLS.map((d, i) => (
+    const drills = useCoachingDrills().map((d, i) => (
         <ExternalLink key={i} href={d.url}>
             {d.text}
         </ExternalLink>

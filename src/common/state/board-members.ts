@@ -1,31 +1,4 @@
-export enum BoardMemberRoleGroup {
-    Elected = 'Elected Officials',
-    Directors = 'Directors',
-    AtLarge = 'At Large Members'
-}
-
-export enum BoardMemberRole {
-    President = 'President',
-    VicePresident = 'Vice President',
-    Treasurer = 'Treasurer',
-    Secretary = 'Secretary',
-    Registrar = 'Registar',
-    DirectorOfReferees = 'Director of Referees',
-    DirectorOfFields = 'Director of Fields',
-    DirectorOfCoaches = 'Director of Coaches',
-    DirectorOfCommunications = 'Director of Communications',
-    DirectorOfConcessions = 'Director of Concessions',
-    DirectorOfEquipment = 'Director of Equipment',
-    AtLarge = 'At-Large'
-}
-
-export interface BoardMemberData {
-    roleTitle: string;
-    role: BoardMemberRole;
-    name: string;
-    email: string;
-    roleGroup: BoardMemberRoleGroup;
-}
+import {BoardMemberData, BoardMemberRole, BoardMemberRoleGroup} from './models';
 
 export const BOARD_MEMBERS: Array<BoardMemberData> = [
     {
@@ -166,13 +139,5 @@ export const BOARD_MEMBERS: Array<BoardMemberData> = [
 export const DIRECTORS_OF_COACHES = BOARD_MEMBERS.filter(b => b.role === BoardMemberRole.DirectorOfCoaches);
 export const DIRECTORS_OF_FIELDS = BOARD_MEMBERS.filter(b => b.role === BoardMemberRole.DirectorOfFields);
 export const DIRECTORS_OF_REFEREES = BOARD_MEMBERS.filter(b => b.role === BoardMemberRole.DirectorOfReferees);
+export const DIRECTORS_OF_CONCESSIONS = BOARD_MEMBERS.filter(b => b.role === BoardMemberRole.DirectorOfConcessions);
 export const PRESIDENTS = BOARD_MEMBERS.filter(b => b.role === BoardMemberRole.President);
-
-export const BoardMemberData = {
-    getEmails: (members: Array<BoardMemberData>): Array<string> => {
-        return members.map(m => m.email);
-    },
-    getMailtoEmails: (members: Array<BoardMemberData>): string => {
-        return BoardMemberData.getEmails(members).join(',');
-    }
-}

@@ -1,9 +1,6 @@
-export interface ScheduleImageData {
-    title: string;
-    image: any;
-}
+import {ImageData, LinkData} from './models';
 
-export const SCHEDULE_IMAGES: Array<ScheduleImageData> = [
+export const SCHEDULE_IMAGES: Array<ImageData> = [
     {
         title: 'U5/U6 Schedule',
         image: require('../../assets/u5_u6_schedule.jpg'),
@@ -17,3 +14,8 @@ export const SCHEDULE_IMAGES: Array<ScheduleImageData> = [
         image: require('../../assets/u7_u8_girls_schedule.jpeg'),
     }
 ]
+
+export const U9_AND_UP_SCHEDULE_LINK: LinkData = {
+    text: 'here',
+    url: 'https://iowasoccer.demosphere-secure.com/schedules/click-here-for-isl-rec-central-schedules'
+}
