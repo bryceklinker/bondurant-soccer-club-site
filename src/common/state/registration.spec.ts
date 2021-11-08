@@ -17,8 +17,8 @@ describe('registration state', () => {
         });
         expect(registrationYear.ages).toContainEqual({
             ageGroup: AGE_GROUPS.U6,
-            startYear: 2016,
-            endYear: 2017,
+            minBirthYear: 2016,
+            maxBirthYear: 2017,
         });
     });
 
@@ -33,8 +33,8 @@ describe('registration state', () => {
         });
         expect(registrationYear.ages).toContainEqual({
             ageGroup: AGE_GROUPS.U6,
-            startYear: 2016,
-            endYear: 2017,
+            minBirthYear: 2016,
+            maxBirthYear: 2017,
         });
     });
 
@@ -43,8 +43,8 @@ describe('registration state', () => {
 
         expect(Registration.getRegistrationSeason().ages).toContainEqual({
             ageGroup: AGE_GROUPS.U19,
-            startYear: 2003,
-            endYear: 2005,
+            minBirthYear: 2003,
+            maxBirthYear: 2005,
         });
     });
 
