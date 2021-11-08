@@ -7,7 +7,7 @@ install_optimizers() {
 }
 
 optimize_assets() {
-  pushd ASSETS_PATH || exit 1
+  pushd "${ASSETS_PATH}" || exit 1
     jpegoptim *.jpeg
     jpegoptim *.jpg
   popd || exit 1
