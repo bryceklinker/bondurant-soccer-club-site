@@ -1,3 +1,16 @@
+locals {
+  content_types_to_compress = [
+    "text/plain",
+    "text/html",
+    "text/css",
+    "text/javascript",
+    "application/x-javascript",
+    "application/javascript",
+    "application/json",
+    "application/xml"
+  ]
+}
+
 resource "azurerm_storage_account" "site_storage" {
   location = var.location
   name = "st${replace(var.name, "-", "")}"
@@ -58,7 +71,7 @@ resource "azurerm_cdn_endpoint" "cdn_endpoint" {
   is_compression_enabled = true
   is_http_allowed = false
   optimization_type = "GeneralWebDelivery"
-
+  content_types_to_compress = local.content_types_to_compress
 
   origin {
     host_name = azurerm_storage_account.site_storage.primary_web_host
