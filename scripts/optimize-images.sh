@@ -2,12 +2,16 @@
 set -ex
 
 install_optimizers() {
+  sudo apt-get update
   sudo apt-get install jpegoptim
 }
 
 optimize_assets() {
-  jpegoptim "${ASSETS_PATH}/*.jpeg"
-  jpegoptim "${ASSETS_PATH}/*.jpg"
+  pushd ASSETS_PATH || exit 1
+    jpegoptim *.jpeg
+    jpegoptim *.jpg
+  popd || exit 1
+
 }
 
 main() {
