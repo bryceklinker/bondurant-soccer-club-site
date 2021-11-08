@@ -35,7 +35,10 @@ export default {
                     <meta charSet="UTF-8"/>
                     <link rel="icon" href="./favicon.ico"/>
                     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-                    <link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css' />
+                    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+                    <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin/>
+                    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;400;700;900&display=swap"
+                          rel="stylesheet"/>
                     <title>Bondurant Soccer Club</title>
                     <meta name={'description'} content={'Official Bondurant Soccer Club website'}/>
                     <style type={'text/css'} dangerouslySetInnerHTML={{__html: styleTags}}/>
