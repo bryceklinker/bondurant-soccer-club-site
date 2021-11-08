@@ -6,5 +6,5 @@ export interface ParagraphProps extends Omit<ITextProps, 'as'> {
 }
 
 export const Paragraph: FunctionComponent<ParagraphProps> = ({children, ...rest}) => {
-    return <Text as={'p'} variant={'large'} {...rest}>{children}</Text>
+    return <Text as={'p'} variant={'large'} block {...rest}>{children}</Text>
 }

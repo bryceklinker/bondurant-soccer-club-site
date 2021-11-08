@@ -1,4 +1,4 @@
-import {Link, Stack} from '@fluentui/react';
+import {Stack} from '@fluentui/react';
 import React, {FunctionComponent} from 'react';
 import {ExternalLink, Paragraph, SubTitle} from '../../common';
 import {COACHING_DRILLS} from '../state';

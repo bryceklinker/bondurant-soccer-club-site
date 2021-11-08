@@ -10,6 +10,11 @@ export interface LinkData {
     url: string;
 }
 
+export interface DateRange {
+    start: Date;
+    end: Date;
+}
+
 export const AGE_GROUPS: Record<string, AgeGroup> = {
     U6: { name: 'U5 / U6', minAge: 5, maxAge: 6, cost: 65},
     U8: { name: 'U7 / U8', minAge: 7, maxAge: 8, cost: 105},

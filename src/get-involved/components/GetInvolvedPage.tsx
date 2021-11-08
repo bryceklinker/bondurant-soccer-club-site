@@ -7,7 +7,7 @@ export const GetInvolvedPage: FunctionComponent = () => {
     const {getInvolvedOptions} = useSiteState();
     const options = getInvolvedOptions.map((o, i) => <GetInvolvedOption key={i} data={o}/>);
     return (
-        <GappedStack className={'padded-content flex'}>
+        <GappedStack padded flex>
             <Title>Get Involved</Title>
 
             {options}

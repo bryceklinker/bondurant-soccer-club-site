@@ -1,4 +1,5 @@
-import {AgeGroup, ALL_AGE_GROUPS, Season, SeasonName} from '../../common';
+import {AgeGroup, ALL_AGE_GROUPS, DateRange, Season, SeasonName} from '../../common';
+import {parseISO} from 'date-fns';
 
 export interface AgeRegistrationData {
     ageGroup: AgeGroup,
@@ -9,6 +10,14 @@ export interface AgeRegistrationData {
 export interface RegistrationSeasonData {
     season: Season,
     ages: Array<AgeRegistrationData>;
+}
+
+export interface RegistrationDatesData {
+    season: SeasonName;
+    earlyBird?: DateRange;
+    regular?: DateRange;
+    late?: DateRange;
+    cutoff?: Date;
 }
 
 export function getSeason(): Season {
@@ -34,4 +43,41 @@ export function getRegistrationSeason(): RegistrationSeasonData {
             startYear: season.endYear - g.maxAge
         }))
     }
+}
+
+export function getRegistrationDates(): Array<RegistrationDatesData> {
+    return [
+        {
+            season: SeasonName.Fall,
+            earlyBird: {
+                start: parseISO('2021-07-01'),
+                end: parseISO('2021-07-31'),
+            },
+            regular: {
+                start: parseISO('2021-08-01'),
+                end: parseISO('2021-08-30')
+            },
+            late: {
+                start: parseISO('2021-09-01'),
+                end: parseISO('2021-09-15')
+            },
+            cutoff: parseISO('2021-09-15'),
+        },
+        {
+            season: SeasonName.Spring,
+            earlyBird: {
+                start: parseISO('2021-12-01'),
+                end: parseISO('2021-12-31'),
+            },
+            regular: {
+                start: parseISO('2022-01-01'),
+                end: parseISO('2022-01-31')
+            },
+            late: {
+                start: parseISO('2022-02-01'),
+                end: parseISO('2022-02-15')
+            },
+            cutoff: parseISO('2022-02-15'),
+        }
+    ]
 }

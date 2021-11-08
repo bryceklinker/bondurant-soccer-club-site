@@ -6,11 +6,14 @@ import './CollapsiblePanel.css';
 
 interface CollapsiblePanelProps {
     title: string | React.ReactNode;
+    expanded?: boolean;
 }
 
-export const CollapsiblePanel: FunctionComponent<CollapsiblePanelProps> = ({children, title}) => {
-    const {toggle} = useBooleanToggle();
-    const {getToggleProps, getCollapseProps} = useCollapse();
+export const CollapsiblePanel: FunctionComponent<CollapsiblePanelProps> = ({children, title, expanded}) => {
+    const {toggle} = useBooleanToggle(expanded || false);
+    const {getToggleProps, getCollapseProps} = useCollapse({
+        defaultExpanded: expanded || false
+    });
     return (
         <Stack>
             {/* @ts-ignore */}

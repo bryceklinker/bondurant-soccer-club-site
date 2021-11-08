@@ -8,7 +8,7 @@ export const SchedulesPage: FunctionComponent = () => {
     const {scheduleImages} = useSiteState();
     const imageSchedules = scheduleImages.map((s, i) => <ImageSchedule key={i} title={s.title} image={s.image} />);
     return (
-        <GappedStack className={'padded-content flex'}>
+        <GappedStack padded flex>
             {imageSchedules}
             <U9AndUpSchedules />
         </GappedStack>
