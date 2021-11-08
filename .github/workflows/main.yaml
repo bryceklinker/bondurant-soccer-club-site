@@ -14,6 +14,7 @@ jobs:
     env:
       TARGET_ENV: prod
       PLAN_PATH: ${{ github.workspace }}/infra/prod/prod.tfplan
+      ASSETS_PATH: ${{ github.workspace}}/src/assets
     steps:
       - uses: actions/checkout@v2
         name: Checkout
@@ -28,6 +29,9 @@ jobs:
 
       - run: yarn test
         name: Run Tests
+
+      - run: ${{ github.workspace }}/scripts/optimize-images.sh
+        name: Optimize Images
 
       - run: yarn build
         name: Build Site
