@@ -22,6 +22,14 @@
     border-right: rgba(255,255,255,0.2) solid 1px;
 }
 
+.navbar .command-button {
+    height: auto;
+}
+
+.navbar .command-button:hover {
+    color: inherit;
+}
+
 .navbar .nav-menu-button {
     visibility: collapse;
 }
@@ -40,8 +48,17 @@
     width: 100%;
 }
 
+.navpanel .command-button {
+    color: inherit;
+}
+
 @media screen and (max-width: 768px) {
     .navbar .nav-link {
+        visibility: collapse;
+        width: 0;
+    }
+
+    .navbar .command-button {
         visibility: collapse;
         width: 0;
     }

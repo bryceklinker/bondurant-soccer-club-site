@@ -5,4 +5,5 @@ export const RouteNames = {
     Home: '/',
     Locations: 'locations',
     Schedules: 'schedules',
+    RegistrationInfo: 'registration-info'
 }

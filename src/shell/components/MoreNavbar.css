@@ -1,0 +1,13 @@
+@import '../../common/styles/colors.css';
+
+.nav-menu-callout .ms-Callout-beak {
+    background-color: var(--dark-background-color);
+}
+
+.nav-menu {
+    background-color: var(--dark-background-color);
+}
+
+.nav-menu .nav-menu-item .nav-button {
+    width: 100%;
+}

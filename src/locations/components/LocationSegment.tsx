@@ -9,7 +9,7 @@ export interface LocationSegmentProps {
 }
 
 export const LocationSegment: FunctionComponent<LocationSegmentProps> = ({data}) => {
-    const ageGroups = data.ageGroups.map(a => <Paragraph>{a.name}</Paragraph>);
+    const ageGroups = data.ageGroups.map((a, i) => <Paragraph key={i}>{a.name}</Paragraph>);
     return (
         <Section shadow padded>
             <CollapsiblePanel title={<SectionTitle>{data.title}</SectionTitle>}>

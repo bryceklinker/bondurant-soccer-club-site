@@ -4,8 +4,8 @@ import {ExternalLink, Paragraph, SubTitle} from '../../common';
 import {COACHING_DRILLS} from '../state';
 
 export const BecomeACoach: FunctionComponent = () => {
-    const drills = COACHING_DRILLS.map(d => (
-        <ExternalLink href={d.url}>
+    const drills = COACHING_DRILLS.map((d, i) => (
+        <ExternalLink key={i} href={d.url}>
             {d.text}
         </ExternalLink>
     ))

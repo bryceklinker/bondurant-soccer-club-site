@@ -3,7 +3,7 @@ import {LinkData, RouteNames} from '../../common';
 import {Link} from '@reach/router';
 import {DefaultButton} from '@fluentui/react';
 
-const NAV_LINKS: Array<LinkData> = [
+export const NAV_LINKS: Array<LinkData> = [
     {
         text: 'Home',
         url: RouteNames.Home
