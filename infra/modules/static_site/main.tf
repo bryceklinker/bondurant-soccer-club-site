@@ -72,6 +72,7 @@ resource "azurerm_cdn_endpoint" "cdn_endpoint" {
   is_http_allowed = false
   optimization_type = "GeneralWebDelivery"
   content_types_to_compress = local.content_types_to_compress
+  origin_host_header = azurerm_storage_account.site_storage.primary_web_host
 
   origin {
     host_name = azurerm_storage_account.site_storage.primary_web_host
