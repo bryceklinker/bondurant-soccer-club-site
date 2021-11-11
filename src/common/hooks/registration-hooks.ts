@@ -23,3 +23,7 @@ export function useMaxRegistrationBirthYear() {
     return useMemo(() => Math.max(...ages.map(a => a.maxBirthYear)), [ages]);
 }
 
+export function useRegistrationLink() {
+    return useMemo(Registration.getRegistrationLink, []);
+}
+

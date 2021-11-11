@@ -1,3 +1,3 @@
-import {SchedulesPage} from '../schedules/components/SchedulesPage';
+import {SchedulesPage} from '../schedules/SchedulesPage';
 
 export default SchedulesPage;

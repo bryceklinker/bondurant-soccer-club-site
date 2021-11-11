@@ -101,3 +101,8 @@ export interface ImageData {
     title: string;
     image: any;
 }
+
+export interface PictureAccessData {
+    phoneNumber: string;
+    accessCode: string;
+}

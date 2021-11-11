@@ -1,4 +1,4 @@
-import {RegistrationDatesData, RegistrationSeasonData, Season, SeasonName} from './models';
+import {LinkData, RegistrationDatesData, RegistrationSeasonData, Season, SeasonName} from './models';
 import {ALL_AGE_GROUPS} from './age-groups';
 import {parseISO} from 'date-fns';
 
@@ -64,8 +64,16 @@ function getRegistrationDates(): Array<RegistrationDatesData> {
     ]
 }
 
+function getRegistrationLink(): LinkData {
+    return {
+        text: 'Register Here',
+        url: 'https://bondurantsc.demosphere-secure.com/_registration'
+    }
+}
+
 export const Registration = {
     getSeason,
     getRegistrationDates,
-    getRegistrationSeason
+    getRegistrationSeason,
+    getRegistrationLink
 }

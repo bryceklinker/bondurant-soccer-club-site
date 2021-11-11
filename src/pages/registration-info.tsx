@@ -1,3 +1,3 @@
-import {RegistrationInfoPage} from '../registration-info/components';
+import {RegistrationInfoPage} from '../registration-info';
 
 export default RegistrationInfoPage;

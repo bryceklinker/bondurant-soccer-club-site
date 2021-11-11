@@ -6,3 +6,4 @@ export * from './get-involved-hooks';
 export * from './locations-hooks';
 export * from './schedules-hooks';
 export * from './concessions-hooks';
+export * from './picture-day-hooks';

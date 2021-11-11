@@ -1,3 +1,3 @@
-import {GetInvolvedPage} from '../get-involved/components/GetInvolvedPage';
+import {GetInvolvedPage} from '../get-involved/GetInvolvedPage';
 
 export default GetInvolvedPage

@@ -1,3 +1,3 @@
-import {LocationsPage} from '../locations/components/LocationsPage';
+import {LocationsPage} from '../locations/LocationsPage';
 
 export default LocationsPage;

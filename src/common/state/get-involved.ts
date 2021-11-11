@@ -1,6 +1,6 @@
 import {BoardMemberData, GetInvolvedData, LinkData} from './models';
-import {BecomeACoach} from '../../get-involved/components/BecomeACoach';
-import {BecomeAReferee} from '../../get-involved/components/BecomeAReferee';
+import {BecomeACoach} from '../../get-involved/BecomeACoach';
+import {BecomeAReferee} from '../../get-involved/BecomeAReferee';
 import {RouteNames} from '../routing';
 import {DIRECTORS_OF_COACHES, DIRECTORS_OF_FIELDS, DIRECTORS_OF_REFEREES, PRESIDENTS} from './board-members';
 

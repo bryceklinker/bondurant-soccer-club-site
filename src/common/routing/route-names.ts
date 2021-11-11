@@ -9,6 +9,7 @@ export const RouteNames = {
     Schedules: 'schedules',
     RegistrationInfo: 'registration-info',
     Concessions: 'concessions',
+    PictureDay: 'picture-day',
 }
 
 export const MAIN_NAVIGATION_LINKS: Array<LinkData> = [
@@ -46,5 +47,9 @@ export const MORE_INFO_NAVIGATION_LINKS: Array<LinkData> = [
     {
         text: 'Registration Info',
         url: RouteNames.RegistrationInfo
+    },
+    {
+        text: 'Picture Day',
+        url: RouteNames.PictureDay
     }
 ]
