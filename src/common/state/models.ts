@@ -106,3 +106,29 @@ export interface PictureAccessData {
     phoneNumber: string;
     accessCode: string;
 }
+
+export enum UniformSize {
+    YXS = 'Youth X-Small',
+    YS = 'Youth Small',
+    YM = 'Youth Medium',
+    YL = 'Youth Large',
+    AS = 'Adult Small',
+    AM = 'Adult Medium',
+    AL = 'Adult Large',
+    AXL = 'Adult X-Large',
+    AXXL = 'Adult XX-Large',
+    AXXXL = 'Adult XXX-Large',
+}
+
+export enum UniformPart {
+    Jersey = 'Jersey',
+    Shorts = 'Shorts',
+    Socks = 'Socks',
+    Kit = 'Kit',
+}
+
+export interface UniformPurchaseOption {
+    part: UniformPart;
+    count: number;
+    cost: number;
+}

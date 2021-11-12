@@ -1,13 +1,10 @@
 import {Stack} from '@fluentui/react';
 import React, {FunctionComponent} from 'react';
 import {ExternalLink, Paragraph, SubTitle, useCoachingDrills} from '../common';
+import {ExternalLinks} from '../common/components/ExternalLinks';
 
 export const BecomeACoach: FunctionComponent = () => {
-    const drills = useCoachingDrills().map((d, i) => (
-        <ExternalLink key={i} href={d.url}>
-            {d.text}
-        </ExternalLink>
-    ))
+    const drills = useCoachingDrills();
     return (
         <Stack>
             <Paragraph>
@@ -34,7 +31,7 @@ export const BecomeACoach: FunctionComponent = () => {
 
             <Stack>
                 <SubTitle>Drills</SubTitle>
-                {drills}
+                <ExternalLinks links={drills} />
             </Stack>
         </Stack>
     );

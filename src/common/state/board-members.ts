@@ -140,4 +140,5 @@ export const DIRECTORS_OF_COACHES = BOARD_MEMBERS.filter(b => b.role === BoardMe
 export const DIRECTORS_OF_FIELDS = BOARD_MEMBERS.filter(b => b.role === BoardMemberRole.DirectorOfFields);
 export const DIRECTORS_OF_REFEREES = BOARD_MEMBERS.filter(b => b.role === BoardMemberRole.DirectorOfReferees);
 export const DIRECTORS_OF_CONCESSIONS = BOARD_MEMBERS.filter(b => b.role === BoardMemberRole.DirectorOfConcessions);
+export const DIRECTORS_OF_EQUIPMENT = BOARD_MEMBERS.filter(b => b.role === BoardMemberRole.DirectorOfEquipment);
 export const PRESIDENTS = BOARD_MEMBERS.filter(b => b.role === BoardMemberRole.President);

@@ -7,3 +7,4 @@ export * from './registration';
 export * from './schedules';
 export * from './concessions';
 export * from './picture-day';
+export * from './uniforms';

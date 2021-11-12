@@ -41,3 +41,11 @@
 .borderless {
     border: none;
 }
+
+.italic-font {
+    font-style: italic;
+}
+
+.indent {
+    padding-left: 1em;
+}
