@@ -6,6 +6,8 @@ env:
   ARM_SUBSCRIPTION_ID: ${{ secrets.ARM_SUBSCRIPTION_ID }}
   ARM_TENANT_ID: ${{ secrets.ARM_TENANT_ID }}
   TERRAFORM_VERSION: 1.0.1
+  GOOGLE_MEASUREMENT_ID: ${{ secrets.GOOGLE_MEASUREMENT_ID }}
+  APP_INSIGHTS_KEY: ${{ secrets.APP_INSIGHTS_KEY }}
 jobs:
   test:
     name: Build And Deploy
