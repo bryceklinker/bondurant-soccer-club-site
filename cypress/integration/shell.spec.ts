@@ -1,6 +1,5 @@
 import {HomePage} from '../support/home.page';
 import {ShellCommands} from '../support/shell.commands';
-import Shell from '../../src';
 
 describe('Shell', () => {
     it('should show main navigation links', () => {

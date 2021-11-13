@@ -34,6 +34,10 @@
     visibility: collapse;
 }
 
+.navbar a[aria-current="page"] {
+    border-bottom: var(--blue) solid 2px;
+}
+
 .navpanel {
     background-color: var(--dark-background-color);
     color: var(--white);
@@ -44,6 +48,10 @@
     width: 100%;
 }
 
+.nav-menu-callout a[aria-current="page"] {
+    border-bottom: var(--blue) solid 2px;
+}
+
 .navpanel .nav-link .nav-button {
     width: 100%;
 }
@@ -51,6 +59,10 @@
 .navpanel .command-button {
     color: inherit;
 }
+
+
+
+
 
 @media screen and (max-width: 768px) {
     .navbar .nav-link {
