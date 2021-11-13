@@ -29,6 +29,7 @@ export default {
         const stylesheet = Stylesheet.getInstance();
         const styleTags = stylesheet.getRules(true);
         const serializedStylesheet = stylesheet.serialize();
+        const measurementId = process.env.GOOGLE_MEASUREMENT_ID;
         return (
             <Html lang="en-US">
                 <Head>
@@ -48,6 +49,14 @@ export default {
                         window.FabricConfig.serializedStylesheet = ${serializedStylesheet}
                         `
                     }}/>
+                    <script async src={`https://www.googletagmanager.com/gtag/js?id=${measurementId}`}/>
+                    <script type={'text/javascript'} dangerouslySetInnerHTML={{__html: `
+                        window.dataLayer = window.dataLayer || [];
+                        function gtag(){dataLayer.push(arguments);}
+                        gtag('js', new Date());
+
+                        gtag('config', '${measurementId}');
+                    `}} />
                 </Head>
                 <Body>
                     {children}

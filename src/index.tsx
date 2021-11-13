@@ -2,13 +2,14 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {AppContainer} from 'react-hot-loader';
 import {initializeIcons} from '@fluentui/font-icons-mdl2';
-import './index.css';
-
-// Your top level component
 import Shell from './shell/Shell';
+
+import './index.css';
+// Your top level component
 
 // Export your top level component as JSX (for static rendering)
 export default Shell;
+
 
 initializeIcons();
 // Render your app
