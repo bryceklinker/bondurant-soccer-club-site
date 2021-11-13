@@ -16,3 +16,5 @@ export * from './parent-code-of-conduct';
 export * from './player-code-of-conduct';
 export * from './coaching-code-of-conduct';
 export * from './downloadable-documents';
+export * from './frequently-asked-questions';
+export * from './referees';

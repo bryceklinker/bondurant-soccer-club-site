@@ -13,8 +13,13 @@ function formatLongDate(date?: Date): string {
     return date ? format(date, 'MMMM d, yyyy') : 'N/A';
 }
 
+function formatShortDate(date?: Date): string {
+    return date ? format(date, 'MMMM do') : 'N/A';
+}
+
 export const Dates = {
     formatDate,
     formatDateRange,
     formatLongDate,
+    formatShortDate,
 }

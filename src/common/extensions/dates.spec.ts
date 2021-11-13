@@ -24,12 +24,18 @@ describe('Dates', () => {
 
         test('when formatting missing date range then returns not available', () => {
             expect(Dates.formatDateRange()).toEqual('N/A');
-        })
+        });
     });
 
     describe('formatLongDate', () => {
         test('when formatting long date then returns month day, year', () => {
             expect(Dates.formatLongDate(new Date(Date.parse('2021-09-21')))).toEqual('September 21, 2021');
-        })
-    })
+        });
+    });
+
+    describe('formatShortDate', () => {
+        test('when formatting short date then returns month day', () => {
+            expect(Dates.formatShortDate(new Date(Date.parse('2021-09-21')))).toEqual('September 21st');
+        });
+    });
 });

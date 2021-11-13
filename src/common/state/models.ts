@@ -29,7 +29,7 @@ export interface Season {
 }
 
 export enum BoardMemberRoleGroup {
-    Elected = 'Elected Officials',
+    Official = 'Officials',
     Directors = 'Directors',
     AtLarge = 'At Large Members'
 }
@@ -43,6 +43,7 @@ export enum BoardMemberRole {
     DirectorOfReferees = 'Director of Referees',
     DirectorOfFields = 'Director of Fields',
     DirectorOfCoaches = 'Director of Coaches',
+    DirectorOfU5U6 = 'Director of U5/U6',
     DirectorOfCommunications = 'Director of Communications',
     DirectorOfConcessions = 'Director of Concessions',
     DirectorOfEquipment = 'Director of Equipment',
@@ -167,4 +168,15 @@ export interface ByLawsData {
     articles: Array<ByLawArticleData>;
     signature: string;
     date: string;
+}
+
+export interface FrequentlyAskedQuestionData {
+    question: string;
+    answer: string;
+    links?: Array<LinkData>;
+}
+
+export interface RegistrationSoftwareData {
+    name: string;
+    link: LinkData;
 }

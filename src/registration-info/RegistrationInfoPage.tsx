@@ -1,5 +1,5 @@
 import React, {FunctionComponent} from 'react';
-import {GappedStack, Title, useRegistrationDates, useRegistrationLink, useRegistrationSeason} from '../common';
+import {GappedStack, Title, useRegistrationDates, useRegistrationLink, useCurrentRegistrationSeason} from '../common';
 import {RegistrationAgeGroups} from './RegistrationAgeGroups';
 import {RegistrationInfoWelcome} from './RegistrationInfoWelcome';
 import {ScholarshipInfo} from './ScholarshipInfo';
@@ -8,7 +8,7 @@ import {RegistrationDates} from './RegistrationDates';
 import {LinkButton} from '../common/components/LinkButton';
 
 export const RegistrationInfoPage: FunctionComponent = () => {
-    const {season, ages} = useRegistrationSeason();
+    const {season, ages} = useCurrentRegistrationSeason();
     const dates = useRegistrationDates();
     const registrationLink = useRegistrationLink();
     return (

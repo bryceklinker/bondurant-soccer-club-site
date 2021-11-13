@@ -13,3 +13,5 @@ export * from './programs-hooks';
 export * from './by-laws-hooks';
 export * from './code-of-conduct-hooks';
 export * from './downloadable-document-hooks';
+export * from './frequently-asked-questions-hooks';
+export * from './referees-hooks';

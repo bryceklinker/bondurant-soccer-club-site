@@ -14,7 +14,9 @@ export const RouteNames = {
     UniformInfo: 'uniform-info',
     SponsorshipInfo: 'sponsorship-info',
     ProgramInfo: 'program-info',
-    Documents: 'documents'
+    Documents: 'documents',
+    FrequentlyAskedQuestions: 'frequently-asked-questions',
+    RefereeInfo: 'referee-info',
 }
 
 export const MAIN_NAVIGATION_LINKS: Array<LinkData> = [
@@ -50,12 +52,32 @@ export const MORE_INFO_NAVIGATION_LINKS: Array<LinkData> = [
         url: RouteNames.Concessions
     },
     {
-        text: 'Registration Info',
-        url: RouteNames.RegistrationInfo
+        text: 'Documents',
+        url: RouteNames.Documents
+    },
+    {
+        text: 'FAQ',
+        url: RouteNames.FrequentlyAskedQuestions
     },
     {
         text: 'Picture Day',
         url: RouteNames.PictureDay
+    },
+    {
+        text: 'Program Info',
+        url: RouteNames.ProgramInfo
+    },
+    {
+        text: 'Referee Info',
+        url: RouteNames.RefereeInfo
+    },
+    {
+        text: 'Registration Info',
+        url: RouteNames.RegistrationInfo
+    },
+    {
+        text: 'Sponsorship Info',
+        url: RouteNames.SponsorshipInfo
     },
     {
         text: 'U5/U6 Info',
@@ -64,17 +86,5 @@ export const MORE_INFO_NAVIGATION_LINKS: Array<LinkData> = [
     {
         text: 'Uniform Info',
         url: RouteNames.UniformInfo
-    },
-    {
-        text: 'Sponsorship Info',
-        url: RouteNames.SponsorshipInfo
-    },
-    {
-        text: 'Program Info',
-        url: RouteNames.ProgramInfo
-    },
-    {
-        text: 'Documents',
-        url: RouteNames.Documents
-    },
+    }
 ]
