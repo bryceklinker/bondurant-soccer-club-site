@@ -12,7 +12,7 @@ function renderMenuItem(item: IContextualMenuItem, dismissMenu: (ev?: any, dismi
         dismissMenu();
     };
     return (
-        <Link to={item.href || ''} className={'nav-link'} onClick={handleClick}>
+        <Link to={item.href || ''} className={'nav-link'} onClick={handleClick} aria-label={item.text}>
             <DefaultButton className={'nav-button'}>
                 {item.text}
             </DefaultButton>
@@ -40,6 +40,6 @@ export const MoreNavbar: FunctionComponent<MoreInfoLinksProps> = ({onClick}) => 
         }))
     }
     return (
-        <CommandButton className={'nav-button command-button'} text={'More Info'} menuProps={menuProps} />
+        <CommandButton className={'nav-button command-button'} aria-label={'more nav button'} text={'More Info'} menuProps={menuProps} />
     )
 }

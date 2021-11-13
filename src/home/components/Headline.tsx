@@ -19,6 +19,7 @@ export const Headline: FunctionComponent<HeadlineProps> = ({registrationLink}) =
                                target={'_blank'}
                                color={'blue'}
                                className={'shadow large-button rounded-button'}
+                               aria-label={'register here'}
                                href={registrationLink.url}>
                     {registrationLink.text}
                 </PrimaryButton>

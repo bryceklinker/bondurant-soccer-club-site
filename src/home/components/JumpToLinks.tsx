@@ -12,7 +12,7 @@ export interface JumpToButtonProps {
 export const JumpToButton: FunctionComponent<JumpToButtonProps> = ({to, children}) => {
     return (
             <Link to={to}>
-                <PrimaryButton className={'jump-link large-button'}>
+                <PrimaryButton className={'jump-link large-button'} aria-label={'jump link'}>
                     {children}
                 </PrimaryButton>
             </Link>

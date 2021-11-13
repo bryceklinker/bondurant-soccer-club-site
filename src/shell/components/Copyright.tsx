@@ -5,7 +5,7 @@ import './Copyright.css';
 export const Copyright: FunctionComponent = () => {
     const year = useCurrentYear();
     return (
-        <Paragraph className={'copyright'}>
+        <Paragraph className={'copyright'} aria-label={'copyright'}>
             © Bondurant Soccer Club {year}
         </Paragraph>
     )

@@ -10,7 +10,7 @@ export interface NavLinkProps {
 
 export const NavLink: FunctionComponent<NavLinkProps> = ({data, onClick}) => {
     return (
-        <Link to={data.url} onClick={onClick} className={'nav-link'}>
+        <Link to={data.url} onClick={onClick} className={'nav-link'} aria-label={data.text}>
             <DefaultButton className={'nav-button'}>
                 {data.text}
             </DefaultButton>
