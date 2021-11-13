@@ -59,7 +59,7 @@ export interface BoardMemberData {
 
 export const BoardMemberData = {
     getEmails: (members: Array<BoardMemberData>): Array<string> => {
-        return members.map(m => m.email);
+        return members.map(m => m.email).filter(e => e && e !== '');
     },
     getMailtoEmails: (members: Array<BoardMemberData>): string => {
         return BoardMemberData.getEmails(members).join(',');
@@ -131,4 +131,40 @@ export interface UniformPurchaseOption {
     part: UniformPart;
     count: number;
     cost: number;
+}
+
+export interface ProgramInfoAttribute {
+    name: string;
+    details?: Array<string>;
+    link?: LinkData;
+    text?: string;
+}
+
+export interface ProgramInfo {
+    title: string;
+    description?: string;
+    attributes: Array<ProgramInfoAttribute>
+}
+
+export interface ByLawSectionData {
+    key: string;
+    title: string;
+    description?: string;
+    items?: Array<string>;
+}
+
+export interface ByLawArticleData {
+    key: string;
+    title: string;
+    text?: string;
+    sections?: Array<ByLawSectionData>;
+    items?: Array<string>;
+}
+
+export interface ByLawsData {
+    title: string;
+    location: string;
+    articles: Array<ByLawArticleData>;
+    signature: string;
+    date: string;
 }

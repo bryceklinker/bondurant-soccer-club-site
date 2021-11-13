@@ -6,6 +6,7 @@ export * from './Section';
 export * from './Divider';
 export * from './Title';
 export * from './Paragraph';
+export * from './ParagraphList';
 export * from './SubTitle';
 export * from './SectionTitle';
 export * from './Spacer';

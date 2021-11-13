@@ -8,3 +8,8 @@ export * from './schedules-hooks';
 export * from './concessions-hooks';
 export * from './picture-day-hooks';
 export * from './uniforms-hooks';
+export * from './sponsors-hooks';
+export * from './programs-hooks';
+export * from './by-laws-hooks';
+export * from './code-of-conduct-hooks';
+export * from './downloadable-document-hooks';

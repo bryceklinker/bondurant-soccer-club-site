@@ -12,6 +12,9 @@ export const RouteNames = {
     PictureDay: 'picture-day',
     U5U6Info: 'u5-u6-info',
     UniformInfo: 'uniform-info',
+    SponsorshipInfo: 'sponsorship-info',
+    ProgramInfo: 'program-info',
+    Documents: 'documents'
 }
 
 export const MAIN_NAVIGATION_LINKS: Array<LinkData> = [
@@ -61,5 +64,17 @@ export const MORE_INFO_NAVIGATION_LINKS: Array<LinkData> = [
     {
         text: 'Uniform Info',
         url: RouteNames.UniformInfo
-    }
+    },
+    {
+        text: 'Sponsorship Info',
+        url: RouteNames.SponsorshipInfo
+    },
+    {
+        text: 'Program Info',
+        url: RouteNames.ProgramInfo
+    },
+    {
+        text: 'Documents',
+        url: RouteNames.Documents
+    },
 ]
