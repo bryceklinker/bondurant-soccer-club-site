@@ -75,8 +75,7 @@ resource "azurerm_log_analytics_workspace" "log_workspace" {
   location            = var.location
   name                = "log-${var.name}"
   resource_group_name = var.resource_group_name
-  sku = "Free"
-  retention_in_days = 7
+  daily_quota_gb = 0.5
 }
 
 resource "azurerm_application_insights" "web_app_insights" {
