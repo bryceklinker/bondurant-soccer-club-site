@@ -32,14 +32,11 @@ jobs:
       - run: yarn test
         name: Run Unit Tests
 
-      - run: yarn e2e
-        name: Run UI Tests
-
       - run: ${{ github.workspace }}/scripts/optimize-images.sh
         name: Optimize Images
 
-      - run: yarn build
-        name: Build Site
+      - run: yarn e2e
+        name: Run UI Tests
 
       - run: ${{ github.workspace }}/scripts/install-terraform.sh
         name: Install Terraform

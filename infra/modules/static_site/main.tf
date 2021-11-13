@@ -84,7 +84,7 @@ resource "azurerm_application_insights" "web_app_insights" {
   name = "appi-${var.name}"
   resource_group_name = var.resource_group_name
   application_type = "other"
-  workspace_id = azurerm_log_analytics_workspace.log_workspace
+  workspace_id = azurerm_log_analytics_workspace.log_workspace.workspace_id
 
   tags = var.tags
 }
