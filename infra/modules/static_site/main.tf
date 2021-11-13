@@ -28,15 +28,6 @@ resource "azurerm_storage_account" "site_storage" {
   tags = var.tags
 }
 
-resource "azurerm_application_insights" "web_app_insights" {
-  location = var.location
-  name = "appi-${var.name}"
-  resource_group_name = var.resource_group_name
-  application_type = "other"
-
-  tags = var.tags
-}
-
 module "site_files" {
   source = "hashicorp/dir/template"
 
@@ -78,4 +69,22 @@ resource "azurerm_cdn_endpoint" "cdn_endpoint" {
     host_name = azurerm_storage_account.site_storage.primary_web_host
     name      = azurerm_storage_account.site_storage.name
   }
+}
+
+resource "azurerm_log_analytics_workspace" "log_workspace" {
+  location            = var.location
+  name                = "log-${var.name}"
+  resource_group_name = var.resource_group_name
+  sku = "Free"
+  retention_in_days = 7
+}
+
+resource "azurerm_application_insights" "web_app_insights" {
+  location = var.location
+  name = "appi-${var.name}"
+  resource_group_name = var.resource_group_name
+  application_type = "other"
+  workspace_id = azurerm_log_analytics_workspace.log_workspace
+
+  tags = var.tags
 }
