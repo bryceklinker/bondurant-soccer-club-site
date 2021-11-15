@@ -14,6 +14,10 @@ set_cdn_purge_variables() {
 }
 
 purge_cdn_content() {
+  az login --service-principal -u "${ARM_CLIENT_ID}" -p "${ARM_CLIENT_SECRET}" --tenant "${ARM_TENANT_ID}"
+
+  az account set -s "${ARM_SUBSCRIPTION_ID}"
+
   az cdn endpoint purge -g "${RESOURCE_GROUP_NAME}" \
     -n "${CDN_ENDPOINT_NAME}" \
     --profile-name "${CDN_PROFILE_NAME}" \
