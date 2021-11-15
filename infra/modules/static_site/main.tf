@@ -60,10 +60,26 @@ resource "azurerm_cdn_endpoint" "cdn_endpoint" {
   location = azurerm_cdn_profile.cdn_profile.location
   resource_group_name = var.resource_group_name
   is_compression_enabled = true
-  is_http_allowed = false
+  is_http_allowed = true
   optimization_type = "GeneralWebDelivery"
   content_types_to_compress = local.content_types_to_compress
   origin_host_header = azurerm_storage_account.site_storage.primary_web_host
+
+  delivery_rule {
+    name = "HTTPS_Redirect",
+    order = 2,
+
+    request_scheme_condition {
+      operator = "Equal"
+      negate_condition = false
+      match_values = ["HTTP"]
+    }
+
+    url_redirect_action {
+      redirect_type = "Found"
+      protocol = "Https"
+    }
+  }
 
   origin {
     host_name = azurerm_storage_account.site_storage.primary_web_host
