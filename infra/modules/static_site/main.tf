@@ -67,7 +67,7 @@ resource "azurerm_cdn_endpoint" "cdn_endpoint" {
 
   delivery_rule {
     name = "HTTPSRedirect"
-    order = 2
+    order = 1
 
     request_scheme_condition {
       operator = "Equal"
