@@ -66,8 +66,8 @@ resource "azurerm_cdn_endpoint" "cdn_endpoint" {
   origin_host_header = azurerm_storage_account.site_storage.primary_web_host
 
   delivery_rule {
-    name = "HTTPS_Redirect",
-    order = 2,
+    name = "HTTPS_Redirect"
+    order = 2
 
     request_scheme_condition {
       operator = "Equal"
