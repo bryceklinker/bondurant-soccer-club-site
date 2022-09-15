@@ -1,3 +1,11 @@
+variable "dns_zone_name" {
+  type = string
+}
+
+variable "dns_resource_group_name" {
+  type = string
+}
+
 locals {
   app_name = "bsc-site"
   env_name = "prod"
@@ -15,6 +23,8 @@ resource "azurerm_resource_group" "resource_group" {
 module "site" {
   source = "../modules/static_site"
 
+  dns_resource_group_name = var.dns_resource_group_name
+  dns_zone_name = var.dns_zone_name
   name = "${local.name}-site"
   location = local.location
   resource_group_name = local.resource_group_name

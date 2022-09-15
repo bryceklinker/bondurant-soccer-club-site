@@ -9,13 +9,10 @@ env:
   GOOGLE_MEASUREMENT_ID: ${{ secrets.GOOGLE_MEASUREMENT_ID }}
   APP_INSIGHTS_KEY: ${{ secrets.APP_INSIGHTS_KEY }}
 jobs:
-  test:
-    name: Build And Deploy
+  build:
+    name: Build
     runs-on: ubuntu-20.04
-    environment: prod
     env:
-      TARGET_ENV: prod
-      PLAN_PATH: ${{ github.workspace }}/infra/prod/prod.tfplan
       ASSETS_PATH: ${{ github.workspace}}/src/assets
     steps:
       - uses: actions/checkout@v2
@@ -38,20 +35,11 @@ jobs:
       - run: yarn e2e
         name: Run UI Tests
 
-      - run: ${{ github.workspace }}/scripts/install-terraform.sh
-        name: Install Terraform
-
-      - run: ${{ github.workspace }}/scripts/init-terraform.sh
-        name: Initialize Terraform
-
-      - run: ${{ github.workspace }}/scripts/plan-terraform.sh
-        name: Create Terraform Plan
-
-      - run: ${{ github.workspace }}/scripts/apply-terraform.sh
-        name: Apply Terraform Plan
-
-      - run: ${{ github.workspace }}/scripts/purge-cdn.sh
-        name: Purge CDN Content
+      - name: Upload Site Content
+        uses: actions/upload-artifact@v3
+        with:
+          name: site_content
+          path: ${{ github.workspace }}/dist/
 
       - name: Bump version and push tag
         id: tag_version
@@ -65,3 +53,74 @@ jobs:
           tag: ${{ steps.tag_version.outputs.new_tag }}
           name: Release ${{ steps.tag_version.outputs.new_tag }}
           body: ${{ steps.tag_version.outputs.changelog }}
+
+  deploy_dns:
+    name: Deploy DNS
+    runs-on: ubuntu-20.04
+    environment: dns
+    needs: [build]
+    env:
+      PLAN_PATH: ${{ github.workspace }}/infra/dns/dns.tfplan
+    steps:
+      - uses: actions/checkout@v2
+        name: Checkout
+
+      - run: ${{ github.workspace }}/scripts/install-terraform.sh
+        name: Install Terraform
+
+      - run: terraform init
+        name: Initialize Terraform
+        working-directory: ${{ github.workspace }}/infra/dns
+
+      - run: terraform plan -out="${PLAN_PATH}"
+        name: Create Plan Terraform
+        working-directory: ${{ github.workspace }}/infra/dns
+
+      - run: terraform apply "${PLAN_PATH}"
+        name: Create Plan Terraform
+        working-directory: ${{ github.workspace }}/infra/dns
+
+  deploy_prod_site:
+    name: Deploy Prod Site
+    runs-on: ubuntu-20.04
+    environment: prod
+    needs: [deploy_dns]
+    env:
+      PLAN_PATH: ${{ github.workspace }}/infra/prod/prod.tfplan
+      TARGET_ENV: prod
+    steps:
+      - uses: actions/checkout@v2
+        name: Checkout
+
+      - name: Download Site Content
+        uses: actions/download-artifact@v3
+        with:
+          name: site_content
+          path: ${{ github.workspace }}/dist/
+
+      - run: ${{ github.workspace }}/scripts/install-terraform.sh
+        name: Install Terraform
+
+      - run: terraform init
+        name: Initialize Terraform
+        working-directory: ${{ github.workspace }}/infra/prod
+
+      - run: |
+          dns_resource_group_name="$(terraform output -raw dns_resource_group_name)"
+          dns_zone_name="$(terraform output -raw dns_zone_name)"
+          
+          echo "TF_VAR_dns_zone_name=${dns_zone_name}"
+          echo "TF_VAR_dns_resource_group_name=${dns_resource_group_name}"
+        name: Set DNS Variables
+        working-directory: ${{ github.workspace }}/infra/dns
+
+      - run: terraform plan -out="${PLAN_PATH}"
+        name: Create Plan Terraform
+        working-directory: ${{ github.workspace }}/infra/prod
+
+      - run: terraform apply "${PLAN_PATH}"
+        name: Create Plan Terraform
+        working-directory: ${{ github.workspace }}/infra/prod
+
+      - run: ${{ github.workspace }}/scripts/purge-cdn.sh
+        name: Purge CDN Content
