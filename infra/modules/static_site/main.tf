@@ -48,7 +48,7 @@ resource "azurerm_storage_blob" "site_content" {
   storage_container_name = "$web"
 
   name         = each.key
-  source       = each.value
+  source       = "${var.site_directory}/${each.value}"
   content_type = lookup(local.mime_types, regex("\\.[^.]+$", each.value))
   content_md5  = filemd5("${var.site_directory}/${each.value}")
   type         = "Block"
