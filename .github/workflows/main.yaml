@@ -106,8 +106,8 @@ jobs:
           dns_resource_group_name="$(terraform output -raw dns_resource_group_name)"
           dns_zone_name="$(terraform output -raw dns_zone_name)"
           
-          echo "TF_VAR_dns_zone_name=${dns_zone_name} >> $GITHUB_ENV"
-          echo "TF_VAR_dns_resource_group_name=${dns_resource_group_name} >> $GITHUB_ENV"
+          echo "TF_VAR_dns_zone_name=${dns_zone_name}" >> $GITHUB_ENV
+          echo "TF_VAR_dns_resource_group_name=${dns_resource_group_name}" >> $GITHUB_ENV
         name: Set DNS Variables
         working-directory: ${{ github.workspace }}/infra/dns
 
