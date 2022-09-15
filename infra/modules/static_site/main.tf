@@ -95,7 +95,7 @@ resource "azurerm_cdn_endpoint" "cdn_endpoint" {
 }
 
 resource "azurerm_dns_cname_record" "cname" {
-  name                = "crec-${var.name}"
+  name                = var.subdomain
   resource_group_name = var.dns_resource_group_name
   zone_name           = var.dns_zone_name
   ttl                 = 3600
