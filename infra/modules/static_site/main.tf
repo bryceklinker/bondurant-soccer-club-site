@@ -108,7 +108,7 @@ resource "azurerm_cdn_endpoint_custom_domain" "custom_domain" {
   name            = "cdom-${var.name}"
 
   cdn_managed_https {
-    certificate_type = "Shared"
+    certificate_type = "Dedicated"
     protocol_type    = "ServerNameIndication"
   }
 }
