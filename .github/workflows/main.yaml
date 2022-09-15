@@ -101,11 +101,8 @@ jobs:
       - run: ${{ github.workspace }}/scripts/install-terraform.sh
         name: Install Terraform
 
-      - run: terraform init
-        name: Initialize Terraform
-        working-directory: ${{ github.workspace }}/infra/prod
-
       - run: |
+          terraform init
           dns_resource_group_name="$(terraform output -raw dns_resource_group_name)"
           dns_zone_name="$(terraform output -raw dns_zone_name)"
           
@@ -113,6 +110,10 @@ jobs:
           echo "TF_VAR_dns_resource_group_name=${dns_resource_group_name}"
         name: Set DNS Variables
         working-directory: ${{ github.workspace }}/infra/dns
+
+      - run: terraform init
+        name: Initialize Terraform
+        working-directory: ${{ github.workspace }}/infra/prod
 
       - run: terraform plan -out="${PLAN_PATH}"
         name: Create Plan Terraform
