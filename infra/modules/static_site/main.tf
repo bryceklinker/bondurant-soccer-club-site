@@ -9,7 +9,7 @@ locals {
     "application/json",
     "application/xml"
   ]
-  
+
   mime_types = {
     ".json" = "application/json"
     ".js"   = "application/javascript"
