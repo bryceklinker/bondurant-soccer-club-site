@@ -9,16 +9,18 @@ locals {
     "application/json",
     "application/xml"
   ]
+  
   mime_types = {
     ".json" = "application/json"
-    ".js" = "application/javascript"
-    ".css" = "text/css"
+    ".js"   = "application/javascript"
+    ".css"  = "text/css"
     ".html" = "text/html"
-    ".ico" = "image/x-icon"
-    ".png" = "image/png"
-    ".jpg" = "image/jpeg"
+    ".ico"  = "image/x-icon"
+    ".png"  = "image/png"
+    ".jpg"  = "image/jpeg"
     ".jpeg" = "image/jpeg"
-    ".txt" = "text/plain"
+    ".txt"  = "text/plain"
+    ".xml"  = "application/xml"
   }
 }
 
