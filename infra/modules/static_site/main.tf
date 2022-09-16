@@ -117,7 +117,7 @@ resource "azurerm_cdn_endpoint_custom_domain" "root_domain" {
   count = var.is_root_domain ? 1 : 0
   cdn_endpoint_id = azurerm_cdn_endpoint.cdn_endpoint.id
   host_name       = var.dns_zone_name
-  name            = "cdom-${var.name}"
+  name            = "cdom-${var.name}-root"
 
   cdn_managed_https {
     certificate_type = "Dedicated"
