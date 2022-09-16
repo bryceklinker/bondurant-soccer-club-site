@@ -77,7 +77,7 @@ jobs:
         working-directory: ${{ github.workspace }}/infra/dns
 
       - run: terraform apply "${PLAN_PATH}"
-        name: Create Plan Terraform
+        name: Apply Terraform
         working-directory: ${{ github.workspace }}/infra/dns
 
   deploy_prod_site:
@@ -120,7 +120,7 @@ jobs:
         working-directory: ${{ github.workspace }}/infra/prod
 
       - run: terraform apply "${PLAN_PATH}"
-        name: Create Plan Terraform
+        name: Apply Terraform
         working-directory: ${{ github.workspace }}/infra/prod
 
       - run: ${{ github.workspace }}/scripts/purge-cdn.sh
