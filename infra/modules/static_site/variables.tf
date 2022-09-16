@@ -6,11 +6,6 @@ variable "dns_resource_group_name" {
   type = string
 }
 
-variable "subdomain" {
-  type = string
-  default = "www"
-}
-
 variable "name" {
   type = string
 }
@@ -25,6 +20,16 @@ variable "resource_group_name" {
 
 variable "site_directory" {
   type = string
+}
+
+variable "subdomain" {
+  type = string
+  default = "www"
+}
+
+variable "is_root_domain" {
+  type = bool
+  default = false
 }
 
 variable "tags" {
