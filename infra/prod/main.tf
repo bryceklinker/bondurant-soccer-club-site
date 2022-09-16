@@ -25,6 +25,7 @@ module "site" {
 
   dns_resource_group_name = var.dns_resource_group_name
   dns_zone_name = var.dns_zone_name
+  is_root_domain = true
   name = "${local.name}-site"
   location = local.location
   resource_group_name = local.resource_group_name
