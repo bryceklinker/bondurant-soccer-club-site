@@ -80,11 +80,57 @@ jobs:
         name: Apply Terraform
         working-directory: ${{ github.workspace }}/infra/dns
 
+  deploy_dev_site:
+    name: Deploy Dev Site
+    runs-on: ubuntu-20.04
+    environment: dev
+    needs: [ deploy_dns ]
+    env:
+      PLAN_PATH: ${{ github.workspace }}/infra/dev/dev.tfplan
+      TARGET_ENV: dev
+    steps:
+      - uses: actions/checkout@v2
+        name: Checkout
+
+      - name: Download Site Content
+        uses: actions/download-artifact@v3
+        with:
+          name: site_content
+          path: ${{ github.workspace }}/dist/
+
+      - run: ${{ github.workspace }}/scripts/install-terraform.sh
+        name: Install Terraform
+
+      - run: |
+          terraform init
+          dns_resource_group_name="$(terraform output -raw dns_resource_group_name)"
+          dns_zone_name="$(terraform output -raw dns_zone_name)"
+
+          echo "TF_VAR_dns_zone_name=${dns_zone_name}" >> $GITHUB_ENV
+          echo "TF_VAR_dns_resource_group_name=${dns_resource_group_name}" >> $GITHUB_ENV
+        name: Set DNS Variables
+        working-directory: ${{ github.workspace }}/infra/dns
+
+      - run: terraform init
+        name: Initialize Terraform
+        working-directory: ${{ github.workspace }}/infra/dev
+
+      - run: terraform plan -out="${PLAN_PATH}"
+        name: Create Plan Terraform
+        working-directory: ${{ github.workspace }}/infra/dev
+
+      - run: terraform apply "${PLAN_PATH}"
+        name: Apply Terraform
+        working-directory: ${{ github.workspace }}/infra/dev
+
+      - run: ${{ github.workspace }}/scripts/purge-cdn.sh
+        name: Purge CDN Content
+
   deploy_prod_site:
     name: Deploy Prod Site
     runs-on: ubuntu-20.04
     environment: prod
-    needs: [deploy_dns]
+    needs: [deploy_dev]
     env:
       PLAN_PATH: ${{ github.workspace }}/infra/prod/prod.tfplan
       TARGET_ENV: prod
