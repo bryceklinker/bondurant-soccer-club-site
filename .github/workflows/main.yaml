@@ -130,7 +130,7 @@ jobs:
     name: Deploy Prod Site
     runs-on: ubuntu-20.04
     environment: prod
-    needs: [deploy_dev]
+    needs: [deploy_dev_site]
     env:
       PLAN_PATH: ${{ github.workspace }}/infra/prod/prod.tfplan
       TARGET_ENV: prod
