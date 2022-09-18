@@ -8,3 +8,5 @@ cypress/videos/
 cypress/screenshots/
 cypress/downloads/
 .next/
+public/sitemap.xml
+public/robots.txt
