@@ -1,6 +1,5 @@
 import React, {FunctionComponent} from 'react';
 import {AgeRegistrationData} from '../common';
-import styles from './RegistrationAgesTable.module.css';
 
 export interface RegistrationAgesTableProps {
     ages: Array<AgeRegistrationData>;
@@ -9,7 +8,7 @@ export interface RegistrationAgesTableProps {
 export const RegistrationAgesTable: FunctionComponent<RegistrationAgesTableProps> = ({ages}) => {
     const rows = ages.map((a, i) => <RegistrationAgeRow key={i} age={a}/>);
     return (
-        <table className={styles.table}>
+        <table className={'table'}>
             <thead>
             <tr>
                 <th align={'left'}>Age Group</th>

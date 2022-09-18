@@ -1,0 +1,27 @@
+@import '../common/styles/utilities.css';
+@import '../common/styles/colors.css';
+@import '../common/components/index.css';
+@import '../home/index.css';
+@import '../locations/index.css';
+@import '../registration-info/index.css';
+@import '../shell/index.css';
+
+html,
+body,
+#root {
+    display: block;
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--default-background-color);
+}
+
+#root > div {
+    height: 100vh;
+}
+
+img {
+    max-width: 80vw;
+}
+
+

@@ -1,6 +1,5 @@
 import React, {FC, PropsWithChildren} from 'react';
 import {Stack, createTheme, ThemeProvider} from '@fluentui/react';
-import styles from './BscThemeProvider.module.css';
 
 const theme = createTheme({
     palette: {
@@ -13,7 +12,7 @@ const theme = createTheme({
 
 export const BscThemeProvider: FC<PropsWithChildren> = ({children}) => {
     return (
-        <ThemeProvider theme={theme} as={Stack} className={styles.themeProvider}>
+        <ThemeProvider theme={theme} as={Stack} className={'theme-provider'}>
             {children}
         </ThemeProvider>
     );

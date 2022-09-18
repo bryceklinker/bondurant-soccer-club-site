@@ -2,7 +2,6 @@ import {ActionButton, Stack} from '@fluentui/react';
 import React, {FC, PropsWithChildren} from 'react';
 import useCollapse from 'react-collapsed';
 import {useBooleanToggle} from '../hooks';
-import styles from './CollapsiblePanel.module.css';
 
 export type CollapsiblePanelProps = PropsWithChildren & {
     title: string | React.ReactNode;
@@ -19,7 +18,7 @@ export const CollapsiblePanel: FC<CollapsiblePanelProps> = ({children, title, ex
             {/* @ts-ignore */}
             <ActionButton {...getToggleProps({
                 onClick: () => toggle()
-            })} className={styles.collapsibleButton}>
+            })} className={'collapsible-button'}>
                 {title}
             </ActionButton>
             <div {...getCollapseProps()}>
