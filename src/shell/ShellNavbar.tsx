@@ -1,4 +1,4 @@
-impor, {FunctionComponent} from 'react';
+import {FunctionComponent} from 'react';
 import {useBooleanToggle} from '../common';
 import {DefaultButton, Stack} from '@fluentui/react';
 import { NavLinks } from './NavLinks';

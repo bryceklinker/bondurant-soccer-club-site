@@ -1,4 +1,4 @@
-impor, {FunctionComponent} from 'react';
+import {FunctionComponent} from 'react';
 import {GappedStack, Title, usePrograms} from '../common';
 import {Program} from './Program';
 

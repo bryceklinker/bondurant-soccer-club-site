@@ -7,7 +7,7 @@ import {
     Section,
     SectionTitle, SubTitle
 } from '../common';
-impor, {FunctionComponent} from 'react';
+import {FunctionComponent} from 'react';
 import {List} from '@fluentui/react';
 import {SmartLink} from '../common/components/SmartLink';
 

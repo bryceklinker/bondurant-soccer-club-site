@@ -4,8 +4,16 @@
     "jsx": "react-jsx"
   },
   "include": [
+    "next-env.d.ts",
+    "src/**/*.ts",
+    "src/**/*.tsx",
     "src/**/*.spec.ts",
     "src/**/*.spec.tsx",
     "src/testing/**/*.ts"
+  ],
+  "exclude": [
+    "cypress/**/*.ts",
+    "cypress/**/*.js",
+    "cypress.config.ts"
   ]
 }

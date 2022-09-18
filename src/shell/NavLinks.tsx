@@ -1,4 +1,4 @@
-impor, {FunctionComponent} from 'react';
+import {FunctionComponent} from 'react';
 import {LinkData, MAIN_NAVIGATION_LINKS} from '../common';
 import Link from 'next/link';
 import {DefaultButton} from '@fluentui/react';

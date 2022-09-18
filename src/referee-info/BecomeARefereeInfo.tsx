@@ -1,4 +1,4 @@
-impor, {FunctionComponent} from 'react';
+import {FunctionComponent} from 'react';
 import {LinkData, Paragraph, Section, SectionTitle, SmartLink} from '../common';
 
 export interface BecomeARefereeInfoProps {

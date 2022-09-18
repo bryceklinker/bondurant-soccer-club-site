@@ -1,4 +1,4 @@
-impor, {FunctionComponent} from 'react';
+import {FunctionComponent} from 'react';
 import {GappedStack, Title, useBoardMembersEmailLink, useSponsorshipLinks} from '../common';
 import {CurrentNeeds} from './CurrentNeeds';
 import {CurrentSponsors} from './CurrentSponsors';

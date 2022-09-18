@@ -10,7 +10,6 @@ export type FluentUIDocumentProps = DocumentInitialProps & {
 export default class FluentUIDocument extends Document<FluentUIDocumentProps> {
     static async getInitialProps(ctx: DocumentContext) {
         resetIds();
-
         const initialProps = await Document.getInitialProps(ctx);
         return {
             ...initialProps,

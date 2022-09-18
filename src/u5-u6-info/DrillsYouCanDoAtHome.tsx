@@ -1,4 +1,4 @@
-impor, {FunctionComponent} from 'react';
+import {FunctionComponent} from 'react';
 import {CollapsiblePanel, LinkData, Paragraph, Section, SectionTitle} from '../common';
 import {ExternalLinks} from '../common/components/ExternalLinks';
 

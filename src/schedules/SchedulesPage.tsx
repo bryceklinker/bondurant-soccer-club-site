@@ -1,4 +1,4 @@
-impor, {FunctionComponent} from 'react';
+import {FunctionComponent} from 'react';
 import {GappedStack, useScheduleImages, useU9AndUpScheduleLink} from '../common';
 import {ImageSchedule} from './ImageSchedule';
 import {U9AndUpSchedules} from './U9AndUpSchedules';
