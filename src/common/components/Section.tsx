@@ -1,5 +1,5 @@
 import {IStackProps, Stack} from '@fluentui/react';
-import React, {FunctionComponent} from 'react';
+import {FunctionComponent} from 'react';
 
 export interface SectionProps extends IStackProps {
     inverted?: boolean;

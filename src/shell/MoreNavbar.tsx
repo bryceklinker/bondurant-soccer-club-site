@@ -1,4 +1,4 @@
-import React, {FunctionComponent} from 'react';
+impor, {FunctionComponent} from 'react';
 import {CommandButton, DefaultButton, IContextualMenuItem, IContextualMenuProps} from '@fluentui/react';
 import Link from 'next/link';
 import {MORE_INFO_NAVIGATION_LINKS} from '../common';

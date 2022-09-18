@@ -1,4 +1,4 @@
-import React, {FunctionComponent} from 'react';
+impor, {FunctionComponent} from 'react';
 import {Image} from '@fluentui/react';
 import {CollapsiblePanel, Section, SectionTitle} from '../common';
 

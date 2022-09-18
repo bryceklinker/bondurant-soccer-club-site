@@ -1,4 +1,4 @@
-import React, {FunctionComponent} from 'react';
+impor, {FunctionComponent} from 'react';
 import {Paragraph, useCurrentYear} from '../common';
 
 export const Copyright: FunctionComponent = () => {

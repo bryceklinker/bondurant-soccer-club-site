@@ -1,4 +1,4 @@
-import React, {FunctionComponent} from 'react';
+import {FunctionComponent} from 'react';
 import {Text} from '@fluentui/react';
 import {ITextProps} from '@fluentui/react/lib/components/Text/Text.types';
 

@@ -1,4 +1,4 @@
-import React, {FunctionComponent} from 'react';
+impor, {FunctionComponent} from 'react';
 import {GappedStack, Title, useCoachingDrills, useSchedulesLink} from '../common';
 import {RequiredEquipment} from './RequiredEquipment';
 import {Weather} from './Weather';

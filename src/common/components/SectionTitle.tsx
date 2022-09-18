@@ -1,4 +1,4 @@
-import React, {FunctionComponent} from 'react';
+import {FunctionComponent} from 'react';
 import {ITextProps, Text} from '@fluentui/react';
 
 export interface SectionTitleProps extends Omit<ITextProps, 'as'> {

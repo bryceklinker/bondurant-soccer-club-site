@@ -1,4 +1,4 @@
-import React, {FunctionComponent} from 'react';
+import {FunctionComponent} from 'react';
 import {CollapsiblePanel, Paragraph, ParagraphList, Section, SectionTitle, SubTitle} from '../common';
 import {BoardProceduresForCodeOfConductViolations} from './BoardProceduresForCodeOfConductViolations';
 

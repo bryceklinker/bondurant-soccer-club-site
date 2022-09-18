@@ -1,4 +1,4 @@
-import React, {FunctionComponent} from 'react';
+import {FunctionComponent} from 'react';
 import {Text, ITextProps} from '@fluentui/react';
 
 export interface ParagraphProps extends ITextProps {

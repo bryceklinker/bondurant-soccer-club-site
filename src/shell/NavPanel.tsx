@@ -1,4 +1,4 @@
-import React, {FunctionComponent, useCallback} from 'react';
+impor, {FunctionComponent, useCallback} from 'react';
 import {IPanelProps, Panel, Stack} from '@fluentui/react';
 import {Spacer} from '../common';
 import {SocialMedia} from './SocialMedia';

@@ -1,4 +1,4 @@
-import React, {FunctionComponent} from 'react';
+import {FunctionComponent} from 'react';
 import {MissionStatement} from './MissionStatement';
 import {GappedStack, Title} from '../common';
 

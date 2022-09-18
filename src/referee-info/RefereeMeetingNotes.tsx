@@ -1,4 +1,4 @@
-import React, {FunctionComponent} from 'react';
+impor, {FunctionComponent} from 'react';
 import {CollapsiblePanel, LinkData, Paragraph, Section, SectionTitle, SmartLink, SubTitle} from '../common';
 
 export interface RefereeMeetingNotesProps {

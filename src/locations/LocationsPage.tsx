@@ -1,4 +1,4 @@
-import React, {FunctionComponent} from 'react';
+import {FunctionComponent} from 'react';
 import {LocationSegment} from './LocationSegment';
 import {GappedStack, Title, useLocations} from '../common';
 

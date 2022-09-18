@@ -1,4 +1,4 @@
-import React, {FC, PropsWithChildren} from 'react';
+import {FC, PropsWithChildren} from 'react';
 import {Stack, createTheme, ThemeProvider} from '@fluentui/react';
 
 const theme = createTheme({

@@ -1,4 +1,4 @@
-import React, {FunctionComponent} from 'react';
+import {FunctionComponent} from 'react';
 import {ILinkProps} from '@fluentui/react';
 import Link from 'next/link';
 import {LinkData} from '../state';

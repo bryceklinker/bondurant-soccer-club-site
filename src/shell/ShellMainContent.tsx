@@ -1,5 +1,5 @@
 import { Stack } from '@fluentui/react';
-import React, {FC, PropsWithChildren} from 'react';
+impor, {FC, PropsWithChildren} from 'react';
 import {Loading} from '../common';
 
 export const ShellMainContent: FC<PropsWithChildren> = ({children}) => {

@@ -1,4 +1,4 @@
-import React, {FunctionComponent} from 'react';
+import {FunctionComponent} from 'react';
 import {List} from '@fluentui/react';
 import {Paragraph} from './Paragraph';
 

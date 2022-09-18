@@ -1,4 +1,4 @@
-import React, {FunctionComponent} from 'react';
+import {FunctionComponent} from 'react';
 import {CollapsiblePanel, LocationData, Paragraph, RouteNames, Section, SectionTitle} from '../common';
 import Link from 'next/link';
 

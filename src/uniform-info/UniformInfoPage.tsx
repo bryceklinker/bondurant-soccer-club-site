@@ -1,4 +1,4 @@
-import React, {FunctionComponent} from 'react';
+impor, {FunctionComponent} from 'react';
 import {GappedStack, Title, useDirectorOfUniformsLink, useUniformPurchaseOptions, useUniformSizes} from '../common';
 import {UniformCostsAndSizes} from './UniformCostsAndSizes';
 import {UniformImages} from './UniformImages';

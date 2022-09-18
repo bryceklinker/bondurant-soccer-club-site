@@ -1,4 +1,4 @@
-import React, {FunctionComponent} from 'react';
+impor, {FunctionComponent} from 'react';
 import {GappedStack, Title, useRegistrationDates, useRegistrationLink, useCurrentRegistrationSeason} from '../common';
 import {RegistrationAgeGroups} from './RegistrationAgeGroups';
 import {RegistrationInfoWelcome} from './RegistrationInfoWelcome';

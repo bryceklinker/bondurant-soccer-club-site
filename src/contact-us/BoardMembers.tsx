@@ -1,4 +1,4 @@
-import React, {FunctionComponent} from 'react';
+import {FunctionComponent} from 'react';
 import {Arrays, BoardMemberData, GappedStack} from '../common';
 import {BoardMemberGroup} from './BoardMemberGroup';
 

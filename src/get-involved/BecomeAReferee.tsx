@@ -1,5 +1,5 @@
 import {Stack} from '@fluentui/react';
-import React, {FunctionComponent} from 'react';
+import {FunctionComponent} from 'react';
 import {Paragraph} from '../common';
 
 export const BecomeAReferee: FunctionComponent = () => {

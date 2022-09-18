@@ -1,4 +1,4 @@
-import React, {FunctionComponent} from 'react';
+import {FunctionComponent} from 'react';
 import {IStackProps, Stack} from '@fluentui/react';
 
 export interface PlainStackProps extends IStackProps {

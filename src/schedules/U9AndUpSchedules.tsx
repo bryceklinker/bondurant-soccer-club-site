@@ -1,5 +1,5 @@
 import {Stack} from '@fluentui/react';
-import React, {FunctionComponent} from 'react';
+impor, {FunctionComponent} from 'react';
 import {CollapsiblePanel, ExternalLink, LinkData, Paragraph, Section, SectionTitle} from '../common';
 
 export interface U9AndUpSchedulesProps {

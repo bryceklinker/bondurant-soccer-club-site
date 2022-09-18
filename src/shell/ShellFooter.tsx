@@ -1,4 +1,4 @@
-import React, {FunctionComponent} from 'react';
+impor, {FunctionComponent} from 'react';
 import {Spacer} from '../common';
 import {Stack} from '@fluentui/react';
 import { Copyright } from './Copyright';

@@ -1,4 +1,4 @@
-import React, {FunctionComponent} from 'react';
+import {FunctionComponent} from 'react';
 import {Link, Stack} from '@fluentui/react';
 import {BoardMemberData, SubTitle} from '../common';
 

@@ -1,4 +1,4 @@
-import React, {FunctionComponent} from 'react';
+impor, {FunctionComponent} from 'react';
 import {AgeRegistrationData} from '../common';
 
 export interface RegistrationAgesTableProps {

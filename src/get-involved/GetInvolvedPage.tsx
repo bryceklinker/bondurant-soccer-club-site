@@ -1,4 +1,4 @@
-import React, {FunctionComponent} from 'react';
+import {FunctionComponent} from 'react';
 import {GetInvolvedOption} from './GetInvolvedOption';
 import {GappedStack, Title, useGetInvolvedOptions} from '../common';
 

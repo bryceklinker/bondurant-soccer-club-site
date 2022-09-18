@@ -1,4 +1,4 @@
-import React, {FunctionComponent} from 'react';
+impor, {FunctionComponent} from 'react';
 import {Image, Stack} from '@fluentui/react';
 
 const FindUsOnFacebook = require('../assets/facebook/FindUs-FB-RGB-BRC-Site-500.png');

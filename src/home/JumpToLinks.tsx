@@ -1,4 +1,4 @@
-import React, {FC, PropsWithChildren} from 'react';
+import {FC, PropsWithChildren} from 'react';
 import Link from 'next/link';
 import {IStackProps, IStackTokens, ITheme, PrimaryButton, Stack} from '@fluentui/react';
 import {RouteNames} from '../common';

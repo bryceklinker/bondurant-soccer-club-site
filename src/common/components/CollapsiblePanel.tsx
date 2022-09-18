@@ -1,5 +1,5 @@
 import {ActionButton, Stack} from '@fluentui/react';
-import React, {FC, PropsWithChildren} from 'react';
+import {FC, PropsWithChildren} from 'react';
 import useCollapse from 'react-collapsed';
 import {useBooleanToggle} from '../hooks';
 

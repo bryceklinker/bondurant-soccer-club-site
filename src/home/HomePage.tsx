@@ -1,4 +1,4 @@
-import React, {FunctionComponent} from 'react';
+import {FunctionComponent} from 'react';
 import {Headline} from './Headline';
 import {JumpToLinks} from './JumpToLinks';
 import {

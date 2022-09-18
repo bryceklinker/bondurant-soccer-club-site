@@ -1,4 +1,4 @@
-import React, {FunctionComponent} from 'react';
+import {FunctionComponent} from 'react';
 import {PrimaryButton, Stack} from '@fluentui/react';
 import {JumboTitle} from '../common/components/JumboTitle';
 import {LinkData} from '../common';

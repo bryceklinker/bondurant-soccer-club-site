@@ -1,4 +1,4 @@
-import React, {FunctionComponent} from 'react';
+import {FunctionComponent} from 'react';
 import {Paragraph, Section, SubTitle, SectionTitle, EmbeddedMap, CollapsiblePanel, LocationData} from '../common';
 import {Stack} from '@fluentui/react';
 

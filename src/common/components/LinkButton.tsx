@@ -1,4 +1,4 @@
-import React, {FunctionComponent} from 'react';
+import {FunctionComponent} from 'react';
 import {IButtonProps, PrimaryButton} from '@fluentui/react';
 
 export interface LinkButtonProps extends Omit<IButtonProps, 'as' | 'target'> {

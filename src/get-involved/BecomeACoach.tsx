@@ -1,5 +1,5 @@
 import {Stack} from '@fluentui/react';
-import React, {FunctionComponent} from 'react';
+import {FunctionComponent} from 'react';
 import {Paragraph, SubTitle, useCoachingDrills} from '../common';
 import {ExternalLinks} from '../common/components/ExternalLinks';
 
