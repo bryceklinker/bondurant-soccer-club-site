@@ -29,17 +29,8 @@ jobs:
       - run: yarn test
         name: Run Unit Tests
 
-      - run: ${{ github.workspace }}/scripts/optimize-images.sh
-        name: Optimize Images
-
       - run: yarn e2e
         name: Run UI Tests
-
-      - name: Upload Site Content
-        uses: actions/upload-artifact@v3
-        with:
-          name: site_content
-          path: ${{ github.workspace }}/dist/
 
       - name: Bump version and push tag
         id: tag_version
@@ -95,11 +86,16 @@ jobs:
       - uses: actions/checkout@v2
         name: Checkout
 
-      - name: Download Site Content
-        uses: actions/download-artifact@v3
+      - uses: actions/setup-node@v2
+        name: Setup Node
         with:
-          name: site_content
-          path: ${{ github.workspace }}/dist/
+          node-version: '16'
+
+      - name: Install Dependencies
+        run: yarn install
+
+      - name: Bundle Site
+        run: yarn build
 
       - run: ${{ github.workspace }}/scripts/install-terraform.sh
         name: Install Terraform
@@ -143,11 +139,16 @@ jobs:
       - uses: actions/checkout@v2
         name: Checkout
 
-      - name: Download Site Content
-        uses: actions/download-artifact@v3
+      - uses: actions/setup-node@v2
+        name: Setup Node
         with:
-          name: site_content
-          path: ${{ github.workspace }}/dist/
+          node-version: '16'
+
+      - name: Install Dependencies
+        run: yarn install
+
+      - name: Bundle Site
+        run: yarn build
 
       - run: ${{ github.workspace }}/scripts/install-terraform.sh
         name: Install Terraform
