@@ -2,7 +2,10 @@
   "compilerOptions": {
     "target": "es2015",
     "module": "esnext",
-    "lib": ["es2015", "dom"],
+    "lib": [
+      "es2015",
+      "dom"
+    ],
     "moduleResolution": "node",
     "skipLibCheck": true,
     "isolatedModules": true,
@@ -12,13 +15,21 @@
     "sourceMap": true,
     "removeComments": false,
     "strict": true,
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "incremental": true,
+    "resolveJsonModule": true
   },
   "exclude": [
     "node_modules",
     "src/**/*.spec.ts",
     "src/testing/**/*.ts",
     "cypress/**/*.ts",
-    "cypress/**/*.js",
+    "cypress/**/*.js"
+  ],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx"
   ]
 }

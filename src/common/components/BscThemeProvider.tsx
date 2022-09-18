@@ -1,4 +1,4 @@
-import React, {FunctionComponent} from 'react';
+import React, {FC, PropsWithChildren} from 'react';
 import {Stack, createTheme, ThemeProvider} from '@fluentui/react';
 import './BscThemeProvider.css';
 
@@ -11,7 +11,7 @@ const theme = createTheme({
     }
 });
 
-export const BscThemeProvider: FunctionComponent = ({children}) => {
+export const BscThemeProvider: FC<PropsWithChildren> = ({children}) => {
     return (
         <ThemeProvider theme={theme} as={Stack} className={'theme-provider'}>
             {children}

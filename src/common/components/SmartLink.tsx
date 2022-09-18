@@ -1,6 +1,6 @@
 import React, {FunctionComponent} from 'react';
 import {ILinkProps} from '@fluentui/react';
-import { Link } from '@reach/router';
+import Link from 'next/link';
 import {LinkData} from '../state';
 import {Strings} from '../extensions';
 import {ExternalLink} from './ExternalLink';
@@ -14,5 +14,5 @@ export const SmartLink: FunctionComponent<SmartLinkProps> = ({link, ...rest}) =>
         return <ExternalLink href={link.url} {...rest}>{link.text}</ExternalLink>
     }
 
-    return <Link to={link.url}>{link.text}</Link>
+    return <Link href={link.url}>{link.text}</Link>
 }

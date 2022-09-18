@@ -1,6 +1,6 @@
 import React, {FunctionComponent} from 'react';
 import {CommandButton, DefaultButton, IContextualMenuItem, IContextualMenuProps} from '@fluentui/react';
-import {Link} from '@reach/router';
+import Link from 'next/link';
 import {MORE_INFO_NAVIGATION_LINKS} from '../../common';
 import './MoreNavbar.css';
 
@@ -12,7 +12,7 @@ function renderMenuItem(item: IContextualMenuItem, dismissMenu: (ev?: any, dismi
         dismissMenu();
     };
     return (
-        <Link to={item.href || ''} className={'nav-link'} onClick={handleClick} aria-label={item.text}>
+        <Link href={item.href || ''} className={'nav-link'} onClick={handleClick} aria-label={item.text}>
             <DefaultButton className={'nav-button'}>
                 {item.text}
             </DefaultButton>
