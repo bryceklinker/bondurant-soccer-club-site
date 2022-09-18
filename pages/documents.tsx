@@ -1,3 +1,3 @@
-import {DocumentsPage} from '../documents/DocumentsPage';
+import {DocumentsPage} from '../src/documents/DocumentsPage';
 
 export default DocumentsPage

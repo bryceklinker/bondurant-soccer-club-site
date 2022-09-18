@@ -1,6 +1,6 @@
 import React, {FunctionComponent} from 'react';
 import {Paragraph, Season, Section} from '../../common';
-import './Description.css';
+import styles from './Description.module.css';
 
 export interface DescriptionProps {
     season: Season;
@@ -10,7 +10,7 @@ export interface DescriptionProps {
 
 export const Description: FunctionComponent<DescriptionProps> = ({season, minBirthYear, maxBirthYear}) => {
     return (
-        <Section flex padded className={'description'}>
+        <Section flex padded className={styles.description}>
             <Paragraph>
                 Bondurant Soccer Club has levels for all ages. For the {season.startYear}/{season.endYear} season, this
                 includes those players born between {minBirthYear} and {maxBirthYear}.

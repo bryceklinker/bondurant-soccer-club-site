@@ -1,5 +1,3 @@
-@import '../styles/colors.css';
-
 .section {
     background-color: var(--white);
     border-bottom: 0.5em solid var(--blue);

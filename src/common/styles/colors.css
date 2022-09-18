@@ -6,3 +6,27 @@
     --dark-background-color: #1b1c1d;
     --default-background-color: rgb(185, 185, 185);
 }
+
+.white {
+    color: var(--white);
+}
+
+.blue {
+    color: var(--blue);
+}
+
+.facebook-blue {
+    color: var(--facebook-blue);
+}
+
+.blue-background {
+    background-color: var(--blue-background-color);
+}
+
+.dark-background {
+    background-color: var(--dark-background-color);
+}
+
+.default-background {
+    background-color: var(--default-background-color);
+}

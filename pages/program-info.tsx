@@ -1,3 +1,3 @@
-import {ProgramInfoPage} from '../program-info/ProgramInfoPage';
+import {ProgramInfoPage} from '../src/program-info/ProgramInfoPage';
 
 export default ProgramInfoPage

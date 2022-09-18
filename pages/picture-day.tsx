@@ -1,3 +1,3 @@
-import {PictureDayPage} from '../picture-day/PictureDayPage';
+import {PictureDayPage} from '../src/picture-day/PictureDayPage';
 
 export default PictureDayPage

@@ -9,7 +9,7 @@ export const insights = new ApplicationInsights({
         extensions: [reactPlugin]
     }
 });
-if (window !== undefined) {
+if (global.window !== undefined) {
     insights.loadAppInsights();
 }
 

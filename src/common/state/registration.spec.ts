@@ -3,7 +3,7 @@ import {Registration} from './registration';
 
 describe('registration state', () => {
     beforeEach(() => {
-        jest.useFakeTimers('modern');
+        jest.useFakeTimers();
     });
 
     test('when fall 2021 then U5-U6 age group is 2016-2017', () => {

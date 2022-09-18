@@ -1,6 +1,6 @@
 import {Stack} from '@fluentui/react';
 import React, {FunctionComponent} from 'react';
-import {ExternalLink, Paragraph, SubTitle, useCoachingDrills} from '../common';
+import {Paragraph, SubTitle, useCoachingDrills} from '../common';
 import {ExternalLinks} from '../common/components/ExternalLinks';
 
 export const BecomeACoach: FunctionComponent = () => {

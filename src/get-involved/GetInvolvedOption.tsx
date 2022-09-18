@@ -1,8 +1,7 @@
 import React, {FunctionComponent} from 'react';
 import {Section, LinkData, Paragraph, SectionTitle, SubTitle, CollapsiblePanel, GetInvolvedData} from '../common';
 import {Link as ExternalLink, Stack} from '@fluentui/react';
-import {Link as PageLink} from '@reach/router';
-import './GetInvolvedOption.css';
+import NextLink from 'next/link';
 
 export interface GetInvolvedLinkProps {
     data: LinkData;
@@ -25,9 +24,9 @@ export const GetInvolvedLink: FunctionComponent<GetInvolvedLinkProps> = ({data})
 
     return (
         <Paragraph>
-            <PageLink to={data.url}>
+            <NextLink href={data.url}>
                 {data.text}
-            </PageLink>
+            </NextLink>
         </Paragraph>
     );
 };

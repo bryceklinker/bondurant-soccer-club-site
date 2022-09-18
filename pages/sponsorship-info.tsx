@@ -1,3 +1,3 @@
-import {SponsorshipInfoPage} from '../sponsorship-info/SponsorshipInfoPage';
+import {SponsorshipInfoPage} from '../src/sponsorship-info/SponsorshipInfoPage';
 
 export default SponsorshipInfoPage

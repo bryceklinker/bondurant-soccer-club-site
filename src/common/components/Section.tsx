@@ -1,6 +1,6 @@
 import {IStackProps, Stack} from '@fluentui/react';
 import React, {FunctionComponent} from 'react';
-import './Section.css';
+import styles from './Section.module.css';
 
 export interface SectionProps extends IStackProps {
     inverted?: boolean;
@@ -18,8 +18,8 @@ export const Section: FunctionComponent<SectionProps> = ({
                                                              ...rest
                                                          }) => {
     const classes = [
-        'section',
-        shadow ? 'shadow' : '',
+        styles.section,
+        shadow ? styles.shadow : '',
         padded ? 'padded-content' : '',
         flex ? 'flex' : '',
         className ? className : ''

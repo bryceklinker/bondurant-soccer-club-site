@@ -1,3 +1,3 @@
-import {UniformInfoPage} from '../uniform-info/UniformInfoPage';
+import {UniformInfoPage} from '../src/uniform-info/UniformInfoPage';
 
 export default UniformInfoPage

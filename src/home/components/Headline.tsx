@@ -2,7 +2,7 @@ import React, {FunctionComponent} from 'react';
 import {PrimaryButton, Stack} from '@fluentui/react';
 import {JumboTitle} from '../../common/components/JumboTitle';
 import {LinkData} from '../../common';
-import './Headline.css';
+import styles from './Headline.module.css';
 
 export interface HeadlineProps {
     registrationLink: LinkData;
@@ -10,9 +10,9 @@ export interface HeadlineProps {
 
 export const Headline: FunctionComponent<HeadlineProps> = ({registrationLink}) => {
     return (
-        <Stack className={'headline-container shadow'}>
-            <Stack className={'headline'}>
-                <JumboTitle className={'headline-title'}>
+        <Stack className={`${styles.headlineContainer} shadow`}>
+            <Stack className={styles.headline}>
+                <JumboTitle className={styles.headlineTitle}>
                     Bondurant Soccer Club
                 </JumboTitle>
                 <PrimaryButton as={'a'}
