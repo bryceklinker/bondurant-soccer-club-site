@@ -11,7 +11,7 @@
     "isolatedModules": true,
     "noEmit": true,
     "allowJs": true,
-    "jsx": "react-jsx",
+    "jsx": "preserve",
     "sourceMap": true,
     "removeComments": false,
     "strict": true,
@@ -24,6 +24,7 @@
     "node_modules",
     "src/**/*.spec.ts",
     "src/testing/**/*.ts",
+    "src/testing/**/*.tsx",
     "cypress/**/*.ts",
     "cypress/**/*.js"
   ],
