@@ -1,6 +1,6 @@
 import React, {FunctionComponent} from 'react';
 import {CollapsiblePanel, LinkData, Paragraph, Section, SectionTitle} from '../common';
-import {Link} from '@reach/router';
+import Link from 'next/link';
 
 export interface PracticesAndGamesProps {
     schedulesLink: LinkData;
@@ -19,7 +19,7 @@ export const PracticesAndGames: FunctionComponent<PracticesAndGamesProps> = ({sc
                 </Paragraph>
 
                 <Paragraph>
-                    Access this season's schedule here: <Link to={schedulesLink.url}>{schedulesLink.text}</Link>
+                    Access this season's schedule here: <Link href={schedulesLink.url}>{schedulesLink.text}</Link>
                 </Paragraph>
 
                 <Paragraph>

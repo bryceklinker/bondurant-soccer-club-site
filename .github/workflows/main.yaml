@@ -89,6 +89,7 @@ jobs:
     if: github.ref == 'refs/heads/main'
     env:
       PLAN_PATH: ${{ github.workspace }}/infra/dev/dev.tfplan
+      SITE_URL: https://dev.bondurantsoccerclub.com
       TARGET_ENV: dev
     steps:
       - uses: actions/checkout@v2
@@ -137,6 +138,7 @@ jobs:
     env:
       PLAN_PATH: ${{ github.workspace }}/infra/prod/prod.tfplan
       TARGET_ENV: prod
+      SITE_URL: https://www.bondurantsoccerclub.com
     steps:
       - uses: actions/checkout@v2
         name: Checkout

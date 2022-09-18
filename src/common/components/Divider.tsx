@@ -1,10 +1,6 @@
-import React, {FunctionComponent} from 'react';
+import React, {FC, PropsWithChildren} from 'react';
 import {Separator} from '@fluentui/react';
 
-export interface DividerProps {
-
-}
-
-export const Divider: FunctionComponent<DividerProps> = ({children}) => {
+export const Divider: FC<PropsWithChildren> = ({children}) => {
     return <Separator>{children}</Separator>
 }

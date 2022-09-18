@@ -1,6 +1,6 @@
 import React, {FunctionComponent} from 'react';
 import {CollapsiblePanel, LocationData, Paragraph, RouteNames, Section, SectionTitle} from '../common';
-import {Link} from '@reach/router';
+import Link from 'next/link';
 
 export interface TreatTicketsProps {
     location: LocationData;
@@ -19,7 +19,7 @@ export const TreatTickets: FunctionComponent<TreatTicketsProps> = ({location}) =
                 </Paragraph>
 
                 <Paragraph>
-                    The concession stand is currently only available at the <Link to={RouteNames.Locations}>{location.title}</Link>.
+                    The concession stand is currently only available at the <Link href={RouteNames.Locations}>{location.title}</Link>.
                 </Paragraph>
             </CollapsiblePanel>
         </Section>

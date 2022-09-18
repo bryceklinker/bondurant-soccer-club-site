@@ -9,7 +9,7 @@ module.exports = {
         '<rootDir>/src/testing/setup-tests.ts'
     ],
     transform: {
-        '\\.tsx?$': [
+        '\\.[jt]sx?$': [
             'ts-jest',
             {
                 tsconfig: '<rootDir>/tsconfig.spec.json'
