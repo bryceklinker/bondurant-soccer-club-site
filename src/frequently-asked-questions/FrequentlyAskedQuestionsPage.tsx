@@ -7,9 +7,9 @@ import {
     PlainStack,
     Section, SectionTitle,
     SubTitle, useCoachFrequentlyAskedQuestions,
-    useFrequentlyAskedQuestions, useRegistrationFrequentlyAskedQuestions
+    useFrequentlyAskedQuestions, useRegistrationFrequentlyAskedQuestions,
+    SmartLink
 } from '../common';
-import {SmartLink} from '../common/components/SmartLink';
 
 export const FrequentlyAskedQuestionsPage: FunctionComponent = () => {
     const frequentlyAskedQuestions = useFrequentlyAskedQuestions()
@@ -21,7 +21,7 @@ export const FrequentlyAskedQuestionsPage: FunctionComponent = () => {
     const coachFaq = useCoachFrequentlyAskedQuestions()
         .map((q, index) => <FrequentlyAskedQuestion key={index} question={q} />)
     return (
-        <GappedStack padded flex>
+        <GappedStack padded>
             <Section shadow padded>
                 <CollapsiblePanel title={<SectionTitle>Frequently Asked Questions</SectionTitle>}>
                     {frequentlyAskedQuestions}

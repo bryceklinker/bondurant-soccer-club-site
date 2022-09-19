@@ -1,7 +1,7 @@
 import {FunctionComponent} from 'react';
-import {ITextProps, Text} from '@fluentui/react';
+import {TextProps, Text} from '@chakra-ui/react';
 
-export interface SectionTitleProps extends Omit<ITextProps, 'as'> {
+export interface SectionTitleProps extends Omit<TextProps, 'as'> {
 }
 
 export const SectionTitle: FunctionComponent<SectionTitleProps> = ({children, ...rest}) => {

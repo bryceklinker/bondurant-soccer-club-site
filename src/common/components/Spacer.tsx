@@ -1,6 +1,6 @@
 import {FunctionComponent} from 'react';
-import { Stack } from "@fluentui/react"
+import { Stack } from "@chakra-ui/react"
 
 export const Spacer: FunctionComponent = () => {
-    return <Stack grow={true} />
+    return <Stack flexGrow={'1'} />
 }

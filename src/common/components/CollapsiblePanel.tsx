@@ -1,10 +1,10 @@
-import {ActionButton, Stack} from '@fluentui/react';
-import {FC, PropsWithChildren} from 'react';
+import {Button, VStack} from '@chakra-ui/react';
+import {FC, PropsWithChildren, ReactNode} from 'react';
 import useCollapse from 'react-collapsed';
 import {useBooleanToggle} from '../hooks';
 
 export type CollapsiblePanelProps = PropsWithChildren & {
-    title: string | React.ReactNode;
+    title: string | ReactNode;
     expanded?: boolean;
 }
 
@@ -14,16 +14,16 @@ export const CollapsiblePanel: FC<CollapsiblePanelProps> = ({children, title, ex
         defaultExpanded: expanded || false
     });
     return (
-        <Stack>
+        <VStack>
             {/* @ts-ignore */}
-            <ActionButton {...getToggleProps({
+            <Button {...getToggleProps({
                 onClick: () => toggle()
             })} className={'collapsible-button'}>
                 {title}
-            </ActionButton>
+            </Button>
             <div {...getCollapseProps()}>
                 {children}
             </div>
-        </Stack>
+        </VStack>
     );
 };

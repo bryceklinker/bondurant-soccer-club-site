@@ -1,6 +1,6 @@
 import {FC, PropsWithChildren} from 'react';
-import {Separator} from '@fluentui/react';
+import {Divider as ChakraDivider} from '@chakra-ui/react';
 
 export const Divider: FC<PropsWithChildren> = ({children}) => {
-    return <Separator>{children}</Separator>
+    return <ChakraDivider>{children}</ChakraDivider>
 }

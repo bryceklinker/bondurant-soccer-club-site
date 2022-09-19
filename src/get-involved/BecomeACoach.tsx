@@ -1,12 +1,12 @@
-import {Stack} from '@fluentui/react';
 import {FunctionComponent} from 'react';
+import {VStack} from '@chakra-ui/react';
 import {Paragraph, SubTitle, useCoachingDrills} from '../common';
 import {ExternalLinks} from '../common/components/ExternalLinks';
 
 export const BecomeACoach: FunctionComponent = () => {
     const drills = useCoachingDrills();
     return (
-        <Stack>
+        <VStack>
             <Paragraph>
                 If you are interested in Coaching or assisting a coach, please contact one of our Director of Coaches.
                 We appreciate your assistance in getting the kids the coaches we need for the teams.
@@ -29,10 +29,10 @@ export const BecomeACoach: FunctionComponent = () => {
                 SafeSport Training
             </Paragraph>
 
-            <Stack>
+            <VStack>
                 <SubTitle>Drills</SubTitle>
                 <ExternalLinks links={drills} />
-            </Stack>
-        </Stack>
+            </VStack>
+        </VStack>
     );
 };

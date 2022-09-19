@@ -1,6 +1,6 @@
 import {FC, PropsWithChildren} from 'react';
-import {Text} from '@fluentui/react';
+import {Heading} from '@chakra-ui/react';
 
 export const Title: FC<PropsWithChildren> = ({children}) => {
-    return <Text as={'h3'} variant={'xxLarge'}>{children}</Text>
+    return <Heading as={'h3'} size={'2xl'}>{children}</Heading>
 }

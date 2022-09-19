@@ -15,3 +15,4 @@ export * from './code-of-conduct-hooks';
 export * from './downloadable-document-hooks';
 export * from './frequently-asked-questions-hooks';
 export * from './referees-hooks';
+export {useCoachingDrills} from './use-coaching-drills';

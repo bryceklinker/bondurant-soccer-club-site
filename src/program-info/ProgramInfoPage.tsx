@@ -5,7 +5,7 @@ import {Program} from './Program';
 export const ProgramInfoPage: FunctionComponent = () => {
     const programs = usePrograms().map((p, i) => <Program key={i} program={p} />);
     return (
-        <GappedStack flex padded>
+        <GappedStack padded>
             <Title>Program Info</Title>
 
             {programs}

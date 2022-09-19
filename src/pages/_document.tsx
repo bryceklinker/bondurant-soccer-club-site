@@ -22,6 +22,7 @@ export default class FluentUIDocument extends Document<FluentUIDocumentProps> {
         return (
             <Html>
                 <Head>
+                    <title>Bondurant Soccer Club</title>
                     <style type={'text/css'} dangerouslySetInnerHTML={{__html: this.props.styleTags}}/>
                     <script type={'text/javascript'} dangerouslySetInnerHTML={{
                         __html: `

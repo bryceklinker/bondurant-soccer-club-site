@@ -18,3 +18,5 @@ export * from './coaching-code-of-conduct';
 export * from './downloadable-documents';
 export * from './frequently-asked-questions';
 export * from './referees';
+export {COACHING_DRILLS} from './coaching-drills';
+export {LAWS_OF_THE_GAME} from './laws-of-the-game';

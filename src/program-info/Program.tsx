@@ -5,11 +5,11 @@ import {
     ProgramInfo,
     ProgramInfoAttribute,
     Section,
-    SectionTitle, SubTitle
+    SectionTitle, SubTitle,
+    SmartLink
 } from '../common';
 import {FunctionComponent} from 'react';
-import {List} from '@fluentui/react';
-import {SmartLink} from '../common/components/SmartLink';
+import {ListItem, UnorderedList} from '@chakra-ui/react';
 
 export interface ProgramProps {
     program: ProgramInfo;
@@ -35,6 +35,14 @@ export interface ProgramAttributeProps {
 }
 
 export const ProgramAttribute: FunctionComponent<ProgramAttributeProps> = ({attribute}) => {
+    const details = attribute.details || [];
+    const items = details.map((item, index) => (
+        <ListItem key={index}>
+            <Paragraph>
+                {item}
+            </Paragraph>
+        </ListItem>
+    ));
     return (
         <PlainStack>
             <PlainStack  horizontal verticalAlign={'center'}>
@@ -46,7 +54,9 @@ export const ProgramAttribute: FunctionComponent<ProgramAttributeProps> = ({attr
                 {attribute.details
                     ? (
                         <PlainStack>
-                            <List items={attribute.details} onRenderCell={(item, i) => <Paragraph key={i}>{item}</Paragraph>}/>
+                            <UnorderedList>
+                                {items}
+                            </UnorderedList>
                         </PlainStack>
                     )
                     : null}

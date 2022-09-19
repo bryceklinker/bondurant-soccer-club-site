@@ -1,6 +1,6 @@
 import {FunctionComponent} from 'react';
 import {Section, LinkData, Paragraph, SectionTitle, SubTitle, CollapsiblePanel, GetInvolvedData} from '../common';
-import {Link as ExternalLink, Stack} from '@fluentui/react';
+import {Link as ChakraLink, VStack} from '@chakra-ui/react';
 import NextLink from 'next/link';
 
 export interface GetInvolvedLinkProps {
@@ -11,12 +11,11 @@ export const GetInvolvedLink: FunctionComponent<GetInvolvedLinkProps> = ({data})
     if (data.url.startsWith('http') || data.url.startsWith('mailto')) {
         return (
             <Paragraph>
-                <ExternalLink as={'a'}
+                <ChakraLink as={'a'}
                               href={data.url}
-                              underline={false}
                               target={'_blank'}>
                     {data.text}
-                </ExternalLink>
+                </ChakraLink>
             </Paragraph>
         );
     }
@@ -43,11 +42,11 @@ export const GetInvolvedOption: FunctionComponent<GetInvolvedOptionProps> = ({da
     return (
         <Section shadow padded>
             <CollapsiblePanel title={<SectionTitle>{data.title}</SectionTitle>}>
-                <Stack>
+                <VStack>
                     {description}
                     <SubTitle>Links</SubTitle>
                     {links}
-                </Stack>
+                </VStack>
             </CollapsiblePanel>
         </Section>
     );

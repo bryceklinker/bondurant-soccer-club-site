@@ -1,19 +1,18 @@
 import {FC, PropsWithChildren} from 'react';
-import {Stack, createTheme, ThemeProvider} from '@fluentui/react';
+import {ChakraProvider, extendTheme} from '@chakra-ui/react';
 
-const theme = createTheme({
-    palette: {
-        themePrimary: '#142EC0FF'
-    },
-    defaultFontStyle: {
-        fontFamily: 'Lato, "Segoe UI", "Segoe UI Web (West European)", "Segoe UI", -apple-system, BlinkMacSystemFont, "Roboto", "Helvetica Neue", sans-serif'
+const theme = extendTheme({
+    colors: {
+        brand: {
+            500: '#142EC0FF'
+        }
     }
 });
 
 export const BscThemeProvider: FC<PropsWithChildren> = ({children}) => {
     return (
-        <ThemeProvider theme={theme} as={Stack} className={'theme-provider'}>
+        <ChakraProvider theme={theme}>
             {children}
-        </ThemeProvider>
+        </ChakraProvider>
     );
 };

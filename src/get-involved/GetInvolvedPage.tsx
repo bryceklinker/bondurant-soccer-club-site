@@ -6,7 +6,7 @@ export const GetInvolvedPage: FunctionComponent = () => {
     const getInvolvedOptions = useGetInvolvedOptions();
     const options = getInvolvedOptions.map((o, i) => <GetInvolvedOption key={i} data={o}/>);
     return (
-        <GappedStack padded flex>
+        <GappedStack padded>
             <Title>Get Involved</Title>
 
             {options}

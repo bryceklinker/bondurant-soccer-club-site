@@ -4,7 +4,7 @@ import {GappedStack, Title} from '../common';
 
 export const AboutPage: FunctionComponent = () => {
     return (
-        <GappedStack padded flex>
+        <GappedStack padded>
             <Title>About</Title>
             <MissionStatement />
         </GappedStack>

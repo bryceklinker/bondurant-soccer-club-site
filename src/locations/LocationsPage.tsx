@@ -6,7 +6,7 @@ export const LocationsPage: FunctionComponent = () => {
     const locations = useLocations();
     const segments = locations.map((l, i) => <LocationSegment key={i} data={l}/>);
     return (
-        <GappedStack padded flex>
+        <GappedStack padded>
             <Title>Locations</Title>
             {segments}
         </GappedStack>

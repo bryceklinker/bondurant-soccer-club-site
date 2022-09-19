@@ -9,7 +9,7 @@ import {
     UniformSize,
     Numbers, SubTitle
 } from '../common';
-import {List} from '@fluentui/react';
+import {ListItem, UnorderedList} from '@chakra-ui/react';
 
 export interface UniformCostsAndSizesProps {
     sizes: Array<UniformSize>;
@@ -22,6 +22,17 @@ export const UniformCostsAndSizes: FunctionComponent<UniformCostsAndSizesProps> 
                                                                                        purchaseOptions,
                                                                                        sizes
                                                                                    }) => {
+    const purchaseItems = purchaseOptions.map((option, index) => (
+        <ListItem key={index}>
+            <PurchaseOption item={option}/>
+        </ListItem>
+    ));
+
+    const sizeItems = sizes.map((size, index) => (
+        <ListItem key={index}>
+            <AvailableSize size={size} />
+        </ListItem>
+    ));
     return (
         <Section padded shadow>
             <CollapsiblePanel title={<SectionTitle>BSC Uniform Costs & Sizes</SectionTitle>}>
@@ -42,8 +53,9 @@ export const UniformCostsAndSizes: FunctionComponent<UniformCostsAndSizesProps> 
                 </Paragraph>
 
                 <SubTitle>Uniform Purchase Options</SubTitle>
-                <List items={purchaseOptions}
-                      onRenderCell={(item, index) => <PurchaseOption key={index} item={item}/>}/>
+                <UnorderedList>
+                    {purchaseItems}
+                </UnorderedList>
 
                 <Paragraph>
                     Jerseys and shorts do not have to be ordered in the same size so you are able to customize the
@@ -51,8 +63,9 @@ export const UniformCostsAndSizes: FunctionComponent<UniformCostsAndSizesProps> 
                 </Paragraph>
 
                 <SubTitle>Available Sizes</SubTitle>
-                <List items={sizes}
-                      onRenderCell={(item, index) => <AvailableSize key={index} size={item} />} />
+                <UnorderedList>
+                    {sizeItems}
+                </UnorderedList>
             </CollapsiblePanel>
         </Section>
     );

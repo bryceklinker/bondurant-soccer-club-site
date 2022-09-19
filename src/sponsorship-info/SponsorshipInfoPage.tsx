@@ -7,7 +7,7 @@ export const SponsorshipInfoPage: FunctionComponent = () => {
     const boardMembersEmail = useBoardMembersEmailLink();
     const sponsorLinks = useSponsorshipLinks();
     return (
-        <GappedStack padded flex>
+        <GappedStack padded>
             <Title>Sponsorship Info</Title>
             <CurrentNeeds boardMembersEmailLink={boardMembersEmail} />
             <CurrentSponsors sponsorLinks={sponsorLinks} />

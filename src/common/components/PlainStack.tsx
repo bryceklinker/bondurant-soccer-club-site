@@ -1,20 +1,19 @@
 import {FunctionComponent} from 'react';
-import {IStackProps, Stack} from '@fluentui/react';
+import {StackProps, VStack, HStack} from '@chakra-ui/react';
 
-export interface PlainStackProps extends IStackProps {
+export interface PlainStackProps extends StackProps {
     padded?: boolean;
-    flex?: boolean;
     gap?: string | number;
+    horizontal?: boolean;
 }
 
-export const PlainStack: FunctionComponent<PlainStackProps> = ({padded, flex, className, tokens, gap, ...rest}) => {
+export const PlainStack: FunctionComponent<PlainStackProps> = ({horizontal, padded, flex, className, gap, ...rest}) => {
     const classes = [
         padded ? 'padded-content' : '',
-        flex ? 'flex' : '',
         className
     ];
-    const actualTokens = gap
-        ? {...(tokens || {}), childrenGap: gap}
-        : tokens;
-    return <Stack className={classes.join(' ')} tokens={actualTokens} {...rest} />
+    if (horizontal) {
+        return <HStack className={classes.join(' ')}  {...rest} />
+    }
+    return <VStack className={classes.join(' ')}  {...rest} />
 }

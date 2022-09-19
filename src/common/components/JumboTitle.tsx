@@ -1,8 +1,7 @@
 import {FunctionComponent} from 'react';
-import {Text} from '@fluentui/react';
-import {ITextProps} from '@fluentui/react/lib/components/Text/Text.types';
+import {Text, TextProps} from '@chakra-ui/react';
 
-export interface JumboTitleProps extends Omit<ITextProps, 'as' | 'variant'> {
+export interface JumboTitleProps extends Omit<TextProps, 'as' | 'variant'> {
 
 }
 

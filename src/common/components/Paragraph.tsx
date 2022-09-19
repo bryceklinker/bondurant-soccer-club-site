@@ -1,7 +1,7 @@
 import {FunctionComponent} from 'react';
-import {Text, ITextProps} from '@fluentui/react';
+import {Text, TextProps} from '@chakra-ui/react';
 
-export interface ParagraphProps extends ITextProps {
+export interface ParagraphProps extends TextProps {
     italic?: boolean;
     bold?: boolean;
     indent?: boolean;

@@ -8,7 +8,7 @@ export const UniformInfoPage: FunctionComponent = () => {
     const purchaseOptions = useUniformPurchaseOptions();
     const directorLink = useDirectorOfUniformsLink();
     return (
-        <GappedStack flex padded>
+        <GappedStack padded>
             <Title>Uniform Info</Title>
 
             <UniformCostsAndSizes sizes={sizes}

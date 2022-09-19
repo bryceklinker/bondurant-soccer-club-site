@@ -1,6 +1,6 @@
-import {Stack} from '@fluentui/react';
 import {FunctionComponent} from 'react';
 import {CollapsiblePanel, ExternalLink, LinkData, Paragraph, Section, SectionTitle} from '../common';
+import {VStack} from '@chakra-ui/react';
 
 export interface U9AndUpSchedulesProps {
     link: LinkData;
@@ -10,7 +10,7 @@ export const U9AndUpSchedules: FunctionComponent<U9AndUpSchedulesProps> = ({link
     return (
         <Section padded shadow>
             <CollapsiblePanel title={<SectionTitle>U9 and Up Schedules</SectionTitle>}>
-                <Stack>
+                <VStack>
                     <Paragraph>
                         U9 and up schedules can be accessed <ExternalLink href={link.url}>{link.text}</ExternalLink>
                     </Paragraph>
@@ -18,7 +18,7 @@ export const U9AndUpSchedules: FunctionComponent<U9AndUpSchedulesProps> = ({link
                         Click the age group, click the Bondurant Soccer Club team name, and finally, scroll to the
                         bottom of the page where you can view the schedule.
                     </Paragraph>
-                </Stack>
+                </VStack>
             </CollapsiblePanel>
         </Section>
     );

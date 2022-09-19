@@ -1,5 +1,5 @@
 import {FunctionComponent} from 'react';
-import {Image} from '@fluentui/react';
+import {Image} from '@chakra-ui/react';
 import {CollapsiblePanel, Section, SectionTitle} from '../common';
 
 export interface ImageScheduleProps {

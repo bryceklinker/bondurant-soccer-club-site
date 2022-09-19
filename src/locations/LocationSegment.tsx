@@ -1,6 +1,6 @@
 import {FunctionComponent} from 'react';
 import {Paragraph, Section, SubTitle, SectionTitle, EmbeddedMap, CollapsiblePanel, LocationData} from '../common';
-import {Stack} from '@fluentui/react';
+import {HStack, VStack} from '@chakra-ui/react';
 
 export interface LocationSegmentProps {
     data: LocationData;
@@ -11,14 +11,14 @@ export const LocationSegment: FunctionComponent<LocationSegmentProps> = ({data})
     return (
         <Section shadow padded>
             <CollapsiblePanel title={<SectionTitle>{data.title}</SectionTitle>}>
-                <Stack horizontal tokens={{childrenGap: '1em'}} className={'location-section'}>
-                    <Stack>
+                <HStack gap={'1em'} className={'location-section'}>
+                    <VStack>
                         <SubTitle>Age Groups:</SubTitle>
                         {ageGroups}
-                    </Stack>
+                    </VStack>
 
                     <EmbeddedMap url={data.mapsUrl}/>
-                </Stack>
+                </HStack>
 
             </CollapsiblePanel>
         </Section>

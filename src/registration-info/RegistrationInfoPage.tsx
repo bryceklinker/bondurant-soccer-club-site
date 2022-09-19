@@ -12,7 +12,7 @@ export const RegistrationInfoPage: FunctionComponent = () => {
     const dates = useRegistrationDates();
     const registrationLink = useRegistrationLink();
     return (
-        <GappedStack padded flex>
+        <GappedStack padded>
             <Title>Registration Info</Title>
 
             <LinkButton external

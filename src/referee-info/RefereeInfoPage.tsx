@@ -16,7 +16,7 @@ export const RefereeInfoPage: FunctionComponent = () => {
     const recertificationCost = useRefereeRecertificationCost();
     const recertificationRequiredTrainingLink = useRefereeRequiredTrainingLink();
     return (
-        <GappedStack padded flex>
+        <GappedStack padded>
             <Title>Referee Info</Title>
 
             <BecomeARefereeInfo contactLink={directorOfRefereesLink}/>

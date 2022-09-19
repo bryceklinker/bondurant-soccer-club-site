@@ -9,7 +9,7 @@ export interface DescriptionProps {
 
 export const Description: FunctionComponent<DescriptionProps> = ({season, minBirthYear, maxBirthYear}) => {
     return (
-        <Section flex padded className={'description'}>
+        <Section padded className={'description'}>
             <Paragraph>
                 Bondurant Soccer Club has levels for all ages. For the {season.startYear}/{season.endYear} season, this
                 includes those players born between {minBirthYear} and {maxBirthYear}.

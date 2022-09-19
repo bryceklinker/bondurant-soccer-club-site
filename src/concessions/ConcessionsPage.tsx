@@ -15,7 +15,7 @@ export const ConcessionsPage: FunctionComponent = () => {
     const contactLink = useDirectorOfConcessionsMailLink();
     const hoursImage = useConcessionHoursImage();
     return (
-        <GappedStack padded flex>
+        <GappedStack padded>
             <Title>Concessions Info</Title>
 
             <TreatTickets location={concessionLocation}/>

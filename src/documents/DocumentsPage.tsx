@@ -23,7 +23,7 @@ export const DocumentsPage: FunctionComponent = () => {
     const punishments = useCodeOfConductPunishments();
     const documentLinks = useDownloadableDocuments();
     return (
-        <GappedStack padded flex>
+        <GappedStack padded>
             <Title>Documents</Title>
 
             <DownloadableDocuments documentLinks={documentLinks} />

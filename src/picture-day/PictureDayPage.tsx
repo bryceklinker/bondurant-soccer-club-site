@@ -9,7 +9,7 @@ import {
     usePicturesCompanyLink,
     usePicturesDate
 } from '../common';
-import {Image} from '@fluentui/react';
+import {Image} from '@chakra-ui/react';
 const PictureDaySchedule = require('../assets/picture_day_schedule.jpg');
 
 export const PictureDayPage: FunctionComponent = () => {
@@ -20,7 +20,7 @@ export const PictureDayPage: FunctionComponent = () => {
     return (
         <GappedStack padded>
             <Title>Picture Day</Title>
-            <Section padded flex horizontal>
+            <Section padded horizontal>
                 <PlainStack className={'flex-half'}>
                     <Image src={PictureDaySchedule} />
                 </PlainStack>

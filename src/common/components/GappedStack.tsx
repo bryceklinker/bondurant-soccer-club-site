@@ -1,9 +1,8 @@
 import {FunctionComponent} from 'react';
-import {IStackProps, Stack} from '@fluentui/react';
+import {VStack, StackProps} from '@chakra-ui/react';
 
-interface GappedStackProps extends Omit<IStackProps, 'tokens'> {
+interface GappedStackProps extends StackProps {
     padded?: boolean;
-    flex?: boolean;
     gap?: string | number;
 }
 
@@ -17,12 +16,11 @@ export const GappedStack: FunctionComponent<GappedStackProps> = ({
                                                                  }) => {
     const classes = [
         padded ? 'padded-content' : '',
-        flex ? 'flex' : '',
         className ? className : ''
     ];
     return (
-        <Stack tokens={{childrenGap: gap}} className={classes.join(' ')} {...rest}>
+        <VStack className={classes.join(' ')} {...rest}>
             {children}
-        </Stack>
+        </VStack>
     );
 };

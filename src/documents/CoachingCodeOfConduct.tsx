@@ -1,6 +1,5 @@
 import {FunctionComponent} from 'react';
 import {CollapsiblePanel, Paragraph, ParagraphList, Section, SectionTitle, SubTitle} from '../common';
-import {List} from '@fluentui/react';
 import {BoardProceduresForCodeOfConductViolations} from './BoardProceduresForCodeOfConductViolations';
 
 export interface CoachingCodeOfConductProps {

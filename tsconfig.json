@@ -23,6 +23,7 @@
   "exclude": [
     "node_modules",
     "src/**/*.spec.ts",
+    "src/**/*.spec.tsx",
     "src/testing/**/*.ts",
     "src/testing/**/*.tsx",
     "cypress/**/*.ts",
