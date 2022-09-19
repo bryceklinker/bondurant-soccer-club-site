@@ -1,7 +1,7 @@
 import {FC, PropsWithChildren} from 'react';
 import {ChakraProvider, extendTheme} from '@chakra-ui/react';
 
-const theme = extendTheme({
+export const BSC_THEME = extendTheme({
     colors: {
         brand: {
             500: '#142EC0FF'
@@ -11,7 +11,7 @@ const theme = extendTheme({
 
 export const BscThemeProvider: FC<PropsWithChildren> = ({children}) => {
     return (
-        <ChakraProvider theme={theme}>
+        <ChakraProvider theme={BSC_THEME}>
             {children}
         </ChakraProvider>
     );
