@@ -1,6 +1,6 @@
 import {FunctionComponent} from 'react';
 import {Section, LinkData, Paragraph, SectionTitle, SubTitle, CollapsiblePanel, GetInvolvedData} from '../common';
-import {Link as ChakraLink, VStack} from '@chakra-ui/react';
+import {Link as ChakraLink, Flex} from '@chakra-ui/react';
 import NextLink from 'next/link';
 
 export interface GetInvolvedLinkProps {
@@ -42,11 +42,11 @@ export const GetInvolvedOption: FunctionComponent<GetInvolvedOptionProps> = ({da
     return (
         <Section shadow padded>
             <CollapsiblePanel title={<SectionTitle>{data.title}</SectionTitle>}>
-                <VStack>
+                <Flex direction={'column'}>
                     {description}
                     <SubTitle>Links</SubTitle>
                     {links}
-                </VStack>
+                </Flex>
             </CollapsiblePanel>
         </Section>
     );

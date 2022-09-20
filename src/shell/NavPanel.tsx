@@ -1,37 +1,26 @@
-import {FunctionComponent, useCallback} from 'react';
-import {IPanelProps, Panel, Stack} from '@fluentui/react';
+import {FunctionComponent} from 'react';
 import {Spacer} from '../common';
 import {SocialMedia} from './SocialMedia';
 import {Copyright} from './Copyright';
 import {NavLinks} from './NavLinks';
 import {MoreNavbar} from './MoreNavbar';
+import {Drawer, DrawerProps, VStack} from '@chakra-ui/react';
 
-export interface NavPanelProps extends IPanelProps {
+export interface NavPanelProps extends Omit<DrawerProps, 'children'> {
 
 }
 
-export const NavPanel: FunctionComponent<NavPanelProps> = ({onDismiss, ...rest}) => {
-    const handleDismiss = useCallback(() => {
-        if (onDismiss) {
-            onDismiss();
-        }
-    }, [onDismiss]);
+export const NavPanel: FunctionComponent<NavPanelProps> = ({onClose, ...rest}) => {
     return (
-        <Panel onDismiss={handleDismiss}
-               styles={{
-                   commands: 'navpanel',
-                   main: 'navpanel',
-                   scrollableContent: 'flex',
-                   content: 'flex'
-               }}
+        <Drawer onClose={onClose}
                {...rest}>
-            <Stack className={'navpanel flex'} horizontalAlign={'center'}>
-                <NavLinks onClick={handleDismiss}/>
-                <MoreNavbar onClick={handleDismiss}/>
+            <VStack className={'navpanel flex'} >
+                <NavLinks onClick={onClose}/>
+                <MoreNavbar onClick={onClose}/>
                 <Spacer/>
                 <SocialMedia/>
                 <Copyright/>
-            </Stack>
-        </Panel>
+            </VStack>
+        </Drawer>
     );
 };

@@ -1,5 +1,5 @@
 import {FunctionComponent} from 'react';
-import {VStack, StackProps} from '@chakra-ui/react';
+import {StackProps, Flex} from '@chakra-ui/react';
 
 interface GappedStackProps extends StackProps {
     padded?: boolean;
@@ -19,8 +19,8 @@ export const GappedStack: FunctionComponent<GappedStackProps> = ({
         className ? className : ''
     ];
     return (
-        <VStack className={classes.join(' ')} {...rest}>
+        <Flex flex={1} direction={'column'} gap={'1.5em'} className={classes.join(' ')} {...rest}>
             {children}
-        </VStack>
+        </Flex>
     );
 };

@@ -1,13 +1,10 @@
-import { Stack } from '@fluentui/react';
-import {Suspense, FC, PropsWithChildren} from 'react';
-import {Loading} from '../common';
+import {Flex} from '@chakra-ui/react';
+import {FC, PropsWithChildren} from 'react';
 
 export const ShellMainContent: FC<PropsWithChildren> = ({children}) => {
     return (
-        <Stack grow={true} className={`main-content flex`}>
-            <Suspense fallback={<Loading/>}>
-                {children}
-            </Suspense>
-        </Stack>
+        <Flex flex={1} direction={'column'} flexGrow={1} className={`main-content flex`}>
+            {children}
+        </Flex>
     );
 };

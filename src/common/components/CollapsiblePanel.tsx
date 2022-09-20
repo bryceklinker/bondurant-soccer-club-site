@@ -1,4 +1,5 @@
-import {Button, VStack} from '@chakra-ui/react';
+import {Button, Flex, Spacer} from '@chakra-ui/react';
+import {ChevronDownIcon, ChevronUpIcon} from '@chakra-ui/icons';
 import {FC, PropsWithChildren, ReactNode} from 'react';
 import useCollapse from 'react-collapsed';
 import {useBooleanToggle} from '../hooks';
@@ -10,20 +11,21 @@ export type CollapsiblePanelProps = PropsWithChildren & {
 
 export const CollapsiblePanel: FC<CollapsiblePanelProps> = ({children, title, expanded}) => {
     const {toggle} = useBooleanToggle(expanded || false);
-    const {getToggleProps, getCollapseProps} = useCollapse({
+    const {getToggleProps, getCollapseProps, isExpanded} = useCollapse({
         defaultExpanded: expanded || false
     });
     return (
-        <VStack>
-            {/* @ts-ignore */}
-            <Button {...getToggleProps({
+        <Flex flex={1} direction={'column'}>
+            <Button size={'lg'} padding={0} className={'collapsible-button'} display={'flex'} flexDirection={'row'} variant={'unstyled'} justifyContent={'start'} backgroundColor={'white'} {...getToggleProps({
                 onClick: () => toggle()
-            })} className={'collapsible-button'}>
+            })}>
                 {title}
+                <Spacer />
+                {isExpanded ? <ChevronUpIcon /> : <ChevronDownIcon />}
             </Button>
-            <div {...getCollapseProps()}>
+            <Flex direction={'column'} flex={1} {...getCollapseProps()}>
                 {children}
-            </div>
-        </VStack>
+            </Flex>
+        </Flex>
     );
 };

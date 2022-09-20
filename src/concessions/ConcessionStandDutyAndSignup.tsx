@@ -9,7 +9,7 @@ import {
     Section,
     SectionTitle
 } from '../common';
-import {Image} from '@fluentui/react';
+import {Image} from '@chakra-ui/react';
 
 export interface ConcessionStandDutyAndSignupProps {
     signupLink: LinkData;

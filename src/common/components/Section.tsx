@@ -1,11 +1,12 @@
 import {FunctionComponent} from 'react';
-import {HStack, StackProps, VStack} from '@chakra-ui/react';
+import {Flex, FlexProps, HStack, StackProps, VStack} from '@chakra-ui/react';
 
-export interface SectionProps extends Omit<StackProps, 'shadow'> {
+export interface SectionProps extends Omit<FlexProps, 'shadow'> {
     inverted?: boolean;
     shadow?: boolean;
     padded?: boolean;
     horizontal?: boolean;
+    fullWidth?: boolean;
 }
 
 export const Section: FunctionComponent<SectionProps> = ({
@@ -24,10 +25,9 @@ export const Section: FunctionComponent<SectionProps> = ({
         className ? className : ''
     ];
 
-    const Stack = horizontal ? HStack : VStack;
     return (
-        <Stack {...rest} className={classes.join(' ')}>
+        <Flex flexDirection={horizontal ? 'row' : 'column'} {...rest} className={classes.join(' ')}>
             {children}
-        </Stack>
+        </Flex>
     );
 };

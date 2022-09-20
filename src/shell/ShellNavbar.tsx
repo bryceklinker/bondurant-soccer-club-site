@@ -1,8 +1,9 @@
 import {FunctionComponent} from 'react';
 import {useBooleanToggle} from '../common';
-import {DefaultButton, Stack} from '@fluentui/react';
-import { NavLinks } from './NavLinks';
+import {NavLinks} from './NavLinks';
 import {MoreNavbar} from './MoreNavbar';
+import {HStack, IconButton, MenuIcon} from '@chakra-ui/react';
+import {HamburgerIcon} from '@chakra-ui/icons';
 
 import {NavPanel} from './NavPanel';
 
@@ -10,14 +11,15 @@ export const ShellNavbar: FunctionComponent = () => {
     const {value, toggleOff, toggleOn} = useBooleanToggle();
     return (
         <>
-            <NavPanel isOpen={value} onDismiss={toggleOff} hasCloseButton={false} isLightDismiss />
-            <Stack as={'nav'} horizontal className={'navbar'} horizontalAlign={'start'}>
-                <DefaultButton className={'nav-button nav-menu-button'}
-                               onClick={toggleOn}
-                               iconProps={{iconName: 'GlobalNavButton'}}/>
-                <NavLinks onClick={toggleOff} />
-                <MoreNavbar onClick={toggleOff} />
-            </Stack>
+            <NavPanel isOpen={value} onClose={toggleOff}/>
+            <HStack as={'nav'} className={'navbar'}>
+                <IconButton className={'nav-button nav-menu-button'}
+                            icon={<HamburgerIcon/>}
+                            aria-label={'menu'}
+                            onClick={toggleOn}/>
+                <NavLinks onClick={toggleOff}/>
+                <MoreNavbar onClick={toggleOff}/>
+            </HStack>
         </>
     );
 };

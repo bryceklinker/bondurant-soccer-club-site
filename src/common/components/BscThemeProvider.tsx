@@ -3,7 +3,7 @@ import {ChakraProvider, extendTheme} from '@chakra-ui/react';
 
 export const BSC_THEME = extendTheme({
     colors: {
-        brand: {
+        blue: {
             500: '#142EC0FF'
         }
     }

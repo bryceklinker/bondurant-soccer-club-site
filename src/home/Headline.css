@@ -12,15 +12,8 @@
 }
 
 .headline {
-    display: flex;
+    width: 100vw;
     height: 100vh;
-    flex: 1;
-    flex-direction: column;
     justify-content: center;
-    align-items: center;
     background-color: rgba(0, 0, 0, 0.4);
-}
-
-.headline-title {
-    color: white;
 }

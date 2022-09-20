@@ -1,44 +1,24 @@
 import {FunctionComponent} from 'react';
-import {CommandButton, DefaultButton, IContextualMenuItem, IContextualMenuProps} from '@fluentui/react';
 import Link from 'next/link';
+import {MenuButton, Menu, Button, MenuList, MenuItem} from '@chakra-ui/react';
 import {MORE_INFO_NAVIGATION_LINKS} from '../common';
-
-function renderMenuItem(item: IContextualMenuItem, dismissMenu: (ev?: any, dismissAll?: boolean) => void) {
-    const handleClick = () => {
-        if (item.onClick) {
-            item.onClick();
-        }
-        dismissMenu();
-    };
-    return (
-        <Link href={item.href || ''} className={'nav-link'} onClick={handleClick} aria-label={item.text}>
-            <DefaultButton className={'nav-button'}>
-                {item.text}
-            </DefaultButton>
-        </Link>
-    )
-}
 
 export interface MoreInfoLinksProps {
     onClick?: () => void;
 }
 
 export const MoreNavbar: FunctionComponent<MoreInfoLinksProps> = ({onClick}) => {
-    const menuProps: IContextualMenuProps = {
-        className: 'nav-menu',
-        calloutProps: {
-          className: 'nav-menu-callout',
-        },
-        items: MORE_INFO_NAVIGATION_LINKS.map((l, i) => ({
-            key: `${i}`,
-            text: l.text,
-            href: l.url,
-            onClick,
-            className: 'nav-menu-item',
-            onRender: renderMenuItem
-        }))
-    }
+    const menuItems = MORE_INFO_NAVIGATION_LINKS.map((data, index) => (
+        <MenuItem key={index} className={'nav-button'} colorScheme={'black'} variant={'link'} as={Button}>
+            <Link href={data.url}>{data.text}</Link>
+        </MenuItem>
+    ))
     return (
-        <CommandButton className={'nav-button command-button'} aria-label={'more nav button'} text={'More Info'} menuProps={menuProps} />
+        <Menu onClose={onClick}>
+            <MenuButton className={'nav-button'} colorScheme={'black'} as={Button} >More Info</MenuButton>
+            <MenuList backgroundColor={'black'} >
+                {menuItems}
+            </MenuList>
+        </Menu>
     )
 }

@@ -19,7 +19,11 @@
 }
 
 .navbar .nav-button {
-    border-right: rgba(255,255,255,0.2) solid 1px;
+    padding: 1em;
+    border-radius: 0;
+    margin: 0;
+    border-right: rgba(255,255,255,0.2) solid 0.5px;
+    border-left: rgba(255,255,255,0.2) solid 0.5px;
 }
 
 .navbar .command-button {
@@ -34,7 +38,7 @@
     visibility: collapse;
 }
 
-.navbar a[aria-current="page"] {
+.navbar button.active {
     border-bottom: var(--blue) solid 2px;
 }
 

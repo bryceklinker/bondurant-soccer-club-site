@@ -10,7 +10,12 @@ export type JumpToButtonProps = PropsWithChildren & {
 export const JumpToButton: FC<JumpToButtonProps> = ({to, children}) => {
     return (
             <Link href={to}>
-                <Button className={`jump-link large-button`} aria-label={'jump link'}>
+                <Button sx={{
+                    width: '9em',
+                    height: '9em',
+                    borderRadius: '4.5em',
+                    boxShadow: '4px 4px 4px dimgray'
+                }} colorScheme={'blue'} className={`jump-link large-button`} aria-label={'jump link'}>
                     {children}
                 </Button>
             </Link>
@@ -19,7 +24,7 @@ export const JumpToButton: FC<JumpToButtonProps> = ({to, children}) => {
 
 export const JumpToLinks: FC = () => {
     return (
-        <HStack className={'jump-link-container'} gap={'1em'}>
+        <HStack gap={'1em'} >
             <JumpToButton to={RouteNames.GetInvolved}>
                 Get Involved
             </JumpToButton>

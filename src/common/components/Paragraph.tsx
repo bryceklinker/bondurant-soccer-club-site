@@ -14,5 +14,5 @@ export const Paragraph: FunctionComponent<ParagraphProps> = ({italic, bold, inde
         indent ? 'indent' : '',
         className
     ].join(' ');
-    return <Text as={'p'} variant={'large'} block className={classes} {...rest} />;
+    return <Text as={'p'} variant={'large'} className={classes} {...rest} />;
 };

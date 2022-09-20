@@ -14,9 +14,7 @@ export default class FluentUIDocument extends Document<FluentUIDocumentProps> {
     render() {
         return (
             <Html lang={'en'}>
-                <Head>
-                    <title>Bondurant Soccer Club</title>
-                </Head>
+                <Head />
                 <body>
                 <ColorModeScript initialColorMode={BSC_THEME.config.initialColorMode } />
                 <Main/>

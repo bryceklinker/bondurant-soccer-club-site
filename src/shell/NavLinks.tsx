@@ -1,7 +1,8 @@
-import {FunctionComponent} from 'react';
+import {FunctionComponent, useMemo} from 'react';
 import {LinkData, MAIN_NAVIGATION_LINKS} from '../common';
 import Link from 'next/link';
-import {DefaultButton} from '@fluentui/react';
+import {Button} from '@chakra-ui/react';
+import {useRouter} from 'next/router';
 
 export interface NavLinkProps {
     data: LinkData;
@@ -9,11 +10,17 @@ export interface NavLinkProps {
 }
 
 export const NavLink: FunctionComponent<NavLinkProps> = ({data, onClick}) => {
+    const router = useRouter();
+    const isActive = useMemo(() => router.pathname === `/${data.url}`, [data, router]);
+    const className = useMemo(() => [
+        'nav-button',
+        isActive ? 'active' : ''
+    ].join(' '), [isActive]);
     return (
-        <Link href={data.url} onClick={onClick} className={'nav-link'} aria-label={data.text}>
-            <DefaultButton className={'nav-button'}>
+        <Link href={data.url} className={'nav-link'} aria-label={data.text}>
+            <Button className={className} variant={'link'} colorScheme={'black'} onClick={onClick}>
                 {data.text}
-            </DefaultButton>
+            </Button>
         </Link>
     );
 };

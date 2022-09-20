@@ -1,5 +1,5 @@
 import {FunctionComponent} from 'react';
-import {StackProps, VStack, HStack} from '@chakra-ui/react';
+import {StackProps, VStack, HStack, Flex} from '@chakra-ui/react';
 
 export interface PlainStackProps extends StackProps {
     padded?: boolean;
@@ -12,8 +12,5 @@ export const PlainStack: FunctionComponent<PlainStackProps> = ({horizontal, padd
         padded ? 'padded-content' : '',
         className
     ];
-    if (horizontal) {
-        return <HStack className={classes.join(' ')}  {...rest} />
-    }
-    return <VStack className={classes.join(' ')}  {...rest} />
+    return <Flex direction={horizontal ? 'row' : 'column'} className={classes.join(' ')}  {...rest} />
 }

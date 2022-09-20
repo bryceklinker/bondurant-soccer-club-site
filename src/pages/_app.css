@@ -8,7 +8,7 @@
 
 html,
 body,
-#root {
+#__next {
     display: block;
     margin: 0;
     width: 100vw;
@@ -16,8 +16,10 @@ body,
     background-color: var(--default-background-color);
 }
 
-#root > div {
-    height: 100vh;
+#__next {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
 }
 
 img {
