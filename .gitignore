@@ -7,3 +7,5 @@ dist/
 cypress/videos/
 cypress/screenshots/
 cypress/downloads/
+.cache/
+public/
