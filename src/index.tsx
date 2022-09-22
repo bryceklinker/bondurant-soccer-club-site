@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {AppContainer} from 'react-hot-loader';
-import {initializeIcons} from '@fluentui/font-icons-mdl2';
+import { AppContainer } from 'react-hot-loader';
+import { initializeIcons } from '@fluentui/font-icons-mdl2';
 import Shell from './shell/Shell';
 
 import './index.css';
@@ -9,7 +9,6 @@ import './index.css';
 
 // Export your top level component as JSX (for static rendering)
 export default Shell;
-
 
 initializeIcons();
 // Render your app
@@ -25,7 +24,7 @@ if (typeof document !== 'undefined') {
     const render = (Comp: () => JSX.Element) => {
         renderMethod(
             <AppContainer>
-                <Comp/>
+                <Comp />
             </AppContainer>,
             target
         );

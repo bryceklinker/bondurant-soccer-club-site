@@ -1,4 +1,4 @@
-import {RegistrationInfoPage} from '../support/registration-info.page';
+import { RegistrationInfoPage } from '../support/registration-info.page';
 
 describe('Registration Info', () => {
     it('should show registration info', () => {

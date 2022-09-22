@@ -1,15 +1,17 @@
-import React, {FunctionComponent} from 'react';
-import {LinkData, Section} from '../common';
-import {ExternalLinks} from '../common/components/ExternalLinks';
+import React, { FunctionComponent } from 'react';
+import { LinkData, Section } from '../common';
+import { ExternalLinks } from '../common/components/ExternalLinks';
 
 export interface CurrentSponsorsProps {
     sponsorLinks: Array<LinkData>;
 }
 
-export const CurrentSponsors: FunctionComponent<CurrentSponsorsProps> = ({sponsorLinks}) => {
+export const CurrentSponsors: FunctionComponent<CurrentSponsorsProps> = ({
+    sponsorLinks
+}) => {
     return (
         <Section padded shadow>
-           <ExternalLinks links={sponsorLinks} />
+            <ExternalLinks links={sponsorLinks} />
         </Section>
-    )
-}
+    );
+};

@@ -1,4 +1,4 @@
-@import "../../common/styles/colors.css";
+@import '../../common/styles/colors.css';
 
 .nav-button {
     font-size: 1rem;
@@ -19,7 +19,7 @@
 }
 
 .navbar .nav-button {
-    border-right: rgba(255,255,255,0.2) solid 1px;
+    border-right: rgba(255, 255, 255, 0.2) solid 1px;
 }
 
 .navbar .command-button {
@@ -34,7 +34,7 @@
     visibility: collapse;
 }
 
-.navbar a[aria-current="page"] {
+.navbar a[aria-current='page'] {
     border-bottom: var(--blue) solid 2px;
 }
 
@@ -48,7 +48,7 @@
     width: 100%;
 }
 
-.nav-menu-callout a[aria-current="page"] {
+.nav-menu-callout a[aria-current='page'] {
     border-bottom: var(--blue) solid 2px;
 }
 
@@ -59,10 +59,6 @@
 .navpanel .command-button {
     color: inherit;
 }
-
-
-
-
 
 @media screen and (max-width: 768px) {
     .navbar .nav-link {
@@ -79,9 +75,3 @@
         visibility: visible;
     }
 }
-
-
-
-
-
-

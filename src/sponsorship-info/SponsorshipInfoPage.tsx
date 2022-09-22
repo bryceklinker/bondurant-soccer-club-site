@@ -1,7 +1,12 @@
-import React, {FunctionComponent} from 'react';
-import {GappedStack, Title, useBoardMembersEmailLink, useSponsorshipLinks} from '../common';
-import {CurrentNeeds} from './CurrentNeeds';
-import {CurrentSponsors} from './CurrentSponsors';
+import React, { FunctionComponent } from 'react';
+import {
+    GappedStack,
+    Title,
+    useBoardMembersEmailLink,
+    useSponsorshipLinks
+} from '../common';
+import { CurrentNeeds } from './CurrentNeeds';
+import { CurrentSponsors } from './CurrentSponsors';
 
 export const SponsorshipInfoPage: FunctionComponent = () => {
     const boardMembersEmail = useBoardMembersEmailLink();
@@ -12,5 +17,5 @@ export const SponsorshipInfoPage: FunctionComponent = () => {
             <CurrentNeeds boardMembersEmailLink={boardMembersEmail} />
             <CurrentSponsors sponsorLinks={sponsorLinks} />
         </GappedStack>
-    )
-}
+    );
+};

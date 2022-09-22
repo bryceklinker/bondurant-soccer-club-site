@@ -1,13 +1,14 @@
-import React, {FunctionComponent} from 'react';
+import React, { FunctionComponent } from 'react';
 import {
     GappedStack,
-    Title, useConcessionHoursImage,
+    Title,
+    useConcessionHoursImage,
     useConcessionSignupLink,
     useConcessionsLocation,
     useDirectorOfConcessionsMailLink
 } from '../common';
-import {TreatTickets} from './TreatTickets';
-import {ConcessionStandDutyAndSignup} from './ConcessionStandDutyAndSignup';
+import { TreatTickets } from './TreatTickets';
+import { ConcessionStandDutyAndSignup } from './ConcessionStandDutyAndSignup';
 
 export const ConcessionsPage: FunctionComponent = () => {
     const concessionLocation = useConcessionsLocation();
@@ -18,8 +19,12 @@ export const ConcessionsPage: FunctionComponent = () => {
         <GappedStack padded flex>
             <Title>Concessions Info</Title>
 
-            <TreatTickets location={concessionLocation}/>
-            <ConcessionStandDutyAndSignup signupLink={signupLink} contactLink={contactLink} hoursImage={hoursImage}/>
+            <TreatTickets location={concessionLocation} />
+            <ConcessionStandDutyAndSignup
+                signupLink={signupLink}
+                contactLink={contactLink}
+                hoursImage={hoursImage}
+            />
         </GappedStack>
     );
 };

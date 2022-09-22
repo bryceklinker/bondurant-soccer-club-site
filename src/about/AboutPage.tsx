@@ -1,6 +1,6 @@
-import React, {FunctionComponent} from 'react';
-import {MissionStatement} from './MissionStatement';
-import {GappedStack, Title} from '../common';
+import React, { FunctionComponent } from 'react';
+import { MissionStatement } from './MissionStatement';
+import { GappedStack, Title } from '../common';
 
 export const AboutPage: FunctionComponent = () => {
     return (
@@ -8,5 +8,5 @@ export const AboutPage: FunctionComponent = () => {
             <Title>About</Title>
             <MissionStatement />
         </GappedStack>
-    )
-}
+    );
+};

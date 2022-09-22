@@ -1,4 +1,4 @@
-import {FunctionComponent} from 'react';
+import { FunctionComponent } from 'react';
 
 export interface AgeGroup {
     name: string;
@@ -23,7 +23,7 @@ export enum SeasonName {
 }
 
 export interface Season {
-    name: SeasonName,
+    name: SeasonName;
     startYear: number;
     endYear: number;
 }
@@ -65,7 +65,7 @@ export const BoardMemberData = {
     getMailtoEmails: (members: Array<BoardMemberData>): string => {
         return BoardMemberData.getEmails(members).join(',');
     }
-}
+};
 
 export interface GetInvolvedData {
     title: string;
@@ -80,13 +80,13 @@ export interface LocationData {
 }
 
 export interface AgeRegistrationData {
-    ageGroup: AgeGroup,
+    ageGroup: AgeGroup;
     minBirthYear: number;
     maxBirthYear: number;
 }
 
 export interface RegistrationSeasonData {
-    season: Season,
+    season: Season;
     ages: Array<AgeRegistrationData>;
 }
 
@@ -118,14 +118,14 @@ export enum UniformSize {
     AL = 'Adult Large',
     AXL = 'Adult X-Large',
     AXXL = 'Adult XX-Large',
-    AXXXL = 'Adult XXX-Large',
+    AXXXL = 'Adult XXX-Large'
 }
 
 export enum UniformPart {
     Jersey = 'Jersey',
     Shorts = 'Shorts',
     Socks = 'Socks',
-    Kit = 'Kit',
+    Kit = 'Kit'
 }
 
 export interface UniformPurchaseOption {
@@ -144,7 +144,7 @@ export interface ProgramInfoAttribute {
 export interface ProgramInfo {
     title: string;
     description?: string;
-    attributes: Array<ProgramInfoAttribute>
+    attributes: Array<ProgramInfoAttribute>;
 }
 
 export interface ByLawSectionData {

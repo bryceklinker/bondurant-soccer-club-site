@@ -1,3 +1,3 @@
-import {ConcessionsPage} from '../concessions/ConcessionsPage';
+import { ConcessionsPage } from '../concessions/ConcessionsPage';
 
 export default ConcessionsPage;

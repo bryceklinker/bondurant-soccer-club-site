@@ -1,9 +1,12 @@
-import React, {FunctionComponent} from 'react';
-import {Text} from '@fluentui/react';
+import React, { FunctionComponent } from 'react';
+import { Text } from '@fluentui/react';
 
-export interface TitleProps {
-}
+export interface TitleProps {}
 
-export const Title: FunctionComponent<TitleProps> = ({children}) => {
-    return <Text as={'h3'} variant={'xxLarge'}>{children}</Text>
-}
+export const Title: FunctionComponent<TitleProps> = ({ children }) => {
+    return (
+        <Text as={'h3'} variant={'xxLarge'}>
+            {children}
+        </Text>
+    );
+};

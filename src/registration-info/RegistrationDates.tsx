@@ -1,4 +1,4 @@
-import React, {FunctionComponent} from 'react';
+import React, { FunctionComponent } from 'react';
 import {
     CollapsiblePanel,
     Dates,
@@ -14,7 +14,9 @@ export interface RegistrationDateProps {
     date: RegistrationDatesData;
 }
 
-export const RegistrationDate: FunctionComponent<RegistrationDateProps> = ({date}) => {
+export const RegistrationDate: FunctionComponent<RegistrationDateProps> = ({
+    date
+}) => {
     return (
         <PlainStack>
             <SubTitle>{date.season}</SubTitle>
@@ -25,9 +27,7 @@ export const RegistrationDate: FunctionComponent<RegistrationDateProps> = ({date
                 <Paragraph>
                     Regular: {Dates.formatDateRange(date.regular)}
                 </Paragraph>
-                <Paragraph>
-                    Late: {Dates.formatDateRange(date.late)}
-                </Paragraph>
+                <Paragraph>Late: {Dates.formatDateRange(date.late)}</Paragraph>
                 <Paragraph>
                     Cutoff Date: {Dates.formatDate(date.cutoff)}
                 </Paragraph>
@@ -40,8 +40,12 @@ export interface RegistrationDatesProps {
     dates: Array<RegistrationDatesData>;
 }
 
-export const RegistrationDates: FunctionComponent<RegistrationDatesProps> = ({dates}) => {
-    const registrationDates = dates.map((d, i) => <RegistrationDate key={i} date={d}/>);
+export const RegistrationDates: FunctionComponent<RegistrationDatesProps> = ({
+    dates
+}) => {
+    const registrationDates = dates.map((d, i) => (
+        <RegistrationDate key={i} date={d} />
+    ));
     return (
         <Section padded shadow>
             <CollapsiblePanel

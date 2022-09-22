@@ -1,3 +1,3 @@
-import {DocumentsPage} from '../documents/DocumentsPage';
+import { DocumentsPage } from '../documents/DocumentsPage';
 
-export default DocumentsPage
+export default DocumentsPage;

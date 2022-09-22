@@ -1,5 +1,6 @@
 .headline-container {
-    background: center / cover no-repeat url("../../assets/heading-background.jpg");
+    background: center / cover no-repeat
+        url('../../assets/heading-background.jpg');
     max-height: 500px;
     height: 500px;
 }

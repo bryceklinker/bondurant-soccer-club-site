@@ -1,5 +1,5 @@
-import {HomePage} from '../support/home.page';
-import {ShellCommands} from '../support/shell.commands';
+import { HomePage } from '../support/home.page';
+import { ShellCommands } from '../support/shell.commands';
 
 describe('Shell', () => {
     it('should show main navigation links', () => {
@@ -40,5 +40,5 @@ describe('Shell', () => {
         HomePage.navigate();
 
         ShellCommands.findCopyright().should('be.visible');
-    })
+    });
 });

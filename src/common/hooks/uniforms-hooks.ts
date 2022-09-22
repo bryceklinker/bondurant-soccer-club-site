@@ -1,5 +1,11 @@
-import {useMemo} from 'react';
-import {BoardMemberData, DIRECTORS_OF_EQUIPMENT, LinkData, UNIFORM_PURCHASE_OPTIONS, UNIFORM_SIZES} from '../state';
+import { useMemo } from 'react';
+import {
+    BoardMemberData,
+    DIRECTORS_OF_EQUIPMENT,
+    LinkData,
+    UNIFORM_PURCHASE_OPTIONS,
+    UNIFORM_SIZES
+} from '../state';
 
 export function useUniformSizes() {
     return useMemo(() => UNIFORM_SIZES, []);
@@ -15,6 +21,6 @@ export function useDirectorOfUniformsLink(): LinkData {
         return {
             url: `mailto:${emails}`,
             text: 'Director of Uniforms'
-        }
-    }, [])
+        };
+    }, []);
 }

@@ -1,4 +1,4 @@
-import {LinkData} from '../state';
+import { LinkData } from '../state';
 
 export const RouteNames = {
     ContactUs: 'contact-us',
@@ -16,8 +16,8 @@ export const RouteNames = {
     ProgramInfo: 'program-info',
     Documents: 'documents',
     FrequentlyAskedQuestions: 'frequently-asked-questions',
-    RefereeInfo: 'referee-info',
-}
+    RefereeInfo: 'referee-info'
+};
 
 export const MAIN_NAVIGATION_LINKS: Array<LinkData> = [
     {
@@ -44,7 +44,7 @@ export const MAIN_NAVIGATION_LINKS: Array<LinkData> = [
         text: 'Schedules',
         url: RouteNames.Schedules
     }
-]
+];
 
 export const MORE_INFO_NAVIGATION_LINKS: Array<LinkData> = [
     {
@@ -87,4 +87,4 @@ export const MORE_INFO_NAVIGATION_LINKS: Array<LinkData> = [
         text: 'Uniform Info',
         url: RouteNames.UniformInfo
     }
-]
+];

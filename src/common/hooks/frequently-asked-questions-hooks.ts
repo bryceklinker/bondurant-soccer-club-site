@@ -1,4 +1,4 @@
-import {useMemo} from 'react';
+import { useMemo } from 'react';
 import {
     COACH_FREQUENTLY_ASKED_QUESTIONS,
     FREQUENTLY_ASKED_QUESTIONS,

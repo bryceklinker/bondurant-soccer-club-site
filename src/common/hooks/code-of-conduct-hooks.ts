@@ -1,11 +1,11 @@
-import {useMemo} from 'react';
+import { useMemo } from 'react';
 import {
     COACHING_CODE_OF_CONDUCT_EXPECTATIONS,
     CODE_OF_CONDUCT_PUNISHMENTS,
-    PARENT_CODE_OF_CONDUCT_EXPECTATIONS, PLAYER_CODE_OF_CONDUCT,
+    PARENT_CODE_OF_CONDUCT_EXPECTATIONS,
+    PLAYER_CODE_OF_CONDUCT,
     REPORT_HANDLING_STEPS
 } from '../state';
-
 
 export function useCodeOfConductPunishments() {
     return useMemo(() => CODE_OF_CONDUCT_PUNISHMENTS, []);

@@ -1,6 +1,6 @@
-import React, {FunctionComponent} from 'react';
-import {Headline} from './Headline';
-import {JumpToLinks} from './JumpToLinks';
+import React, { FunctionComponent } from 'react';
+import { Headline } from './Headline';
+import { JumpToLinks } from './JumpToLinks';
 import {
     GappedStack,
     useCurrentSeason,
@@ -8,7 +8,7 @@ import {
     useMinRegistrationBirthYear,
     useRegistrationLink
 } from '../../common';
-import {Description} from './Description';
+import { Description } from './Description';
 
 export const HomePage: FunctionComponent = () => {
     const season = useCurrentSeason();
@@ -17,13 +17,15 @@ export const HomePage: FunctionComponent = () => {
     const registrationLink = useRegistrationLink();
     return (
         <GappedStack flex gap={'2em'}>
-            <Headline registrationLink={registrationLink}/>
+            <Headline registrationLink={registrationLink} />
 
-            <JumpToLinks/>
+            <JumpToLinks />
 
-            <Description season={season}
-                         maxBirthYear={maxRegistrationYear}
-                         minBirthYear={minRegistrationYear}/>
+            <Description
+                season={season}
+                maxBirthYear={maxRegistrationYear}
+                minBirthYear={minRegistrationYear}
+            />
         </GappedStack>
     );
 };

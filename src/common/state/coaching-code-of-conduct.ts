@@ -17,4 +17,3 @@ export const COACHING_CODE_OF_CONDUCT_EXPECTATIONS: Array<string> = [
 
     'I will be mindful to learn the rules of the level of soccer that I am coaching and will learn from the coaches, referees, and soccer board members. If I have questions, they can be directed to the BSC Director of Coaches, BSC Director of Referees, or other BSC soccer board member at an appropriate time.'
 ];
-

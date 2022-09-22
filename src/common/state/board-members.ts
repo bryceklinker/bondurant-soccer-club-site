@@ -1,4 +1,8 @@
-import {BoardMemberData, BoardMemberRole, BoardMemberRoleGroup} from './models';
+import {
+    BoardMemberData,
+    BoardMemberRole,
+    BoardMemberRoleGroup
+} from './models';
 
 export const BOARD_MEMBERS: Array<BoardMemberData> = [
     {
@@ -127,13 +131,29 @@ export const BOARD_MEMBERS: Array<BoardMemberData> = [
         email: 'john.waldrop@jci.com',
         roleGroup: BoardMemberRoleGroup.AtLarge
     }
-]
+];
 
-export const DIRECTORS_OF_COACHES = BOARD_MEMBERS.filter(b => b.role === BoardMemberRole.DirectorOfCoaches);
-export const DIRECTORS_OF_FIELDS = BOARD_MEMBERS.filter(b => b.role === BoardMemberRole.DirectorOfFields);
-export const DIRECTORS_OF_REFEREES = BOARD_MEMBERS.filter(b => b.role === BoardMemberRole.DirectorOfReferees);
-export const DIRECTORS_OF_CONCESSIONS = BOARD_MEMBERS.filter(b => b.role === BoardMemberRole.DirectorOfConcessions);
-export const DIRECTORS_OF_EQUIPMENT = BOARD_MEMBERS.filter(b => b.role === BoardMemberRole.DirectorOfEquipment);
-export const DIRECTORS_OF_U5_U6 = BOARD_MEMBERS.filter(b => b.role === BoardMemberRole.DirectorOfU5U6);
-export const REGISTRARS = BOARD_MEMBERS.filter(b => b.role === BoardMemberRole.Registrar);
-export const PRESIDENTS = BOARD_MEMBERS.filter(b => b.role === BoardMemberRole.President);
+export const DIRECTORS_OF_COACHES = BOARD_MEMBERS.filter(
+    b => b.role === BoardMemberRole.DirectorOfCoaches
+);
+export const DIRECTORS_OF_FIELDS = BOARD_MEMBERS.filter(
+    b => b.role === BoardMemberRole.DirectorOfFields
+);
+export const DIRECTORS_OF_REFEREES = BOARD_MEMBERS.filter(
+    b => b.role === BoardMemberRole.DirectorOfReferees
+);
+export const DIRECTORS_OF_CONCESSIONS = BOARD_MEMBERS.filter(
+    b => b.role === BoardMemberRole.DirectorOfConcessions
+);
+export const DIRECTORS_OF_EQUIPMENT = BOARD_MEMBERS.filter(
+    b => b.role === BoardMemberRole.DirectorOfEquipment
+);
+export const DIRECTORS_OF_U5_U6 = BOARD_MEMBERS.filter(
+    b => b.role === BoardMemberRole.DirectorOfU5U6
+);
+export const REGISTRARS = BOARD_MEMBERS.filter(
+    b => b.role === BoardMemberRole.Registrar
+);
+export const PRESIDENTS = BOARD_MEMBERS.filter(
+    b => b.role === BoardMemberRole.President
+);

@@ -6,15 +6,17 @@ import {
     Season,
     SeasonName
 } from './models';
-import {ALL_AGE_GROUPS} from './age-groups';
-import {parseISO} from 'date-fns';
+import { ALL_AGE_GROUPS } from './age-groups';
+import { parseISO } from 'date-fns';
 
 function currentSeason(): Season {
     const currentDate = new Date();
-    const seasonName = currentDate.getMonth() >= 5 ? SeasonName.Fall : SeasonName.Spring;
-    const startYear = seasonName === SeasonName.Fall
-        ? currentDate.getFullYear()
-        : currentDate.getFullYear() - 1;
+    const seasonName =
+        currentDate.getMonth() >= 5 ? SeasonName.Fall : SeasonName.Spring;
+    const startYear =
+        seasonName === SeasonName.Fall
+            ? currentDate.getFullYear()
+            : currentDate.getFullYear() - 1;
     return {
         name: seasonName,
         startYear,
@@ -38,7 +40,7 @@ export const FALL_REGISTRATION_DATES: RegistrationDatesData = {
     season: SeasonName.Fall,
     earlyBird: {
         start: parseISO('2021-05-01'),
-        end: parseISO('2021-05-14'),
+        end: parseISO('2021-05-14')
     },
     regular: {
         start: parseISO('2021-05-15'),
@@ -48,14 +50,14 @@ export const FALL_REGISTRATION_DATES: RegistrationDatesData = {
         start: parseISO('2021-06-15'),
         end: parseISO('2021-06-30')
     },
-    cutoff: parseISO('2021-06-30'),
+    cutoff: parseISO('2021-06-30')
 };
 
 export const SPRING_REGISTRATION_DATES: RegistrationDatesData = {
     season: SeasonName.Spring,
     earlyBird: {
         start: parseISO('2021-12-01'),
-        end: parseISO('2021-12-31'),
+        end: parseISO('2021-12-31')
     },
     regular: {
         start: parseISO('2022-01-01'),
@@ -65,7 +67,7 @@ export const SPRING_REGISTRATION_DATES: RegistrationDatesData = {
         start: parseISO('2022-02-01'),
         end: parseISO('2022-02-15')
     },
-    cutoff: parseISO('2022-02-15'),
+    cutoff: parseISO('2022-02-15')
 };
 
 export const REGISTRATION_DATES: Array<RegistrationDatesData> = [
@@ -88,5 +90,5 @@ export const REGISTRATION_SOFTWARE: RegistrationSoftwareData = {
 
 export const Registration = {
     currentSeason,
-    currentRegistrationSeason,
+    currentRegistrationSeason
 };

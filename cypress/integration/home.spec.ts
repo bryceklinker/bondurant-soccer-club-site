@@ -1,4 +1,4 @@
-import {HomePage} from '../support/home.page';
+import { HomePage } from '../support/home.page';
 
 describe('Home', () => {
     it('should show home page content', () => {
@@ -6,5 +6,5 @@ describe('Home', () => {
 
         HomePage.findRegister().should('be.visible');
         HomePage.findJumpButtons().should('have.length', 4);
-    })
-})
+    });
+});

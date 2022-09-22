@@ -1,15 +1,17 @@
-import React, {FunctionComponent} from 'react';
+import React, { FunctionComponent } from 'react';
 import {
-    Dates, ExternalLink,
+    Dates,
+    ExternalLink,
     GappedStack,
     Paragraph,
-    PlainStack, Section,
+    PlainStack,
+    Section,
     Title,
     usePicturesAccess,
     usePicturesCompanyLink,
     usePicturesDate
 } from '../common';
-import {Image} from '@fluentui/react';
+import { Image } from '@fluentui/react';
 const PictureDaySchedule = require('../assets/picture_day_schedule.jpg');
 
 export const PictureDayPage: FunctionComponent = () => {
@@ -30,18 +32,22 @@ export const PictureDayPage: FunctionComponent = () => {
                     </Paragraph>
 
                     <Paragraph>
-                        <ExternalLink href={companyLink.url}>{companyLink.text}</ExternalLink> will be hosting
-                        the {pictureDate.getFullYear()} soccer photos.
+                        <ExternalLink href={companyLink.url}>
+                            {companyLink.text}
+                        </ExternalLink>{' '}
+                        will be hosting the {pictureDate.getFullYear()} soccer
+                        photos.
                     </Paragraph>
 
                     <Paragraph>
-                        Players are required to wear all blue. Blue jersey, blue shorts, and blue socks.
+                        Players are required to wear all blue. Blue jersey, blue
+                        shorts, and blue socks.
                     </Paragraph>
 
                     <Paragraph>
-                        Parents can text the code {pictureAccess.accessCode} to the
-                        number {pictureAccess.phoneNumber} or handouts will be available on Saturday to order the
-                        photos!
+                        Parents can text the code {pictureAccess.accessCode} to
+                        the number {pictureAccess.phoneNumber} or handouts will
+                        be available on Saturday to order the photos!
                     </Paragraph>
                 </PlainStack>
             </Section>

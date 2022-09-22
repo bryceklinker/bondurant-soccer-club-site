@@ -1,4 +1,4 @@
-import {LinkData} from './models';
+import { LinkData } from './models';
 
 export const DOWNLOADABLE_DOCUMENT_LINKS: Array<LinkData> = [
     {

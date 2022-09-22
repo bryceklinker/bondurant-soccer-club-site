@@ -1,4 +1,4 @@
-import {LinkData} from './models';
+import { LinkData } from './models';
 
 export const SPONSOR_LINKS: Array<LinkData> = [
     {
@@ -6,7 +6,7 @@ export const SPONSOR_LINKS: Array<LinkData> = [
         url: 'https://www.christiansenmotors.com/'
     },
     {
-        text: 'Williamson\'s Repair & Tire',
+        text: "Williamson's Repair & Tire",
         url: 'https://www.williamsonsrepair.com/'
     },
     {
@@ -21,4 +21,4 @@ export const SPONSOR_LINKS: Array<LinkData> = [
         text: 'Altoona Vet Hospital',
         url: 'https://www.altoonavet.com/'
     }
-]
+];

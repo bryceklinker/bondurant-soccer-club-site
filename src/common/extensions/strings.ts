@@ -3,5 +3,5 @@ function isExternalLink(link: string): boolean {
 }
 
 export const Strings = {
-    isExternalLink,
-}
+    isExternalLink
+};

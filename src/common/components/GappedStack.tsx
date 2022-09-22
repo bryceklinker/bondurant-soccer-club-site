@@ -1,5 +1,5 @@
-import React, {FunctionComponent} from 'react';
-import {IStackProps, Stack} from '@fluentui/react';
+import React, { FunctionComponent } from 'react';
+import { IStackProps, Stack } from '@fluentui/react';
 
 interface GappedStackProps extends Omit<IStackProps, 'tokens'> {
     padded?: boolean;
@@ -8,20 +8,23 @@ interface GappedStackProps extends Omit<IStackProps, 'tokens'> {
 }
 
 export const GappedStack: FunctionComponent<GappedStackProps> = ({
-                                                                     children,
-                                                                     padded,
-                                                                     flex,
-                                                                     className,
-                                                                     gap = '1em',
-                                                                     ...rest
-                                                                 }) => {
+    children,
+    padded,
+    flex,
+    className,
+    gap = '1em',
+    ...rest
+}) => {
     const classes = [
         padded ? 'padded-content' : '',
         flex ? 'flex' : '',
         className ? className : ''
     ];
     return (
-        <Stack tokens={{childrenGap: gap}} className={classes.join(' ')} {...rest}>
+        <Stack
+            tokens={{ childrenGap: gap }}
+            className={classes.join(' ')}
+            {...rest}>
             {children}
         </Stack>
     );

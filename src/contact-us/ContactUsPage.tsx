@@ -1,6 +1,6 @@
-import React, {FunctionComponent} from 'react';
-import {BoardMembers} from './BoardMembers';
-import {GappedStack, Title, useBoardMembers} from '../common';
+import React, { FunctionComponent } from 'react';
+import { BoardMembers } from './BoardMembers';
+import { GappedStack, Title, useBoardMembers } from '../common';
 
 export const ContactUsPage: FunctionComponent = () => {
     const boardMembers = useBoardMembers();
@@ -8,7 +8,7 @@ export const ContactUsPage: FunctionComponent = () => {
         <GappedStack padded flex>
             <Title>Board Members</Title>
 
-            <BoardMembers members={boardMembers}/>
+            <BoardMembers members={boardMembers} />
         </GappedStack>
     );
 };

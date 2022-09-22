@@ -1,4 +1,4 @@
-import {PictureDayPage} from '../support/picture-day.page';
+import { PictureDayPage } from '../support/picture-day.page';
 
 describe('Picture Day', () => {
     it('should show picture day information', () => {
@@ -6,5 +6,5 @@ describe('Picture Day', () => {
 
         PictureDayPage.findCompanyLink().should('be.visible');
         PictureDayPage.findSchedule().should('be.visible');
-    })
-})
+    });
+});

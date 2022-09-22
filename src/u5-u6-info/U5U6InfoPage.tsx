@@ -1,10 +1,15 @@
-import React, {FunctionComponent} from 'react';
-import {GappedStack, Title, useCoachingDrills, useSchedulesLink} from '../common';
-import {RequiredEquipment} from './RequiredEquipment';
-import {Weather} from './Weather';
-import {Coaching} from './Coaching';
-import {PracticesAndGames} from './PracticesAndGames';
-import {DrillsYouCanDoAtHome} from './DrillsYouCanDoAtHome';
+import React, { FunctionComponent } from 'react';
+import {
+    GappedStack,
+    Title,
+    useCoachingDrills,
+    useSchedulesLink
+} from '../common';
+import { RequiredEquipment } from './RequiredEquipment';
+import { Weather } from './Weather';
+import { Coaching } from './Coaching';
+import { PracticesAndGames } from './PracticesAndGames';
+import { DrillsYouCanDoAtHome } from './DrillsYouCanDoAtHome';
 
 export const U5U6InfoPage: FunctionComponent = () => {
     const schedulesLink = useSchedulesLink();
@@ -19,5 +24,5 @@ export const U5U6InfoPage: FunctionComponent = () => {
             <PracticesAndGames schedulesLink={schedulesLink} />
             <DrillsYouCanDoAtHome drillLinks={drillLinks} />
         </GappedStack>
-    )
-}
+    );
+};

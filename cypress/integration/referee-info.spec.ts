@@ -1,4 +1,4 @@
-import {RefereeInfoPage} from '../support/referee-info.page';
+import { RefereeInfoPage } from '../support/referee-info.page';
 
 describe('Referee Info', () => {
     it('should show referee info', () => {
