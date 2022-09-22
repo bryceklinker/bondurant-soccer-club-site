@@ -1,31 +1,21 @@
-import React, { FunctionComponent } from 'react';
-import { IStackProps, Stack } from '@fluentui/react';
+import { FunctionComponent } from 'react';
+import { ColumnFlex, ColumnFlexProps, PADDED_CONTENT_PROPS } from '../layout';
 
-interface GappedStackProps extends Omit<IStackProps, 'tokens'> {
+interface GappedStackProps extends Omit<ColumnFlexProps, 'tokens'> {
     padded?: boolean;
-    flex?: boolean;
     gap?: string | number;
 }
 
 export const GappedStack: FunctionComponent<GappedStackProps> = ({
     children,
     padded,
-    flex,
-    className,
     gap = '1em',
     ...rest
 }) => {
-    const classes = [
-        padded ? 'padded-content' : '',
-        flex ? 'flex' : '',
-        className ? className : ''
-    ];
+    const paddedProps = padded ? PADDED_CONTENT_PROPS : {};
     return (
-        <Stack
-            tokens={{ childrenGap: gap }}
-            className={classes.join(' ')}
-            {...rest}>
+        <ColumnFlex gap={'1em'} {...paddedProps} {...rest}>
             {children}
-        </Stack>
+        </ColumnFlex>
     );
 };

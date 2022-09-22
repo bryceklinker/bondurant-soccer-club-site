@@ -7,11 +7,11 @@ import {
     Section,
     SectionTitle
 } from '../common';
-import { Link } from '@reach/router';
+import { Link } from 'gatsby';
 
-export interface TreatTicketsProps {
+export type TreatTicketsProps = {
     location: LocationData;
-}
+};
 
 export const TreatTickets: FunctionComponent<TreatTicketsProps> = ({
     location

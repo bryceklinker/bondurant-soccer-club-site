@@ -1,12 +1,8 @@
 import React, { FunctionComponent } from 'react';
-import { Text } from '@fluentui/react';
+import { Heading, HeadingProps } from '@chakra-ui/react';
 
-export interface TitleProps {}
+export type TitleProps = Omit<HeadingProps, 'as' | 'variant'>;
 
-export const Title: FunctionComponent<TitleProps> = ({ children }) => {
-    return (
-        <Text as={'h3'} variant={'xxLarge'}>
-            {children}
-        </Text>
-    );
+export const Title: FunctionComponent<TitleProps> = props => {
+    return <Heading as={'h3'} variant={'xxLarge'} {...props} />;
 };

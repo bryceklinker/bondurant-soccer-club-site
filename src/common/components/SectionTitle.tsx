@@ -1,15 +1,15 @@
 import React, { FunctionComponent } from 'react';
-import { ITextProps, Text } from '@fluentui/react';
+import { Heading, HeadingProps } from '@chakra-ui/react';
 
-export interface SectionTitleProps extends Omit<ITextProps, 'as'> {}
+export interface SectionTitleProps extends Omit<HeadingProps, 'as'> {}
 
 export const SectionTitle: FunctionComponent<SectionTitleProps> = ({
     children,
     ...rest
 }) => {
     return (
-        <Text as={'h2'} variant={'xLarge'}>
+        <Heading as={'h2'} variant={'xLarge'} {...rest}>
             {children}
-        </Text>
+        </Heading>
     );
 };

@@ -1,13 +1,13 @@
-import React, { FunctionComponent } from 'react';
-import { Text, ITextProps } from '@fluentui/react';
+import { FC } from 'react';
+import { Text, TextProps } from '@chakra-ui/react';
 
-export interface ParagraphProps extends ITextProps {
+export interface ParagraphProps extends TextProps {
     italic?: boolean;
     bold?: boolean;
     indent?: boolean;
 }
 
-export const Paragraph: FunctionComponent<ParagraphProps> = ({
+export const Paragraph: FC<ParagraphProps> = ({
     italic,
     bold,
     indent,

@@ -3,8 +3,9 @@ import { FC, PropsWithChildren } from 'react';
 import { AppInsightsContext } from '@microsoft/applicationinsights-react-js';
 import { LayoutMainContent } from './LayoutMainContent';
 import { Spacer } from '../components';
-import { LayoutFooter } from './LayoutFooter';
-import { LayoutNavbar } from './LayoutNavbar';
+import { LayoutFooter } from './footer/LayoutFooter';
+import { LayoutNavbar } from './navigation/LayoutNavbar';
+import { LayoutNavPanel } from './navigation/LayoutNavPanel';
 
 initializeTelemetry();
 

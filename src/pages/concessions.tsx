@@ -1,5 +1,5 @@
 import { ConcessionsPage } from '../concessions/ConcessionsPage';
-import { Layout } from '../common/layout/Layout';
+import { Layout } from '../common/layout';
 
 export default () => (
     <Layout>

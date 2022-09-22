@@ -1,32 +1,42 @@
-import { IStackProps, Stack } from '@fluentui/react';
-import React, { FunctionComponent } from 'react';
-import './Section.css';
+import { FC } from 'react';
 
-export interface SectionProps extends IStackProps {
-    inverted?: boolean;
+import {
+    ColumnFlex,
+    ColumnFlexProps,
+    PADDED_CONTENT_PROPS,
+    SECTION_SHADOW_PROPS
+} from '../layout';
+
+export interface SectionProps extends Omit<ColumnFlexProps, 'shadow'> {
     shadow?: boolean;
     padded?: boolean;
-    flex?: boolean;
 }
 
-export const Section: FunctionComponent<SectionProps> = ({
+export const Section: FC<SectionProps> = ({
     children,
     shadow,
     padded,
-    flex,
     className,
+    borderBottomColor = 'blue',
+    borderBottomStyle = 'solid',
+    borderBottomWidth = '0.5em',
+    backgroundColor = 'white',
     ...rest
 }) => {
-    const classes = [
-        'section',
-        shadow ? 'shadow' : '',
-        padded ? 'padded-content' : '',
-        flex ? 'flex' : '',
-        className ? className : ''
-    ];
+    const shadowProps = shadow ? SECTION_SHADOW_PROPS : {};
+    const paddedProps = padded ? PADDED_CONTENT_PROPS : {};
+
     return (
-        <Stack {...rest} className={classes.join(' ')}>
+        <ColumnFlex
+            borderBottomWidth={borderBottomWidth}
+            borderBottomStyle={borderBottomStyle}
+            borderBottomColor={borderBottomColor}
+            backgroundColor={backgroundColor}
+            className={className}
+            {...shadowProps}
+            {...paddedProps}
+            {...rest}>
             {children}
-        </Stack>
+        </ColumnFlex>
     );
 };

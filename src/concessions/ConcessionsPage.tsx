@@ -9,7 +9,6 @@ import {
 } from '../common';
 import { TreatTickets } from './TreatTickets';
 import { ConcessionStandDutyAndSignup } from './ConcessionStandDutyAndSignup';
-import { Layout } from '../common/layout/Layout';
 
 export const ConcessionsPage: FunctionComponent = () => {
     const concessionLocation = useConcessionsLocation();
@@ -17,7 +16,7 @@ export const ConcessionsPage: FunctionComponent = () => {
     const contactLink = useDirectorOfConcessionsMailLink();
     const hoursImage = useConcessionHoursImage();
     return (
-        <GappedStack padded flex>
+        <GappedStack padded>
             <Title>Concessions Info</Title>
 
             <TreatTickets location={concessionLocation} />

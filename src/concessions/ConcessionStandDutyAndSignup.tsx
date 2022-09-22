@@ -9,7 +9,7 @@ import {
     Section,
     SectionTitle
 } from '../common';
-import { Image } from '@fluentui/react';
+import { StaticImage } from 'gatsby-plugin-image';
 
 export interface ConcessionStandDutyAndSignupProps {
     signupLink: LinkData;
@@ -30,8 +30,8 @@ export const ConcessionStandDutyAndSignup: FunctionComponent<
                 }>
                 <PlainStack horizontal>
                     <PlainStack className={'flex-half'}>
-                        <Image
-                            width={'100%'}
+                        <StaticImage
+                            alt={hoursImage.title}
                             src={hoursImage.image}
                             title={hoursImage.title}
                         />
