@@ -9,6 +9,7 @@ import {
 } from '../common';
 import { TreatTickets } from './TreatTickets';
 import { ConcessionStandDutyAndSignup } from './ConcessionStandDutyAndSignup';
+import { Layout } from '../common/layout/Layout';
 
 export const ConcessionsPage: FunctionComponent = () => {
     const concessionLocation = useConcessionsLocation();

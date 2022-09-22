@@ -14,6 +14,7 @@ import { CoachingCodeOfConduct } from './CoachingCodeOfConduct';
 import { ParentCodeOfConduct } from './ParentCodeOfConduct';
 import { PlayerCodeOfConduct } from './PlayerCodeOfConduct';
 import { DownloadableDocuments } from './DownloadableDocuments';
+import { Layout } from '../common/layout/Layout';
 
 export const DocumentsPage: FunctionComponent = () => {
     const byLaws = useByLaws();

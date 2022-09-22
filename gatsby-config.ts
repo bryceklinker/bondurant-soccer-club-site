@@ -1,9 +1,9 @@
-import type { GatsbyConfig } from "gatsby"
+import type { GatsbyConfig } from 'gatsby';
 import path from 'path';
 
 const config: GatsbyConfig = {
     siteMetadata: {
-        siteUrl: process.env.SITE_URL,
+        siteUrl: process.env.SITE_URL
     },
     plugins: [
         'gatsby-plugin-image',
@@ -26,6 +26,13 @@ const config: GatsbyConfig = {
                 start_url: '/',
                 display: 'minimal-ui',
                 icon: path.resolve(__dirname, 'src', 'assets', 'logo.ico')
+            }
+        },
+        {
+            resolve: '@chakra-ui/gatsby-plugin',
+            options: {
+                resetCSS: true,
+                isUsingColorMode: true
             }
         }
     ]
