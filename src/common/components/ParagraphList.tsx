@@ -1,23 +1,18 @@
-import React, { FunctionComponent } from 'react';
-import { List } from '@fluentui/react';
+import { FC } from 'react';
 import { Paragraph } from './Paragraph';
+import { OrderedList, UnorderedList } from '@chakra-ui/react';
 
-export interface ParagraphListProps {
+export type ParagraphListProps = {
     numbered?: boolean;
     items: Array<string>;
-}
+};
 
-export const ParagraphList: FunctionComponent<ParagraphListProps> = ({
-    items,
-    numbered
-}) => {
-    const onRenderCell = numbered
-        ? (item?: string, index = 0) => (
-              <Paragraph indent>
-                  {index + 1}.&nbsp;{item}
-              </Paragraph>
-          )
-        : (item?: string) => <Paragraph indent>{item}</Paragraph>;
-
-    return <List items={items} onRenderCell={onRenderCell} />;
+export const ParagraphList: FC<ParagraphListProps> = ({ items, numbered }) => {
+    const listItems = items.map((item, index) => (
+        <Paragraph key={index} indent>
+            {item}
+        </Paragraph>
+    ));
+    const List = numbered ? OrderedList : UnorderedList;
+    return <List>{listItems}</List>;
 };

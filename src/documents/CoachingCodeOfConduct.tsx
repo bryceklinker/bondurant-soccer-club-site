@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react';
+import { FC } from 'react';
 import {
     CollapsiblePanel,
     Paragraph,
@@ -7,18 +7,19 @@ import {
     SectionTitle,
     SubTitle
 } from '../common';
-import { List } from '@fluentui/react';
 import { BoardProceduresForCodeOfConductViolations } from './BoardProceduresForCodeOfConductViolations';
 
-export interface CoachingCodeOfConductProps {
+export type CoachingCodeOfConductProps = {
     expectations: Array<string>;
     reportingSteps: Array<string>;
     punishments: Array<string>;
-}
+};
 
-export const CoachingCodeOfConduct: FunctionComponent<
-    CoachingCodeOfConductProps
-> = ({ expectations, reportingSteps, punishments }) => {
+export const CoachingCodeOfConduct: FC<CoachingCodeOfConductProps> = ({
+    expectations,
+    reportingSteps,
+    punishments
+}) => {
     return (
         <Section padded shadow>
             <CollapsiblePanel

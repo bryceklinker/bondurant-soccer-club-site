@@ -7,7 +7,7 @@ export const ProgramInfoPage: FunctionComponent = () => {
         <Program key={i} program={p} />
     ));
     return (
-        <GappedStack flex padded>
+        <GappedStack padded>
             <Title>Program Info</Title>
 
             {programs}

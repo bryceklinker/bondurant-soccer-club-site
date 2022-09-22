@@ -1,19 +1,14 @@
-import React, { FunctionComponent } from 'react';
-import { Link } from '@reach/router';
-import {
-    IStackProps,
-    IStackTokens,
-    ITheme,
-    PrimaryButton,
-    Stack
-} from '@fluentui/react';
+import React, { FunctionComponent, PropsWithChildren } from 'react';
+import { Link } from 'gatsby';
+import { Button } from '@chakra-ui/react';
 import { RouteNames } from '../../common';
 
 import './JumpToLinks.css';
+import { RowFlex } from '../../common/layout';
 
-export interface JumpToButtonProps {
+export type JumpToButtonProps = PropsWithChildren & {
     to: string;
-}
+};
 
 export const JumpToButton: FunctionComponent<JumpToButtonProps> = ({
     to,
@@ -21,27 +16,21 @@ export const JumpToButton: FunctionComponent<JumpToButtonProps> = ({
 }) => {
     return (
         <Link to={to}>
-            <PrimaryButton
+            <Button
                 className={'jump-link large-button'}
                 aria-label={'jump link'}>
                 {children}
-            </PrimaryButton>
+            </Button>
         </Link>
     );
 };
 
 export const JumpToLinks: FunctionComponent = () => {
-    const tokens = (props: IStackProps, theme: ITheme): IStackTokens => {
-        return {
-            childrenGap: theme.spacing.l2
-        };
-    };
     return (
-        <Stack
-            horizontal
-            horizontalAlign={'center'}
-            wrap
-            tokens={tokens}
+        <RowFlex
+            justifyContent={'center'}
+            flexWrap={'wrap'}
+            gap={'1em'}
             className={'jump-link-container'}>
             <JumpToButton to={RouteNames.GetInvolved}>
                 Get Involved
@@ -49,6 +38,6 @@ export const JumpToLinks: FunctionComponent = () => {
             <JumpToButton to={RouteNames.ContactUs}>Contact Us</JumpToButton>
             <JumpToButton to={RouteNames.Locations}>Locations</JumpToButton>
             <JumpToButton to={RouteNames.Schedules}>Schedules</JumpToButton>
-        </Stack>
+        </RowFlex>
     );
 };

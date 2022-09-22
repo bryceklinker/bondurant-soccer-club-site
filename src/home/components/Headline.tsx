@@ -1,8 +1,9 @@
 import React, { FunctionComponent } from 'react';
-import { PrimaryButton, Stack } from '@fluentui/react';
 import { JumboTitle } from '../../common/components/JumboTitle';
 import { LinkData } from '../../common';
+import { Button } from '@chakra-ui/react';
 import './Headline.css';
+import { ColumnFlex } from '../../common/layout';
 
 export interface HeadlineProps {
     registrationLink: LinkData;
@@ -12,12 +13,12 @@ export const Headline: FunctionComponent<HeadlineProps> = ({
     registrationLink
 }) => {
     return (
-        <Stack className={'headline-container shadow'}>
-            <Stack className={'headline'}>
+        <ColumnFlex className={'headline-container shadow'}>
+            <ColumnFlex className={'headline'}>
                 <JumboTitle className={'headline-title'}>
                     Bondurant Soccer Club
                 </JumboTitle>
-                <PrimaryButton
+                <Button
                     as={'a'}
                     target={'_blank'}
                     color={'blue'}
@@ -25,8 +26,8 @@ export const Headline: FunctionComponent<HeadlineProps> = ({
                     aria-label={'register here'}
                     href={registrationLink.url}>
                     {registrationLink.text}
-                </PrimaryButton>
-            </Stack>
-        </Stack>
+                </Button>
+            </ColumnFlex>
+        </ColumnFlex>
     );
 };

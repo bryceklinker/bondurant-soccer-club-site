@@ -6,11 +6,12 @@ import {
     SectionTitle,
     SubTitle,
     CollapsiblePanel,
-    GetInvolvedData
+    GetInvolvedData,
+    ExternalLink
 } from '../common';
-import { Link as ExternalLink, Stack } from '@fluentui/react';
-import { Link as PageLink } from '@reach/router';
+import { Link as GatsbyLink } from 'gatsby';
 import './GetInvolvedOption.css';
+import { ColumnFlex } from '../common/layout';
 
 export interface GetInvolvedLinkProps {
     data: LinkData;
@@ -22,11 +23,7 @@ export const GetInvolvedLink: FunctionComponent<GetInvolvedLinkProps> = ({
     if (data.url.startsWith('http') || data.url.startsWith('mailto')) {
         return (
             <Paragraph>
-                <ExternalLink
-                    as={'a'}
-                    href={data.url}
-                    underline={false}
-                    target={'_blank'}>
+                <ExternalLink href={data.url} target={'_blank'}>
                     {data.text}
                 </ExternalLink>
             </Paragraph>
@@ -35,7 +32,7 @@ export const GetInvolvedLink: FunctionComponent<GetInvolvedLinkProps> = ({
 
     return (
         <Paragraph>
-            <PageLink to={data.url}>{data.text}</PageLink>
+            <GatsbyLink to={data.url}>{data.text}</GatsbyLink>
         </Paragraph>
     );
 };
@@ -59,11 +56,11 @@ export const GetInvolvedOption: FunctionComponent<GetInvolvedOptionProps> = ({
     return (
         <Section shadow padded>
             <CollapsiblePanel title={<SectionTitle>{data.title}</SectionTitle>}>
-                <Stack>
+                <ColumnFlex>
                     {description}
                     <SubTitle>Links</SubTitle>
                     {links}
-                </Stack>
+                </ColumnFlex>
             </CollapsiblePanel>
         </Section>
     );

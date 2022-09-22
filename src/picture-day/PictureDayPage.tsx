@@ -5,14 +5,13 @@ import {
     GappedStack,
     Paragraph,
     PlainStack,
-    Section,
     Title,
     usePicturesAccess,
     usePicturesCompanyLink,
     usePicturesDate
 } from '../common';
-import { Image } from '@fluentui/react';
-const PictureDaySchedule = require('../assets/picture_day_schedule.jpg');
+import { StaticImage } from 'gatsby-plugin-image';
+import { RowFlex } from '../common/layout';
 
 export const PictureDayPage: FunctionComponent = () => {
     const pictureDate = usePicturesDate();
@@ -22,9 +21,12 @@ export const PictureDayPage: FunctionComponent = () => {
     return (
         <GappedStack padded>
             <Title>Picture Day</Title>
-            <Section padded flex horizontal>
+            <RowFlex>
                 <PlainStack className={'flex-half'}>
-                    <Image src={PictureDaySchedule} />
+                    <StaticImage
+                        alt={'picture day schedule'}
+                        src={'../assets/picture_day_schedule.jpg'}
+                    />
                 </PlainStack>
                 <PlainStack>
                     <Paragraph>
@@ -50,7 +52,7 @@ export const PictureDayPage: FunctionComponent = () => {
                         be available on Saturday to order the photos!
                     </Paragraph>
                 </PlainStack>
-            </Section>
+            </RowFlex>
         </GappedStack>
     );
 };

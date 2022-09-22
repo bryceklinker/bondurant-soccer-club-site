@@ -7,15 +7,10 @@ interface GappedStackProps extends Omit<ColumnFlexProps, 'tokens'> {
 }
 
 export const GappedStack: FunctionComponent<GappedStackProps> = ({
-    children,
     padded,
     gap = '1em',
     ...rest
 }) => {
     const paddedProps = padded ? PADDED_CONTENT_PROPS : {};
-    return (
-        <ColumnFlex gap={'1em'} {...paddedProps} {...rest}>
-            {children}
-        </ColumnFlex>
-    );
+    return <ColumnFlex gap={gap} {...paddedProps} {...rest} />;
 };

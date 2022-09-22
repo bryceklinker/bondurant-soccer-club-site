@@ -8,7 +8,7 @@ export const LocationsPage: FunctionComponent = () => {
         <LocationSegment key={i} data={l} />
     ));
     return (
-        <GappedStack padded flex>
+        <GappedStack padded>
             <Title>Locations</Title>
             {segments}
         </GappedStack>

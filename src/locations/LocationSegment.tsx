@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react';
+import { FC } from 'react';
 import {
     Paragraph,
     Section,
@@ -8,33 +8,28 @@ import {
     CollapsiblePanel,
     LocationData
 } from '../common';
-import { Stack } from '@fluentui/react';
 import './LocationSegment.css';
+import { ColumnFlex, RowFlex } from '../common/layout';
 
-export interface LocationSegmentProps {
+export type LocationSegmentProps = {
     data: LocationData;
-}
+};
 
-export const LocationSegment: FunctionComponent<LocationSegmentProps> = ({
-    data
-}) => {
+export const LocationSegment: FC<LocationSegmentProps> = ({ data }) => {
     const ageGroups = data.ageGroups.map((a, i) => (
         <Paragraph key={i}>{a.name}</Paragraph>
     ));
     return (
         <Section shadow padded>
             <CollapsiblePanel title={<SectionTitle>{data.title}</SectionTitle>}>
-                <Stack
-                    horizontal
-                    tokens={{ childrenGap: '1em' }}
-                    className={'location-section'}>
-                    <Stack>
+                <RowFlex gap={'1em'} className={'location-section'}>
+                    <ColumnFlex>
                         <SubTitle>Age Groups:</SubTitle>
                         {ageGroups}
-                    </Stack>
+                    </ColumnFlex>
 
                     <EmbeddedMap url={data.mapsUrl} />
-                </Stack>
+                </RowFlex>
             </CollapsiblePanel>
         </Section>
     );

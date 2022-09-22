@@ -1,19 +1,21 @@
-import React, { FunctionComponent } from 'react';
-import { ILinkProps, Link } from '@fluentui/react';
+import { FC, DetailedHTMLProps } from 'react';
 import { Paragraph } from './Paragraph';
 
-interface ExternalLinkProps extends Omit<ILinkProps, 'target'> {}
+export type ExternalLinkProps = DetailedHTMLProps<
+    React.AnchorHTMLAttributes<HTMLAnchorElement>,
+    HTMLAnchorElement
+>;
 
-export const ExternalLink: FunctionComponent<ExternalLinkProps> = ({
+export const ExternalLink: FC<ExternalLinkProps> = ({
     children,
     className,
     ...rest
 }) => {
     return (
-        <Paragraph as={'span'} block={false} className={className}>
-            <Link target={'_blank'} {...rest}>
+        <Paragraph as={'span'} className={className}>
+            <a target={'_blank'} {...rest}>
                 {children}
-            </Link>
+            </a>
         </Paragraph>
     );
 };

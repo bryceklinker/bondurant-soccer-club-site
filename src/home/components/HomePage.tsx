@@ -16,7 +16,7 @@ export const HomePage: FunctionComponent = () => {
     const maxRegistrationYear = useMaxRegistrationBirthYear();
     const registrationLink = useRegistrationLink();
     return (
-        <GappedStack flex gap={'2em'}>
+        <GappedStack gap={'2em'}>
             <Headline registrationLink={registrationLink} />
 
             <JumpToLinks />

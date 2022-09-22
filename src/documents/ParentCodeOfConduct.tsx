@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react';
+import { FC } from 'react';
 import {
     CollapsiblePanel,
     Paragraph,
@@ -9,15 +9,17 @@ import {
 } from '../common';
 import { BoardProceduresForCodeOfConductViolations } from './BoardProceduresForCodeOfConductViolations';
 
-export interface ParentCodeOfConductProps {
+export type ParentCodeOfConductProps = {
     expectations: Array<string>;
     reportingSteps: Array<string>;
     punishments: Array<string>;
-}
+};
 
-export const ParentCodeOfConduct: FunctionComponent<
-    ParentCodeOfConductProps
-> = ({ expectations, punishments, reportingSteps }) => {
+export const ParentCodeOfConduct: FC<ParentCodeOfConductProps> = ({
+    expectations,
+    punishments,
+    reportingSteps
+}) => {
     return (
         <Section padded shadow>
             <CollapsiblePanel

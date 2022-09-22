@@ -6,17 +6,17 @@ import {
     ProgramInfoAttribute,
     Section,
     SectionTitle,
-    SubTitle
+    SubTitle,
+    SmartLink
 } from '../common';
-import React, { FunctionComponent } from 'react';
-import { List } from '@fluentui/react';
-import { SmartLink } from '../common/components/SmartLink';
+import { FC } from 'react';
+import { UnorderedList } from '@chakra-ui/react';
 
-export interface ProgramProps {
+export type ProgramProps = {
     program: ProgramInfo;
-}
+};
 
-export const Program: FunctionComponent<ProgramProps> = ({ program }) => {
+export const Program: FC<ProgramProps> = ({ program }) => {
     const attributes = program.attributes.map((a, i) => (
         <ProgramAttribute key={i} attribute={a} />
     ));
@@ -33,13 +33,16 @@ export const Program: FunctionComponent<ProgramProps> = ({ program }) => {
     );
 };
 
-export interface ProgramAttributeProps {
+export type ProgramAttributeProps = {
     attribute: ProgramInfoAttribute;
-}
+};
 
-export const ProgramAttribute: FunctionComponent<ProgramAttributeProps> = ({
-    attribute
-}) => {
+export const ProgramAttribute: FC<ProgramAttributeProps> = ({ attribute }) => {
+    const detailItems = attribute.details
+        ? attribute.details.map((detail, index) => (
+              <Paragraph key={index}>{detail}</Paragraph>
+          ))
+        : [];
     return (
         <PlainStack>
             <PlainStack horizontal verticalAlign={'center'}>
@@ -50,14 +53,9 @@ export const ProgramAttribute: FunctionComponent<ProgramAttributeProps> = ({
                 {attribute.link ? <SmartLink link={attribute.link} /> : null}
             </PlainStack>
             <PlainStack className={'indent'}>
-                {attribute.details ? (
+                {detailItems.length > 0 ? (
                     <PlainStack>
-                        <List
-                            items={attribute.details}
-                            onRenderCell={(item, i) => (
-                                <Paragraph key={i}>{item}</Paragraph>
-                            )}
-                        />
+                        <UnorderedList>{detailItems}</UnorderedList>
                     </PlainStack>
                 ) : null}
             </PlainStack>
