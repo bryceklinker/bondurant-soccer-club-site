@@ -1,7 +1,7 @@
-import { LinkData } from '../../state';
 import { FC } from 'react';
 import { Link } from 'gatsby';
 import { Button } from '@chakra-ui/react';
+import { LinkData } from '../../state/models';
 
 export type NavLinkProps = {
     data: LinkData;

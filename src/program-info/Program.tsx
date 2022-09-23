@@ -1,15 +1,13 @@
-import {
-    CollapsiblePanel,
-    Paragraph,
-    PlainStack,
-    Section,
-    SectionTitle,
-    SubTitle,
-    SmartLink
-} from '../common/components';
 import { FC } from 'react';
 import { UnorderedList } from '@chakra-ui/react';
-import { ProgramInfo, ProgramInfoAttribute } from '../common/state';
+import { ProgramInfo, ProgramInfoAttribute } from '../common/state/models';
+import { Section } from '../common/components/Section';
+import { SectionTitle } from '../common/components/SectionTitle';
+import { Paragraph } from '../common/components/Paragraph';
+import { CollapsiblePanel } from '../common/components/CollapsiblePanel';
+import { PlainStack } from '../common/components/PlainStack';
+import { SubTitle } from '../common/components/SubTitle';
+import { SmartLink } from '../common/components/SmartLink';
 
 export type ProgramProps = {
     program: ProgramInfo;

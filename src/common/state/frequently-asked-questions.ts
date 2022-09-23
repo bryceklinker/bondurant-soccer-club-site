@@ -1,5 +1,4 @@
 import { BoardMemberData, FrequentlyAskedQuestionData } from './models';
-import { RouteNames } from '../routing';
 import {
     DIRECTORS_OF_COACHES,
     DIRECTORS_OF_REFEREES,
@@ -14,8 +13,9 @@ import {
     REGISTRATION_SOFTWARE,
     SPRING_REGISTRATION_DATES
 } from './registration';
-import { Dates } from '../extensions';
 import { U9_AND_UP_SCHEDULE_LINK } from './schedules';
+import { RouteNames } from '../routing/route-names';
+import { Dates } from '../extensions/dates';
 
 export const FREQUENTLY_ASKED_QUESTIONS: Array<FrequentlyAskedQuestionData> = [
     {

@@ -1,6 +1,6 @@
 import { FC } from 'react';
-import { MORE_INFO_NAVIGATION_LINKS } from '../../routing';
 import { NavLink } from './NavLink';
+import { MORE_INFO_NAVIGATION_LINKS } from '../../routing/route-names';
 
 export type MoreNavigationLinksProps = {
     onClick: () => void;

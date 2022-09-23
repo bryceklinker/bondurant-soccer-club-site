@@ -1,10 +1,8 @@
 import React, { FunctionComponent } from 'react';
-import {
-    CollapsiblePanel,
-    Paragraph,
-    Section,
-    SectionTitle
-} from '../common/components';
+import { CollapsiblePanel } from '../common/components/CollapsiblePanel';
+import { Section } from '../common/components/Section';
+import { Paragraph } from '../common/components/Paragraph';
+import { SectionTitle } from '../common/components/SectionTitle';
 
 export const Coaching: FunctionComponent = () => {
     return (

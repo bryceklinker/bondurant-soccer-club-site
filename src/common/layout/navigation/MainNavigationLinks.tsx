@@ -1,6 +1,6 @@
 import { FC } from 'react';
-import { MAIN_NAVIGATION_LINKS } from '../../routing';
 import { NavLink } from './NavLink';
+import { MAIN_NAVIGATION_LINKS } from '../../routing/route-names';
 
 export type MainNavigationLinksProps = {
     onClick: () => void;

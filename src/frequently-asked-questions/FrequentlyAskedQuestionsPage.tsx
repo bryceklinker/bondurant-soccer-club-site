@@ -1,20 +1,18 @@
 import { FC } from 'react';
 import {
-    CollapsiblePanel,
-    GappedStack,
-    Paragraph,
-    PlainStack,
-    Section,
-    SectionTitle,
-    SubTitle,
-    SmartLink
-} from '../common/components';
-import {
     useCoachFrequentlyAskedQuestions,
     useFrequentlyAskedQuestions,
     useRegistrationFrequentlyAskedQuestions
-} from '../common/hooks';
-import { FrequentlyAskedQuestionData } from '../common/state';
+} from '../common/hooks/frequently-asked-questions-hooks';
+import { GappedStack } from '../common/components/GappedStack';
+import { SectionTitle } from '../common/components/SectionTitle';
+import { CollapsiblePanel } from '../common/components/CollapsiblePanel';
+import { Section } from '../common/components/Section';
+import { FrequentlyAskedQuestionData } from '../common/state/models';
+import { Paragraph } from '../common/components/Paragraph';
+import { SmartLink } from '../common/components/SmartLink';
+import { SubTitle } from '../common/components/SubTitle';
+import { PlainStack } from '../common/components/PlainStack';
 
 export const FrequentlyAskedQuestionsPage: FC = () => {
     const frequentlyAskedQuestions = useFrequentlyAskedQuestions().map(

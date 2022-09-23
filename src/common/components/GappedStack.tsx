@@ -1,5 +1,6 @@
 import { FunctionComponent } from 'react';
-import { ColumnFlex, ColumnFlexProps, PADDED_CONTENT_PROPS } from '../layout';
+import { ColumnFlex, ColumnFlexProps } from '../layout/ColumnFlex';
+import { PADDED_CONTENT_PROPS } from '../layout/flex-styles';
 
 interface GappedStackProps extends Omit<ColumnFlexProps, 'tokens'> {
     padded?: boolean;

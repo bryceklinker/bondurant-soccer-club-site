@@ -1,14 +1,12 @@
-import React, { FunctionComponent } from 'react';
-import {
-    CollapsiblePanel,
-    Paragraph,
-    PlainStack,
-    Section,
-    SectionTitle,
-    SubTitle
-} from '../common/components';
-import { RegistrationDatesData } from '../common/state';
-import { Dates } from '../common/extensions';
+import { FunctionComponent } from 'react';
+import { RegistrationDatesData } from '../common/state/models';
+import { PlainStack } from '../common/components/PlainStack';
+import { SubTitle } from '../common/components/SubTitle';
+import { Paragraph } from '../common/components/Paragraph';
+import { Dates } from '../common/extensions/dates';
+import { CollapsiblePanel } from '../common/components/CollapsiblePanel';
+import { SectionTitle } from '../common/components/SectionTitle';
+import { Section } from '../common/components/Section';
 
 export interface RegistrationDateProps {
     date: RegistrationDatesData;

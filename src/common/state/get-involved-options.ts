@@ -1,15 +1,14 @@
+import { BecomeACoach } from '../../get-involved/BecomeACoach';
+import { BecomeAReferee } from '../../get-involved/BecomeAReferee';
+import { BoardMemberData, GetInvolvedData } from './models';
 import {
-    BoardMemberData,
     DIRECTORS_OF_COACHES,
     DIRECTORS_OF_FIELDS,
     DIRECTORS_OF_REFEREES,
-    GetInvolvedData,
-    LAWS_OF_THE_GAME,
     PRESIDENTS
-} from '../common/state';
-import { BecomeACoach } from './BecomeACoach';
-import { BecomeAReferee } from './BecomeAReferee';
-import { RouteNames } from '../common/routing';
+} from './board-members';
+import { LAWS_OF_THE_GAME } from './get-involved';
+import { RouteNames } from '../routing/route-names';
 
 export const GET_INVOLVED_OPTIONS: Array<GetInvolvedData> = [
     {

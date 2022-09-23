@@ -1,19 +1,17 @@
 import { FunctionComponent } from 'react';
-import {
-    CollapsiblePanel,
-    Divider,
-    Paragraph,
-    PlainStack,
-    Section,
-    SectionTitle,
-    SubTitle
-} from '../common/components';
+import { CollapsiblePanel } from '../common/components/CollapsiblePanel';
 import {
     ByLawArticleData,
     ByLawsData,
     ByLawSectionData
-} from '../common/state';
-import { Numbers } from '../common/extensions';
+} from '../common/state/models';
+import { SectionTitle } from '../common/components/SectionTitle';
+import { Paragraph } from '../common/components/Paragraph';
+import { Divider } from '@chakra-ui/react';
+import { Section } from '../common/components/Section';
+import { SubTitle } from '../common/components/SubTitle';
+import { PlainStack } from '../common/components/PlainStack';
+import { Numbers } from '../common/extensions/numbers';
 
 export interface ByLawsProps {
     byLaws: ByLawsData;

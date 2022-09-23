@@ -1,7 +1,7 @@
 import { FunctionComponent } from 'react';
-import { SubTitle } from '../common/components';
-import { RowFlex } from '../common/layout';
-import { BoardMemberData } from '../common/state';
+import { BoardMemberData } from '../common/state/models';
+import { RowFlex } from '../common/layout/RowFlex';
+import { SubTitle } from '../common/components/SubTitle';
 
 export interface BoardMemberProps {
     member: BoardMemberData;

@@ -1,11 +1,11 @@
 import { useMemo } from 'react';
 import {
-    COACHING_CODE_OF_CONDUCT_EXPECTATIONS,
     CODE_OF_CONDUCT_PUNISHMENTS,
-    PARENT_CODE_OF_CONDUCT_EXPECTATIONS,
-    PLAYER_CODE_OF_CONDUCT,
     REPORT_HANDLING_STEPS
-} from '../state';
+} from '../state/code-of-conduct-common';
+import { PARENT_CODE_OF_CONDUCT_EXPECTATIONS } from '../state/parent-code-of-conduct';
+import { PLAYER_CODE_OF_CONDUCT } from '../state/player-code-of-conduct';
+import { COACHING_CODE_OF_CONDUCT_EXPECTATIONS } from '../state/coaching-code-of-conduct';
 
 export function useCodeOfConductPunishments() {
     return useMemo(() => CODE_OF_CONDUCT_PUNISHMENTS, []);

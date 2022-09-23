@@ -1,5 +1,6 @@
 import { useMemo } from 'react';
-import { BOARD_MEMBERS, BoardMemberData, LinkData } from '../state';
+import { BOARD_MEMBERS } from '../state/board-members';
+import { BoardMemberData, LinkData } from '../state/models';
 
 export function useBoardMembers() {
     return useMemo(() => BOARD_MEMBERS, []);

@@ -3,7 +3,7 @@ import {
     PICTURES_ACCESS,
     PICTURES_COMPANY_LINK,
     PICTURES_DATE
-} from '../state';
+} from '../state/picture-day';
 
 export function usePicturesDate() {
     return useMemo(() => PICTURES_DATE, []);

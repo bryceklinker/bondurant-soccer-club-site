@@ -1,10 +1,8 @@
-import React, { FunctionComponent } from 'react';
-import {
-    Section,
-    Divider,
-    Paragraph,
-    SectionTitle
-} from '../common/components';
+import { FunctionComponent } from 'react';
+import { Section } from '../common/components/Section';
+import { SectionTitle } from '../common/components/SectionTitle';
+import { Divider } from '@chakra-ui/react';
+import { Paragraph } from '../common/components/Paragraph';
 
 export const MissionStatement: FunctionComponent = () => {
     return (

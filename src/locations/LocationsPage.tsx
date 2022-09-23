@@ -1,7 +1,8 @@
 import React, { FunctionComponent } from 'react';
 import { LocationSegment } from './LocationSegment';
-import { GappedStack, Title } from '../common/components';
-import { useLocations } from '../common/hooks';
+import { useLocations } from '../common/hooks/locations-hooks';
+import { GappedStack } from '../common/components/GappedStack';
+import { Title } from '../common/components/Title';
 
 export const LocationsPage: FunctionComponent = () => {
     const locations = useLocations();

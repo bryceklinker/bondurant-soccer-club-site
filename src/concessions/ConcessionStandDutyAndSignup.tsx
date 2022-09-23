@@ -1,14 +1,12 @@
 import React, { FunctionComponent } from 'react';
-import {
-    CollapsiblePanel,
-    ExternalLink,
-    Paragraph,
-    PlainStack,
-    Section,
-    SectionTitle
-} from '../common/components';
 import { StaticImage } from 'gatsby-plugin-image';
-import { LinkData } from '../common/state';
+import { LinkData } from '../common/state/models';
+import { Section } from '../common/components/Section';
+import { CollapsiblePanel } from '../common/components/CollapsiblePanel';
+import { SectionTitle } from '../common/components/SectionTitle';
+import { PlainStack } from '../common/components/PlainStack';
+import { Paragraph } from '../common/components/Paragraph';
+import { ExternalLink } from '../common/components/ExternalLink';
 
 export interface ConcessionStandDutyAndSignupProps {
     signupLink: LinkData;

@@ -1,11 +1,13 @@
 import React, { FunctionComponent } from 'react';
-import { GappedStack, Title } from '../common/components';
 import { RequiredEquipment } from './RequiredEquipment';
 import { Weather } from './Weather';
 import { Coaching } from './Coaching';
 import { PracticesAndGames } from './PracticesAndGames';
 import { DrillsYouCanDoAtHome } from './DrillsYouCanDoAtHome';
-import { useCoachingDrills, useSchedulesLink } from '../common/hooks';
+import { useSchedulesLink } from '../common/hooks/schedules-hooks';
+import { useCoachingDrills } from '../common/hooks/get-involved-hooks';
+import { GappedStack } from '../common/components/GappedStack';
+import { Title } from '../common/components/Title';
 
 export const U5U6InfoPage: FunctionComponent = () => {
     const schedulesLink = useSchedulesLink();

@@ -1,6 +1,6 @@
-import React, { FunctionComponent } from 'react';
+import { FunctionComponent } from 'react';
 import './RegistrationAgesTable.css';
-import { AgeRegistrationData } from '../common/state';
+import { AgeRegistrationData } from '../common/state/models';
 
 export interface RegistrationAgesTableProps {
     ages: Array<AgeRegistrationData>;

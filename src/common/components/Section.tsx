@@ -1,11 +1,9 @@
 import { FC } from 'react';
-
+import { ColumnFlex, ColumnFlexProps } from '../layout/ColumnFlex';
 import {
-    ColumnFlex,
-    ColumnFlexProps,
     PADDED_CONTENT_PROPS,
     SECTION_SHADOW_PROPS
-} from '../layout';
+} from '../layout/flex-styles';
 
 export interface SectionProps extends Omit<ColumnFlexProps, 'shadow'> {
     shadow?: boolean;

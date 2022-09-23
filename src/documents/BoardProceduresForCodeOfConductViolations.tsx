@@ -1,5 +1,7 @@
 import React, { FunctionComponent } from 'react';
-import { Paragraph, ParagraphList, SubTitle } from '../common/components';
+import { SubTitle } from '../common/components/SubTitle';
+import { Paragraph } from '../common/components/Paragraph';
+import { ParagraphList } from '../common/components/ParagraphList';
 
 export interface BoardProceduresForCodeOfConductViolationsProps {
     reportingSteps: Array<string>;

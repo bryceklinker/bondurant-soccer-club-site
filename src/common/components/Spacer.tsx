@@ -1,5 +1,6 @@
 import { FC } from 'react';
-import { ColumnFlex, RowFlex } from '../layout';
+import { ColumnFlex } from '../layout/ColumnFlex';
+import { RowFlex } from '../layout/RowFlex';
 
 export type SpacerProps = {
     vertical?: boolean;

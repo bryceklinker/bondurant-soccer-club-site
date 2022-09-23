@@ -1,8 +1,8 @@
-import { FC, DetailedHTMLProps } from 'react';
+import { FC, DetailedHTMLProps, AnchorHTMLAttributes } from 'react';
 import { Paragraph } from './Paragraph';
 
 export type ExternalLinkProps = DetailedHTMLProps<
-    React.AnchorHTMLAttributes<HTMLAnchorElement>,
+    AnchorHTMLAttributes<HTMLAnchorElement>,
     HTMLAnchorElement
 >;
 

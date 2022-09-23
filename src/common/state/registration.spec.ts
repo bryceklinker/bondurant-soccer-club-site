@@ -1,5 +1,6 @@
-import { AGE_GROUPS, SeasonName } from '../../common';
 import { Registration } from './registration';
+import { SeasonName } from './models';
+import { AGE_GROUPS } from './age-groups';
 
 describe('registration state', () => {
     beforeEach(() => {

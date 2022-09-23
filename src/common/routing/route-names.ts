@@ -1,4 +1,4 @@
-import { LinkData } from '../state';
+import { LinkData } from '../state/models';
 
 export const RouteNames = {
     ContactUs: 'contact-us',

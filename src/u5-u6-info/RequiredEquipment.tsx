@@ -1,10 +1,8 @@
-import React, { FunctionComponent } from 'react';
-import {
-    CollapsiblePanel,
-    Paragraph,
-    Section,
-    SectionTitle
-} from '../common/components';
+import { FunctionComponent } from 'react';
+import { Section } from '../common/components/Section';
+import { SectionTitle } from '../common/components/SectionTitle';
+import { CollapsiblePanel } from '../common/components/CollapsiblePanel';
+import { Paragraph } from '../common/components/Paragraph';
 
 export const RequiredEquipment: FunctionComponent = () => {
     return (

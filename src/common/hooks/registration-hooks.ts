@@ -1,12 +1,11 @@
 import { useMemo } from 'react';
 import {
-    RegistrationSeasonData,
-    Registration,
-    RegistrationDatesData,
-    REGISTRATION_DATES,
     REGISTER_HERE_LINK,
+    Registration,
+    REGISTRATION_DATES,
     REGISTRATION_SOFTWARE
-} from '../state';
+} from '../state/registration';
+import { RegistrationDatesData, RegistrationSeasonData } from '../state/models';
 
 export function useCurrentSeason() {
     return useMemo(Registration.currentSeason, []);

@@ -1,11 +1,9 @@
-import React, { FunctionComponent } from 'react';
-import {
-    Paragraph,
-    Section,
-    SectionTitle,
-    SmartLink
-} from '../common/components';
-import { LinkData } from '../common/state';
+import { FunctionComponent } from 'react';
+import { Section } from '../common/components/Section';
+import { LinkData } from '../common/state/models';
+import { SectionTitle } from '../common/components/SectionTitle';
+import { Paragraph } from '../common/components/Paragraph';
+import { SmartLink } from '../common/components/SmartLink';
 
 export interface BecomeARefereeInfoProps {
     contactLink: LinkData;

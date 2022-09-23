@@ -1,9 +1,9 @@
 import { FC } from 'react';
-import { Paragraph, SubTitle } from '../common/components';
-
 import { ExternalLinks } from '../common/components/ExternalLinks';
-import { useCoachingDrills } from '../common/hooks';
-import { ColumnFlex } from '../common/layout';
+import { useCoachingDrills } from '../common/hooks/get-involved-hooks';
+import { ColumnFlex } from '../common/layout/ColumnFlex';
+import { Paragraph } from '../common/components/Paragraph';
+import { SubTitle } from '../common/components/SubTitle';
 
 export const BecomeACoach: FC = () => {
     const drills = useCoachingDrills();

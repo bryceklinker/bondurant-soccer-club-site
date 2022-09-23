@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from 'react';
-import { Paragraph } from '../common';
-import { ColumnFlex } from '../common/layout';
+import { ColumnFlex } from '../common/layout/ColumnFlex';
+import { Paragraph } from '../common/components/Paragraph';
 
 export const BecomeAReferee: FunctionComponent = () => {
     return (

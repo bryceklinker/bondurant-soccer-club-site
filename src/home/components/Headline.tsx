@@ -1,9 +1,9 @@
 import React, { FunctionComponent } from 'react';
-import { JumboTitle } from '../../common/components/JumboTitle';
-import { LinkData } from '../../common/state';
 import { Button } from '@chakra-ui/react';
+import { JumboTitle } from '../../common/components/JumboTitle';
+import { LinkData } from '../../common/state/models';
+import { ColumnFlex } from '../../common/layout/ColumnFlex';
 import './Headline.css';
-import { ColumnFlex } from '../../common/layout';
 
 export interface HeadlineProps {
     registrationLink: LinkData;

@@ -1,19 +1,17 @@
-import React, { FunctionComponent } from 'react';
-import {
-    ExternalLink,
-    GappedStack,
-    Paragraph,
-    PlainStack,
-    Title
-} from '../common/components';
+import { FunctionComponent } from 'react';
 import { StaticImage } from 'gatsby-plugin-image';
-import { RowFlex } from '../common/layout';
 import {
     usePicturesAccess,
     usePicturesCompanyLink,
     usePicturesDate
-} from '../common/hooks';
-import { Dates } from '../common/extensions';
+} from '../common/hooks/picture-day-hooks';
+import { GappedStack } from '../common/components/GappedStack';
+import { Title } from '../common/components/Title';
+import { RowFlex } from '../common/layout/RowFlex';
+import { PlainStack } from '../common/components/PlainStack';
+import { Paragraph } from '../common/components/Paragraph';
+import { Dates } from '../common/extensions/dates';
+import { ExternalLink } from '../common/components/ExternalLink';
 
 export const PictureDayPage: FunctionComponent = () => {
     const pictureDate = usePicturesDate();

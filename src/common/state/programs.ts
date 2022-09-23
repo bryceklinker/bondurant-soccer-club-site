@@ -1,6 +1,6 @@
 import { ProgramInfo } from './models';
 import { AGE_GROUPS } from './age-groups';
-import { RouteNames } from '../routing';
+import { RouteNames } from '../routing/route-names';
 
 const U7U8Program: ProgramInfo = {
     title: AGE_GROUPS.U8.name,

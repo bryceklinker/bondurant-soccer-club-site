@@ -1,8 +1,10 @@
 import React, { FunctionComponent } from 'react';
-import { GappedStack, Title } from '../common/components';
 import { CurrentNeeds } from './CurrentNeeds';
 import { CurrentSponsors } from './CurrentSponsors';
-import { useBoardMembersEmailLink, useSponsorshipLinks } from '../common/hooks';
+import { useBoardMembersEmailLink } from '../common/hooks/board-members-hooks';
+import { useSponsorshipLinks } from '../common/hooks/sponsors-hooks';
+import { GappedStack } from '../common/components/GappedStack';
+import { Title } from '../common/components/Title';
 
 export const SponsorshipInfoPage: FunctionComponent = () => {
     const boardMembersEmail = useBoardMembersEmailLink();

@@ -1,14 +1,15 @@
 import React, { FunctionComponent } from 'react';
-import { GappedStack, Title } from '../common/components';
 import {
     useDirectorOfRefereesContact,
     useRefereeRecertificationCost,
     useRefereeRecertificationSteps,
     useRefereeRequiredTrainingLink
-} from '../common/hooks';
+} from '../common/hooks/referees-hooks';
 import { BecomeARefereeInfo } from './BecomeARefereeInfo';
 import { RecertificationUpdate } from './RecertificationUpdate';
 import { RefereeMeetingNotes } from './RefereeMeetingNotes';
+import { GappedStack } from '../common/components/GappedStack';
+import { Title } from '../common/components/Title';
 
 export const RefereeInfoPage: FunctionComponent = () => {
     const directorOfRefereesLink = useDirectorOfRefereesContact();

@@ -1,5 +1,5 @@
 import { LinkData } from './models';
-import { RouteNames } from '../routing';
+import { RouteNames } from '../routing/route-names';
 
 export const U9_AND_UP_SCHEDULE_LINK: LinkData = {
     text: 'here',

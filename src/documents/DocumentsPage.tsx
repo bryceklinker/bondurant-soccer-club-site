@@ -1,18 +1,19 @@
-import React, { FunctionComponent } from 'react';
-import { GappedStack, Title } from '../common/components';
+import { FunctionComponent } from 'react';
 import { ByLaws } from './ByLaws';
 import { CoachingCodeOfConduct } from './CoachingCodeOfConduct';
 import { ParentCodeOfConduct } from './ParentCodeOfConduct';
 import { PlayerCodeOfConduct } from './PlayerCodeOfConduct';
 import { DownloadableDocuments } from './DownloadableDocuments';
+import { useByLaws } from '../common/hooks/by-laws-hooks';
 import {
-    useByLaws,
     useCoachingCodeOfConductExpectations,
     useCodeOfConductPunishments,
     useCodeOfConductReportHandlingSteps,
-    useDownloadableDocuments,
     useParentCodeOfConductExpectations
-} from '../common/hooks';
+} from '../common/hooks/code-of-conduct-hooks';
+import { useDownloadableDocuments } from '../common/hooks/downloadable-document-hooks';
+import { GappedStack } from '../common/components/GappedStack';
+import { Title } from '../common/components/Title';
 
 export const DocumentsPage: FunctionComponent = () => {
     const byLaws = useByLaws();

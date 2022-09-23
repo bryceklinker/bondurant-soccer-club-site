@@ -1,4 +1,4 @@
-import { BoardMemberData, LinkData, ImageData } from './models';
+import { BoardMemberData, LinkData } from './models';
 import { DIRECTORS_OF_CONCESSIONS } from './board-members';
 
 export const CONCESSION_SIGNUP_LINK: LinkData = {

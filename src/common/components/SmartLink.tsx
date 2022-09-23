@@ -1,11 +1,10 @@
 import React, { FunctionComponent } from 'react';
-import { ILinkProps } from '@fluentui/react';
-import { Link } from '@reach/router';
-import { LinkData } from '../state';
-import { Strings } from '../extensions';
-import { ExternalLink } from './ExternalLink';
+import { Link } from 'gatsby';
+import { ExternalLink, ExternalLinkProps } from './ExternalLink';
+import { LinkData } from '../state/models';
+import { Strings } from '../extensions/strings';
 
-export interface SmartLinkProps extends Omit<ILinkProps, 'as'> {
+export interface SmartLinkProps extends ExternalLinkProps {
     link: LinkData;
 }
 

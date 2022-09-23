@@ -1,8 +1,8 @@
 import { Button } from '@chakra-ui/react';
 import useCollapse from 'react-collapsed';
 import { FC, ReactNode } from 'react';
-import { useBooleanToggle } from '../hooks';
-import { ColumnFlex, ColumnFlexProps } from '../layout';
+import { ColumnFlex, ColumnFlexProps } from '../layout/ColumnFlex';
+import { useBooleanToggle } from '../hooks/use-boolean-toggle';
 
 export type CollapsiblePanelProps = Omit<ColumnFlexProps, 'title'> & {
     title: string | ReactNode;

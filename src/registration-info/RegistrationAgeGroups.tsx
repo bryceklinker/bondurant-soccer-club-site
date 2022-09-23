@@ -1,13 +1,11 @@
 import React, { FunctionComponent } from 'react';
-import {
-    CollapsiblePanel,
-    Paragraph,
-    PlainStack,
-    Section,
-    SectionTitle
-} from '../common/components';
-import { AgeRegistrationData, Season } from '../common/state';
 import { RegistrationAgesTable } from './RegistrationAgesTable';
+import { Section } from '../common/components/Section';
+import { CollapsiblePanel } from '../common/components/CollapsiblePanel';
+import { SectionTitle } from '../common/components/SectionTitle';
+import { PlainStack } from '../common/components/PlainStack';
+import { Paragraph } from '../common/components/Paragraph';
+import { AgeRegistrationData, Season } from '../common/state/models';
 
 export interface RegistrationAgeGroupsProps {
     season: Season;

@@ -1,11 +1,13 @@
-import { initializeTelemetry, reactPlugin } from '../telemetry';
 import { FC, PropsWithChildren } from 'react';
 import { AppInsightsContext } from '@microsoft/applicationinsights-react-js';
 import { LayoutMainContent } from './LayoutMainContent';
-import { Spacer } from '../components';
 import { LayoutFooter } from './footer/LayoutFooter';
 import { LayoutNavbar } from './navigation/LayoutNavbar';
-import { LayoutNavPanel } from './navigation/LayoutNavPanel';
+import { Spacer } from '../components/Spacer';
+import {
+    initializeTelemetry,
+    reactPlugin
+} from '../telemetry/initialize-telemetry';
 
 initializeTelemetry();
 

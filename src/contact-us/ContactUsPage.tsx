@@ -1,7 +1,8 @@
 import React, { FunctionComponent } from 'react';
+import { useBoardMembers } from '../common/hooks/board-members-hooks';
 import { BoardMembers } from './BoardMembers';
-import { GappedStack, Title } from '../common/components';
-import { useBoardMembers } from '../common/hooks';
+import { GappedStack } from '../common/components/GappedStack';
+import { Title } from '../common/components/Title';
 
 export const ContactUsPage: FunctionComponent = () => {
     const boardMembers = useBoardMembers();

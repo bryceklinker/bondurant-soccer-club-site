@@ -1,5 +1,6 @@
 import React, { FunctionComponent } from 'react';
-import { Paragraph, useCurrentYear } from '../../index';
+import { useCurrentYear } from '../../hooks/use-current-year';
+import { Paragraph } from '../../components/Paragraph';
 
 export const Copyright: FunctionComponent = () => {
     const year = useCurrentYear();

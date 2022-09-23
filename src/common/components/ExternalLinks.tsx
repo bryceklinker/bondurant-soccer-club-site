@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from 'react';
-import { LinkData } from '../state';
+import { LinkData } from '../state/models';
 import { ExternalLink } from './ExternalLink';
 import { PlainStack } from './PlainStack';
 

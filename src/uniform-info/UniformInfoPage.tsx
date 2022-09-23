@@ -1,12 +1,13 @@
 import React, { FunctionComponent } from 'react';
-import { GappedStack, Title } from '../common/components';
 import {
     useDirectorOfUniformsLink,
     useUniformPurchaseOptions,
     useUniformSizes
-} from '../common/hooks';
+} from '../common/hooks/uniforms-hooks';
 import { UniformCostsAndSizes } from './UniformCostsAndSizes';
 import { UniformImages } from './UniformImages';
+import { GappedStack } from '../common/components/GappedStack';
+import { Title } from '../common/components/Title';
 
 export const UniformInfoPage: FunctionComponent = () => {
     const sizes = useUniformSizes();

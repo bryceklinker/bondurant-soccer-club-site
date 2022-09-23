@@ -1,15 +1,14 @@
 import { FC } from 'react';
-import {
-    Paragraph,
-    Section,
-    SubTitle,
-    SectionTitle,
-    EmbeddedMap,
-    CollapsiblePanel
-} from '../common/components';
+import { LocationData } from '../common/state/models';
+import { Paragraph } from '../common/components/Paragraph';
+import { Section } from '../common/components/Section';
+import { CollapsiblePanel } from '../common/components/CollapsiblePanel';
+import { ColumnFlex } from '../common/layout/ColumnFlex';
+import { RowFlex } from '../common/layout/RowFlex';
+import { SectionTitle } from '../common/components/SectionTitle';
+import { SubTitle } from '../common/components/SubTitle';
+import { EmbeddedMap } from '../common/components/EmbeddedMap';
 import './LocationSegment.css';
-import { ColumnFlex, RowFlex } from '../common/layout';
-import { LocationData } from '../common/state';
 
 export type LocationSegmentProps = {
     data: LocationData;

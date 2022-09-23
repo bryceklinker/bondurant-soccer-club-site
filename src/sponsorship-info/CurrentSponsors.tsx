@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from 'react';
-import { Section } from '../common/components';
 import { ExternalLinks } from '../common/components/ExternalLinks';
-import { LinkData } from '../common/state';
+import { LinkData } from '../common/state/models';
+import { Section } from '../common/components/Section';
 
 export interface CurrentSponsorsProps {
     sponsorLinks: Array<LinkData>;

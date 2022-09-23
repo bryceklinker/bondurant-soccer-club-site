@@ -1,10 +1,7 @@
-import React, { FunctionComponent } from 'react';
-import {
-    ColumnFlex,
-    ColumnFlexProps,
-    PADDED_CONTENT_PROPS,
-    RowFlex
-} from '../layout';
+import { FunctionComponent } from 'react';
+import { ColumnFlex, ColumnFlexProps } from '../layout/ColumnFlex';
+import { PADDED_CONTENT_PROPS } from '../layout/flex-styles';
+import { RowFlex } from '../layout/RowFlex';
 
 export type PlainStackProps = ColumnFlexProps & {
     padded?: boolean;

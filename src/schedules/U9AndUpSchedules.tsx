@@ -1,13 +1,11 @@
-import React, { FunctionComponent } from 'react';
-import {
-    CollapsiblePanel,
-    ExternalLink,
-    Paragraph,
-    Section,
-    SectionTitle
-} from '../common/components';
-import { ColumnFlex } from '../common/layout';
-import { LinkData } from '../common/state';
+import { FunctionComponent } from 'react';
+import { Section } from '../common/components/Section';
+import { LinkData } from '../common/state/models';
+import { CollapsiblePanel } from '../common/components/CollapsiblePanel';
+import { SectionTitle } from '../common/components/SectionTitle';
+import { ExternalLink } from '../common/components/ExternalLink';
+import { ColumnFlex } from '../common/layout/ColumnFlex';
+import { Paragraph } from '../common/components/Paragraph';
 
 export interface U9AndUpSchedulesProps {
     link: LinkData;

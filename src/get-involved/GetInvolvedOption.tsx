@@ -1,16 +1,14 @@
 import React, { FunctionComponent } from 'react';
-import {
-    Section,
-    Paragraph,
-    SectionTitle,
-    SubTitle,
-    CollapsiblePanel,
-    ExternalLink
-} from '../common/components';
 import { Link as GatsbyLink } from 'gatsby';
 import './GetInvolvedOption.css';
-import { ColumnFlex } from '../common/layout';
-import { GetInvolvedData, LinkData } from '../common/state';
+import { GetInvolvedData, LinkData } from '../common/state/models';
+import { Paragraph } from '../common/components/Paragraph';
+import { ExternalLink } from '../common/components/ExternalLink';
+import { CollapsiblePanel } from '../common/components/CollapsiblePanel';
+import { ColumnFlex } from '../common/layout/ColumnFlex';
+import { SectionTitle } from '../common/components/SectionTitle';
+import { SubTitle } from '../common/components/SubTitle';
+import { Section } from '../common/components/Section';
 
 export interface GetInvolvedLinkProps {
     data: LinkData;

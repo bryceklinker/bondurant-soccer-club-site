@@ -1,11 +1,9 @@
 import React, { FunctionComponent } from 'react';
-import {
-    CollapsiblePanel,
-    PlainStack,
-    Section,
-    SectionTitle
-} from '../common/components';
 import { StaticImage } from 'gatsby-plugin-image';
+import { Section } from '../common/components/Section';
+import { CollapsiblePanel } from '../common/components/CollapsiblePanel';
+import { SectionTitle } from '../common/components/SectionTitle';
+import { PlainStack } from '../common/components/PlainStack';
 
 export const UniformImages: FunctionComponent = () => {
     return (

@@ -1,13 +1,11 @@
 import { FC } from 'react';
-import {
-    CollapsiblePanel,
-    Paragraph,
-    ParagraphList,
-    Section,
-    SectionTitle,
-    SubTitle
-} from '../common/components';
 import { BoardProceduresForCodeOfConductViolations } from './BoardProceduresForCodeOfConductViolations';
+import { CollapsiblePanel } from '../common/components/CollapsiblePanel';
+import { Section } from '../common/components/Section';
+import { SectionTitle } from '../common/components/SectionTitle';
+import { SubTitle } from '../common/components/SubTitle';
+import { Paragraph } from '../common/components/Paragraph';
+import { ParagraphList } from '../common/components/ParagraphList';
 
 export type CoachingCodeOfConductProps = {
     expectations: Array<string>;

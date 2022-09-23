@@ -1,5 +1,5 @@
 import { ProgramInfoPage } from '../program-info/ProgramInfoPage';
-import { Layout } from '../common/layout';
+import { Layout } from '../common/layout/Layout';
 
 export default () => (
     <Layout>
