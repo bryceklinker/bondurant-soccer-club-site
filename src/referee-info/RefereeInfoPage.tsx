@@ -18,7 +18,7 @@ export const RefereeInfoPage: FunctionComponent = () => {
     const recertificationRequiredTrainingLink =
         useRefereeRequiredTrainingLink();
     return (
-        <GappedStack padded flex>
+        <GappedStack padded>
             <Title>Referee Info</Title>
 
             <BecomeARefereeInfo contactLink={directorOfRefereesLink} />

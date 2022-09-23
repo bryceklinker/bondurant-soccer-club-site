@@ -1,7 +1,8 @@
 import React, { FunctionComponent } from 'react';
-import { IButtonProps, PrimaryButton } from '@fluentui/react';
+import { Button, ButtonProps } from '@chakra-ui/react';
 
-export interface LinkButtonProps extends Omit<IButtonProps, 'as' | 'target'> {
+export interface LinkButtonProps extends Omit<ButtonProps, 'as' | 'target'> {
+    href: string;
     external?: boolean;
 }
 
@@ -10,5 +11,5 @@ export const LinkButton: FunctionComponent<LinkButtonProps> = ({
     ...props
 }) => {
     const target = external ? '_blank' : undefined;
-    return <PrimaryButton as={'a'} target={target} {...props} />;
+    return <Button as={'a'} target={target} {...props} />;
 };

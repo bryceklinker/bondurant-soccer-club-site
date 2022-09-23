@@ -11,7 +11,7 @@ import {
     Numbers,
     SubTitle
 } from '../common';
-import { List } from '@fluentui/react';
+import { UnorderedList } from '@chakra-ui/react';
 
 export interface UniformCostsAndSizesProps {
     sizes: Array<UniformSize>;
@@ -22,6 +22,13 @@ export interface UniformCostsAndSizesProps {
 export const UniformCostsAndSizes: FunctionComponent<
     UniformCostsAndSizesProps
 > = ({ directorLink, purchaseOptions, sizes }) => {
+    const purchaseItems = purchaseOptions.map((item, index) => (
+        <PurchaseOption key={index} item={item} />
+    ));
+
+    const sizeItems = sizes.map((size, index) => (
+        <AvailableSize key={index} size={size} />
+    ));
     return (
         <Section padded shadow>
             <CollapsiblePanel
@@ -48,12 +55,7 @@ export const UniformCostsAndSizes: FunctionComponent<
                 </Paragraph>
 
                 <SubTitle>Uniform Purchase Options</SubTitle>
-                <List
-                    items={purchaseOptions}
-                    onRenderCell={(item, index) => (
-                        <PurchaseOption key={index} item={item} />
-                    )}
-                />
+                <UnorderedList>{purchaseItems}</UnorderedList>
 
                 <Paragraph>
                     Jerseys and shorts do not have to be ordered in the same
@@ -62,12 +64,7 @@ export const UniformCostsAndSizes: FunctionComponent<
                 </Paragraph>
 
                 <SubTitle>Available Sizes</SubTitle>
-                <List
-                    items={sizes}
-                    onRenderCell={(item, index) => (
-                        <AvailableSize key={index} size={item} />
-                    )}
-                />
+                <UnorderedList>{sizeItems}</UnorderedList>
             </CollapsiblePanel>
         </Section>
     );

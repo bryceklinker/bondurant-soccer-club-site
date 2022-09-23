@@ -1,5 +1,5 @@
 import { UniformInfoPage } from '../uniform-info/UniformInfoPage';
-import { Layout } from '../common/layout/Layout';
+import { Layout } from '../common/layout';
 
 export default () => (
     <Layout>

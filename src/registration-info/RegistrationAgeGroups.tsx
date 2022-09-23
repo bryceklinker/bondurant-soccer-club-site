@@ -22,7 +22,7 @@ export const RegistrationAgeGroups: FunctionComponent<
         <Section padded shadow>
             <CollapsiblePanel
                 title={<SectionTitle>Ages and Costs</SectionTitle>}>
-                <PlainStack flex>
+                <PlainStack>
                     <Paragraph>
                         All players are grouped by the year of birth, not the
                         school year. For {season.startYear}/{season.endYear}{' '}

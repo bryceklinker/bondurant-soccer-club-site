@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from 'react';
-import { Image } from '@fluentui/react';
+import { StaticImage } from 'gatsby-plugin-image';
 import { CollapsiblePanel, Section, SectionTitle } from '../common';
 
 export interface ImageScheduleProps {
@@ -14,7 +14,7 @@ export const ImageSchedule: FunctionComponent<ImageScheduleProps> = ({
     return (
         <Section padded shadow>
             <CollapsiblePanel title={<SectionTitle>{title}</SectionTitle>}>
-                <Image src={image} />
+                <StaticImage src={image} alt={title} />
             </CollapsiblePanel>
         </Section>
     );

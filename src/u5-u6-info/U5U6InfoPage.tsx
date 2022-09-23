@@ -15,7 +15,7 @@ export const U5U6InfoPage: FunctionComponent = () => {
     const schedulesLink = useSchedulesLink();
     const drillLinks = useCoachingDrills();
     return (
-        <GappedStack padded flex>
+        <GappedStack padded>
             <Title>U5/U6 Info</Title>
 
             <RequiredEquipment />
