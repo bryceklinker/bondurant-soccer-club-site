@@ -1,20 +1,17 @@
 import React, { FunctionComponent } from 'react';
+import { GappedStack, Title } from '../common/components';
+import { TreatTickets } from './TreatTickets';
+import { ConcessionStandDutyAndSignup } from './ConcessionStandDutyAndSignup';
 import {
-    GappedStack,
-    Title,
-    useConcessionHoursImage,
     useConcessionSignupLink,
     useConcessionsLocation,
     useDirectorOfConcessionsMailLink
-} from '../common';
-import { TreatTickets } from './TreatTickets';
-import { ConcessionStandDutyAndSignup } from './ConcessionStandDutyAndSignup';
+} from '../common/hooks';
 
 export const ConcessionsPage: FunctionComponent = () => {
     const concessionLocation = useConcessionsLocation();
     const signupLink = useConcessionSignupLink();
     const contactLink = useDirectorOfConcessionsMailLink();
-    const hoursImage = useConcessionHoursImage();
     return (
         <GappedStack padded>
             <Title>Concessions Info</Title>
@@ -23,7 +20,6 @@ export const ConcessionsPage: FunctionComponent = () => {
             <ConcessionStandDutyAndSignup
                 signupLink={signupLink}
                 contactLink={contactLink}
-                hoursImage={hoursImage}
             />
         </GappedStack>
     );

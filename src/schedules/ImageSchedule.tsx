@@ -1,20 +1,18 @@
-import React, { FunctionComponent } from 'react';
-import { StaticImage } from 'gatsby-plugin-image';
-import { CollapsiblePanel, Section, SectionTitle } from '../common';
+import React, { FunctionComponent, PropsWithChildren } from 'react';
+import { CollapsiblePanel, Section, SectionTitle } from '../common/components';
 
-export interface ImageScheduleProps {
+export type ImageScheduleProps = PropsWithChildren & {
     title: string;
-    image: any;
-}
+};
 
 export const ImageSchedule: FunctionComponent<ImageScheduleProps> = ({
     title,
-    image
+    children
 }) => {
     return (
         <Section padded shadow>
             <CollapsiblePanel title={<SectionTitle>{title}</SectionTitle>}>
-                <StaticImage src={image} alt={title} />
+                {children}
             </CollapsiblePanel>
         </Section>
     );

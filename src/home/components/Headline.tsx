@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from 'react';
 import { JumboTitle } from '../../common/components/JumboTitle';
-import { LinkData } from '../../common';
+import { LinkData } from '../../common/state';
 import { Button } from '@chakra-ui/react';
 import './Headline.css';
 import { ColumnFlex } from '../../common/layout';

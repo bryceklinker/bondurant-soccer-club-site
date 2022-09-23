@@ -1,13 +1,13 @@
 import React, { FunctionComponent } from 'react';
 import {
     CollapsiblePanel,
-    LinkData,
     Paragraph,
     Section,
     SectionTitle,
     SmartLink,
     SubTitle
-} from '../common';
+} from '../common/components';
+import { LinkData } from '../common/state';
 
 export interface RefereeMeetingNotesProps {
     contactLink: LinkData;

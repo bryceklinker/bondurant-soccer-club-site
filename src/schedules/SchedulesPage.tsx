@@ -1,21 +1,18 @@
 import React, { FunctionComponent } from 'react';
-import {
-    GappedStack,
-    useScheduleImages,
-    useU9AndUpScheduleLink
-} from '../common';
-import { ImageSchedule } from './ImageSchedule';
+import { GappedStack } from '../common/components';
 import { U9AndUpSchedules } from './U9AndUpSchedules';
+import { U5U6Schedule } from './U5U6Schedule';
+import { U7U8CoedSchedule } from './U7U8CoedSchedule';
+import { U7U8GirlsSchedule } from './U7U8GirlsSchedule';
+import { useU9AndUpScheduleLink } from '../common/hooks';
 
 export const SchedulesPage: FunctionComponent = () => {
-    const scheduleImages = useScheduleImages();
     const u9AndUpLink = useU9AndUpScheduleLink();
-    const imageSchedules = scheduleImages.map((s, i) => (
-        <ImageSchedule key={i} title={s.title} image={s.image} />
-    ));
     return (
         <GappedStack padded>
-            {imageSchedules}
+            <U5U6Schedule />
+            <U7U8CoedSchedule />
+            <U7U8GirlsSchedule />
             <U9AndUpSchedules link={u9AndUpLink} />
         </GappedStack>
     );

@@ -5,11 +5,11 @@ import {
     SubTitle,
     SectionTitle,
     EmbeddedMap,
-    CollapsiblePanel,
-    LocationData
-} from '../common';
+    CollapsiblePanel
+} from '../common/components';
 import './LocationSegment.css';
 import { ColumnFlex, RowFlex } from '../common/layout';
+import { LocationData } from '../common/state';
 
 export type LocationSegmentProps = {
     data: LocationData;

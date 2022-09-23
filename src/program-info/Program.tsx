@@ -2,15 +2,14 @@ import {
     CollapsiblePanel,
     Paragraph,
     PlainStack,
-    ProgramInfo,
-    ProgramInfoAttribute,
     Section,
     SectionTitle,
     SubTitle,
     SmartLink
-} from '../common';
+} from '../common/components';
 import { FC } from 'react';
 import { UnorderedList } from '@chakra-ui/react';
+import { ProgramInfo, ProgramInfoAttribute } from '../common/state';
 
 export type ProgramProps = {
     program: ProgramInfo;

@@ -100,7 +100,7 @@ export interface RegistrationDatesData {
 
 export interface ImageData {
     title: string;
-    image: any;
+    image: string;
 }
 
 export interface PictureAccessData {

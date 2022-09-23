@@ -18,3 +18,4 @@ export * from './coaching-code-of-conduct';
 export * from './downloadable-documents';
 export * from './frequently-asked-questions';
 export * from './referees';
+export { GET_INVOLVED_OPTIONS } from '../../get-involved/get-involved-options';

@@ -1,6 +1,7 @@
 import React, { FunctionComponent } from 'react';
-import { GappedStack, Title, usePrograms } from '../common';
+import { GappedStack, Title } from '../common/components';
 import { Program } from './Program';
+import { usePrograms } from '../common/hooks';
 
 export const ProgramInfoPage: FunctionComponent = () => {
     const programs = usePrograms().map((p, i) => (

@@ -12,7 +12,9 @@ export const SocialMedia: FC = () => {
                 href={'https://www.facebook.com/bondurantsoccerclub/'}>
                 <StaticImage
                     height={100}
-                    src={'../../assets/facebook/FindUs-FB-RGB-BRC-Site-500.png'}
+                    src={
+                        '../../../assets/facebook/FindUs-FB-RGB-BRC-Site-500.png'
+                    }
                     alt={'Facebook logo'}
                 />
             </a>

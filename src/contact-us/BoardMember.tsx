@@ -1,6 +1,7 @@
-import React, { FunctionComponent } from 'react';
-import { Link, Stack } from '@fluentui/react';
-import { BoardMemberData, SubTitle } from '../common';
+import { FunctionComponent } from 'react';
+import { SubTitle } from '../common/components';
+import { RowFlex } from '../common/layout';
+import { BoardMemberData } from '../common/state';
 
 export interface BoardMemberProps {
     member: BoardMemberData;
@@ -11,17 +12,14 @@ export const BoardMember: FunctionComponent<BoardMemberProps> = ({
 }) => {
     const name =
         member.email !== '' ? (
-            <Link href={`mailto:${member.email}`}>{member.name}</Link>
+            <a href={`mailto:${member.email}`}>{member.name}</a>
         ) : (
             member.name
         );
     return (
-        <Stack
-            horizontalAlign={'start'}
-            className={'board-member'}
-            tokens={{ childrenGap: '0.5em' }}>
+        <RowFlex gap={'0.5em'} className={'board-member'}>
             <SubTitle>Name:&nbsp;{name}</SubTitle>
             <SubTitle>Role:&nbsp;{member.roleTitle}</SubTitle>
-        </Stack>
+        </RowFlex>
     );
 };

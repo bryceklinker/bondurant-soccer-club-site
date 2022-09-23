@@ -1,13 +1,13 @@
 import React, { FunctionComponent } from 'react';
 import {
     CollapsiblePanel,
-    LocationData,
     Paragraph,
-    RouteNames,
     Section,
     SectionTitle
-} from '../common';
+} from '../common/components';
 import { Link } from 'gatsby';
+import { LocationData } from '../common/state';
+import { RouteNames } from '../common/routing';
 
 export type TreatTicketsProps = {
     location: LocationData;

@@ -1,12 +1,12 @@
 import React, { FunctionComponent } from 'react';
 import {
     CollapsiblePanel,
-    LinkData,
     Paragraph,
     Section,
     SectionTitle
-} from '../common';
+} from '../common/components';
 import { Link } from '@reach/router';
+import { LinkData } from '../common/state';
 
 export interface PracticesAndGamesProps {
     schedulesLink: LinkData;

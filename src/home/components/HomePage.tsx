@@ -1,14 +1,14 @@
 import React, { FunctionComponent } from 'react';
 import { Headline } from './Headline';
 import { JumpToLinks } from './JumpToLinks';
+import { GappedStack } from '../../common/components';
+import { Description } from './Description';
 import {
-    GappedStack,
     useCurrentSeason,
     useMaxRegistrationBirthYear,
     useMinRegistrationBirthYear,
     useRegistrationLink
-} from '../../common';
-import { Description } from './Description';
+} from '../../common/hooks';
 
 export const HomePage: FunctionComponent = () => {
     const season = useCurrentSeason();

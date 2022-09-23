@@ -2,24 +2,22 @@ import React, { FunctionComponent } from 'react';
 import {
     CollapsiblePanel,
     ExternalLink,
-    ImageData,
-    LinkData,
     Paragraph,
     PlainStack,
     Section,
     SectionTitle
-} from '../common';
+} from '../common/components';
 import { StaticImage } from 'gatsby-plugin-image';
+import { LinkData } from '../common/state';
 
 export interface ConcessionStandDutyAndSignupProps {
     signupLink: LinkData;
     contactLink: LinkData;
-    hoursImage: ImageData;
 }
 
 export const ConcessionStandDutyAndSignup: FunctionComponent<
     ConcessionStandDutyAndSignupProps
-> = ({ signupLink, contactLink, hoursImage }) => {
+> = ({ signupLink, contactLink }) => {
     return (
         <Section padded shadow>
             <CollapsiblePanel
@@ -31,9 +29,8 @@ export const ConcessionStandDutyAndSignup: FunctionComponent<
                 <PlainStack horizontal>
                     <PlainStack className={'flex-half'}>
                         <StaticImage
-                            alt={hoursImage.title}
-                            src={hoursImage.image}
-                            title={hoursImage.title}
+                            alt={'Concession Hours'}
+                            src={'../assets/concessions_hours.png'}
                         />
                     </PlainStack>
                     <PlainStack className={'flex-half'}>

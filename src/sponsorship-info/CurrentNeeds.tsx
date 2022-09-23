@@ -2,11 +2,11 @@ import React, { FunctionComponent } from 'react';
 import {
     CollapsiblePanel,
     ExternalLink,
-    LinkData,
     Paragraph,
     Section,
     SectionTitle
-} from '../common';
+} from '../common/components';
+import { LinkData } from '../common/state';
 
 export interface CurrentNeedsProps {
     boardMembersEmailLink: LinkData;

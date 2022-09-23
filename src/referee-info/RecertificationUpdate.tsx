@@ -1,14 +1,14 @@
 import React, { FunctionComponent } from 'react';
 import {
     CollapsiblePanel,
-    LinkData,
-    Numbers,
     Paragraph,
     ParagraphList,
     Section,
     SectionTitle,
     SmartLink
-} from '../common';
+} from '../common/components';
+import { LinkData } from '../common/state';
+import { Numbers } from '../common/extensions';
 
 export interface RecertificationUpdateProps {
     steps: Array<string>;

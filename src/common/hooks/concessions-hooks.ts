@@ -1,9 +1,5 @@
 import { useMemo } from 'react';
-import {
-    CONCESSION_HOURS_IMAGE,
-    CONCESSION_SIGNUP_LINK,
-    DIRECTOR_OF_CONCESSIONS_LINK
-} from '../state';
+import { CONCESSION_SIGNUP_LINK, DIRECTOR_OF_CONCESSIONS_LINK } from '../state';
 import { useWestComplexLocation } from './locations-hooks';
 
 export function useConcessionSignupLink() {
@@ -16,8 +12,4 @@ export function useDirectorOfConcessionsMailLink() {
 
 export function useConcessionsLocation() {
     return useWestComplexLocation();
-}
-
-export function useConcessionHoursImage() {
-    return useMemo(() => CONCESSION_HOURS_IMAGE, []);
 }

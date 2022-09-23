@@ -1,11 +1,11 @@
 import React, { FunctionComponent } from 'react';
 import {
-    LinkData,
     Paragraph,
     Section,
     SectionTitle,
     SmartLink
-} from '../common';
+} from '../common/components';
+import { LinkData } from '../common/state';
 
 export interface BecomeARefereeInfoProps {
     contactLink: LinkData;

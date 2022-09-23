@@ -2,6 +2,7 @@ import type { GatsbyConfig } from 'gatsby';
 import path from 'path';
 
 const config: GatsbyConfig = {
+    jsxRuntime: 'automatic',
     siteMetadata: {
         siteUrl: process.env.SITE_URL
     },
@@ -14,8 +15,8 @@ const config: GatsbyConfig = {
                 path: path.resolve(__dirname, 'src', 'assets')
             }
         },
-        'gatsby-transformer-sharp',
         'gatsby-plugin-sharp',
+        'gatsby-transformer-sharp',
         'gatsby-plugin-sitemap',
         'gatsby-plugin-robots-txt',
         {

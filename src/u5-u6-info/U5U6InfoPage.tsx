@@ -1,15 +1,11 @@
 import React, { FunctionComponent } from 'react';
-import {
-    GappedStack,
-    Title,
-    useCoachingDrills,
-    useSchedulesLink
-} from '../common';
+import { GappedStack, Title } from '../common/components';
 import { RequiredEquipment } from './RequiredEquipment';
 import { Weather } from './Weather';
 import { Coaching } from './Coaching';
 import { PracticesAndGames } from './PracticesAndGames';
 import { DrillsYouCanDoAtHome } from './DrillsYouCanDoAtHome';
+import { useCoachingDrills, useSchedulesLink } from '../common/hooks';
 
 export const U5U6InfoPage: FunctionComponent = () => {
     const schedulesLink = useSchedulesLink();

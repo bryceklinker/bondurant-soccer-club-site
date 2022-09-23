@@ -1,18 +1,20 @@
 import { FC } from 'react';
 import {
     CollapsiblePanel,
-    FrequentlyAskedQuestionData,
     GappedStack,
     Paragraph,
     PlainStack,
     Section,
     SectionTitle,
     SubTitle,
+    SmartLink
+} from '../common/components';
+import {
     useCoachFrequentlyAskedQuestions,
     useFrequentlyAskedQuestions,
-    useRegistrationFrequentlyAskedQuestions,
-    SmartLink
-} from '../common';
+    useRegistrationFrequentlyAskedQuestions
+} from '../common/hooks';
+import { FrequentlyAskedQuestionData } from '../common/state';
 
 export const FrequentlyAskedQuestionsPage: FC = () => {
     const frequentlyAskedQuestions = useFrequentlyAskedQuestions().map(

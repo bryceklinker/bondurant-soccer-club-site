@@ -1,17 +1,14 @@
-import { Stack } from '@fluentui/react';
-import React, { FunctionComponent } from 'react';
-import {
-    ExternalLink,
-    Paragraph,
-    SubTitle,
-    useCoachingDrills
-} from '../common';
-import { ExternalLinks } from '../common/components/ExternalLinks';
+import { FC } from 'react';
+import { Paragraph, SubTitle } from '../common/components';
 
-export const BecomeACoach: FunctionComponent = () => {
+import { ExternalLinks } from '../common/components/ExternalLinks';
+import { useCoachingDrills } from '../common/hooks';
+import { ColumnFlex } from '../common/layout';
+
+export const BecomeACoach: FC = () => {
     const drills = useCoachingDrills();
     return (
-        <Stack>
+        <ColumnFlex>
             <Paragraph>
                 If you are interested in Coaching or assisting a coach, please
                 contact one of our Director of Coaches. We appreciate your
@@ -42,10 +39,10 @@ export const BecomeACoach: FunctionComponent = () => {
                 SafeSport Training
             </Paragraph>
 
-            <Stack>
+            <ColumnFlex>
                 <SubTitle>Drills</SubTitle>
                 <ExternalLinks links={drills} />
-            </Stack>
-        </Stack>
+            </ColumnFlex>
+        </ColumnFlex>
     );
 };

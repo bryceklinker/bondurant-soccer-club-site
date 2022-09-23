@@ -1,7 +1,8 @@
 import { FC } from 'react';
 import { RowFlex } from '../RowFlex';
-import { Copyright, SocialMedia } from '../../../shell/components';
-import { Spacer } from '../../components';
+import { Spacer } from '../../components/Spacer';
+import { Copyright } from './Copyright';
+import { SocialMedia } from './SocialMedia';
 
 export type LayoutFooterProps = {};
 

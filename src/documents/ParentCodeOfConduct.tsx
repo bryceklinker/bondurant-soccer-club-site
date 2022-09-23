@@ -6,7 +6,7 @@ import {
     Section,
     SectionTitle,
     SubTitle
-} from '../common';
+} from '../common/components';
 import { BoardProceduresForCodeOfConductViolations } from './BoardProceduresForCodeOfConductViolations';
 
 export type ParentCodeOfConductProps = {

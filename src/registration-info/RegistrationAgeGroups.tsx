@@ -1,13 +1,12 @@
 import React, { FunctionComponent } from 'react';
 import {
-    AgeRegistrationData,
     CollapsiblePanel,
     Paragraph,
     PlainStack,
-    Season,
     Section,
     SectionTitle
-} from '../common';
+} from '../common/components';
+import { AgeRegistrationData, Season } from '../common/state';
 import { RegistrationAgesTable } from './RegistrationAgesTable';
 
 export interface RegistrationAgeGroupsProps {

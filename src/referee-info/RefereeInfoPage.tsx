@@ -1,12 +1,11 @@
 import React, { FunctionComponent } from 'react';
+import { GappedStack, Title } from '../common/components';
 import {
-    GappedStack,
-    Title,
     useDirectorOfRefereesContact,
     useRefereeRecertificationCost,
     useRefereeRecertificationSteps,
     useRefereeRequiredTrainingLink
-} from '../common';
+} from '../common/hooks';
 import { BecomeARefereeInfo } from './BecomeARefereeInfo';
 import { RecertificationUpdate } from './RecertificationUpdate';
 import { RefereeMeetingNotes } from './RefereeMeetingNotes';

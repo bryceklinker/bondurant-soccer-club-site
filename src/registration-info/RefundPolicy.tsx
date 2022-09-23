@@ -1,5 +1,10 @@
 import React, { FunctionComponent } from 'react';
-import { CollapsiblePanel, Paragraph, Section, SectionTitle } from '../common';
+import {
+    CollapsiblePanel,
+    Paragraph,
+    Section,
+    SectionTitle
+} from '../common/components';
 
 export const RefundPolicy: FunctionComponent = () => {
     return (

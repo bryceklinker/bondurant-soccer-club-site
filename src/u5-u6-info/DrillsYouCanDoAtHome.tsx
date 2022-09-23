@@ -1,12 +1,12 @@
 import React, { FunctionComponent } from 'react';
 import {
     CollapsiblePanel,
-    LinkData,
     Paragraph,
     Section,
     SectionTitle
-} from '../common';
+} from '../common/components';
 import { ExternalLinks } from '../common/components/ExternalLinks';
+import { LinkData } from '../common/state';
 
 export interface DrillsYouCanDoAtHomeProps {
     drillLinks: Array<LinkData>;

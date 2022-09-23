@@ -1,17 +1,16 @@
 import React, { FunctionComponent } from 'react';
-import {
-    GappedStack,
-    Title,
-    useRegistrationDates,
-    useRegistrationLink,
-    useCurrentRegistrationSeason
-} from '../common';
+import { GappedStack, Title } from '../common/components';
 import { RegistrationAgeGroups } from './RegistrationAgeGroups';
 import { RegistrationInfoWelcome } from './RegistrationInfoWelcome';
 import { ScholarshipInfo } from './ScholarshipInfo';
 import { RefundPolicy } from './RefundPolicy';
 import { RegistrationDates } from './RegistrationDates';
 import { LinkButton } from '../common/components/LinkButton';
+import {
+    useCurrentRegistrationSeason,
+    useRegistrationDates,
+    useRegistrationLink
+} from '../common/hooks';
 
 export const RegistrationInfoPage: FunctionComponent = () => {
     const { season, ages } = useCurrentRegistrationSeason();

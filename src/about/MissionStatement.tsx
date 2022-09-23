@@ -1,5 +1,10 @@
 import React, { FunctionComponent } from 'react';
-import { Section, Divider, Paragraph, SectionTitle } from '../common';
+import {
+    Section,
+    Divider,
+    Paragraph,
+    SectionTitle
+} from '../common/components';
 
 export const MissionStatement: FunctionComponent = () => {
     return (

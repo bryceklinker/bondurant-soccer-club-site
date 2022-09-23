@@ -1,6 +1,7 @@
 import React, { FunctionComponent } from 'react';
-import { CollapsiblePanel, LinkData, Section, SectionTitle } from '../common';
+import { CollapsiblePanel, Section, SectionTitle } from '../common/components';
 import { ExternalLinks } from '../common/components/ExternalLinks';
+import { LinkData } from '../common/state';
 
 export interface DownloadableDocumentsProps {
     documentLinks: Array<LinkData>;

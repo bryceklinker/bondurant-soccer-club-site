@@ -1,17 +1,19 @@
-import React, { FunctionComponent } from 'react';
+import { FunctionComponent } from 'react';
 import {
-    ByLawArticleData,
-    ByLawsData,
-    ByLawSectionData,
     CollapsiblePanel,
     Divider,
-    Numbers,
     Paragraph,
     PlainStack,
     Section,
     SectionTitle,
     SubTitle
-} from '../common';
+} from '../common/components';
+import {
+    ByLawArticleData,
+    ByLawsData,
+    ByLawSectionData
+} from '../common/state';
+import { Numbers } from '../common/extensions';
 
 export interface ByLawsProps {
     byLaws: ByLawsData;

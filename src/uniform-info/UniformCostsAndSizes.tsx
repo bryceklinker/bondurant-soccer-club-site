@@ -1,17 +1,15 @@
-import React, { FunctionComponent } from 'react';
+import { FunctionComponent } from 'react';
 import {
     CollapsiblePanel,
     ExternalLink,
-    LinkData,
     Paragraph,
     Section,
     SectionTitle,
-    UniformPurchaseOption,
-    UniformSize,
-    Numbers,
     SubTitle
-} from '../common';
+} from '../common/components';
 import { UnorderedList } from '@chakra-ui/react';
+import { LinkData, UniformPurchaseOption, UniformSize } from '../common/state';
+import { Numbers } from '../common/extensions';
 
 export interface UniformCostsAndSizesProps {
     sizes: Array<UniformSize>;

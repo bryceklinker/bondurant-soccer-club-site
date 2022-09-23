@@ -1,11 +1,10 @@
 import React, { FunctionComponent } from 'react';
+import { GappedStack, Title } from '../common/components';
 import {
-    GappedStack,
-    Title,
     useDirectorOfUniformsLink,
     useUniformPurchaseOptions,
     useUniformSizes
-} from '../common';
+} from '../common/hooks';
 import { UniformCostsAndSizes } from './UniformCostsAndSizes';
 import { UniformImages } from './UniformImages';
 
