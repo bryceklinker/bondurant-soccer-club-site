@@ -1,3 +1,8 @@
-import {RefereeInfoPage} from '../referee-info/RefereeInfoPage';
+import { RefereeInfoPage } from '../referee-info/RefereeInfoPage';
+import { Layout } from '../common/layout/Layout';
 
-export default RefereeInfoPage;
+export default () => (
+    <Layout>
+        <RefereeInfoPage />
+    </Layout>
+);

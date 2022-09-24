@@ -1,3 +1,8 @@
-import {LocationsPage} from '../locations/LocationsPage';
+import { LocationsPage } from '../locations/LocationsPage';
+import { Layout } from '../common/layout/Layout';
 
-export default LocationsPage;
+export default () => (
+    <Layout>
+        <LocationsPage />
+    </Layout>
+);

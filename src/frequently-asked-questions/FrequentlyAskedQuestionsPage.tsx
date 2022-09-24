@@ -1,39 +1,58 @@
-import React, {FunctionComponent} from 'react';
+import { FC } from 'react';
 import {
-    CollapsiblePanel,
-    FrequentlyAskedQuestionData,
-    GappedStack,
-    Paragraph,
-    PlainStack,
-    Section, SectionTitle,
-    SubTitle, useCoachFrequentlyAskedQuestions,
-    useFrequentlyAskedQuestions, useRegistrationFrequentlyAskedQuestions
-} from '../common';
-import {SmartLink} from '../common/components/SmartLink';
+    useCoachFrequentlyAskedQuestions,
+    useFrequentlyAskedQuestions,
+    useRegistrationFrequentlyAskedQuestions
+} from '../common/hooks/frequently-asked-questions-hooks';
+import { GappedStack } from '../common/components/GappedStack';
+import { SectionTitle } from '../common/components/SectionTitle';
+import { CollapsiblePanel } from '../common/components/CollapsiblePanel';
+import { Section } from '../common/components/Section';
+import { FrequentlyAskedQuestionData } from '../common/state/models';
+import { Paragraph } from '../common/components/Paragraph';
+import { SmartLink } from '../common/components/SmartLink';
+import { SubTitle } from '../common/components/SubTitle';
+import { PlainStack } from '../common/components/PlainStack';
 
-export const FrequentlyAskedQuestionsPage: FunctionComponent = () => {
-    const frequentlyAskedQuestions = useFrequentlyAskedQuestions()
-        .map((q, index) => <FrequentlyAskedQuestion key={index} question={q}/>);
+export const FrequentlyAskedQuestionsPage: FC = () => {
+    const frequentlyAskedQuestions = useFrequentlyAskedQuestions().map(
+        (q, index) => <FrequentlyAskedQuestion key={index} question={q} />
+    );
 
-    const registrationFaq = useRegistrationFrequentlyAskedQuestions()
-        .map((q, index) => <FrequentlyAskedQuestion key={index} question={q} />);
+    const registrationFaq = useRegistrationFrequentlyAskedQuestions().map(
+        (q, index) => <FrequentlyAskedQuestion key={index} question={q} />
+    );
 
-    const coachFaq = useCoachFrequentlyAskedQuestions()
-        .map((q, index) => <FrequentlyAskedQuestion key={index} question={q} />)
+    const coachFaq = useCoachFrequentlyAskedQuestions().map((q, index) => (
+        <FrequentlyAskedQuestion key={index} question={q} />
+    ));
     return (
-        <GappedStack padded flex>
+        <GappedStack padded>
             <Section shadow padded>
-                <CollapsiblePanel title={<SectionTitle>Frequently Asked Questions</SectionTitle>}>
+                <CollapsiblePanel
+                    title={
+                        <SectionTitle>Frequently Asked Questions</SectionTitle>
+                    }>
                     {frequentlyAskedQuestions}
                 </CollapsiblePanel>
             </Section>
             <Section shadow padded>
-                <CollapsiblePanel title={<SectionTitle>Registration Frequently Asked Questions</SectionTitle>}>
+                <CollapsiblePanel
+                    title={
+                        <SectionTitle>
+                            Registration Frequently Asked Questions
+                        </SectionTitle>
+                    }>
                     {registrationFaq}
                 </CollapsiblePanel>
             </Section>
             <Section shadow padded>
-                <CollapsiblePanel title={<SectionTitle>Coach Frequently Asked Questions</SectionTitle>}>
+                <CollapsiblePanel
+                    title={
+                        <SectionTitle>
+                            Coach Frequently Asked Questions
+                        </SectionTitle>
+                    }>
                     {coachFaq}
                 </CollapsiblePanel>
             </Section>
@@ -45,15 +64,18 @@ export interface FrequentlyAskedQuestionProps {
     question: FrequentlyAskedQuestionData;
 }
 
-export const FrequentlyAskedQuestion: FunctionComponent<FrequentlyAskedQuestionProps> = ({question}) => {
-    const links = (question.links || [])
-        .map((l, index) => <Paragraph key={index} indent><SmartLink link={l}/></Paragraph>);
+export const FrequentlyAskedQuestion: FC<FrequentlyAskedQuestionProps> = ({
+    question
+}) => {
+    const links = (question.links || []).map((l, index) => (
+        <Paragraph key={index} indent>
+            <SmartLink link={l} />
+        </Paragraph>
+    ));
     return (
         <PlainStack>
             <SubTitle>{question.question}</SubTitle>
-            <Paragraph indent>
-                {question.answer}
-            </Paragraph>
+            <Paragraph indent>{question.answer}</Paragraph>
             {links}
         </PlainStack>
     );

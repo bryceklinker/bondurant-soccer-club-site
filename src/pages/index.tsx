@@ -1,3 +1,8 @@
-import {HomePage} from '../home/components/HomePage';
+import { HomePage } from '../home/HomePage';
+import { Layout } from '../common/layout/Layout';
 
-export default HomePage;
+export default () => (
+    <Layout>
+        <HomePage />
+    </Layout>
+);

@@ -1,23 +1,23 @@
-import {LinkData} from '../state';
+import { LinkData } from '../state/models';
 
 export const RouteNames = {
-    ContactUs: 'contact-us',
-    GetInvolved: 'get-involved',
-    About: 'about',
+    ContactUs: '/contact-us',
+    GetInvolved: '/get-involved',
+    About: '/about',
     Home: '/',
-    Locations: 'locations',
-    Schedules: 'schedules',
-    RegistrationInfo: 'registration-info',
-    Concessions: 'concessions',
-    PictureDay: 'picture-day',
-    U5U6Info: 'u5-u6-info',
-    UniformInfo: 'uniform-info',
-    SponsorshipInfo: 'sponsorship-info',
-    ProgramInfo: 'program-info',
-    Documents: 'documents',
-    FrequentlyAskedQuestions: 'frequently-asked-questions',
-    RefereeInfo: 'referee-info',
-}
+    Locations: '/locations',
+    Schedules: '/schedules',
+    RegistrationInfo: '/registration-info',
+    Concessions: '/concessions',
+    PictureDay: '/picture-day',
+    U5U6Info: '/u5-u6-info',
+    UniformInfo: '/uniform-info',
+    SponsorshipInfo: '/sponsorship-info',
+    ProgramInfo: '/program-info',
+    Documents: '/documents',
+    FrequentlyAskedQuestions: '/frequently-asked-questions',
+    RefereeInfo: '/referee-info'
+};
 
 export const MAIN_NAVIGATION_LINKS: Array<LinkData> = [
     {
@@ -44,7 +44,7 @@ export const MAIN_NAVIGATION_LINKS: Array<LinkData> = [
         text: 'Schedules',
         url: RouteNames.Schedules
     }
-]
+];
 
 export const MORE_INFO_NAVIGATION_LINKS: Array<LinkData> = [
     {
@@ -87,4 +87,4 @@ export const MORE_INFO_NAVIGATION_LINKS: Array<LinkData> = [
         text: 'Uniform Info',
         url: RouteNames.UniformInfo
     }
-]
+];

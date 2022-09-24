@@ -1,3 +1,8 @@
-import {SchedulesPage} from '../schedules/SchedulesPage';
+import { SchedulesPage } from '../schedules/SchedulesPage';
+import { Layout } from '../common/layout/Layout';
 
-export default SchedulesPage;
+export default () => (
+    <Layout>
+        <SchedulesPage />
+    </Layout>
+);

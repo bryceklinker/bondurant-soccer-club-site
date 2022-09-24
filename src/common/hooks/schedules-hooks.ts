@@ -1,9 +1,5 @@
-import {useMemo} from 'react';
-import {SCHEDULE_IMAGES, SCHEDULES_LINK, U9_AND_UP_SCHEDULE_LINK} from '../state';
-
-export function useScheduleImages() {
-    return useMemo(() => SCHEDULE_IMAGES, []);
-}
+import { useMemo } from 'react';
+import { SCHEDULES_LINK, U9_AND_UP_SCHEDULE_LINK } from '../state/schedules';
 
 export function useU9AndUpScheduleLink() {
     return useMemo(() => U9_AND_UP_SCHEDULE_LINK, []);

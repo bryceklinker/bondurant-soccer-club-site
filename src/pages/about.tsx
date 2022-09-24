@@ -1,3 +1,8 @@
-import {AboutPage} from '../about/AboutPage';
+import { AboutPage } from '../about/AboutPage';
+import { Layout } from '../common/layout/Layout';
 
-export default AboutPage
+export default () => (
+    <Layout>
+        <AboutPage />
+    </Layout>
+);

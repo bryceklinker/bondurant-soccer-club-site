@@ -1,3 +1,8 @@
-import {U5U6InfoPage} from '../u5-u6-info/U5U6InfoPage';
+import { U5U6InfoPage } from '../u5-u6-info/U5U6InfoPage';
+import { Layout } from '../common/layout/Layout';
 
-export default U5U6InfoPage
+export default () => (
+    <Layout>
+        <U5U6InfoPage />
+    </Layout>
+);

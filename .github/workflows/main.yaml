@@ -29,25 +29,15 @@ jobs:
       - run: yarn test
         name: Run Unit Tests
 
-      - run: ${{ github.workspace }}/scripts/optimize-images.sh
-        name: Optimize Images
-
-      - run: yarn e2e
-        name: Run UI Tests
-
-      - name: Upload Site Content
-        uses: actions/upload-artifact@v3
-        with:
-          name: site_content
-          path: ${{ github.workspace }}/dist/
-
       - name: Bump version and push tag
         id: tag_version
+        if: github.ref == 'refs/heads/main'
         uses: mathieudutour/github-tag-action@v5.6
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Create a GitHub release
+        if: github.ref == 'refs/heads/main'
         uses: ncipollo/release-action@v1
         with:
           tag: ${{ steps.tag_version.outputs.new_tag }}
@@ -56,6 +46,7 @@ jobs:
 
   deploy_dns:
     name: Deploy DNS
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-20.04
     environment: dns
     needs: [build]
@@ -82,21 +73,28 @@ jobs:
 
   deploy_dev_site:
     name: Deploy Dev Site
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-20.04
     environment: dev
     needs: [ deploy_dns ]
     env:
       PLAN_PATH: ${{ github.workspace }}/infra/dev/dev.tfplan
       TARGET_ENV: dev
+      SITE_URL: https://dev.bondurantsoccerclub.com
     steps:
       - uses: actions/checkout@v2
         name: Checkout
 
-      - name: Download Site Content
-        uses: actions/download-artifact@v3
+      - uses: actions/setup-node@v2
+        name: Setup Node
         with:
-          name: site_content
-          path: ${{ github.workspace }}/dist/
+          node-version: '16'
+
+      - run: yarn install
+        name: Install Dependencies
+
+      - run: yarn build
+        name: Build Dev Site
 
       - run: ${{ github.workspace }}/scripts/install-terraform.sh
         name: Install Terraform
@@ -128,21 +126,28 @@ jobs:
 
   deploy_prod_site:
     name: Deploy Prod Site
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-20.04
     environment: prod
     needs: [deploy_dev_site]
     env:
       PLAN_PATH: ${{ github.workspace }}/infra/prod/prod.tfplan
       TARGET_ENV: prod
+      SITE_URL: https://www.bondurantsoccerclub.com
     steps:
       - uses: actions/checkout@v2
         name: Checkout
 
-      - name: Download Site Content
-        uses: actions/download-artifact@v3
+      - uses: actions/setup-node@v2
+        name: Setup Node
         with:
-          name: site_content
-          path: ${{ github.workspace }}/dist/
+          node-version: '16'
+
+      - run: yarn install
+        name: Install Dependencies
+
+      - run: yarn build
+        name: Build Prod Site
 
       - run: ${{ github.workspace }}/scripts/install-terraform.sh
         name: Install Terraform

@@ -1,5 +1,6 @@
-import {AGE_GROUPS, SeasonName} from '../../common';
-import {Registration} from './registration';
+import { Registration } from './registration';
+import { SeasonName } from './models';
+import { AGE_GROUPS } from './age-groups';
 
 describe('registration state', () => {
     beforeEach(() => {
@@ -18,7 +19,7 @@ describe('registration state', () => {
         expect(registrationYear.ages).toContainEqual({
             ageGroup: AGE_GROUPS.U6,
             minBirthYear: 2016,
-            maxBirthYear: 2017,
+            maxBirthYear: 2017
         });
     });
 
@@ -34,7 +35,7 @@ describe('registration state', () => {
         expect(registrationYear.ages).toContainEqual({
             ageGroup: AGE_GROUPS.U6,
             minBirthYear: 2016,
-            maxBirthYear: 2017,
+            maxBirthYear: 2017
         });
     });
 
@@ -44,26 +45,32 @@ describe('registration state', () => {
         expect(Registration.currentRegistrationSeason().ages).toContainEqual({
             ageGroup: AGE_GROUPS.U19,
             minBirthYear: 2003,
-            maxBirthYear: 2005,
+            maxBirthYear: 2005
         });
     });
 
     test('when current date is before june 01 then current season is spring', () => {
         setCurrentTime('2021-05-31');
 
-        expect(Registration.currentRegistrationSeason().season.name).toEqual(SeasonName.Spring);
+        expect(Registration.currentRegistrationSeason().season.name).toEqual(
+            SeasonName.Spring
+        );
     });
 
     test('when current date is after june 01 then current season is fall', () => {
         setCurrentTime('2021-06-30');
 
-        expect(Registration.currentRegistrationSeason().season.name).toEqual(SeasonName.Fall);
+        expect(Registration.currentRegistrationSeason().season.name).toEqual(
+            SeasonName.Fall
+        );
     });
 
     test('when current date is June 01 then current season is fall', () => {
         setCurrentTime('2021-06-01');
 
-        expect(Registration.currentRegistrationSeason().season.name).toEqual(SeasonName.Fall);
+        expect(Registration.currentRegistrationSeason().season.name).toEqual(
+            SeasonName.Fall
+        );
     });
 
     function setCurrentTime(isoTime: string): void {

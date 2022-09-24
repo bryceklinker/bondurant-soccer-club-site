@@ -1,4 +1,4 @@
-import {ShellCommands} from './shell.commands';
+import { ShellCommands } from './shell.commands';
 
 export const LocationsPage = {
     navigate: () => cy.visit('/locations'),

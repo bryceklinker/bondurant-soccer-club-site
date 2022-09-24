@@ -1,0 +1,17 @@
+.headline-container {
+    background: center / cover no-repeat url('../assets/heading-background.jpg');
+}
+
+.headline {
+    display: flex;
+    height: 100vh;
+    flex: 1;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.headline-title {
+    color: white;
+}

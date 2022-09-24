@@ -1,19 +1,19 @@
-import React, {FunctionComponent} from 'react';
+import { FunctionComponent } from 'react';
+import { ByLaws } from './ByLaws';
+import { CoachingCodeOfConduct } from './CoachingCodeOfConduct';
+import { ParentCodeOfConduct } from './ParentCodeOfConduct';
+import { PlayerCodeOfConduct } from './PlayerCodeOfConduct';
+import { DownloadableDocuments } from './DownloadableDocuments';
+import { useByLaws } from '../common/hooks/by-laws-hooks';
 import {
-    GappedStack,
-    Title,
-    useByLaws,
     useCoachingCodeOfConductExpectations,
-    useCodeOfConductReportHandlingSteps,
     useCodeOfConductPunishments,
-    useParentCodeOfConductExpectations,
-    useDownloadableDocuments
-} from '../common';
-import {ByLaws} from './ByLaws';
-import {CoachingCodeOfConduct} from './CoachingCodeOfConduct';
-import {ParentCodeOfConduct} from './ParentCodeOfConduct';
-import {PlayerCodeOfConduct} from './PlayerCodeOfConduct';
-import {DownloadableDocuments} from './DownloadableDocuments';
+    useCodeOfConductReportHandlingSteps,
+    useParentCodeOfConductExpectations
+} from '../common/hooks/code-of-conduct-hooks';
+import { useDownloadableDocuments } from '../common/hooks/downloadable-document-hooks';
+import { GappedStack } from '../common/components/GappedStack';
+import { Title } from '../common/components/Title';
 
 export const DocumentsPage: FunctionComponent = () => {
     const byLaws = useByLaws();
@@ -23,22 +23,28 @@ export const DocumentsPage: FunctionComponent = () => {
     const punishments = useCodeOfConductPunishments();
     const documentLinks = useDownloadableDocuments();
     return (
-        <GappedStack padded flex>
+        <GappedStack padded>
             <Title>Documents</Title>
 
             <DownloadableDocuments documentLinks={documentLinks} />
-            <ByLaws byLaws={byLaws}/>
-            <CoachingCodeOfConduct expectations={coachingExpectations}
-                                   reportingSteps={reportingSteps}
-                                   punishments={punishments}/>
+            <ByLaws byLaws={byLaws} />
+            <CoachingCodeOfConduct
+                expectations={coachingExpectations}
+                reportingSteps={reportingSteps}
+                punishments={punishments}
+            />
 
-            <ParentCodeOfConduct expectations={parentExpectations}
-                                 punishments={punishments}
-                                 reportingSteps={reportingSteps}/>
+            <ParentCodeOfConduct
+                expectations={parentExpectations}
+                punishments={punishments}
+                reportingSteps={reportingSteps}
+            />
 
-            <PlayerCodeOfConduct expectations={parentExpectations}
-                                 punishments={punishments}
-                                 reportingSteps={reportingSteps}/>
+            <PlayerCodeOfConduct
+                expectations={parentExpectations}
+                punishments={punishments}
+                reportingSteps={reportingSteps}
+            />
         </GappedStack>
     );
 };

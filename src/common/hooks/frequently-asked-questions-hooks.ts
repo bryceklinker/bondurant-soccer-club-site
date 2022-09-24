@@ -1,9 +1,9 @@
-import {useMemo} from 'react';
+import { useMemo } from 'react';
 import {
     COACH_FREQUENTLY_ASKED_QUESTIONS,
     FREQUENTLY_ASKED_QUESTIONS,
     REGISTRATION_FREQUENTLY_ASKED_QUESTIONS
-} from '../state';
+} from '../state/frequently-asked-questions';
 
 export function useFrequentlyAskedQuestions() {
     return useMemo(() => FREQUENTLY_ASKED_QUESTIONS, []);

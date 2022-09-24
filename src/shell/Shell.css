@@ -1,6 +1,0 @@
-@import '../common/styles/colors.css';
-
-.shell {
-    height: 100vh;
-    background-color: var(--default-background-color);
-}

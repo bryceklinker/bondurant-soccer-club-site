@@ -1,9 +1,10 @@
-import {useMemo} from 'react';
+import { useMemo } from 'react';
 import {
-    DIRECTOR_OF_REFEREES_CONTACT_LINK, REFEREE_RECERTIFICATION_COST,
+    DIRECTOR_OF_REFEREES_CONTACT_LINK,
+    REFEREE_RECERTIFICATION_COST,
     REFEREE_RECERTIFICATION_STEPS,
     REFEREE_REQUIRED_TRAINING_LINK
-} from '../state';
+} from '../state/referees';
 
 export function useDirectorOfRefereesContact() {
     return useMemo(() => DIRECTOR_OF_REFEREES_CONTACT_LINK, []);

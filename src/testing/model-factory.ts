@@ -1,17 +1,23 @@
 import faker from 'faker';
-import {BoardMemberData, BoardMemberRole, BoardMemberRoleGroup} from '../common';
+import {
+    BoardMemberData,
+    BoardMemberRole,
+    BoardMemberRoleGroup
+} from '../common/state/models';
 
 function boardMember(model: Partial<BoardMemberData> = {}): BoardMemberData {
     return {
         roleTitle: faker.name.title(),
         role: faker.random.arrayElement(Object.values(BoardMemberRole)),
         email: faker.internet.email(),
-        roleGroup: faker.random.arrayElement(Object.values(BoardMemberRoleGroup)),
+        roleGroup: faker.random.arrayElement(
+            Object.values(BoardMemberRoleGroup)
+        ),
         name: faker.name.firstName(),
         ...model
-    }
+    };
 }
 
 export const ModelFactory = {
-    boardMember,
-}
+    boardMember
+};

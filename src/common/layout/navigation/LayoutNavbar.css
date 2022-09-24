@@ -1,0 +1,39 @@
+@import '../../styles/colors.css';
+
+.navbar {
+    background-color: var(--dark-background-color);
+    color: var(--white);
+    padding: 1em;
+    width: 100vw;
+}
+
+.navbar .nav-link .chakra-button,
+.navbar .menu-button {
+    background-color: var(--dark-background-color);
+    border-right: 1px solid var(--default-background-color);
+    border-radius: 0;
+}
+
+.navbar .nav-link .chakra-button:hover,
+.navbar .menu-button:hover {
+    background-color: var(--default-background-color);
+}
+
+.navbar .active {
+    border-bottom: 1px solid var(--blue);
+}
+
+.menu-list {
+    background-color: var(--dark-background-color) !important;
+    border-color: var(--dark-background-color) !important;
+}
+
+.menu-list .menu-item {
+    background-color: var(--dark-background-color) !important;
+}
+
+.menu-list .nav-link,
+.menu-list .nav-link .chakra-button {
+    border: 0;
+    width: 100%;
+}

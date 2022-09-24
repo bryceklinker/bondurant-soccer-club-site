@@ -1,20 +1,19 @@
-import React, {FunctionComponent} from 'react';
-import {IStackProps, Stack} from '@fluentui/react';
+import { FunctionComponent } from 'react';
+import { ColumnFlex, ColumnFlexProps } from '../layout/ColumnFlex';
+import { PADDED_CONTENT_PROPS } from '../layout/flex-styles';
+import { RowFlex } from '../layout/RowFlex';
 
-export interface PlainStackProps extends IStackProps {
+export type PlainStackProps = ColumnFlexProps & {
     padded?: boolean;
-    flex?: boolean;
-    gap?: string | number;
-}
+    horizontal?: boolean;
+};
 
-export const PlainStack: FunctionComponent<PlainStackProps> = ({padded, flex, className, tokens, gap, ...rest}) => {
-    const classes = [
-        padded ? 'padded-content' : '',
-        flex ? 'flex' : '',
-        className
-    ];
-    const actualTokens = gap
-        ? {...(tokens || {}), childrenGap: gap}
-        : tokens;
-    return <Stack className={classes.join(' ')} tokens={actualTokens} {...rest} />
-}
+export const PlainStack: FunctionComponent<PlainStackProps> = ({
+    padded,
+    horizontal,
+    ...rest
+}) => {
+    const paddedProps = padded ? PADDED_CONTENT_PROPS : {};
+    const Element = horizontal ? RowFlex : ColumnFlex;
+    return <Element {...paddedProps} {...rest} />;
+};

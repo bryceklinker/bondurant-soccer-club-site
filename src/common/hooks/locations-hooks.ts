@@ -1,5 +1,5 @@
-import {useMemo} from 'react';
-import {LOCATIONS, WEST_COMPLEX_LOCATION} from '../state';
+import { useMemo } from 'react';
+import { LOCATIONS, WEST_COMPLEX_LOCATION } from '../state/locations';
 
 export function useLocations() {
     return useMemo(() => LOCATIONS, []);

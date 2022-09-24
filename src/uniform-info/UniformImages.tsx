@@ -1,20 +1,27 @@
-import React, {FunctionComponent} from 'react';
-import {Image} from '@fluentui/react';
-import {CollapsiblePanel, PlainStack, Section, SectionTitle} from '../common';
-
-const WhiteJersey = require('../assets/white_jersey.jpg');
-const BlueJersey = require('../assets/blue_jersey.jpg');
+import React, { FunctionComponent } from 'react';
+import { StaticImage } from 'gatsby-plugin-image';
+import { Section } from '../common/components/Section';
+import { CollapsiblePanel } from '../common/components/CollapsiblePanel';
+import { SectionTitle } from '../common/components/SectionTitle';
+import { PlainStack } from '../common/components/PlainStack';
 
 export const UniformImages: FunctionComponent = () => {
     return (
         <Section padded shadow>
-            <CollapsiblePanel title={<SectionTitle>Uniform Images</SectionTitle>}>
-                <PlainStack horizontal flex wrap>
+            <CollapsiblePanel
+                title={<SectionTitle>Uniform Images</SectionTitle>}>
+                <PlainStack horizontal flexWrap={'wrap'}>
                     <PlainStack className={'flex-half'}>
-                        <Image src={WhiteJersey} alt={'White Jersey'}/>
+                        <StaticImage
+                            src={'../assets/white_jersey.jpg'}
+                            alt={'White Jersey'}
+                        />
                     </PlainStack>
                     <PlainStack>
-                        <Image src={BlueJersey} alt={'Blue Jersey'}/>
+                        <StaticImage
+                            src={'../assets/blue_jersey.jpg'}
+                            alt={'Blue Jersey'}
+                        />
                     </PlainStack>
                 </PlainStack>
             </CollapsiblePanel>

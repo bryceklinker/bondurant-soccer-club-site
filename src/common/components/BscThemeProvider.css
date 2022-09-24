@@ -1,6 +1,0 @@
-@import '../styles/colors.css';
-
-.theme-provider {
-    height: 100vh;
-    background-color: var(--default-background-color);
-}

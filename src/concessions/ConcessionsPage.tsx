@@ -1,25 +1,27 @@
-import React, {FunctionComponent} from 'react';
+import React, { FunctionComponent } from 'react';
+import { TreatTickets } from './TreatTickets';
+import { ConcessionStandDutyAndSignup } from './ConcessionStandDutyAndSignup';
+import { GappedStack } from '../common/components/GappedStack';
+import { Title } from '../common/components/Title';
 import {
-    GappedStack,
-    Title, useConcessionHoursImage,
     useConcessionSignupLink,
     useConcessionsLocation,
     useDirectorOfConcessionsMailLink
-} from '../common';
-import {TreatTickets} from './TreatTickets';
-import {ConcessionStandDutyAndSignup} from './ConcessionStandDutyAndSignup';
+} from '../common/hooks/concessions-hooks';
 
 export const ConcessionsPage: FunctionComponent = () => {
     const concessionLocation = useConcessionsLocation();
     const signupLink = useConcessionSignupLink();
     const contactLink = useDirectorOfConcessionsMailLink();
-    const hoursImage = useConcessionHoursImage();
     return (
-        <GappedStack padded flex>
+        <GappedStack padded>
             <Title>Concessions Info</Title>
 
-            <TreatTickets location={concessionLocation}/>
-            <ConcessionStandDutyAndSignup signupLink={signupLink} contactLink={contactLink} hoursImage={hoursImage}/>
+            <TreatTickets location={concessionLocation} />
+            <ConcessionStandDutyAndSignup
+                signupLink={signupLink}
+                contactLink={contactLink}
+            />
         </GappedStack>
     );
 };

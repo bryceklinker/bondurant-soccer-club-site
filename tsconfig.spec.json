@@ -1,6 +1,18 @@
 {
   "extends": "./tsconfig.json",
-  "compilerOptions": {
-    "jsx": "react"
-  }
+  "include": [
+    "./src/**/*",
+    "./src/**/*.spec.ts",
+    "./src/**/*.spec.tsx",
+    "./src/testing/**/*.ts",
+    "./src/testing/**/*.tsx",
+    "./gatsby-node.ts",
+    "./gatsby-config.ts",
+    "./plugins/**/*",
+  ],
+  "exclude": [
+    "node_modules",
+    "cypress/**/*.ts",
+    "cypress/**/*.js"
+  ]
 }

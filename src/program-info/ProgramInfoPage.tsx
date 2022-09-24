@@ -1,14 +1,18 @@
-import React, {FunctionComponent} from 'react';
-import {GappedStack, Title, usePrograms} from '../common';
-import {Program} from './Program';
+import React, { FunctionComponent } from 'react';
+import { Program } from './Program';
+import { GappedStack } from '../common/components/GappedStack';
+import { Title } from '../common/components/Title';
+import { usePrograms } from '../common/hooks/programs-hooks';
 
 export const ProgramInfoPage: FunctionComponent = () => {
-    const programs = usePrograms().map((p, i) => <Program key={i} program={p} />);
+    const programs = usePrograms().map((p, i) => (
+        <Program key={i} program={p} />
+    ));
     return (
-        <GappedStack flex padded>
+        <GappedStack padded>
             <Title>Program Info</Title>
 
             {programs}
         </GappedStack>
-    )
-}
+    );
+};

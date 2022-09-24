@@ -8,4 +8,4 @@ export const PLAYER_CODE_OF_CONDUCT: Array<string> = [
     'I will lead by example in demonstrating fair play and sportsmanship to all players on the team and opposing teams regardless of color, creed, race, religion, sex, sexual orientation, or playing ability.',
     'I will be a part of a sports environment for the team that is free of alcohol, drugs, and tobacco (including vaping and e-cigs) and will refrain from their use at any practice or event that I am at.',
     'I will be mindful to learn the rules of the level of soccer that I play at and will learn from the coaches, referees, and soccer board members. If I have questions, they can be directed to the Coach, BSC Director of Referees, or other BSC soccer board member at an appropriate time.'
-]
+];

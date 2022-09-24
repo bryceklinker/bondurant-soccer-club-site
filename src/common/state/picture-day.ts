@@ -1,5 +1,5 @@
-import {parseISO} from 'date-fns';
-import {LinkData, PictureAccessData} from './models';
+import { parseISO } from 'date-fns';
+import { LinkData, PictureAccessData } from './models';
 
 export const PICTURES_DATE = parseISO('2021-09-21');
 
@@ -11,4 +11,4 @@ export const PICTURES_COMPANY_LINK: LinkData = {
 export const PICTURES_ACCESS: PictureAccessData = {
     accessCode: 'BSC2021',
     phoneNumber: '90738'
-}
+};

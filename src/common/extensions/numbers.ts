@@ -8,14 +8,14 @@ const NUMBER_TO_LETTER: Record<number, string> = {
     7: 'G',
     8: 'H',
     9: 'I',
-    10: 'J',
-}
+    10: 'J'
+};
 
 function formatCurrency(value?: number): string {
     if (!value) {
         return 'N/A';
     }
-    return `$${value?.toFixed(2)}`
+    return `$${value?.toFixed(2)}`;
 }
 
 function asLetter(value?: number): string {
@@ -29,4 +29,4 @@ function asLetter(value?: number): string {
 export const Numbers = {
     formatCurrency,
     asLetter
-}
+};
