@@ -20,7 +20,7 @@ export const Layout: FC<LayoutProps> = ({ children }) => {
             <ColumnFlex>
                 <LayoutNavbar />
                 <LayoutMainContent>{children}</LayoutMainContent>
-                <Spacer vertical />
+                <Spacer />
                 <LayoutFooter />
             </ColumnFlex>
         </AppInsightsContext.Provider>

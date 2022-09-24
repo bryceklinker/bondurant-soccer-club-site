@@ -1,8 +1,8 @@
 import React, { FunctionComponent } from 'react';
 import './Description.css';
-import { Section } from '../../common/components/Section';
-import { Paragraph } from '../../common/components/Paragraph';
-import { Season } from '../../common/state/models';
+import { Section } from '../common/components/Section';
+import { Paragraph } from '../common/components/Paragraph';
+import { Season } from '../common/state/models';
 
 export interface DescriptionProps {
     season: Season;

@@ -7,8 +7,8 @@ import {
     useMaxRegistrationBirthYear,
     useMinRegistrationBirthYear,
     useRegistrationLink
-} from '../../common/hooks/registration-hooks';
-import { GappedStack } from '../../common/components/GappedStack';
+} from '../common/hooks/registration-hooks';
+import { GappedStack } from '../common/components/GappedStack';
 
 export const HomePage: FunctionComponent = () => {
     const season = useCurrentSeason();

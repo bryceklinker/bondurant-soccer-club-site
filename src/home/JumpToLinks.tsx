@@ -1,8 +1,8 @@
 import React, { FunctionComponent, PropsWithChildren } from 'react';
 import { Link } from 'gatsby';
 import { Button } from '@chakra-ui/react';
-import { RouteNames } from '../../common/routing/route-names';
-import { RowFlex } from '../../common/layout/RowFlex';
+import { RouteNames } from '../common/routing/route-names';
+import { RowFlex } from '../common/layout/RowFlex';
 
 import './JumpToLinks.css';
 
