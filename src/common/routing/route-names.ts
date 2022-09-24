@@ -1,22 +1,22 @@
 import { LinkData } from '../state/models';
 
 export const RouteNames = {
-    ContactUs: 'contact-us',
-    GetInvolved: 'get-involved',
-    About: 'about',
+    ContactUs: '/contact-us',
+    GetInvolved: '/get-involved',
+    About: '/about',
     Home: '/',
-    Locations: 'locations',
-    Schedules: 'schedules',
-    RegistrationInfo: 'registration-info',
-    Concessions: 'concessions',
-    PictureDay: 'picture-day',
-    U5U6Info: 'u5-u6-info',
-    UniformInfo: 'uniform-info',
-    SponsorshipInfo: 'sponsorship-info',
-    ProgramInfo: 'program-info',
-    Documents: 'documents',
-    FrequentlyAskedQuestions: 'frequently-asked-questions',
-    RefereeInfo: 'referee-info'
+    Locations: '/locations',
+    Schedules: '/schedules',
+    RegistrationInfo: '/registration-info',
+    Concessions: '/concessions',
+    PictureDay: '/picture-day',
+    U5U6Info: '/u5-u6-info',
+    UniformInfo: '/uniform-info',
+    SponsorshipInfo: '/sponsorship-info',
+    ProgramInfo: '/program-info',
+    Documents: '/documents',
+    FrequentlyAskedQuestions: '/frequently-asked-questions',
+    RefereeInfo: '/referee-info'
 };
 
 export const MAIN_NAVIGATION_LINKS: Array<LinkData> = [
