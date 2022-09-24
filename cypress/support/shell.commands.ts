@@ -30,6 +30,6 @@ export const ShellCommands = {
     findU5U6InfoLink: () => cy.findByRole('link', { name: 'U5/U6 Info' }),
     findUniformInfoLink: () => cy.findByRole('link', { name: 'Uniform Info' }),
     findCopyright: () => cy.findByLabelText('copyright'),
-    getMainContent: () => cy.get('.main-content'),
+    getMainContent: () => cy.get('main'),
     getNavbar: () => cy.get('nav')
 };
