@@ -18,7 +18,7 @@ export const Headline: FunctionComponent<HeadlineProps> = ({
 }) => {
     const isSmallScreen = useIsSmallScreen();
     const minHeight = useMemo(
-        () => (isSmallScreen ? '200px' : '500px'),
+        () => (isSmallScreen ? '200px' : '400px'),
         [isSmallScreen]
     );
     return (
