@@ -44,6 +44,7 @@ jobs:
 
   deploy_dns:
     name: Deploy DNS
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-20.04
     environment: dns
     needs: [build]
@@ -70,6 +71,7 @@ jobs:
 
   deploy_dev_site:
     name: Deploy Dev Site
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-20.04
     environment: dev
     needs: [ deploy_dns ]
@@ -122,6 +124,7 @@ jobs:
 
   deploy_prod_site:
     name: Deploy Prod Site
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-20.04
     environment: prod
     needs: [deploy_dev_site]
