@@ -3,7 +3,6 @@ import { AppInsightsContext } from '@microsoft/applicationinsights-react-js';
 import { LayoutMainContent } from './LayoutMainContent';
 import { LayoutFooter } from './footer/LayoutFooter';
 import { LayoutNavbar } from './navigation/LayoutNavbar';
-import { Spacer } from '../components/Spacer';
 import {
     initializeTelemetry,
     reactPlugin
@@ -20,7 +19,6 @@ export const Layout: FC<LayoutProps> = ({ children }) => {
             <ColumnFlex>
                 <LayoutNavbar />
                 <LayoutMainContent>{children}</LayoutMainContent>
-                <Spacer />
                 <LayoutFooter />
             </ColumnFlex>
         </AppInsightsContext.Provider>
