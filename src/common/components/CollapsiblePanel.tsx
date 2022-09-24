@@ -24,7 +24,11 @@ export const CollapsiblePanel: FC<CollapsiblePanelProps> = ({
             <Button
                 {...getToggleProps({
                     onClick: () => toggle()
-                })}>
+                })}
+                colorScheme={'white'}
+                color={'black'}
+                alignSelf={'start'}
+                paddingLeft={0}>
                 {title}
             </Button>
             <div {...getCollapseProps()}>{children}</div>

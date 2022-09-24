@@ -19,6 +19,7 @@ export const Section: FC<SectionProps> = ({
     borderBottomStyle = 'solid',
     borderBottomWidth = '0.5em',
     backgroundColor = 'white',
+    flex = 0,
     ...rest
 }) => {
     const shadowProps = shadow ? SECTION_SHADOW_PROPS : {};
@@ -30,6 +31,7 @@ export const Section: FC<SectionProps> = ({
             borderBottomStyle={borderBottomStyle}
             borderBottomColor={borderBottomColor}
             backgroundColor={backgroundColor}
+            flex={flex}
             className={className}
             {...shadowProps}
             {...paddedProps}
