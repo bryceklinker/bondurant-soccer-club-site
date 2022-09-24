@@ -3,7 +3,7 @@ import {
     BoardMemberData,
     BoardMemberRole,
     BoardMemberRoleGroup
-} from '../common';
+} from '../common/state/models';
 
 function boardMember(model: Partial<BoardMemberData> = {}): BoardMemberData {
     return {
