@@ -27,7 +27,7 @@ export const LayoutNavPanel: FC<LayoutNavPanelProps> = ({
 }) => {
     const buttonRef = useRef();
     const links = MAIN_NAVIGATION_LINKS.concat(MORE_INFO_NAVIGATION_LINKS).map(
-        (link, index) => <NavLink data={link} onClick={onClose} />
+        (link, index) => <NavLink key={index} data={link} onClick={onClose} />
     );
     return (
         <>
