@@ -8,6 +8,7 @@ import {
     initializeTelemetry,
     reactPlugin
 } from '../telemetry/initialize-telemetry';
+import { ColumnFlex } from './ColumnFlex';
 
 initializeTelemetry();
 
@@ -16,12 +17,12 @@ export type LayoutProps = PropsWithChildren & {};
 export const Layout: FC<LayoutProps> = ({ children }) => {
     return (
         <AppInsightsContext.Provider value={reactPlugin}>
-            <>
+            <ColumnFlex>
                 <LayoutNavbar />
                 <LayoutMainContent>{children}</LayoutMainContent>
-                <Spacer />
+                <Spacer vertical />
                 <LayoutFooter />
-            </>
+            </ColumnFlex>
         </AppInsightsContext.Provider>
     );
 };

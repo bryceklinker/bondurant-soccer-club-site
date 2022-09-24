@@ -14,7 +14,7 @@ export const NavLink: FC<NavLinkProps> = ({ onClick, data }) => {
             className={'nav-link'}
             activeClassName={'active'}
             aria-label={data.text}>
-            <Button>{data.text}</Button>
+            <Button colorScheme={'black'}>{data.text}</Button>
         </Link>
     );
 };
