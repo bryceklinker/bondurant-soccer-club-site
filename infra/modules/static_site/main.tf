@@ -21,6 +21,9 @@ locals {
     ".jpeg" = "image/jpeg"
     ".txt"  = "text/plain"
     ".xml"  = "application/xml"
+    ".webp" = "image/webp"
+    ".map"  = "application/json"
+    ".webmanifest" = "application/manifest+json"
   }
 }
 
