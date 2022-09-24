@@ -12,7 +12,7 @@ locals {
   name = "${local.env_name}-${local.app_name}"
   location = "Central US"
   resource_group_name = "rg-${local.name}"
-  dist_directory = "${path.cwd}/../../dist"
+  dist_directory = "${path.cwd}/../../public"
 }
 
 resource "azurerm_resource_group" "resource_group" {
