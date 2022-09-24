@@ -4,7 +4,7 @@ import path from 'path';
 const config: GatsbyConfig = {
     jsxRuntime: 'automatic',
     siteMetadata: {
-        siteUrl: process.env.SITE_URL
+        siteUrl: process.env.SITE_URL || 'http://localhost:3000'
     },
     plugins: [
         'gatsby-plugin-image',

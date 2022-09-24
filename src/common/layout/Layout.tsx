@@ -1,4 +1,4 @@
-import { FC, PropsWithChildren } from 'react';
+import { FC, PropsWithChildren, Suspense } from 'react';
 import { AppInsightsContext } from '@microsoft/applicationinsights-react-js';
 import { LayoutMainContent } from './LayoutMainContent';
 import { LayoutFooter } from './footer/LayoutFooter';

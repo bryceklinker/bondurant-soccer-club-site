@@ -88,15 +88,21 @@ jobs:
     env:
       PLAN_PATH: ${{ github.workspace }}/infra/dev/dev.tfplan
       TARGET_ENV: dev
+      SITE_URL: https://dev.bondurantsoccerclub.com
     steps:
       - uses: actions/checkout@v2
         name: Checkout
 
-      - name: Download Site Content
-        uses: actions/download-artifact@v3
+      - uses: actions/setup-node@v2
+        name: Setup Node
         with:
-          name: site_content
-          path: ${{ github.workspace }}/dist/
+          node-version: '16'
+
+      - run: yarn install
+        name: Install Dependencies
+
+      - run: yarn build
+        name: Build Dev Site
 
       - run: ${{ github.workspace }}/scripts/install-terraform.sh
         name: Install Terraform
@@ -134,15 +140,21 @@ jobs:
     env:
       PLAN_PATH: ${{ github.workspace }}/infra/prod/prod.tfplan
       TARGET_ENV: prod
+      SITE_URL: https://www.bondurantsoccerclub.com
     steps:
       - uses: actions/checkout@v2
         name: Checkout
 
-      - name: Download Site Content
-        uses: actions/download-artifact@v3
+      - uses: actions/setup-node@v2
+        name: Setup Node
         with:
-          name: site_content
-          path: ${{ github.workspace }}/dist/
+          node-version: '16'
+
+      - run: yarn install
+        name: Install Dependencies
+
+      - run: yarn build
+        name: Build Prod Site
 
       - run: ${{ github.workspace }}/scripts/install-terraform.sh
         name: Install Terraform
