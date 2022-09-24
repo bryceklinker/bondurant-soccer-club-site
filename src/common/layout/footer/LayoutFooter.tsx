@@ -4,13 +4,15 @@ import { Spacer } from '../../components/Spacer';
 import { Copyright } from './Copyright';
 import { SocialMedia } from './SocialMedia';
 
+import './LayoutFooter.css';
+
 export type LayoutFooterProps = {};
 
 export const LayoutFooter: FC<LayoutFooterProps> = () => {
     return (
-        <RowFlex>
+        <RowFlex className={'footer'} padding={'0.5em'} flex={0}>
             <Copyright />
-            <Spacer />
+            <Spacer vertical />
             <SocialMedia />
         </RowFlex>
     );

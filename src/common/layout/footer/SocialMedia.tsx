@@ -4,7 +4,7 @@ import { RowFlex } from '../RowFlex';
 
 export const SocialMedia: FC = () => {
     return (
-        <RowFlex>
+        <RowFlex maxWidth={'10em'}>
             <a
                 target={'_blank'}
                 className={'social-media-button'}
