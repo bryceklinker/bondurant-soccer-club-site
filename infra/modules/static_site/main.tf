@@ -98,6 +98,7 @@ resource "azurerm_cdn_endpoint" "cdn_endpoint" {
 }
 
 resource "azurerm_dns_a_record" "root_domain" {
+  count = var.is_root_domain ? 1 : 0
   name                = var.dns_zone_name
   resource_group_name = var.dns_resource_group_name
   ttl                 = 3600
