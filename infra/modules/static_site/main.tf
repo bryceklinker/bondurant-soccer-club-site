@@ -135,6 +135,7 @@ resource "azurerm_cdn_endpoint_custom_domain" "root_domain" {
     certificate_type = "Dedicated"
     protocol_type    = "ServerNameIndication"
   }
+  depends_on = [azurerm_dns_a_record.root_domain]
 }
 
 resource "azurerm_log_analytics_workspace" "log_workspace" {
