@@ -4,7 +4,6 @@ import { Button } from '@chakra-ui/react';
 import { RouteNames } from '../common/routing/route-names';
 import { RowFlex } from '../common/layout/RowFlex';
 import { useIsSmallScreen } from '../common/hooks/use-screen-size';
-import { ColumnFlex } from '../common/layout/ColumnFlex';
 
 export type JumpToButtonProps = PropsWithChildren & {
     to: string;
@@ -31,6 +30,7 @@ export const JumpToButton: FunctionComponent<JumpToButtonProps> = ({
                 borderRadius={borderRadius}
                 boxShadow={'4px 4px 4px dimgray'}
                 className={'large-button'}
+                colorScheme={'blue'}
                 aria-label={'jump link'}>
                 {children}
             </Button>
