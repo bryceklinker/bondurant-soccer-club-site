@@ -1,7 +1,15 @@
-import { FC } from 'react';
+import { FC, useMemo } from 'react';
 import { NavLink } from './NavLink';
 import { MORE_INFO_NAVIGATION_LINKS } from '../../routing/route-names';
-import { Button, Menu, MenuButton, MenuItem, MenuList } from '@chakra-ui/react';
+import {
+    Button,
+    Menu,
+    MenuButton,
+    MenuItem,
+    MenuList,
+    ResponsiveValue
+} from '@chakra-ui/react';
+import * as CSS from 'csstype';
 
 export type MoreNavigationLinksProps = {
     onClick: () => void;
@@ -15,9 +23,19 @@ export const MoreNavigationLinks: FC<MoreNavigationLinksProps> = ({
             <NavLink data={data} onClick={onClick} />
         </MenuItem>
     ));
+    const visibility = useMemo<ResponsiveValue<CSS.Property.Visibility>>(
+        () => ({
+            base: 'hidden',
+            md: 'visible'
+        }),
+        []
+    );
     return (
         <Menu>
-            <MenuButton as={Button} className={'menu-button'}>
+            <MenuButton
+                visibility={visibility}
+                as={Button}
+                className={'menu-button'}>
                 More Info
             </MenuButton>
             <MenuList className={'menu-list'}>{moreNavLinks}</MenuList>

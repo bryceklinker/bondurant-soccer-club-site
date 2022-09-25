@@ -1,20 +1,29 @@
 import { FC } from 'react';
-import { Link } from 'gatsby';
-import { Button } from '@chakra-ui/react';
+import { Link as GatsbyLink } from 'gatsby';
+import {
+    Button,
+    ButtonProps,
+    Link as ChakraLink,
+    LinkProps as ChakraLinkProps
+} from '@chakra-ui/react';
 import { LinkData } from '../../state/models';
 
-export type NavLinkProps = {
+export type NavLinkProps = Omit<
+    ChakraLinkProps,
+    'as' | 'colorScheme' | 'href'
+> & {
     data: LinkData;
-    onClick: () => void;
 };
-export const NavLink: FC<NavLinkProps> = ({ onClick, data }) => {
+export const NavLink: FC<NavLinkProps> = ({ data, ...rest }) => {
     return (
-        <Link
+        <ChakraLink
+            as={GatsbyLink}
             to={data.url}
             className={'nav-link'}
             activeClassName={'active'}
-            aria-label={data.text}>
+            aria-label={data.text}
+            {...rest}>
             <Button colorScheme={'black'}>{data.text}</Button>
-        </Link>
+        </ChakraLink>
     );
 };

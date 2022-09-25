@@ -1,13 +1,10 @@
 import React, { FunctionComponent, useMemo } from 'react';
-import { Button } from '@chakra-ui/react';
+import { Button, ResponsiveValue } from '@chakra-ui/react';
 import { JumboTitle } from '../common/components/JumboTitle';
 import { LinkData } from '../common/state/models';
 import { ColumnFlex } from '../common/layout/ColumnFlex';
+import * as CSS from 'csstype';
 import './Headline.css';
-import {
-    useIsLargeScreen,
-    useIsSmallScreen
-} from '../common/hooks/use-screen-size';
 
 export interface HeadlineProps {
     registrationLink: LinkData;
@@ -16,10 +13,12 @@ export interface HeadlineProps {
 export const Headline: FunctionComponent<HeadlineProps> = ({
     registrationLink
 }) => {
-    const isSmallScreen = useIsSmallScreen();
-    const minHeight = useMemo(
-        () => (isSmallScreen ? '200px' : '400px'),
-        [isSmallScreen]
+    const minHeight = useMemo<ResponsiveValue<CSS.Property.Height>>(
+        () => ({
+            base: '200px',
+            lg: '400px'
+        }),
+        []
     );
     return (
         <ColumnFlex

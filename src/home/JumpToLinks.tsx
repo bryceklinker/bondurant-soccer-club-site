@@ -1,9 +1,9 @@
 import React, { FunctionComponent, PropsWithChildren, useMemo } from 'react';
 import { Link } from 'gatsby';
-import { Button } from '@chakra-ui/react';
+import * as CSS from 'csstype';
+import { Button, ResponsiveValue } from '@chakra-ui/react';
 import { RouteNames } from '../common/routing/route-names';
 import { RowFlex } from '../common/layout/RowFlex';
-import { useIsSmallScreen } from '../common/hooks/use-screen-size';
 
 export type JumpToButtonProps = PropsWithChildren & {
     to: string;
@@ -13,14 +13,19 @@ export const JumpToButton: FunctionComponent<JumpToButtonProps> = ({
     to,
     children
 }) => {
-    const isSmallScreen = useIsSmallScreen();
-    const size = useMemo(
-        () => (isSmallScreen ? '6em' : '9em'),
-        [isSmallScreen]
+    const size = useMemo<ResponsiveValue<CSS.Property.Height>>(
+        () => ({
+            base: '6em',
+            lg: '9em'
+        }),
+        []
     );
-    const borderRadius = useMemo(
-        () => (isSmallScreen ? '3em' : '4.5em'),
-        [isSmallScreen]
+    const borderRadius = useMemo<ResponsiveValue<CSS.Property.BorderRadius>>(
+        () => ({
+            base: '3em',
+            lg: '4.5em'
+        }),
+        []
     );
     return (
         <Link to={to}>
@@ -39,14 +44,19 @@ export const JumpToButton: FunctionComponent<JumpToButtonProps> = ({
 };
 
 export const JumpToLinks: FunctionComponent = () => {
-    const isSmallScreen = useIsSmallScreen();
-    const alignContent = useMemo(
-        () => (isSmallScreen ? 'center' : 'start'),
-        [isSmallScreen]
+    const alignContent = useMemo<ResponsiveValue<CSS.Property.AlignContent>>(
+        () => ({
+            base: 'center',
+            md: 'start'
+        }),
+        []
     );
-    const gap = useMemo(
-        () => (isSmallScreen ? '0.5em' : '1em'),
-        [isSmallScreen]
+    const gap = useMemo<ResponsiveValue<CSS.Property.Gap>>(
+        () => ({
+            base: '0.5em',
+            md: '1em'
+        }),
+        []
     );
     return (
         <RowFlex

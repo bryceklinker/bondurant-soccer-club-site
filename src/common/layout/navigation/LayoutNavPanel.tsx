@@ -15,6 +15,7 @@ import {
     MORE_INFO_NAVIGATION_LINKS
 } from '../../routing/route-names';
 import { NavLink } from './NavLink';
+import { useSmallVisibility } from '../../hooks/use-visibility';
 export type LayoutNavPanelProps = {
     isOpen: boolean;
     onOpen: () => void;
@@ -29,6 +30,7 @@ export const LayoutNavPanel: FC<LayoutNavPanelProps> = ({
     const links = MAIN_NAVIGATION_LINKS.concat(MORE_INFO_NAVIGATION_LINKS).map(
         (link, index) => <NavLink key={index} data={link} onClick={onClose} />
     );
+    const visibility = useSmallVisibility();
     return (
         <>
             <IconButton
@@ -36,6 +38,7 @@ export const LayoutNavPanel: FC<LayoutNavPanelProps> = ({
                 colorScheme={'black'}
                 onClick={onOpen}
                 aria-label={'menu'}
+                visibility={visibility}
                 icon={<HamburgerIcon />}
             />
             <Drawer
