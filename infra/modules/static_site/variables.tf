@@ -27,6 +27,11 @@ variable "subdomain" {
   default = "www"
 }
 
+variable "is_root_domain" {
+  type = bool
+  default = false
+}
+
 variable "tags" {
   type = map(string)
   default = {}

@@ -97,6 +97,14 @@ resource "azurerm_cdn_endpoint" "cdn_endpoint" {
   }
 }
 
+resource "azurerm_dns_a_record" "root_domain" {
+  name                = var.dns_zone_name
+  resource_group_name = var.dns_resource_group_name
+  ttl                 = 3600
+  zone_name           = var.dns_zone_name
+  target_resource_id = azurerm_cdn_endpoint.cdn_endpoint.id
+}
+
 resource "azurerm_dns_cname_record" "cname" {
   name                = var.subdomain
   resource_group_name = var.dns_resource_group_name
@@ -108,6 +116,17 @@ resource "azurerm_dns_cname_record" "cname" {
 resource "azurerm_cdn_endpoint_custom_domain" "custom_domain" {
   cdn_endpoint_id = azurerm_cdn_endpoint.cdn_endpoint.id
   host_name       = "${var.subdomain}.${var.dns_zone_name}"
+  name            = "cdom-${var.name}"
+
+  cdn_managed_https {
+    certificate_type = "Dedicated"
+    protocol_type    = "ServerNameIndication"
+  }
+}
+
+resource "azurerm_cdn_endpoint_custom_domain" "root_domain" {
+  cdn_endpoint_id = azurerm_cdn_endpoint.cdn_endpoint.id
+  host_name       = var.dns_zone_name
   name            = "cdom-${var.name}"
 
   cdn_managed_https {
