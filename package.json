@@ -8,10 +8,8 @@
     "start": "gatsby develop",
     "clean": "gatsby clean",
     "test": "cross-env TZ=UTC jest",
-    "serve": "serve public -p 3000 -s",
-    "pree2e": "yarn build",
-    "e2e": "concurrently --success \"first\" --kill-others \"yarn serve\" \"wait-on http://localhost:3000 && yarn cypress run\"",
-    "e2e:dev": "concurrently --success \"first\" --kill-others \"yarn start\" \"wait-on http://localhost:3000 && yarn cypress open\"",
+    "e2e": "concurrently --success \"first\" --kill-others \"yarn start\" \"wait-on http://localhost:8000 && yarn cypress run\"",
+    "e2e:dev": "concurrently --success \"first\" --kill-others \"yarn start\" \"wait-on http://localhost:8000 && yarn cypress open\"",
     "verify": "yarn test && yarn e2e"
   },
   "dependencies": {

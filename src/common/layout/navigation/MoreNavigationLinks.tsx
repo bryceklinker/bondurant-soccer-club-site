@@ -35,6 +35,7 @@ export const MoreNavigationLinks: FC<MoreNavigationLinksProps> = ({
             <MenuButton
                 visibility={visibility}
                 as={Button}
+                aria-label={'more info'}
                 className={'menu-button'}>
                 More Info
             </MenuButton>

@@ -27,6 +27,8 @@ locals {
   }
 }
 
+data "azurerm_client_config" "current" {}
+
 resource "azurerm_storage_account" "site_storage" {
   location            = var.location
   name                = "st${replace(var.name, "-", "")}"
@@ -42,6 +44,23 @@ resource "azurerm_storage_account" "site_storage" {
   }
 
   tags = var.tags
+}
+
+resource "azurerm_key_vault" "vault" {
+  location = var.location
+  resource_group_name = var.resource_group_name
+  name = "kv-${var.name}"
+  sku_name = "standard"
+  tenant_id = data.azurerm_client_config.current.tenant_id
+}
+
+resource "azurerm_key_vault_certificate_issuer" "digicert" {
+  key_vault_id  = azurerm_key_vault.vault.id
+  name          = "issuer-${var.name}"
+  provider_name = "DigiCert"
+  account_id = var.digicert_account_id
+  org_id = var.digicert_org_id
+  password = var.digicert_api_key
 }
 
 resource "azurerm_storage_blob" "site_content" {

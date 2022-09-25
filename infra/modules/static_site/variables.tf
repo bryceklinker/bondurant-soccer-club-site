@@ -22,6 +22,18 @@ variable "site_directory" {
   type = string
 }
 
+variable "digicert_account_id" {
+  type = string
+}
+
+variable "digicert_org_id" {
+  type = string
+}
+
+variable "digicert_api_key" {
+  type = string
+}
+
 variable "subdomain" {
   type = string
   default = "www"
