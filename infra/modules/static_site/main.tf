@@ -106,6 +106,15 @@ resource "azurerm_dns_a_record" "root_domain" {
   target_resource_id = azurerm_cdn_endpoint.cdn_endpoint.id
 }
 
+resource "azurerm_dns_cname_record" "cdnverify" {
+  count = var.is_root_domain ? 1 : 0
+  name = "cdnverify"
+  resource_group_name = var.dns_resource_group_name
+  zone_name = var.dns_zone_name
+  ttl = 3600
+  record = "cdnverify.${azurerm_cdn_endpoint.cdn_endpoint.fqdn}"
+}
+
 resource "azurerm_dns_cname_record" "cname" {
   name                = var.subdomain
   resource_group_name = var.dns_resource_group_name
@@ -135,7 +144,7 @@ resource "azurerm_cdn_endpoint_custom_domain" "root_domain" {
     certificate_type = "Dedicated"
     protocol_type    = "ServerNameIndication"
   }
-  depends_on = [azurerm_dns_a_record.root_domain[0]]
+  depends_on = [azurerm_dns_a_record.root_domain[0], azurerm_dns_cname_record.cdnverify[0]]
 }
 
 resource "azurerm_log_analytics_workspace" "log_workspace" {
