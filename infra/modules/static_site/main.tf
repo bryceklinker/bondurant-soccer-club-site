@@ -121,7 +121,7 @@ resource "azurerm_key_vault_access_policy" "tf" {
 resource "azurerm_key_vault_access_policy" "cdn" {
   key_vault_id = azurerm_key_vault.vault.id
   object_id    = azuread_service_principal.cdn.object_id
-  tenant_id    = azuread_service_principal.cdn.application_tenant_id
+  tenant_id    = data.azurerm_client_config.current.tenant_id
 
   key_permissions = [
     "Get"
