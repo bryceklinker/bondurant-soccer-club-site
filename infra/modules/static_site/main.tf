@@ -29,8 +29,9 @@ locals {
 
 data "azurerm_client_config" "current" {}
 
-data "azuread_service_principal" "cdn" {
+resource "azuread_service_principal" "cdn" {
   application_id = "205478c0-bd83-4e1b-a9d6-db63a3e1e1c8"
+  use_existing = true
 }
 
 resource "azurerm_storage_account" "site_storage" {
@@ -119,8 +120,8 @@ resource "azurerm_key_vault_access_policy" "tf" {
 
 resource "azurerm_key_vault_access_policy" "cdn" {
   key_vault_id = azurerm_key_vault.vault.id
-  object_id    = data.azuread_service_principal.cdn.object_id
-  tenant_id    = data.azuread_service_principal.cdn.application_tenant_id
+  object_id    = azuread_service_principal.cdn.object_id
+  tenant_id    = azuread_service_principal.cdn.application_tenant_id
 
   key_permissions = [
     "Get"
