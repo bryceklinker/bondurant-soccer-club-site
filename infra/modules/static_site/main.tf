@@ -11,18 +11,18 @@ locals {
   ]
 
   mime_types = {
-    ".json" = "application/json"
-    ".js"   = "application/javascript"
-    ".css"  = "text/css"
-    ".html" = "text/html"
-    ".ico"  = "image/x-icon"
-    ".png"  = "image/png"
-    ".jpg"  = "image/jpeg"
-    ".jpeg" = "image/jpeg"
-    ".txt"  = "text/plain"
-    ".xml"  = "application/xml"
-    ".webp" = "image/webp"
-    ".map"  = "application/json"
+    ".json"        = "application/json"
+    ".js"          = "application/javascript"
+    ".css"         = "text/css"
+    ".html"        = "text/html"
+    ".ico"         = "image/x-icon"
+    ".png"         = "image/png"
+    ".jpg"         = "image/jpeg"
+    ".jpeg"        = "image/jpeg"
+    ".txt"         = "text/plain"
+    ".xml"         = "application/xml"
+    ".webp"        = "image/webp"
+    ".map"         = "application/json"
     ".webmanifest" = "application/manifest+json"
   }
 }
@@ -46,21 +46,106 @@ resource "azurerm_storage_account" "site_storage" {
   tags = var.tags
 }
 
+resource "azuread_service_principal" "cdn" {
+  application_id = "205478c0-bd83-4e1b-a9d6-db63a3e1e1c8"
+}
+
 resource "azurerm_key_vault" "vault" {
-  location = var.location
+  location            = var.location
   resource_group_name = var.resource_group_name
-  name = "kv-${var.name}"
-  sku_name = "standard"
-  tenant_id = data.azurerm_client_config.current.tenant_id
+  name                = "kv-${var.name}"
+  sku_name            = "standard"
+  tenant_id           = data.azurerm_client_config.current.tenant_id
+}
+
+resource "azurerm_key_vault_access_policy" "tf" {
+  key_vault_id = azurerm_key_vault.vault.id
+  object_id    = data.azurerm_client_config.current.object_id
+  tenant_id    = data.azurerm_client_config.current.tenant_id
+
+  certificate_permissions = [
+    "Backup",
+    "Create",
+    "Delete",
+    "DeleteIssuers",
+    "Get",
+    "GetIssuers",
+    "Import",
+    "List",
+    "ListIssuers",
+    "ManageContacts",
+    "ManageIssuers",
+    "Purge",
+    "Recover",
+    "Restore",
+    "SetIssuers",
+    "Update"
+  ]
+
+  key_permissions = [
+    "Backup",
+    "Create",
+    "Decrypt",
+    "Delete",
+    "Encrypt",
+    "Get",
+    "Import",
+    "List",
+    "Purge",
+    "Recover",
+    "Restore",
+    "Sign",
+    "UnwrapKey",
+    "Update",
+    "Verify",
+    "WrapKey",
+    "Release",
+    "Rotate",
+    "GetRotationPolicy",
+    "SetRotationPolicy"
+  ]
+
+  secret_permissions = [
+    "Backup",
+    "Delete",
+    "Get",
+    "List",
+    "Purge",
+    "Recover",
+    "Restore",
+    "Set"
+  ]
+}
+
+resource "azurerm_key_vault_access_policy" "cdn" {
+  key_vault_id = azurerm_key_vault.vault.id
+  object_id    = azuread_service_principal.cdn.object_id
+  tenant_id    = azuread_service_principal.cdn.application_tenant_id
+
+  key_permissions = [
+    "Get"
+  ]
+
+  secret_permissions = [
+    "List",
+    "Get"
+  ]
+
+  certificate_permissions = [
+    "List",
+    "Get"
+  ]
 }
 
 resource "azurerm_key_vault_certificate_issuer" "digicert" {
   key_vault_id  = azurerm_key_vault.vault.id
   name          = "issuer-${var.name}"
   provider_name = "DigiCert"
-  account_id = var.digicert_account_id
-  org_id = var.digicert_org_id
-  password = var.digicert_api_key
+  account_id    = var.digicert_account_id
+  org_id        = var.digicert_org_id
+  password      = var.digicert_api_key
+
+  depends_on = [azurerm_key_vault_access_policy.tf]
 }
 
 resource "azurerm_storage_blob" "site_content" {
@@ -117,21 +202,21 @@ resource "azurerm_cdn_endpoint" "cdn_endpoint" {
 }
 
 resource "azurerm_dns_a_record" "root_domain" {
-  count = var.is_root_domain ? 1 : 0
+  count               = var.is_root_domain ? 1 : 0
   name                = var.dns_zone_name
   resource_group_name = var.dns_resource_group_name
   ttl                 = 3600
   zone_name           = var.dns_zone_name
-  target_resource_id = azurerm_cdn_endpoint.cdn_endpoint.id
+  target_resource_id  = azurerm_cdn_endpoint.cdn_endpoint.id
 }
 
 resource "azurerm_dns_cname_record" "cdnverify" {
-  count = var.is_root_domain ? 1 : 0
-  name = "cdnverify"
+  count               = var.is_root_domain ? 1 : 0
+  name                = "cdnverify"
   resource_group_name = var.dns_resource_group_name
-  zone_name = var.dns_zone_name
-  ttl = 3600
-  record = "cdnverify.${azurerm_cdn_endpoint.cdn_endpoint.fqdn}"
+  zone_name           = var.dns_zone_name
+  ttl                 = 3600
+  record              = "cdnverify.${azurerm_cdn_endpoint.cdn_endpoint.fqdn}"
 }
 
 resource "azurerm_dns_cname_record" "cname" {
@@ -153,17 +238,65 @@ resource "azurerm_cdn_endpoint_custom_domain" "custom_domain" {
   }
 }
 
+resource "azurerm_key_vault_certificate" "root_domain" {
+  count        = var.is_root_domain ? 1 : 0
+  key_vault_id = azurerm_key_vault.vault.id
+  name         = "cert-${var.name}"
+
+  certificate_policy {
+    issuer_parameters {
+      name = azurerm_key_vault_certificate_issuer.digicert.name
+    }
+
+    key_properties {
+      exportable = true
+      key_type   = "RSA"
+      key_size   = 2048
+      reuse_key  = false
+    }
+
+    secret_properties {
+      content_type = "application/x-pkcs12"
+    }
+
+    x509_certificate_properties {
+      key_usage          = [
+        "cRLSign",
+        "dataEncipherment",
+        "digitalSignature",
+        "keyAgreement",
+        "keyCertSign",
+        "keyEncipherment"
+      ]
+
+      subject_alternative_names {
+        dns_names = [var.dns_zone_name]
+      }
+
+      subject            = "CN=${var.dns_zone_name}"
+      validity_in_months = 12
+    }
+  }
+
+  depends_on = [azurerm_key_vault_access_policy.tf]
+}
+
 resource "azurerm_cdn_endpoint_custom_domain" "root_domain" {
-  count = var.is_root_domain ? 1 : 0
+  count           = var.is_root_domain ? 1 : 0
   cdn_endpoint_id = azurerm_cdn_endpoint.cdn_endpoint.id
   host_name       = var.dns_zone_name
   name            = "cdom-${var.name}-root"
 
-  cdn_managed_https {
-    certificate_type = "Dedicated"
-    protocol_type    = "ServerNameIndication"
+  user_managed_https {
+    key_vault_certificate_id = azurerm_key_vault_certificate.root_domain[0].id
   }
-  depends_on = [azurerm_dns_a_record.root_domain[0], azurerm_dns_cname_record.cdnverify[0]]
+
+  depends_on = [
+    azurerm_dns_a_record.root_domain[0],
+    azurerm_dns_cname_record.cdnverify[0],
+    azurerm_key_vault_certificate_issuer.digicert,
+    azurerm_key_vault_access_policy.tf
+  ]
 }
 
 resource "azurerm_log_analytics_workspace" "log_workspace" {
