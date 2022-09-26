@@ -245,6 +245,14 @@ resource "azurerm_key_vault_certificate" "root_domain" {
   name         = "cert-${var.name}"
 
   certificate_policy {
+    lifetime_action {
+      action {
+        action_type = "AutoRenew"
+      }
+      trigger {
+        days_before_expiry = 30
+      }
+    }
     issuer_parameters {
       name = azurerm_key_vault_certificate_issuer.digicert.name
     }
@@ -253,7 +261,7 @@ resource "azurerm_key_vault_certificate" "root_domain" {
       exportable = true
       key_type   = "RSA"
       key_size   = 2048
-      reuse_key  = false
+      reuse_key  = true
     }
 
     secret_properties {
@@ -261,6 +269,11 @@ resource "azurerm_key_vault_certificate" "root_domain" {
     }
 
     x509_certificate_properties {
+      extended_key_usage = [
+        "1.3.6.1.5.5.7.3.2",
+        "1.3.6.1.5.5.7.3.1"
+      ]
+
       key_usage          = [
         "cRLSign",
         "dataEncipherment",
