@@ -18,19 +18,23 @@ jobs:
     env:
       ASSETS_PATH: ${{ github.workspace}}/src/assets
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         name: Checkout
 
-      - uses: actions/setup-node@v2
+      - uses: actions/setup-node@v3
         name: Setup Node
         with:
           node-version: '16'
+          cache: yarn
 
       - run: yarn install
         name: Install Dependencies
 
       - run: yarn test
         name: Run Unit Tests
+
+      - run: yarn e2e
+        name: Run E2E Tests
 
       - name: Bump version and push tag
         id: tag_version
@@ -85,13 +89,14 @@ jobs:
       TARGET_ENV: dev
       SITE_URL: https://dev.bondurantsoccerclub.com
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         name: Checkout
 
-      - uses: actions/setup-node@v2
+      - uses: actions/setup-node@v3
         name: Setup Node
         with:
           node-version: '16'
+          cache: yarn
 
       - run: yarn install
         name: Install Dependencies
@@ -138,13 +143,14 @@ jobs:
       TARGET_ENV: prod
       SITE_URL: https://www.bondurantsoccerclub.com
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         name: Checkout
 
-      - uses: actions/setup-node@v2
+      - uses: actions/setup-node@v3
         name: Setup Node
         with:
           node-version: '16'
+          cache: yarn
 
       - run: yarn install
         name: Install Dependencies
