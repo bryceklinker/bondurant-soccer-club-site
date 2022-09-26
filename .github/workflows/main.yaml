@@ -8,7 +8,7 @@ env:
   TF_VAR_digicert_account_id: ${{ secrets.DIGICERT_ACCOUNT_ID }}
   TF_VAR_digicert_org_id: ${{ secrets.DIGICERT_ORG_ID }}
   TF_VAR_digicert_api_key: ${{ secrets.DIGICERT_API_KEY }}
-  TERRAFORM_VERSION: 1.2.0
+  TERRAFORM_VERSION: 1.3.0
   GOOGLE_MEASUREMENT_ID: ${{ secrets.GOOGLE_MEASUREMENT_ID }}
   APP_INSIGHTS_KEY: ${{ secrets.APP_INSIGHTS_KEY }}
 jobs:
