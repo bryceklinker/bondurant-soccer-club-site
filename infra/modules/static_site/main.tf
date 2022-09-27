@@ -242,7 +242,7 @@ resource "azurerm_cdn_endpoint_custom_domain" "custom_domain" {
 resource "azurerm_key_vault_certificate" "root_domain" {
   count        = var.is_root_domain ? 1 : 0
   key_vault_id = azurerm_key_vault.vault.id
-  name         = "cert-${var.name}"
+  name         = "cert-${var.name}-root"
 
   certificate_policy {
     lifetime_action {
