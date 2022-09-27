@@ -3,6 +3,7 @@ import { GetInvolvedOption } from './GetInvolvedOption';
 import { useGetInvolvedOptions } from '../common/hooks/get-involved-hooks';
 import { GappedStack } from '../common/components/GappedStack';
 import { Title } from '../common/components/Title';
+import { Seo } from '../common/seo/Seo';
 
 export const GetInvolvedPage: FunctionComponent = () => {
     const getInvolvedOptions = useGetInvolvedOptions();
@@ -10,10 +11,19 @@ export const GetInvolvedPage: FunctionComponent = () => {
         <GetInvolvedOption key={i} data={o} />
     ));
     return (
-        <GappedStack padded>
-            <Title>Get Involved</Title>
+        <>
+            <Seo
+                title={'Get Involved'}
+                description={
+                    'Learn how to get involved at Bondurant Soccer Club'
+                }
+                route={'get-involved'}
+            />
+            <GappedStack padded>
+                <Title>Get Involved</Title>
 
-            {options}
-        </GappedStack>
+                {options}
+            </GappedStack>
+        </>
     );
 };

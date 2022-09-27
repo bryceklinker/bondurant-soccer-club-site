@@ -12,24 +12,34 @@ import {
 } from '../common/hooks/registration-hooks';
 import { GappedStack } from '../common/components/GappedStack';
 import { Title } from '../common/components/Title';
+import { Seo } from '../common/seo/Seo';
 
 export const RegistrationInfoPage: FunctionComponent = () => {
     const { season, ages } = useCurrentRegistrationSeason();
     const dates = useRegistrationDates();
     const registrationLink = useRegistrationLink();
     return (
-        <GappedStack padded>
-            <Title>Registration Info</Title>
+        <>
+            <Seo
+                title={'Registration Info'}
+                description={
+                    'Sign your child up to play for Bondurant Soccer Club'
+                }
+                route={'registration-info'}
+            />
+            <GappedStack padded>
+                <Title>Registration Info</Title>
 
-            <LinkButton external color={'blue'} href={registrationLink.url}>
-                {registrationLink.text}
-            </LinkButton>
+                <LinkButton external color={'blue'} href={registrationLink.url}>
+                    {registrationLink.text}
+                </LinkButton>
 
-            <RegistrationDates dates={dates} />
-            <RegistrationInfoWelcome />
-            <RegistrationAgeGroups season={season} ages={ages} />
-            <ScholarshipInfo />
-            <RefundPolicy />
-        </GappedStack>
+                <RegistrationDates dates={dates} />
+                <RegistrationInfoWelcome />
+                <RegistrationAgeGroups season={season} ages={ages} />
+                <ScholarshipInfo />
+                <RefundPolicy />
+            </GappedStack>
+        </>
     );
 };

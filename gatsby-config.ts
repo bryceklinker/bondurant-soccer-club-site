@@ -4,9 +4,12 @@ import path from 'path';
 const config: GatsbyConfig = {
     jsxRuntime: 'automatic',
     siteMetadata: {
-        siteUrl: process.env.SITE_URL || 'http://localhost:3000'
+        siteUrl: process.env.SITE_URL || 'http://localhost:3000',
+        title: 'Bondurant Soccer Club',
+        description: 'Official website of the Bondurant Soccer Club'
     },
     plugins: [
+        'gatsby-plugin-react-helmet',
         'gatsby-plugin-image',
         {
             resolve: 'gatsby-source-filesystem',

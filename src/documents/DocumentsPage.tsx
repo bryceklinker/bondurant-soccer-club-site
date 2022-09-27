@@ -14,6 +14,7 @@ import {
 import { useDownloadableDocuments } from '../common/hooks/downloadable-document-hooks';
 import { GappedStack } from '../common/components/GappedStack';
 import { Title } from '../common/components/Title';
+import { Seo } from '../common/seo/Seo';
 
 export const DocumentsPage: FunctionComponent = () => {
     const byLaws = useByLaws();
@@ -23,28 +24,35 @@ export const DocumentsPage: FunctionComponent = () => {
     const punishments = useCodeOfConductPunishments();
     const documentLinks = useDownloadableDocuments();
     return (
-        <GappedStack padded>
-            <Title>Documents</Title>
-
-            <DownloadableDocuments documentLinks={documentLinks} />
-            <ByLaws byLaws={byLaws} />
-            <CoachingCodeOfConduct
-                expectations={coachingExpectations}
-                reportingSteps={reportingSteps}
-                punishments={punishments}
+        <>
+            <Seo
+                title={'Documents'}
+                description={'View common Bondurant Soccer Club documents'}
+                route={'documents'}
             />
+            <GappedStack padded>
+                <Title>Documents</Title>
 
-            <ParentCodeOfConduct
-                expectations={parentExpectations}
-                punishments={punishments}
-                reportingSteps={reportingSteps}
-            />
+                <DownloadableDocuments documentLinks={documentLinks} />
+                <ByLaws byLaws={byLaws} />
+                <CoachingCodeOfConduct
+                    expectations={coachingExpectations}
+                    reportingSteps={reportingSteps}
+                    punishments={punishments}
+                />
 
-            <PlayerCodeOfConduct
-                expectations={parentExpectations}
-                punishments={punishments}
-                reportingSteps={reportingSteps}
-            />
-        </GappedStack>
+                <ParentCodeOfConduct
+                    expectations={parentExpectations}
+                    punishments={punishments}
+                    reportingSteps={reportingSteps}
+                />
+
+                <PlayerCodeOfConduct
+                    expectations={parentExpectations}
+                    punishments={punishments}
+                    reportingSteps={reportingSteps}
+                />
+            </GappedStack>
+        </>
     );
 };

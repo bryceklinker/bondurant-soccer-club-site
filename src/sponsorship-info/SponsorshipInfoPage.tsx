@@ -5,15 +5,25 @@ import { useBoardMembersEmailLink } from '../common/hooks/board-members-hooks';
 import { useSponsorshipLinks } from '../common/hooks/sponsors-hooks';
 import { GappedStack } from '../common/components/GappedStack';
 import { Title } from '../common/components/Title';
+import { Seo } from '../common/seo/Seo';
 
 export const SponsorshipInfoPage: FunctionComponent = () => {
     const boardMembersEmail = useBoardMembersEmailLink();
     const sponsorLinks = useSponsorshipLinks();
     return (
-        <GappedStack padded>
-            <Title>Sponsorship Info</Title>
-            <CurrentNeeds boardMembersEmailLink={boardMembersEmail} />
-            <CurrentSponsors sponsorLinks={sponsorLinks} />
-        </GappedStack>
+        <>
+            <Seo
+                title={'Sponsorship Info'}
+                description={
+                    'Learn how to become a sponsor for the Bondurant Soccer Club'
+                }
+                route={'sponsorship-info'}
+            />
+            <GappedStack padded>
+                <Title>Sponsorship Info</Title>
+                <CurrentNeeds boardMembersEmailLink={boardMembersEmail} />
+                <CurrentSponsors sponsorLinks={sponsorLinks} />
+            </GappedStack>
+        </>
     );
 };

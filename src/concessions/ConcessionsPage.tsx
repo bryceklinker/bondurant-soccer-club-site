@@ -8,20 +8,28 @@ import {
     useConcessionsLocation,
     useDirectorOfConcessionsMailLink
 } from '../common/hooks/concessions-hooks';
+import { Seo } from '../common/seo/Seo';
 
 export const ConcessionsPage: FunctionComponent = () => {
     const concessionLocation = useConcessionsLocation();
     const signupLink = useConcessionSignupLink();
     const contactLink = useDirectorOfConcessionsMailLink();
     return (
-        <GappedStack padded>
-            <Title>Concessions Info</Title>
-
-            <TreatTickets location={concessionLocation} />
-            <ConcessionStandDutyAndSignup
-                signupLink={signupLink}
-                contactLink={contactLink}
+        <>
+            <Seo
+                title={'Concessions'}
+                description={'Bondurant Soccer Club concession stand info'}
+                route={'concessions'}
             />
-        </GappedStack>
+            <GappedStack padded>
+                <Title>Concessions Info</Title>
+
+                <TreatTickets location={concessionLocation} />
+                <ConcessionStandDutyAndSignup
+                    signupLink={signupLink}
+                    contactLink={contactLink}
+                />
+            </GappedStack>
+        </>
     );
 };

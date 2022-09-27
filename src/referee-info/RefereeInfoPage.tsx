@@ -10,6 +10,7 @@ import { RecertificationUpdate } from './RecertificationUpdate';
 import { RefereeMeetingNotes } from './RefereeMeetingNotes';
 import { GappedStack } from '../common/components/GappedStack';
 import { Title } from '../common/components/Title';
+import { Seo } from '../common/seo/Seo';
 
 export const RefereeInfoPage: FunctionComponent = () => {
     const directorOfRefereesLink = useDirectorOfRefereesContact();
@@ -18,16 +19,25 @@ export const RefereeInfoPage: FunctionComponent = () => {
     const recertificationRequiredTrainingLink =
         useRefereeRequiredTrainingLink();
     return (
-        <GappedStack padded>
-            <Title>Referee Info</Title>
-
-            <BecomeARefereeInfo contactLink={directorOfRefereesLink} />
-            <RecertificationUpdate
-                steps={recertificationSteps}
-                cost={recertificationCost}
-                requiredTrainingLink={recertificationRequiredTrainingLink}
+        <>
+            <Seo
+                title={'Referee Info'}
+                description={
+                    'Learn how to become a referee for the Bondurant Soccer Club'
+                }
+                route={'referee-info'}
             />
-            <RefereeMeetingNotes contactLink={directorOfRefereesLink} />
-        </GappedStack>
+            <GappedStack padded>
+                <Title>Referee Info</Title>
+
+                <BecomeARefereeInfo contactLink={directorOfRefereesLink} />
+                <RecertificationUpdate
+                    steps={recertificationSteps}
+                    cost={recertificationCost}
+                    requiredTrainingLink={recertificationRequiredTrainingLink}
+                />
+                <RefereeMeetingNotes contactLink={directorOfRefereesLink} />
+            </GappedStack>
+        </>
     );
 };
