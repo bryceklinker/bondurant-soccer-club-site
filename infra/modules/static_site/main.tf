@@ -242,7 +242,7 @@ resource "azurerm_cdn_endpoint_custom_domain" "custom_domain" {
 resource "azurerm_key_vault_certificate" "root_domain" {
   count        = var.is_root_domain ? 1 : 0
   key_vault_id = azurerm_key_vault.vault.id
-  name         = "cert-${var.name}-root"
+  name         = "cert-${var.name}-root-domain"
 
   certificate_policy {
     lifetime_action {
@@ -287,7 +287,7 @@ resource "azurerm_key_vault_certificate" "root_domain" {
         dns_names = [var.dns_zone_name]
       }
 
-      subject            = "CN=${var.dns_zone_name}"
+      subject            = "CN=${var.dns_zone_name},OU=Board,O=Bondurant Soccer Club,L=Bondurant,S=Iowa,C=US"
       validity_in_months = 12
     }
   }
