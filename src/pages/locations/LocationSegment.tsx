@@ -8,7 +8,6 @@ import { RowFlex } from '../../common/layout/RowFlex';
 import { SectionTitle } from '../../common/components/SectionTitle';
 import { SubTitle } from '../../common/components/SubTitle';
 import { EmbeddedMap } from '../../common/components/EmbeddedMap';
-import './LocationSegment.css';
 
 export type LocationSegmentProps = {
     data: LocationData;
@@ -21,8 +20,8 @@ export const LocationSegment: FC<LocationSegmentProps> = ({ data }) => {
     return (
         <Section shadow padded>
             <CollapsiblePanel title={<SectionTitle>{data.title}</SectionTitle>}>
-                <RowFlex className={'location-section gap-4'}>
-                    <ColumnFlex>
+                <RowFlex className={'gap-4'}>
+                    <ColumnFlex className={'flex-initial'}>
                         <SubTitle>Age Groups:</SubTitle>
                         {ageGroups}
                     </ColumnFlex>
