@@ -15,7 +15,6 @@ export const Section: FC<SectionProps> = ({
     shadow,
     padded,
     className,
-    flex = 'initial',
     ...rest
 }) => {
     const shadowClass = shadow ? SECTION_SHADOW_CLASS_NAME : '';
@@ -24,8 +23,7 @@ export const Section: FC<SectionProps> = ({
 
     return (
         <ColumnFlex
-            flex={flex}
-            className={`bg-white ${shadowClass} ${paddedClass} ${borderClass} ${className} `}
+            className={`bg-white flex-initial ${shadowClass} ${paddedClass} ${borderClass} ${className}`}
             {...rest}>
             {children}
         </ColumnFlex>

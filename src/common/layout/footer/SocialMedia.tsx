@@ -4,14 +4,14 @@ import { RowFlex } from '../RowFlex';
 
 export const SocialMedia: FC = () => {
     return (
-        <RowFlex className={'max-w-xs'}>
+        <RowFlex className={'h-8 w-96 items-center justify-end'}>
             <a
                 target={'_blank'}
                 className={'social-media-button'}
                 aria-label={'find us on facebook'}
                 href={'https://www.facebook.com/bondurantsoccerclub/'}>
                 <StaticImage
-                    height={100}
+                    height={32}
                     src={
                         '../../../assets/facebook/FindUs-FB-RGB-BRC-Site-500.png'
                     }

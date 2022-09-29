@@ -27,9 +27,8 @@ export const JumpToLinks: FunctionComponent = () => {
     return (
         <RowFlex
             className={
-                'sm:gap-2 md:gap-4 sm:content-center md:content-center justify-center flex-wrap'
-            }
-            flex={'none'}>
+                'flex-none sm:gap-2 md:gap-4 sm:content-center md:content-center justify-center flex-wrap'
+            }>
             <JumpToButton to={RouteNames.GetInvolved}>
                 Get Involved
             </JumpToButton>

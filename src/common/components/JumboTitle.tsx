@@ -11,7 +11,7 @@ export const JumboTitle: FunctionComponent<JumboTitleProps> = ({
     ...rest
 }) => {
     return (
-        <h1 className={`jumbo-title ${className}`} {...rest}>
+        <h1 className={`text-2xl md:text-5xl ${className}`} {...rest}>
             {children}
         </h1>
     );

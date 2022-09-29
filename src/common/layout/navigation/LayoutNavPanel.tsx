@@ -11,6 +11,7 @@ import { NavLink } from './NavLink';
 import { Button } from '../../components/Button';
 
 import './LayoutNavPanel.css';
+import { RowFlex } from '../RowFlex';
 
 export type LayoutNavPanelProps = {
     isOpen: boolean;
@@ -29,10 +30,8 @@ export const LayoutNavPanel: FC<LayoutNavPanelProps> = ({
         <>
             <Button
                 onClick={onOpen}
-                className={
-                    'min-h-6 min-w-6 max-h-6 min-w-6 h-6 w-6 text-white sm:visible md:hidden'
-                }>
-                <Bars3Icon />
+                className={'px-4 py-2 sm:visible md:hidden'}>
+                <Bars3Icon className={'h-6 w-6 text-white'} />
             </Button>
             <Transition.Root show={isOpen} as={Fragment}>
                 <Dialog
@@ -74,23 +73,17 @@ export const LayoutNavPanel: FC<LayoutNavPanelProps> = ({
                                     leaveTo={'translate-x-full'}>
                                     <Dialog.Panel
                                         className={
-                                            'pointer-events-auto relative w-screen max-w-md'
+                                            'pointer-events-auto relative w-screen max-w-md bg-black'
                                         }>
-                                        <Transition.Child
-                                            as={Fragment}
-                                            enter={'ease-in-out duration-500'}
-                                            enterFrom={'opacity-0'}
-                                            enterTo={'opacity-100'}
-                                            leave={'ease-in-out duration-500'}
-                                            leaveFrom={'opacity-100'}
-                                            leaveTo={'opacity-0'}>
-                                            <div
-                                                className={
-                                                    'absolute top-0 left-0 -ml-8 flex pt-4 pr-2 sm:-ml-10 sm:pr-4'
-                                                }>
+                                        <ColumnFlex
+                                            className={
+                                                'h-full overflow-y-auto shadow-xl'
+                                            }>
+                                            <RowFlex className={'flex-initial'}>
+                                                <RowFlex />
                                                 <Button
                                                     className={
-                                                        'rounded-md text-gray-300 hover:text-white focus:outline-none focus:ring-2 focus:ring-white'
+                                                        'text-gray-300 hover:text-white focus:outline-none'
                                                     }
                                                     onClick={onClose}>
                                                     <XMarkIcon
@@ -98,17 +91,8 @@ export const LayoutNavPanel: FC<LayoutNavPanelProps> = ({
                                                         className={'h-6 w-6'}
                                                     />
                                                 </Button>
-                                            </div>
-                                        </Transition.Child>
-                                        <ColumnFlex
-                                            className={
-                                                'h-full overflow-y-scroll bg-black shadow-xl'
-                                            }>
-                                            <div className={'px-4 sm:px-6'}>
-                                                <Dialog.Title>
-                                                    Bondurant Soccer Club
-                                                </Dialog.Title>
-                                            </div>
+                                            </RowFlex>
+
                                             <ColumnFlex>{links}</ColumnFlex>
                                         </ColumnFlex>
                                     </Dialog.Panel>

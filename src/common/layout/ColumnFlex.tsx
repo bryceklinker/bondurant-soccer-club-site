@@ -1,8 +1,8 @@
 import { FC } from 'react';
 import { FlexProps, Flex } from './Flex';
 
-export type ColumnFlexProps = Omit<FlexProps, 'direction'>;
+export type ColumnFlexProps = FlexProps;
 
-export const ColumnFlex: FC<ColumnFlexProps> = props => {
-    return <Flex direction={'col'} {...props} />;
+export const ColumnFlex: FC<ColumnFlexProps> = ({ className, ...props }) => {
+    return <Flex className={`flex-col ${className}`} {...props} />;
 };

@@ -1,9 +1,0 @@
-@import '../../styles/colors.css';
-
-.footer {
-    background-color: var(--dark-background-color);
-}
-
-.footer .copyright {
-    color: var(--white);
-}

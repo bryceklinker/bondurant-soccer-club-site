@@ -1,8 +1,8 @@
 import { FC } from 'react';
 import { Flex, FlexProps } from './Flex';
 
-export type RowFlexProps = Omit<FlexProps, 'direction'>;
+export type RowFlexProps = FlexProps;
 
-export const RowFlex: FC<RowFlexProps> = props => {
-    return <Flex direction={'row'} {...props} />;
+export const RowFlex: FC<RowFlexProps> = ({ className, ...props }) => {
+    return <Flex className={`flex-row ${className}`} {...props} />;
 };
