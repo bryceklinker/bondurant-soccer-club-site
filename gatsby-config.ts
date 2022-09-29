@@ -38,6 +38,12 @@ const config: GatsbyConfig = {
                 resetCSS: true,
                 isUsingColorMode: true
             }
+        },
+        {
+            resolve: 'gatsby-plugin-emotion',
+            options: {
+                cssPropOptimization: true
+            }
         }
     ]
 };
