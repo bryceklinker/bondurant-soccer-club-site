@@ -1,6 +1,5 @@
 import { FC } from 'react';
 import { Paragraph } from './Paragraph';
-import { OrderedList, UnorderedList } from '@chakra-ui/react';
 
 export type ParagraphListProps = {
     numbered?: boolean;
@@ -13,6 +12,10 @@ export const ParagraphList: FC<ParagraphListProps> = ({ items, numbered }) => {
             {item}
         </Paragraph>
     ));
-    const List = numbered ? OrderedList : UnorderedList;
-    return <List>{listItems}</List>;
+
+    if (numbered) {
+        return <ol>{listItems}</ol>;
+    }
+
+    return <ul className={'list-none'}>{listItems}</ul>;
 };

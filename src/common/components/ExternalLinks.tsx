@@ -11,9 +11,9 @@ export const ExternalLinks: FunctionComponent<ExternalLinksProps> = ({
     links
 }) => {
     const items = links.map((l, i) => (
-        <ExternalLink className={'padded-bottom'} key={i} href={l.url}>
+        <ExternalLink className={'pb-4'} key={i} href={l.url}>
             {l.text}
         </ExternalLink>
     ));
-    return <PlainStack gap={'0.5em'}>{items}</PlainStack>;
+    return <PlainStack className={'gap-2'}>{items}</PlainStack>;
 };

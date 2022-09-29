@@ -1,22 +1,17 @@
-import React, { FunctionComponent } from 'react';
-import { Heading, HeadingProps } from '@chakra-ui/react';
+import React, { FunctionComponent, PropsWithChildren } from 'react';
 
-export interface SubTitleProps extends Omit<HeadingProps, 'as'> {}
+export type SubTitleProps = PropsWithChildren & {
+    className?: string;
+};
 
 export const SubTitle: FunctionComponent<SubTitleProps> = ({
     children,
+    className,
     ...rest
 }) => {
-    const className = rest.className
-        ? `sub-title ${rest.className}`
-        : 'sub-title';
     return (
-        <Heading
-            as={'h4'}
-            variant={'mediumPlus'}
-            {...rest}
-            className={className}>
+        <h4 {...rest} className={`font-bold ${className}`}>
             {children}
-        </Heading>
+        </h4>
     );
 };

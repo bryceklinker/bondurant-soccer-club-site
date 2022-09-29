@@ -1,11 +1,16 @@
 @import './common/styles/utilities.css';
 @import './common/styles/colors.css';
 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 html,
 body,
 #___gatsby,
 #gatsby-focus-wrapper {
     display: flex;
+    flex: 1;
     margin: 0;
     width: 100vw;
     height: 100vh;
@@ -14,6 +19,7 @@ body,
 
 #___gatsby > div {
     height: 100vh;
+    width: 100vw;
 }
 
 img {

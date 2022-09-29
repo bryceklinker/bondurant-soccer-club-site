@@ -1,15 +1,8 @@
-import { FC, useMemo } from 'react';
+import { FC, Fragment } from 'react';
+import { Menu, Transition } from '@headlessui/react';
 import { NavLink } from './NavLink';
 import { MORE_INFO_NAVIGATION_LINKS } from '../../routing/route-names';
-import {
-    Button,
-    Menu,
-    MenuButton,
-    MenuItem,
-    MenuList,
-    ResponsiveValue
-} from '@chakra-ui/react';
-import * as CSS from 'csstype';
+import { ColumnFlex } from '../ColumnFlex';
 
 export type MoreNavigationLinksProps = {
     onClick: () => void;
@@ -19,27 +12,33 @@ export const MoreNavigationLinks: FC<MoreNavigationLinksProps> = ({
     onClick
 }) => {
     const moreNavLinks = MORE_INFO_NAVIGATION_LINKS.map((data, index) => (
-        <MenuItem key={index} className={'menu-item'}>
-            <NavLink data={data} onClick={onClick} />
-        </MenuItem>
+        <Menu.Item key={index} as={NavLink} data={data} onClick={onClick} />
     ));
-    const visibility = useMemo<ResponsiveValue<CSS.Property.Visibility>>(
-        () => ({
-            base: 'hidden',
-            md: 'visible'
-        }),
-        []
-    );
     return (
-        <Menu>
-            <MenuButton
-                visibility={visibility}
-                as={Button}
+        <Menu as={'div'} className={'relative inline-block text-left'}>
+            <Menu.Button
                 aria-label={'more info'}
-                className={'menu-button'}>
+                className={'font-bold py-2 px-2'}>
                 More Info
-            </MenuButton>
-            <MenuList className={'menu-list'}>{moreNavLinks}</MenuList>
+            </Menu.Button>
+
+            <Transition
+                as={Fragment}
+                enter={'transition ease-out duration-100'}
+                enterFrom={'transform opacity-0 scale-95'}
+                enterTo={'transform opacity-100 scale-100'}
+                leave={'transition ease-in duration-75'}
+                leaveFrom={'transform opacity-100 scale-100'}
+                leaveTo={'transform opacity-0 scale-95'}>
+                <Menu.Items
+                    className={
+                        'absolute right-50 mt-2 w-56 origin-top-right divide-y divide-gray-100 rounded-md bg-black shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none menu-list'
+                    }>
+                    <ColumnFlex className={'px-1 py-1'}>
+                        {moreNavLinks}
+                    </ColumnFlex>
+                </Menu.Items>
+            </Transition>
         </Menu>
     );
 };

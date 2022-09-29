@@ -22,6 +22,7 @@ const config: GatsbyConfig = {
         'gatsby-transformer-sharp',
         'gatsby-plugin-sitemap',
         'gatsby-plugin-robots-txt',
+        'gatsby-plugin-postcss',
         {
             resolve: 'gatsby-plugin-manifest',
             options: {
@@ -30,19 +31,6 @@ const config: GatsbyConfig = {
                 start_url: '/',
                 display: 'minimal-ui',
                 icon: path.resolve(__dirname, 'src', 'assets', 'logo.ico')
-            }
-        },
-        {
-            resolve: '@chakra-ui/gatsby-plugin',
-            options: {
-                resetCSS: true,
-                isUsingColorMode: true
-            }
-        },
-        {
-            resolve: 'gatsby-plugin-emotion',
-            options: {
-                cssPropOptimization: true
             }
         }
     ]

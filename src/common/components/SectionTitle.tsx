@@ -1,15 +1,12 @@
-import { FunctionComponent } from 'react';
-import { Heading, HeadingProps } from '@chakra-ui/react';
+import { FunctionComponent, PropsWithChildren } from 'react';
 
-export interface SectionTitleProps extends Omit<HeadingProps, 'as'> {}
+export type SectionTitleProps = PropsWithChildren & {
+    className?: string;
+};
 
 export const SectionTitle: FunctionComponent<SectionTitleProps> = ({
-    children,
+    className,
     ...rest
 }) => {
-    return (
-        <Heading as={'h2'} variant={'xLarge'} {...rest}>
-            {children}
-        </Heading>
-    );
+    return <h4 className={`font-bold text-xl ${className}`} {...rest} />;
 };

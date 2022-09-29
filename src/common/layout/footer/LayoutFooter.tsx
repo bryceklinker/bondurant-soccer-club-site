@@ -10,7 +10,7 @@ export type LayoutFooterProps = {};
 
 export const LayoutFooter: FC<LayoutFooterProps> = () => {
     return (
-        <RowFlex className={'footer'} padding={'0.5em'} flex={0}>
+        <RowFlex className={'footer p-2'} flex={'none'}>
             <Copyright />
             <Spacer vertical />
             <SocialMedia />

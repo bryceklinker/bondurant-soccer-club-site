@@ -1,15 +1,15 @@
-import { FunctionComponent } from 'react';
-import { Button, ButtonProps } from '@chakra-ui/react';
+import { FunctionComponent, PropsWithChildren } from 'react';
 
-export interface LinkButtonProps extends Omit<ButtonProps, 'as' | 'target'> {
+export type LinkButtonProps = PropsWithChildren & {
     href: string;
     external?: boolean;
-}
+    className?: string;
+};
 
 export const LinkButton: FunctionComponent<LinkButtonProps> = ({
     external,
     ...props
 }) => {
     const target = external ? '_blank' : undefined;
-    return <Button as={'a'} target={target} {...props} />;
+    return <a target={target} {...props} />;
 };

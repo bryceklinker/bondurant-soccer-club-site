@@ -12,7 +12,7 @@ export const ExternalLink: FC<ExternalLinkProps> = ({
     ...rest
 }) => {
     return (
-        <Paragraph as={'span'} className={className}>
+        <Paragraph className={className}>
             <a target={'_blank'} {...rest}>
                 {children}
             </a>

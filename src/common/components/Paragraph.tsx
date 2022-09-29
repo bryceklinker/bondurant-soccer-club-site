@@ -1,26 +1,24 @@
-import { FC } from 'react';
-import { Text, TextProps } from '@chakra-ui/react';
+import { FC, PropsWithChildren } from 'react';
 
-export interface ParagraphProps extends TextProps {
+export type ParagraphProps = PropsWithChildren & {
     italic?: boolean;
     bold?: boolean;
     indent?: boolean;
-}
+    className?: string;
+};
 
 export const Paragraph: FC<ParagraphProps> = ({
     italic,
     bold,
     indent,
     className,
-    ...rest
+    ...props
 }) => {
     const classes = [
-        italic ? 'italic-font' : '',
-        bold ? 'bold-font' : '',
-        indent ? 'indent' : '',
+        italic ? 'italic' : '',
+        bold ? 'font-bold' : '',
+        indent ? 'pl-4' : '',
         className
     ].join(' ');
-    return (
-        <Text as={'p'} variant={'large'} block className={classes} {...rest} />
-    );
+    return <p className={classes} {...props} />;
 };

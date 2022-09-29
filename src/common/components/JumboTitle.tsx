@@ -1,8 +1,9 @@
-import { FunctionComponent } from 'react';
+import { FunctionComponent, PropsWithChildren } from 'react';
 import './JumboTitle.css';
-import { Heading, HeadingProps } from '@chakra-ui/react';
 
-export interface JumboTitleProps extends Omit<HeadingProps, 'as' | 'variant'> {}
+export type JumboTitleProps = PropsWithChildren & {
+    className?: string;
+};
 
 export const JumboTitle: FunctionComponent<JumboTitleProps> = ({
     children,
@@ -10,12 +11,8 @@ export const JumboTitle: FunctionComponent<JumboTitleProps> = ({
     ...rest
 }) => {
     return (
-        <Heading
-            as={'h1'}
-            variant={'mega'}
-            className={`jumbo-title ${className}`}
-            {...rest}>
+        <h1 className={`jumbo-title ${className}`} {...rest}>
             {children}
-        </Heading>
+        </h1>
     );
 };

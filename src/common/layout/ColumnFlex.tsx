@@ -1,7 +1,8 @@
-import { Flex, FlexProps } from '@chakra-ui/react';
 import { FC } from 'react';
+import { FlexProps, Flex } from './Flex';
 
-export type ColumnFlexProps = Omit<FlexProps, 'direction' | 'flexDirection'>;
-export const ColumnFlex: FC<ColumnFlexProps> = ({ flex = 1, ...props }) => {
-    return <Flex direction={'column'} flex={flex} {...props} />;
+export type ColumnFlexProps = Omit<FlexProps, 'direction'>;
+
+export const ColumnFlex: FC<ColumnFlexProps> = props => {
+    return <Flex direction={'col'} {...props} />;
 };

@@ -1,5 +1,5 @@
-import { BecomeACoach } from '../../get-involved/BecomeACoach';
-import { BecomeAReferee } from '../../get-involved/BecomeAReferee';
+import { BecomeACoach } from '../../pages/get-involved/BecomeACoach';
+import { BecomeAReferee } from '../../pages/get-involved/BecomeAReferee';
 import { BoardMemberData, GetInvolvedData } from './models';
 import {
     DIRECTORS_OF_COACHES,

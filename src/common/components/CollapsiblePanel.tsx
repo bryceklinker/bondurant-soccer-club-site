@@ -1,10 +1,11 @@
-import { Button, Spacer } from '@chakra-ui/react';
-import { ChevronDownIcon, ChevronUpIcon } from '@chakra-ui/icons';
 import useCollapse from 'react-collapsed';
 import { FC, ReactNode, useMemo } from 'react';
 import { ColumnFlex, ColumnFlexProps } from '../layout/ColumnFlex';
 import { useBooleanToggle } from '../hooks/use-boolean-toggle';
 import { RowFlex } from '../layout/RowFlex';
+import { ChevronDownIcon, ChevronUpIcon } from '@heroicons/react/20/solid';
+import { Button } from './Button';
+import { Spacer } from './Spacer';
 
 export type CollapsiblePanelProps = Omit<ColumnFlexProps, 'title'> & {
     title: string | ReactNode;
@@ -31,15 +32,11 @@ export const CollapsiblePanel: FC<CollapsiblePanelProps> = ({
                 {...getToggleProps({
                     onClick: () => toggle()
                 })}
-                width={'100%'}
-                colorScheme={'white'}
-                color={'black'}
-                alignSelf={'start'}
-                paddingLeft={0}>
-                <RowFlex alignItems={'center'} marginBottom={'1em'}>
+                className={'w-full self-start pl-0'}>
+                <RowFlex className={'items-center mb-4'}>
                     {title}
                     <Spacer />
-                    <PanelIcon fontSize={'2em'} />
+                    <PanelIcon className={'h-6 w-6'} />
                 </RowFlex>
             </Button>
             <div {...getCollapseProps()}>{children}</div>

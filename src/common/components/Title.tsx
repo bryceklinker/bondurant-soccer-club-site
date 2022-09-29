@@ -1,8 +1,9 @@
-import React, { FunctionComponent } from 'react';
-import { Heading, HeadingProps } from '@chakra-ui/react';
+import React, { FC, PropsWithChildren } from 'react';
 
-export type TitleProps = Omit<HeadingProps, 'as' | 'variant'>;
+export type TitleProps = PropsWithChildren & {
+    className?: string;
+};
 
-export const Title: FunctionComponent<TitleProps> = props => {
-    return <Heading as={'h3'} variant={'xxLarge'} {...props} />;
+export const Title: FC<TitleProps> = ({ className, ...rest }) => {
+    return <h2 className={`font-bold text-3xl ${className}`} {...rest} />;
 };

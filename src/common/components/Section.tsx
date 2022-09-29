@@ -1,8 +1,8 @@
 import { FC } from 'react';
 import { ColumnFlex, ColumnFlexProps } from '../layout/ColumnFlex';
 import {
-    PADDED_CONTENT_PROPS,
-    SECTION_SHADOW_PROPS
+    PADDED_CONTENT_CLASS_NAME,
+    SECTION_SHADOW_CLASS_NAME
 } from '../layout/flex-styles';
 
 export interface SectionProps extends Omit<ColumnFlexProps, 'shadow'> {
@@ -15,26 +15,17 @@ export const Section: FC<SectionProps> = ({
     shadow,
     padded,
     className,
-    borderBottomColor = 'blue',
-    borderBottomStyle = 'solid',
-    borderBottomWidth = '0.5em',
-    backgroundColor = 'white',
-    flex = 0,
+    flex = 'initial',
     ...rest
 }) => {
-    const shadowProps = shadow ? SECTION_SHADOW_PROPS : {};
-    const paddedProps = padded ? PADDED_CONTENT_PROPS : {};
+    const shadowClass = shadow ? SECTION_SHADOW_CLASS_NAME : '';
+    const paddedClass = padded ? PADDED_CONTENT_CLASS_NAME : '';
+    const borderClass = 'border-b-blue-700 border-b-4';
 
     return (
         <ColumnFlex
-            borderBottomWidth={borderBottomWidth}
-            borderBottomStyle={borderBottomStyle}
-            borderBottomColor={borderBottomColor}
-            backgroundColor={backgroundColor}
             flex={flex}
-            className={className}
-            {...shadowProps}
-            {...paddedProps}
+            className={`bg-white ${shadowClass} ${paddedClass} ${borderClass} ${className} `}
             {...rest}>
             {children}
         </ColumnFlex>

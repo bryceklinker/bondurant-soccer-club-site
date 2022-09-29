@@ -1,6 +1,6 @@
 import { FunctionComponent } from 'react';
 import { ColumnFlex, ColumnFlexProps } from '../layout/ColumnFlex';
-import { PADDED_CONTENT_PROPS } from '../layout/flex-styles';
+import { PADDED_CONTENT_CLASS_NAME } from '../layout/flex-styles';
 import { RowFlex } from '../layout/RowFlex';
 
 export type PlainStackProps = ColumnFlexProps & {
@@ -11,9 +11,10 @@ export type PlainStackProps = ColumnFlexProps & {
 export const PlainStack: FunctionComponent<PlainStackProps> = ({
     padded,
     horizontal,
+    className,
     ...rest
 }) => {
-    const paddedProps = padded ? PADDED_CONTENT_PROPS : {};
+    const paddedClass = padded ? PADDED_CONTENT_CLASS_NAME : '';
     const Element = horizontal ? RowFlex : ColumnFlex;
-    return <Element {...paddedProps} {...rest} />;
+    return <Element className={`${paddedClass} ${className}`} {...rest} />;
 };
