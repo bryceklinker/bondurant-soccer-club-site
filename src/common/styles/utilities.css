@@ -1,38 +1,4 @@
-:root {
-    --large-button-font-size: 1.3rem;
-}
-
-.vertical-spacer {
-    height: 2em;
-}
-
-.padded-content {
-    padding: 2em;
-}
-
-.large-button {
-    padding: 1em;
-    font-size: var(--large-button-font-size);
-}
-
-.rounded-button {
-    border-radius: 0.2em;
-}
-
 .flex-half {
     display: flex;
     flex: 0.5;
-}
-
-.shadow {
-    box-shadow: 3px 3px 3px dimgray;
-}
-
-.shadow-border {
-    border: rgba(0, 0, 0, 0.3) solid 1px;
-    border-radius: 0.25em;
-}
-
-.borderless {
-    border: none;
 }

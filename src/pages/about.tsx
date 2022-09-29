@@ -1,4 +1,4 @@
-import { AboutPage } from './about/AboutPage';
+import { AboutPage } from '../components/about/AboutPage';
 import { Layout } from '../common/layout/Layout';
 
 export default () => (

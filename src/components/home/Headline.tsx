@@ -21,7 +21,7 @@ export const Headline: FunctionComponent<HeadlineProps> = ({
                 <a
                     target={'_blank'}
                     className={
-                        'shadow large-button rounded-button bg-blue-700 text-white'
+                        'shadow-xl p-8 text-xl rounded bg-blue-700 text-white'
                     }
                     aria-label={'register here'}
                     href={registrationLink.url}>

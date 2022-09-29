@@ -7,7 +7,6 @@ export const MissionStatement: FunctionComponent = () => {
     return (
         <Section shadow padded>
             <SectionTitle>Mission Statement</SectionTitle>
-            {/*<Divider />*/}
             <Paragraph>
                 The mission of Bondurant Soccer Club is to:
                 <br />

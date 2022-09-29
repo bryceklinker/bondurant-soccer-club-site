@@ -1,4 +1,4 @@
-import { ProgramInfoPage } from './program-info/ProgramInfoPage';
+import { ProgramInfoPage } from '../components/program-info/ProgramInfoPage';
 import { Layout } from '../common/layout/Layout';
 
 export default () => (

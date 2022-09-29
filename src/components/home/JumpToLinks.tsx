@@ -16,7 +16,7 @@ export const JumpToButton: FunctionComponent<JumpToButtonProps> = ({
         <Link
             to={to}
             className={
-                'shadow rounded-full large-button bg-blue-700 text-white sm:h-24 md:h36'
+                'rounded-full p-8 m-4 text-xl shadow-xl bg-blue-700 text-white sm:h-24 md:h36'
             }>
             {children}
         </Link>
