@@ -1,5 +1,4 @@
 import { FunctionComponent } from 'react';
-import './RegistrationAgesTable.css';
 import { AgeRegistrationData } from '../../common/state/models';
 
 export interface RegistrationAgesTableProps {

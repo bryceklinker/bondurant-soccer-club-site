@@ -3,8 +3,6 @@ import { JumboTitle } from '../../common/components/JumboTitle';
 import { LinkData } from '../../common/state/models';
 import { ColumnFlex } from '../../common/layout/ColumnFlex';
 
-import './Headline.css';
-
 export interface HeadlineProps {
     registrationLink: LinkData;
 }
