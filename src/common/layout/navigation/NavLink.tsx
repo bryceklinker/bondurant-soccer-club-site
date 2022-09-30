@@ -13,7 +13,7 @@ export const NavLink: FC<NavLinkProps> = ({ data, ...rest }) => {
     return (
         <GatsbyLink
             to={data.url}
-            className={'nav-link px-4 py-2 text-white font-bold'}
+            className={'px-4 py-2 text-white font-bold hover:brightness-75'}
             activeClassName={'border-b-blue-700 border-b-2'}
             aria-label={data.text}
             {...rest}>

@@ -8,8 +8,15 @@ export type LinkButtonProps = PropsWithChildren & {
 
 export const LinkButton: FunctionComponent<LinkButtonProps> = ({
     external,
+    className,
     ...props
 }) => {
     const target = external ? '_blank' : undefined;
-    return <a target={target} {...props} />;
+    return (
+        <a
+            target={target}
+            className={`hover:brightness-90 ${className}`}
+            {...props}
+        />
+    );
 };

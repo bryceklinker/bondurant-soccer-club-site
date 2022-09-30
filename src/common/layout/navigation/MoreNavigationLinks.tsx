@@ -18,7 +18,7 @@ export const MoreNavigationLinks: FC<MoreNavigationLinksProps> = ({
         <Menu as={'div'} className={'relative inline-block text-left'}>
             <Menu.Button
                 aria-label={'more info'}
-                className={'font-bold py-2 px-2'}>
+                className={'font-bold py-2 px-2 hover:brightness-75'}>
                 More Info
             </Menu.Button>
 

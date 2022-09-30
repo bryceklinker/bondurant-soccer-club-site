@@ -4,11 +4,14 @@ import { Spacer } from '../../components/Spacer';
 import { Copyright } from './Copyright';
 import { SocialMedia } from './SocialMedia';
 
-export type LayoutFooterProps = {};
+export type LayoutFooterProps = {
+    className?: string;
+};
 
-export const LayoutFooter: FC<LayoutFooterProps> = () => {
+export const LayoutFooter: FC<LayoutFooterProps> = ({ className }) => {
     return (
-        <RowFlex className={'bg-black text-white p-2 flex-none items-center'}>
+        <RowFlex
+            className={`bg-black text-white p-2 flex-none items-center hidden md:flex ${className}`}>
             <Copyright />
             <Spacer vertical />
             <SocialMedia />

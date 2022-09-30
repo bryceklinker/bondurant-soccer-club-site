@@ -32,13 +32,15 @@ export const RegistrationInfoPage: FunctionComponent = () => {
 
                 <LinkButton
                     external
-                    className={'text-blue-700'}
+                    className={
+                        'p-4 rounded-3xl text-center bg-blue-700 text-white'
+                    }
                     href={registrationLink.url}>
                     {registrationLink.text}
                 </LinkButton>
 
-                <RegistrationDates dates={dates} />
                 <RegistrationInfoWelcome />
+                <RegistrationDates dates={dates} />
                 <RegistrationAgeGroups season={season} ages={ages} />
                 <ScholarshipInfo />
                 <RefundPolicy />

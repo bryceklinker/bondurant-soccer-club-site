@@ -12,6 +12,7 @@ import { Button } from '../../components/Button';
 
 import './LayoutNavPanel.css';
 import { RowFlex } from '../RowFlex';
+import { LayoutFooter } from '../footer/LayoutFooter';
 
 export type LayoutNavPanelProps = {
     isOpen: boolean;
@@ -83,7 +84,7 @@ export const LayoutNavPanel: FC<LayoutNavPanelProps> = ({
                                                 <RowFlex />
                                                 <Button
                                                     className={
-                                                        'text-gray-300 hover:text-white focus:outline-none'
+                                                        'text-gray-300 p-4 hover:text-white focus:outline-none'
                                                     }
                                                     onClick={onClose}>
                                                     <XMarkIcon
@@ -94,6 +95,9 @@ export const LayoutNavPanel: FC<LayoutNavPanelProps> = ({
                                             </RowFlex>
 
                                             <ColumnFlex>{links}</ColumnFlex>
+                                            <LayoutFooter
+                                                className={'sm:flex'}
+                                            />
                                         </ColumnFlex>
                                     </Dialog.Panel>
                                 </Transition.Child>

@@ -21,11 +21,11 @@ export const Headline: FunctionComponent<HeadlineProps> = ({
                 <a
                     target={'_blank'}
                     className={
-                        'shadow-xl p-8 text-xl rounded bg-blue-700 text-white'
+                        'shadow-2xl mt-4 p-8 text-xl rounded-3xl bg-blue-700 text-white hover:brightness-90'
                     }
                     aria-label={'register here'}
                     href={registrationLink.url}>
-                    {registrationLink.text}
+                    <h3>{registrationLink.text}</h3>
                 </a>
             </ColumnFlex>
         </ColumnFlex>

@@ -16,9 +16,9 @@ export const JumpToButton: FunctionComponent<JumpToButtonProps> = ({
         <Link
             to={to}
             className={
-                'rounded-full p-8 m-4 text-xl shadow-xl bg-blue-700 text-white sm:h-24 md:h36'
+                'rounded-3xl p-8 m-4 text-xl shadow-xl bg-blue-700 text-white sm:h-24 md:h36 hover:brightness-90'
             }>
-            {children}
+            <h3>{children}</h3>
         </Link>
     );
 };
