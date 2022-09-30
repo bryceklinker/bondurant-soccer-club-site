@@ -52,7 +52,7 @@ export const GetInvolvedOption: FunctionComponent<GetInvolvedOptionProps> = ({
     return (
         <Section shadow padded>
             <CollapsiblePanel title={<SectionTitle>{data.title}</SectionTitle>}>
-                <ColumnFlex>
+                <ColumnFlex className={'gap-4'}>
                     {description}
                     <SubTitle>Links</SubTitle>
                     {links}

@@ -8,7 +8,7 @@ import { SubTitle } from '../../common/components/SubTitle';
 export const BecomeACoach: FC = () => {
     const drills = useCoachingDrills();
     return (
-        <ColumnFlex>
+        <ColumnFlex className={'gap-4'}>
             <Paragraph>
                 If you are interested in Coaching or assisting a coach, please
                 contact one of our Director of Coaches. We appreciate your

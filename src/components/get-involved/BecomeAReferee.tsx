@@ -4,7 +4,7 @@ import { Paragraph } from '../../common/components/Paragraph';
 
 export const BecomeAReferee: FunctionComponent = () => {
     return (
-        <ColumnFlex>
+        <ColumnFlex className={'gap-4'}>
             <Paragraph>
                 If you are interested in being a Ref for the Bondurant Soccer
                 Club, please contact our Director of Referees

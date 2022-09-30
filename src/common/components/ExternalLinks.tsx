@@ -15,5 +15,5 @@ export const ExternalLinks: FunctionComponent<ExternalLinksProps> = ({
             {l.text}
         </ExternalLink>
     ));
-    return <PlainStack className={'gap-2'}>{items}</PlainStack>;
+    return <PlainStack className={'gap-1'}>{items}</PlainStack>;
 };
