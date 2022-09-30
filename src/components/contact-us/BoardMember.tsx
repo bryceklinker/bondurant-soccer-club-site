@@ -18,8 +18,9 @@ export const BoardMember: FunctionComponent<BoardMemberProps> = ({
         );
     return (
         <RowFlex className={'board-member gap-2'}>
-            <SubTitle>Name:&nbsp;{name}</SubTitle>
-            <SubTitle>Role:&nbsp;{member.roleTitle}</SubTitle>
+            <SubTitle>
+                {member.roleTitle}:&nbsp;{name}
+            </SubTitle>
         </RowFlex>
     );
 };

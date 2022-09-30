@@ -2,7 +2,7 @@ import { AGE_GROUPS } from './age-groups';
 import { LocationData } from './models';
 
 export const WEST_COMPLEX_LOCATION = {
-    title: 'West Complex',
+    title: 'Collison Soccer Park',
     ageGroups: [AGE_GROUPS.U6, AGE_GROUPS.U8, AGE_GROUPS.U10],
     mapsUrl:
         'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3832.22973675532!2d-93.47202198456442!3d41.70111107923665!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDHCsDQyJzA0LjAiTiA5M8KwMjgnMTEuNCJX!5e1!3m2!1sen!2sus!4v1636040689552!5m2!1sen!2sus'
@@ -10,7 +10,7 @@ export const WEST_COMPLEX_LOCATION = {
 
 export const LOCATIONS: Array<LocationData> = [
     {
-        title: 'East Complex',
+        title: 'Bondurant Recreational Sports Complex',
         ageGroups: [
             AGE_GROUPS.U12,
             AGE_GROUPS.U14,

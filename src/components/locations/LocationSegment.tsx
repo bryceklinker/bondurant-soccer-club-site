@@ -20,14 +20,14 @@ export const LocationSegment: FC<LocationSegmentProps> = ({ data }) => {
     return (
         <Section shadow padded>
             <CollapsiblePanel title={<SectionTitle>{data.title}</SectionTitle>}>
-                <RowFlex className={'gap-4'}>
+                <ColumnFlex className={'gap-4'}>
                     <ColumnFlex className={'flex-initial'}>
                         <SubTitle>Age Groups:</SubTitle>
-                        {ageGroups}
+                        <RowFlex className={'gap-2'}>{ageGroups}</RowFlex>
                     </ColumnFlex>
 
                     <EmbeddedMap url={data.mapsUrl} />
-                </RowFlex>
+                </ColumnFlex>
             </CollapsiblePanel>
         </Section>
     );
