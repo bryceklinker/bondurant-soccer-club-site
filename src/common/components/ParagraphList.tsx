@@ -13,9 +13,10 @@ export const ParagraphList: FC<ParagraphListProps> = ({ items, numbered }) => {
         </Paragraph>
     ));
 
+    const className = 'flex flex-col gap-2';
     if (numbered) {
-        return <ol>{listItems}</ol>;
+        return <ol className={className}>{listItems}</ol>;
     }
 
-    return <ul className={'list-none'}>{listItems}</ul>;
+    return <ul className={`list-none ${className}`}>{listItems}</ul>;
 };

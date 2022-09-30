@@ -7,6 +7,7 @@ import { SectionTitle } from '../../common/components/SectionTitle';
 import { PlainStack } from '../../common/components/PlainStack';
 import { Paragraph } from '../../common/components/Paragraph';
 import { ExternalLink } from '../../common/components/ExternalLink';
+import { Flex } from '../../common/layout/Flex';
 
 export interface ConcessionStandDutyAndSignupProps {
     signupLink: LinkData;
@@ -24,14 +25,14 @@ export const ConcessionStandDutyAndSignup: FunctionComponent<
                         Concession Stand Duty and Signup
                     </SectionTitle>
                 }>
-                <PlainStack horizontal>
-                    <PlainStack className={'flex-half'}>
+                <Flex className={'flex-col md:flex-row'}>
+                    <Flex>
                         <StaticImage
                             alt={'Concession Hours'}
                             src={'../../assets/concessions_hours.png'}
                         />
-                    </PlainStack>
-                    <PlainStack className={'flex-half'}>
+                    </Flex>
+                    <Flex className={'flex-col gap-4'}>
                         <Paragraph>
                             Click here to schedule your volunteering spot for
                             the Fall 2021 Concession Season:{' '}
@@ -51,8 +52,8 @@ export const ConcessionStandDutyAndSignup: FunctionComponent<
                                 {contactLink.text}
                             </ExternalLink>
                         </Paragraph>
-                    </PlainStack>
-                </PlainStack>
+                    </Flex>
+                </Flex>
             </CollapsiblePanel>
         </Section>
     );
