@@ -15,7 +15,7 @@ export const JumpToButton: FC<JumpToButtonProps> = ({ to, children }) => {
             className={
                 'rounded-3xl p-8 m-4 text-xl shadow-xl bg-blue-700 text-white sm:h-24 md:h36 hover:brightness-90'
             }>
-            <h3>{children}</h3>
+            <h2>{children}</h2>
         </Link>
     );
 };
