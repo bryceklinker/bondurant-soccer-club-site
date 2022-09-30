@@ -120,13 +120,6 @@ export const BOARD_MEMBERS: Array<BoardMemberData> = [
     {
         roleTitle: 'At-Large',
         role: BoardMemberRole.AtLarge,
-        name: 'Alan Knuth',
-        email: 'knuthconstruction@hotmail.com',
-        roleGroup: BoardMemberRoleGroup.AtLarge
-    },
-    {
-        roleTitle: 'At-Large',
-        role: BoardMemberRole.AtLarge,
         name: 'John Waldrop',
         email: 'john.waldrop@jci.com',
         roleGroup: BoardMemberRoleGroup.AtLarge
