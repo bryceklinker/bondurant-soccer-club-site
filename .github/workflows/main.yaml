@@ -6,7 +6,6 @@ env:
   ARM_SUBSCRIPTION_ID: ${{ secrets.ARM_SUBSCRIPTION_ID }}
   ARM_TENANT_ID: ${{ secrets.ARM_TENANT_ID }}
   TERRAFORM_VERSION: 1.3.0
-  GOOGLE_MEASUREMENT_ID: ${{ secrets.GOOGLE_MEASUREMENT_ID }}
   APP_INSIGHTS_KEY: ${{ secrets.APP_INSIGHTS_KEY }}
 jobs:
   build:
@@ -85,6 +84,7 @@ jobs:
       PLAN_PATH: ${{ github.workspace }}/infra/dev/dev.tfplan
       TARGET_ENV: dev
       SITE_URL: https://dev.bondurantsoccerclub.com
+      GOOGLE_MEASUREMENT_ID: ${{ secrets.DEV_GOOGLE_MEASUREMENT_ID }}
     steps:
       - uses: actions/checkout@v3
         name: Checkout
@@ -139,6 +139,7 @@ jobs:
       PLAN_PATH: ${{ github.workspace }}/infra/prod/prod.tfplan
       TARGET_ENV: prod
       SITE_URL: https://www.bondurantsoccerclub.com
+      GOOGLE_MEASUREMENT_ID: ${{ secrets.PROD_GOOGLE_MEASUREMENT_ID }}
     steps:
       - uses: actions/checkout@v3
         name: Checkout
