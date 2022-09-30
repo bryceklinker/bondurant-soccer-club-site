@@ -4,6 +4,7 @@
   "scripts": {
     "precommit": "lint-staged",
     "prepare": "husky install",
+    "prebuild": "yarn clean",
     "build": "gatsby build",
     "start": "gatsby develop",
     "preserve": "yarn build",
@@ -11,7 +12,7 @@
     "clean": "gatsby clean",
     "test": "cross-env TZ=UTC jest",
     "e2e": "concurrently --success \"first\" --kill-others \"yarn serve\" \"wait-on http://localhost:3000 && yarn cypress run\"",
-    "e2e:dev": "concurrently --success \"first\" --kill-others \"yarn serve\" \"wait-on http://localhost:3000 && yarn cypress open\"",
+    "e2e:dev": "cross-env CYPRESS_BASE_URL=http://localhost:8000 concurrently --success \"first\" --kill-others \"yarn start\" \"wait-on http://localhost:8000 && yarn cypress open\"",
     "verify": "yarn test && yarn e2e"
   },
   "dependencies": {

@@ -7,7 +7,7 @@ export const HomePage = {
             name: 'register here'
         }),
     findJumpButtons: () =>
-        ShellCommands.getMainContent().findAllByRole('button', {
+        ShellCommands.getMainContent().findAllByRole('link', {
             name: 'jump link'
         })
 };

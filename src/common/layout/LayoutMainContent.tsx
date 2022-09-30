@@ -3,9 +3,5 @@ import { ColumnFlex } from './ColumnFlex';
 
 export type LayoutMainContentProps = PropsWithChildren;
 export const LayoutMainContent: FC<LayoutMainContentProps> = ({ children }) => {
-    return (
-        <ColumnFlex as={'main'} overflow={'auto'}>
-            {children}
-        </ColumnFlex>
-    );
+    return <ColumnFlex className={'main'}>{children}</ColumnFlex>;
 };

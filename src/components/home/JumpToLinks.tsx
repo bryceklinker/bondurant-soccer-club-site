@@ -1,6 +1,5 @@
-import React, { FunctionComponent, PropsWithChildren, useMemo } from 'react';
+import React, { FC, PropsWithChildren } from 'react';
 import { Link } from 'gatsby';
-import * as CSS from 'csstype';
 import { RouteNames } from '../../common/routing/route-names';
 import { RowFlex } from '../../common/layout/RowFlex';
 
@@ -8,13 +7,11 @@ export type JumpToButtonProps = PropsWithChildren & {
     to: string;
 };
 
-export const JumpToButton: FunctionComponent<JumpToButtonProps> = ({
-    to,
-    children
-}) => {
+export const JumpToButton: FC<JumpToButtonProps> = ({ to, children }) => {
     return (
         <Link
             to={to}
+            aria-label={'jump link'}
             className={
                 'rounded-3xl p-8 m-4 text-xl shadow-xl bg-blue-700 text-white sm:h-24 md:h36 hover:brightness-90'
             }>
@@ -23,7 +20,7 @@ export const JumpToButton: FunctionComponent<JumpToButtonProps> = ({
     );
 };
 
-export const JumpToLinks: FunctionComponent = () => {
+export const JumpToLinks: FC = () => {
     return (
         <RowFlex
             className={
