@@ -1,10 +1,10 @@
-import React, { FunctionComponent, PropsWithChildren } from 'react';
+import { FC, PropsWithChildren } from 'react';
 
 export type SubTitleProps = PropsWithChildren & {
     className?: string;
 };
 
-export const SubTitle: FunctionComponent<SubTitleProps> = ({
+export const SubTitle: FC<SubTitleProps> = ({
     children,
     className,
     ...rest

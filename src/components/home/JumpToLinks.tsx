@@ -13,7 +13,7 @@ export const JumpToButton: FC<JumpToButtonProps> = ({ to, children }) => {
             to={to}
             aria-label={'jump link'}
             className={
-                'rounded-3xl p-8 m-4 text-xl shadow-xl bg-blue-700 text-white sm:h-24 md:h36 hover:brightness-90'
+                'rounded-3xl p-8 m-4 text-xl shadow-xl sm:h-24 md:h36 large-button'
             }>
             <h2>{children}</h2>
         </Link>

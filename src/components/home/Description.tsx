@@ -1,5 +1,4 @@
-import React, { FunctionComponent } from 'react';
-import './Description.css';
+import { FC } from 'react';
 import { Section } from '../../common/components/Section';
 import { Season } from '../../common/state/models';
 
@@ -9,7 +8,7 @@ export interface DescriptionProps {
     maxBirthYear: number;
 }
 
-export const Description: FunctionComponent<DescriptionProps> = ({
+export const Description: FC<DescriptionProps> = ({
     season,
     minBirthYear,
     maxBirthYear

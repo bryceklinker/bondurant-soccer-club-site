@@ -1,6 +1,5 @@
 import React, { FunctionComponent } from 'react';
 import { Link as GatsbyLink } from 'gatsby';
-import './GetInvolvedOption.css';
 import { GetInvolvedData, LinkData } from '../../common/state/models';
 import { Paragraph } from '../../common/components/Paragraph';
 import { ExternalLink } from '../../common/components/ExternalLink';

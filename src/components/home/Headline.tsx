@@ -1,8 +1,8 @@
-import React, { FunctionComponent, useMemo } from 'react';
+import React, { FunctionComponent } from 'react';
 import { JumboTitle } from '../../common/components/JumboTitle';
 import { LinkData } from '../../common/state/models';
 import { ColumnFlex } from '../../common/layout/ColumnFlex';
-import * as CSS from 'csstype';
+
 import './Headline.css';
 
 export interface HeadlineProps {
@@ -13,15 +13,19 @@ export const Headline: FunctionComponent<HeadlineProps> = ({
     registrationLink
 }) => {
     return (
-        <ColumnFlex className={'headline-container shadow sm:h-52 md:h-96'}>
-            <ColumnFlex className={'headline'}>
-                <JumboTitle className={'headline-title'}>
+        <ColumnFlex
+            className={
+                'bg-home-banner bg-center bg-no-repeat bg-cover shadow sm:h-52 md:h-96'
+            }>
+            <ColumnFlex
+                className={'h-full justify-center items-center bg-black/40'}>
+                <JumboTitle className={'text-white'}>
                     Bondurant Soccer Club
                 </JumboTitle>
                 <a
                     target={'_blank'}
                     className={
-                        'shadow-2xl my-4 p-8 text-xl rounded-3xl bg-blue-700 text-white hover:brightness-90'
+                        'shadow-2xl my-4 p-8 text-xl rounded-3xl large-button'
                     }
                     aria-label={'register here'}
                     href={registrationLink.url}>

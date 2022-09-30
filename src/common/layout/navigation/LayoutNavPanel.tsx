@@ -10,7 +10,6 @@ import {
 import { NavLink } from './NavLink';
 import { Button } from '../../components/Button';
 
-import './LayoutNavPanel.css';
 import { RowFlex } from '../RowFlex';
 import { LayoutFooter } from '../footer/LayoutFooter';
 

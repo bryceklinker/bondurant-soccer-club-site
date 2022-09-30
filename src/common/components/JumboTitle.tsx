@@ -1,11 +1,10 @@
-import { FunctionComponent, PropsWithChildren } from 'react';
-import './JumboTitle.css';
+import { FC, PropsWithChildren } from 'react';
 
 export type JumboTitleProps = PropsWithChildren & {
     className?: string;
 };
 
-export const JumboTitle: FunctionComponent<JumboTitleProps> = ({
+export const JumboTitle: FC<JumboTitleProps> = ({
     children,
     className,
     ...rest

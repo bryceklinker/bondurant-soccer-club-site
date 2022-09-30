@@ -1,6 +1,3 @@
-@import './common/styles/utilities.css';
-@import './common/styles/colors.css';
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

@@ -5,6 +5,6 @@ export type ButtonProps = PropsWithChildren & {
     className?: string;
 };
 
-export const Button: FC<ButtonProps> = props => {
+export const Button: FC<ButtonProps> = ({ ...props }) => {
     return <button type={'button'} {...props}></button>;
 };

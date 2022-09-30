@@ -1,0 +1,3 @@
+.large-button {
+    @apply rounded bg-blue-700 text-white hover:brightness-90 rounded-3xl;
+}

@@ -1,7 +1,5 @@
 import React, { FunctionComponent } from 'react';
 
-import './EmbeddedMap.css';
-
 interface EmbeddedMapProps {
     url: string;
     height?: number;
