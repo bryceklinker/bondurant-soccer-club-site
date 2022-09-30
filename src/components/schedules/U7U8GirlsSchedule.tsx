@@ -7,7 +7,7 @@ export const U7U8GirlsSchedule: FC = () => {
     return (
         <ImageSchedule title={title}>
             <StaticImage
-                src={'../../assets/u7_u8_girls_schedule.jpeg'}
+                src={'../../assets/u7_u8_girls_schedule.png'}
                 alt={title}
             />
         </ImageSchedule>
