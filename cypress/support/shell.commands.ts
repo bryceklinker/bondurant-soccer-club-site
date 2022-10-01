@@ -13,11 +13,12 @@ export const ShellCommands = {
         ShellCommands.getNavbar().findByRole('link', { name: 'Locations' }),
     findSchedulesLink: () =>
         ShellCommands.getNavbar().findByRole('link', { name: 'Schedules' }),
-    openMoreInfo: () =>
+    openMoreInfo: () => {
+        cy.wait(150);
         ShellCommands.getNavbar()
             .findByRole('button', { name: 'more info' })
-            .click()
-            .click(),
+            .click();
+    },
     findDocumentsLink: () => cy.findByRole('menuitem', { name: 'Documents' }),
     findConcessionsLink: () =>
         cy.findByRole('menuitem', { name: 'Concessions' }),
