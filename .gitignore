@@ -10,3 +10,4 @@ cypress/downloads/
 .cache/
 public/
 .terraform/
+*.html

@@ -2,7 +2,7 @@ import { HomePage } from '../support/home.page';
 import { ShellCommands } from '../support/shell.commands';
 
 describe('Shell', () => {
-    it('should show main navigation links', () => {
+    it('should show navigation links', () => {
         HomePage.navigate();
 
         ShellCommands.findHomeLink().should('be.visible');

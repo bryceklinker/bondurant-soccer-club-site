@@ -98,6 +98,17 @@ resource "azurerm_cdn_endpoint" "cdn_endpoint" {
     }
   }
 
+  delivery_rule {
+    name  = "Caching"
+    order = 2
+
+    cache_expiration_action {
+      behavior = "SetIfMissing"
+      duration = "30.00:00:00"
+    }
+  }
+
+
   origin {
     host_name = azurerm_storage_account.site_storage.primary_web_host
     name      = azurerm_storage_account.site_storage.name

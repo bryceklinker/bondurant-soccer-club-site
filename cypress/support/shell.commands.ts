@@ -16,6 +16,7 @@ export const ShellCommands = {
     openMoreInfo: () =>
         ShellCommands.getNavbar()
             .findByRole('button', { name: 'more info' })
+            .click()
             .click(),
     findDocumentsLink: () => cy.findByRole('menuitem', { name: 'Documents' }),
     findConcessionsLink: () =>
