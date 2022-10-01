@@ -1,7 +1,6 @@
-import { FC, MouseEventHandler, PropsWithChildren } from 'react';
+import { ButtonHTMLAttributes, FC } from 'react';
 
-export type ButtonProps = PropsWithChildren & {
-    onClick?: MouseEventHandler;
+export type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
     className?: string;
 };
 

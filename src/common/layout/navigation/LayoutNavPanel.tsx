@@ -86,6 +86,7 @@ export const LayoutNavPanel: FC<LayoutNavPanelProps> = ({
                                                     className={
                                                         'text-gray-300 p-4 hover:text-white focus:outline-none'
                                                     }
+                                                    aria-label={'close menu'}
                                                     onClick={onClose}>
                                                     <XMarkIcon
                                                         aria-hidden={true}

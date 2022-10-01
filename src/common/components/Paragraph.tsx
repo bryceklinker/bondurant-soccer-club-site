@@ -1,6 +1,6 @@
-import { FC, PropsWithChildren } from 'react';
+import { FC, HTMLAttributes } from 'react';
 
-export type ParagraphProps = PropsWithChildren & {
+export type ParagraphProps = HTMLAttributes<HTMLParagraphElement> & {
     italic?: boolean;
     bold?: boolean;
     indent?: boolean;
