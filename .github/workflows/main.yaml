@@ -95,18 +95,6 @@ jobs:
           node-version: '16'
           cache: yarn
 
-      - name: Audit URLs using Lighthouse
-        uses: treosh/lighthouse-ci-action@v9
-        with:
-          urls: |
-            https://dev.bondurantsoccerclub.com/
-            https://dev.bondurantsoccerclub.com/get-involved
-            https://dev.bondurantsoccerclub.com/contact-us
-            https://dev.bondurantsoccerclub.com/locations
-            https://dev.bondurantsoccerclub.com/schedules
-          uploadArtifacts: true
-          temporaryPublicStorage: true
-
       - run: yarn install
         name: Install Dependencies
 
@@ -140,6 +128,18 @@ jobs:
 
       - run: ${{ github.workspace }}/scripts/purge-cdn.sh
         name: Purge CDN Content
+
+      - name: Run Lighthouse Audit
+        uses: treosh/lighthouse-ci-action@v9
+        with:
+          urls: |
+            ${{ env.SITE_URL }}/
+            ${{ env.SITE_URL }}/get-involved
+            ${{ env.SITE_URL }}/contact-us
+            ${{ env.SITE_URL }}/locations
+            ${{ env.SITE_URL }}/schedules
+          uploadArtifacts: true
+          temporaryPublicStorage: true
 
   deploy_prod_site:
     name: Deploy Prod Site
@@ -195,3 +195,15 @@ jobs:
 
       - run: ${{ github.workspace }}/scripts/purge-cdn.sh
         name: Purge CDN Content
+
+      - name: Run Lighthouse Audit
+        uses: treosh/lighthouse-ci-action@v9
+        with:
+          urls: |
+            ${{ env.SITE_URL }}/
+            ${{ env.SITE_URL }}/get-involved
+            ${{ env.SITE_URL }}/contact-us
+            ${{ env.SITE_URL }}/locations
+            ${{ env.SITE_URL }}/schedules
+          uploadArtifacts: true
+          temporaryPublicStorage: true
