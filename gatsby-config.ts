@@ -9,7 +9,6 @@ const config: GatsbyConfig = {
         description: 'Official website of the Bondurant Soccer Club'
     },
     plugins: [
-        'gatsby-plugin-react-helmet',
         'gatsby-plugin-image',
         {
             resolve: 'gatsby-source-filesystem',
@@ -54,6 +53,17 @@ const config: GatsbyConfig = {
                 start_url: '/',
                 display: 'minimal-ui',
                 icon: path.resolve(__dirname, 'src', 'assets', 'logo.ico')
+            }
+        },
+        {
+            resolve: 'gatsby-plugin-next-seo',
+            options: {
+                openGraph: {
+                    type: 'website',
+                    locale: 'en_us',
+                    siteUrl: process.env.SITE_URL || 'http://localhost:3000',
+                    site_name: 'Bondurant Soccer Club'
+                }
             }
         }
     ]

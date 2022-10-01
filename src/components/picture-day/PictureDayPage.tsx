@@ -13,6 +13,8 @@ import { Paragraph } from '../../common/components/Paragraph';
 import { Dates } from '../../common/extensions/dates';
 import { ExternalLink } from '../../common/components/ExternalLink';
 import { Seo } from '../../common/seo/Seo';
+import { Section } from '../../common/components/Section';
+import { ColumnFlex } from '../../common/layout/ColumnFlex';
 
 export const PictureDayPage: FunctionComponent = () => {
     const pictureDate = usePicturesDate();
@@ -30,14 +32,14 @@ export const PictureDayPage: FunctionComponent = () => {
             />
             <GappedStack padded>
                 <Title>Picture Day</Title>
-                <RowFlex>
-                    <PlainStack className={'flex-half'}>
+                <Section padded className={'flex-row'}>
+                    <ColumnFlex className={'flex-half'}>
                         <StaticImage
                             alt={'picture day schedule'}
                             src={'../../assets/picture_day_schedule.jpg'}
                         />
-                    </PlainStack>
-                    <PlainStack>
+                    </ColumnFlex>
+                    <ColumnFlex>
                         <Paragraph>
                             {Dates.formatLongDate(pictureDate)} is Picture Day!
                         </Paragraph>
@@ -61,8 +63,8 @@ export const PictureDayPage: FunctionComponent = () => {
                             handouts will be available on Saturday to order the
                             photos!
                         </Paragraph>
-                    </PlainStack>
-                </RowFlex>
+                    </ColumnFlex>
+                </Section>
             </GappedStack>
         </>
     );

@@ -1,5 +1,5 @@
-import Helmet from 'react-helmet';
 import { graphql, useStaticQuery } from 'gatsby';
+import { GatsbySeo } from 'gatsby-plugin-next-seo';
 import { FC } from 'react';
 
 type Site = {
@@ -34,20 +34,26 @@ export const Seo: FC<SeoProps> = ({ description, title, route }: SeoProps) => {
 
     const seoFriendlyTitle =
         title && title.length > 50 ? title : `%s - ${site.siteMetadata.title}`;
+    const seoDescription = description || site.siteMetadata.description;
+    const url = route
+        ? `${site.siteMetadata.siteUrl}/${route}`
+        : site.siteMetadata.siteUrl;
     return (
-        <Helmet
-            htmlAttributes={{ lang: 'en' }}
+        <GatsbySeo
             title={title}
             titleTemplate={seoFriendlyTitle}
-            defaultTitle={site.siteMetadata.title}
-            meta={[
+            description={seoDescription}
+            htmlAttributes={{
+                language: 'en'
+            }}
+            metaTags={[
                 {
                     name: 'viewport',
                     content: 'width=device-width, initial-scale=1.0'
                 },
                 {
                     name: 'description',
-                    content: description || site.siteMetadata.description
+                    content: seoDescription
                 },
                 {
                     property: 'og:title',
@@ -55,19 +61,23 @@ export const Seo: FC<SeoProps> = ({ description, title, route }: SeoProps) => {
                 },
                 {
                     property: 'og:description',
-                    content: description || site.siteMetadata.description
+                    content: seoDescription
                 },
                 {
                     property: 'og:url',
-                    content: route
-                        ? `${site.siteMetadata.siteUrl}/${route}`
-                        : site.siteMetadata.siteUrl
+                    content: url
                 },
                 {
                     property: 'og:type',
                     content: 'website'
                 }
             ]}
+            openGraph={{
+                title: seoFriendlyTitle,
+                type: 'website',
+                description: seoDescription,
+                url: url
+            }}
         />
     );
 };

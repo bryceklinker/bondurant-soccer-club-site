@@ -95,6 +95,18 @@ jobs:
           node-version: '16'
           cache: yarn
 
+      - name: Audit URLs using Lighthouse
+        uses: treosh/lighthouse-ci-action@v9
+        with:
+          urls: |
+            https://dev.bondurantsoccerclub.com/
+            https://dev.bondurantsoccerclub.com/get-involved
+            https://dev.bondurantsoccerclub.com/contact-us
+            https://dev.bondurantsoccerclub.com/locations
+            https://dev.bondurantsoccerclub.com/schedules
+          uploadArtifacts: true
+          temporaryPublicStorage: true
+
       - run: yarn install
         name: Install Dependencies
 
