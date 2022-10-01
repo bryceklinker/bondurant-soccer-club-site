@@ -14,7 +14,7 @@ export const ShellCommands = {
     findSchedulesLink: () =>
         ShellCommands.getNavbar().findByRole('link', { name: 'Schedules' }),
     openMoreInfo: () => {
-        cy.wait(150);
+        cy.wait(200);
         ShellCommands.getNavbar()
             .findByRole('button', { name: 'more info' })
             .click();
