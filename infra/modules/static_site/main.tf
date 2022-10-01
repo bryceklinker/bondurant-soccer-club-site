@@ -102,6 +102,15 @@ resource "azurerm_cdn_endpoint" "cdn_endpoint" {
     name  = "Caching"
     order = 2
 
+    request_uri_condition {
+      operator = "Any"
+    }
+
+    request_method_condition {
+      operator = "Equal"
+      match_values = ["GET", "HEAD", "OPTIONS"]
+    }
+
     cache_expiration_action {
       behavior = "SetIfMissing"
       duration = "30.00:00:00"
