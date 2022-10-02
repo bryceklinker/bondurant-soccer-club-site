@@ -1,10 +1,6 @@
 name: Main
 on: [push]
 
-concurrency:
-  group: "deploy"
-  cancel-in-progress: false
-
 env:
   ARM_CLIENT_ID: ${{ secrets.ARM_CLIENT_ID }}
   ARM_CLIENT_SECRET: ${{ secrets.ARM_CLIENT_SECRET }}
@@ -57,7 +53,6 @@ jobs:
     if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-20.04
     environment: dns
-    concurrency: deploy
     needs: [build]
     env:
       PLAN_PATH: ${{ github.workspace }}/infra/dns/dns.tfplan
@@ -84,7 +79,6 @@ jobs:
     name: Deploy Dev Site
     if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-20.04
-    concurrency: deploy
     environment:
       name: dev
       url: ${{ env.SITE_URL }}
@@ -154,7 +148,6 @@ jobs:
     name: Deploy Prod Site
     if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-20.04
-    concurrency: deploy
     environment:
       name: prod
       url: ${{ env.SITE_URL }}
