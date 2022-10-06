@@ -1,6 +1,36 @@
 import type { GatsbyConfig } from 'gatsby';
 import path from 'path';
 
+const plugins = [];
+if (process.env.GOOGLE_MEASUREMENT_ID) {
+    plugins.push({
+        resolve: 'gatsby-plugin-google-gtag',
+        options: {
+            trackingIds: [process.env.GOOGLE_MEASUREMENT_ID],
+            gtagConfig: {
+                anonymize_ip: true,
+                cookie_expires: 0
+            },
+            pluginConfig: {
+                head: false,
+                respectDNT: true
+            }
+        }
+    });
+}
+
+if (process.env.GOOGLE_TAG_MANAGER_ID) {
+    plugins.push({
+        resolve: 'gatsby-plugin-google-tagmanager',
+        options: {
+            id: process.env.GOOGLE_TAG_MANAGER_ID,
+            includeInDevelopment: false,
+            defaultDataLayer: { platform: 'gatsby' },
+            enableWebVitalsTracking: true
+        }
+    });
+}
+
 const config: GatsbyConfig = {
     jsxRuntime: 'automatic',
     siteMetadata: {
@@ -32,20 +62,6 @@ const config: GatsbyConfig = {
             }
         },
         {
-            resolve: 'gatsby-plugin-google-gtag',
-            options: {
-                trackingIds: [process.env.GOOGLE_MEASUREMENT_ID || ''],
-                gtagConfig: {
-                    anonymize_ip: true,
-                    cookie_expires: 0
-                },
-                pluginConfig: {
-                    head: false,
-                    respectDNT: true
-                }
-            }
-        },
-        {
             resolve: 'gatsby-plugin-manifest',
             options: {
                 name: 'Bondurant Soccer Club',
@@ -65,7 +81,8 @@ const config: GatsbyConfig = {
                     site_name: 'Bondurant Soccer Club'
                 }
             }
-        }
+        },
+        ...plugins
     ]
 };
 

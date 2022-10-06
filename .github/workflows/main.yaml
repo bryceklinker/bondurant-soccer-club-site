@@ -87,7 +87,6 @@ jobs:
       PLAN_PATH: ${{ github.workspace }}/infra/dev/dev.tfplan
       TARGET_ENV: dev
       SITE_URL: https://dev.bondurantsoccerclub.com
-      GOOGLE_MEASUREMENT_ID: ${{ secrets.DEV_GOOGLE_MEASUREMENT_ID }}
     steps:
       - uses: actions/checkout@v3
         name: Checkout
@@ -157,6 +156,7 @@ jobs:
       TARGET_ENV: prod
       SITE_URL: https://www.bondurantsoccerclub.com
       GOOGLE_MEASUREMENT_ID: ${{ secrets.PROD_GOOGLE_MEASUREMENT_ID }}
+      GOOGLE_TAG_MANAGER_ID: ${{ secrets.PROD_GOOGLE_TAG_MANAGER_ID }}
     steps:
       - uses: actions/checkout@v3
         name: Checkout
