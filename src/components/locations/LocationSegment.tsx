@@ -26,6 +26,16 @@ export const LocationSegment: FC<LocationSegmentProps> = ({ data }) => {
                         <RowFlex className={'gap-2'}>{ageGroups}</RowFlex>
                     </ColumnFlex>
 
+                    <ColumnFlex>
+                        <SubTitle>Address</SubTitle>
+                        <address>
+                            {data.address.streetAddress}
+                            <br />
+                            {data.address.city},&nbsp;{data.address.state}&nbsp;
+                            {data.address.zip}
+                        </address>
+                    </ColumnFlex>
+
                     <EmbeddedMap url={data.mapsUrl} />
                 </ColumnFlex>
             </CollapsiblePanel>

@@ -73,10 +73,18 @@ export interface GetInvolvedData {
     links: Array<LinkData>;
 }
 
+export interface Address {
+    streetAddress: string;
+    city: string;
+    state: string;
+    zip: string;
+}
+
 export interface LocationData {
     title: string;
     ageGroups: Array<AgeGroup>;
     mapsUrl: string;
+    address: Address;
 }
 
 export interface AgeRegistrationData {
