@@ -17,6 +17,11 @@ export interface DateRange {
     end: Date;
 }
 
+export interface TitleItem {
+    title: string;
+    description: string | FunctionComponent;
+}
+
 export enum SeasonName {
     Fall = 'Fall',
     Spring = 'Spring'
@@ -67,9 +72,7 @@ export const BoardMemberData = {
     }
 };
 
-export interface GetInvolvedData {
-    title: string;
-    description: string | FunctionComponent;
+export interface GetInvolvedData extends TitleItem {
     links: Array<LinkData>;
 }
 
@@ -104,11 +107,6 @@ export interface RegistrationDatesData {
     regular?: DateRange;
     late?: DateRange;
     cutoff?: Date;
-}
-
-export interface ImageData {
-    title: string;
-    image: string;
 }
 
 export interface PictureAccessData {
@@ -149,16 +147,12 @@ export interface ProgramInfoAttribute {
     text?: string;
 }
 
-export interface ProgramInfo {
-    title: string;
-    description?: string;
+export interface ProgramInfo extends TitleItem {
     attributes: Array<ProgramInfoAttribute>;
 }
 
-export interface ByLawSectionData {
+export interface ByLawSectionData extends TitleItem {
     key: string;
-    title: string;
-    description?: string;
     items?: Array<string>;
 }
 

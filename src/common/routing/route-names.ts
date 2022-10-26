@@ -1,22 +1,23 @@
 import { LinkData } from '../state/models';
 
 export const RouteNames = {
-    ContactUs: '/contact-us',
-    GetInvolved: '/get-involved',
     About: '/about',
-    Home: '/',
-    Locations: '/locations',
-    Schedules: '/schedules',
-    RegistrationInfo: '/registration-info',
+    AcademyProgram: '/academy-program',
     Concessions: '/concessions',
-    PictureDay: '/picture-day',
-    U5U6Info: '/u5-u6-info',
-    UniformInfo: '/uniform-info',
-    SponsorshipInfo: '/sponsorship-info',
-    ProgramInfo: '/program-info',
+    ContactUs: '/contact-us',
     Documents: '/documents',
     FrequentlyAskedQuestions: '/frequently-asked-questions',
-    RefereeInfo: '/referee-info'
+    GetInvolved: '/get-involved',
+    Home: '/',
+    Locations: '/locations',
+    PictureDay: '/picture-day',
+    ProgramInfo: '/program-info',
+    RefereeInfo: '/referee-info',
+    RegistrationInfo: '/registration-info',
+    Schedules: '/schedules',
+    SponsorshipInfo: '/sponsorship-info',
+    U5U6Info: '/u5-u6-info',
+    UniformInfo: '/uniform-info'
 };
 
 export const MAIN_NAVIGATION_LINKS: Array<LinkData> = [
@@ -47,6 +48,10 @@ export const MAIN_NAVIGATION_LINKS: Array<LinkData> = [
 ];
 
 export const MORE_INFO_NAVIGATION_LINKS: Array<LinkData> = [
+    {
+        text: 'Academy Program',
+        url: RouteNames.AcademyProgram
+    },
     {
         text: 'Concessions',
         url: RouteNames.Concessions
