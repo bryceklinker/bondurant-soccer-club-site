@@ -29,8 +29,8 @@ export const BOARD_MEMBERS: Array<BoardMemberData> = [
     {
         roleTitle: 'Secretary',
         role: BoardMemberRole.Secretary,
-        name: 'Michelle Berger',
-        email: 'mmatitaly@hotmail.com',
+        name: 'N/A',
+        email: '',
         roleGroup: BoardMemberRoleGroup.Official
     },
     {
@@ -108,20 +108,6 @@ export const BOARD_MEMBERS: Array<BoardMemberData> = [
         role: BoardMemberRole.AtLarge,
         name: 'Chan Cavan',
         email: 'madden515@yahoo.com',
-        roleGroup: BoardMemberRoleGroup.AtLarge
-    },
-    {
-        roleTitle: 'At-Large',
-        role: BoardMemberRole.AtLarge,
-        name: 'David Gossard',
-        email: 'david.j.gossard@live.com',
-        roleGroup: BoardMemberRoleGroup.AtLarge
-    },
-    {
-        roleTitle: 'At-Large',
-        role: BoardMemberRole.AtLarge,
-        name: 'John Waldrop',
-        email: 'john.waldrop@jci.com',
         roleGroup: BoardMemberRoleGroup.AtLarge
     }
 ];
