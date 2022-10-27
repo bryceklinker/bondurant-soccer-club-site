@@ -2,6 +2,7 @@ import { FC } from 'react';
 import { Section } from '../../common/components/Section';
 import { SectionTitle } from '../../common/components/SectionTitle';
 import { Paragraph } from '../../common/components/Paragraph';
+import { SubTitle } from '../../common/components/SubTitle';
 
 export const AcademyProgramOverview: FC = () => {
     return (
@@ -18,6 +19,14 @@ export const AcademyProgramOverview: FC = () => {
                 instruction, improved methodology, developmentally appropriate
                 competition, and effective communication, a solid foundation is
                 established for children to continue progressing in the sport.
+            </Paragraph>
+
+            <SubTitle>Pricing</SubTitle>
+            <Paragraph>Academy Program: $225 per season</Paragraph>
+
+            <SubTitle className={'pt-4'}>Scholarships</SubTitle>
+            <Paragraph>
+                Scholarships are available for those that need them.
             </Paragraph>
         </Section>
     );

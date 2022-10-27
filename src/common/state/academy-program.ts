@@ -49,3 +49,37 @@ export const ACADEMY_PLAYER_CHARACTERISTICS = [
     'Practices with a ball on own time outside scheduled games & practices',
     'U9 or U10 player who will potentially try-out for the U11 Select/competitive age group'
 ];
+
+export const ACADEMY_TEAM_FORMATION = [
+    'Academy teams cannot be formed on the basis of talent and must be formed as true recreational teams.',
+    'Any player that registers with club for Academy will be accepted - players may not be excluded from participating in the program',
+    'Academy teams will be mixed each season to improve the developmental environment and to place the focus on the individual, not the team.',
+    'Maximum roster size is 12 players.',
+    'Free movement of academy players is allowed in academy clubs to fulfill fixture commitments.',
+    'Double roster on recreational teams is not permitted.',
+    'Guest playing is not permitted on non academy teams in 9-10U recreational tournament play.'
+];
+
+export const ACADEMY_LEAGUE_FORMAT = [
+    'Teams will play 6-7 league games per season.',
+    'Rescheduling games is discouraged  unless canceled due to adverse weather conditions. Canceled games will be rescheduled by the individual clubs, not ISA.'
+];
+
+export const ACADEMY_ADDITIONAL_REQUIREMENTS = [
+    "Academy program participants and club must practice and be in compliance with Iowa Soccer's sportsmanship programming.",
+    'Parents will attend a pre-season educational meeting regarding academy program philosophy and expectation of practicing good sportsmanship.'
+];
+
+export const ACADEMY_UNIFORM_ITEMS = [
+    'The Academy program uses 2 jerseys and 2 shorts.',
+    'Numbers will be assigned to players as they enter 9U or if they are new at any time during the 4 seasons. Their number will remain the same through all 4 seasons.',
+    'Players that purchase pre-owned jerseys need to inform of the number in the comments section during registration',
+    'Uniform set including 2 jerseys, 2 shorts, and 2 socks'
+];
+
+export const ACADEMY_EQUIPMENT_ITEMS = [
+    'Ball: 9U-10U use a size 4',
+    'Shin Guards',
+    'Soccer Cleats',
+    'Water Bottle with name on it'
+];

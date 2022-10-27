@@ -7,6 +7,11 @@ import { AcademyProgramOverview } from './AcademyProgramOverview';
 import { AcademyProgramGoals } from './AcademyProgramGoals';
 import { AcademyProgramWhy } from './AcademyProgramWhy';
 import { AcademyProgramBenefits } from './AcademyProgramBenefits';
+import { AcademyProgramTeamFormation } from './AcademyProgramTeamFormation';
+import { AcademyProgramLeagueFormat } from './AcademyProgramLeagueFormat';
+import { AcademyProgramRequirements } from './AcademyProgramRequirements';
+import { AcademyProgramSuppliesNeeded } from './AcademyProgramSuppliesNeeded';
+import { AcademyProgramCosts } from './AcademyProgramCosts';
 
 export const AcademyProgramPage: FC = () => {
     return (
@@ -27,6 +32,10 @@ export const AcademyProgramPage: FC = () => {
                 <AcademyProgramGoals />
                 <AcademyProgramWhy />
                 <AcademyProgramBenefits />
+                <AcademyProgramTeamFormation />
+                <AcademyProgramLeagueFormat />
+                <AcademyProgramRequirements />
+                <AcademyProgramSuppliesNeeded />
             </GappedStack>
         </>
     );
