@@ -5,6 +5,8 @@ import { Title } from '../../common/components/Title';
 import { RegisterHereButton } from '../../common/components/RegisterHereButton';
 import { AcademyProgramOverview } from './AcademyProgramOverview';
 import { AcademyProgramGoals } from './AcademyProgramGoals';
+import { AcademyProgramWhy } from './AcademyProgramWhy';
+import { AcademyProgramBenefits } from './AcademyProgramBenefits';
 
 export const AcademyProgramPage: FC = () => {
     return (
@@ -23,6 +25,8 @@ export const AcademyProgramPage: FC = () => {
 
                 <AcademyProgramOverview />
                 <AcademyProgramGoals />
+                <AcademyProgramWhy />
+                <AcademyProgramBenefits />
             </GappedStack>
         </>
     );
