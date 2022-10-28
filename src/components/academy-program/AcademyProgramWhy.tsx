@@ -24,8 +24,8 @@ export const AcademyProgramWhy: FC = () => {
                     The difference between participating in an academy program
                     or recreational program is the level of investment,
                     commitment and interest that a player and their family has
-                    in their soccer development. To help best decide what level
-                    of play is most appropriate for your child look at the
+                    in their soccer development. To help decide what level of
+                    play is most appropriate for your child, look at the
                     characteristics of an Academy player:
                 </Paragraph>
 

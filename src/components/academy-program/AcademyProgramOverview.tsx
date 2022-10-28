@@ -15,7 +15,7 @@ export const AcademyProgramOverview: FC = () => {
                 provides a quality environment for players to grow in their
                 understanding of the game of soccer. The BSC Academy program
                 focuses on beginning the development of competitive soccer
-                enthusiasts for the 9U and 10U age groups. Through quality
+                enthusiasts for the U9 and U10 age groups. Through quality
                 instruction, improved methodology, developmentally appropriate
                 competition, and effective communication, a solid foundation is
                 established for children to continue progressing in the sport.
