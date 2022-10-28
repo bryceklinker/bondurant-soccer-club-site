@@ -9,7 +9,7 @@ export const BOARD_MEMBERS: Array<BoardMemberData> = [
         roleTitle: 'President',
         role: BoardMemberRole.President,
         name: 'Brandon Cook',
-        email: 'bonsoccerprez@gmail.com',
+        email: 'president@bondurantsoccerclub.com',
         roleGroup: BoardMemberRoleGroup.Official
     },
     {
@@ -22,8 +22,8 @@ export const BOARD_MEMBERS: Array<BoardMemberData> = [
     {
         roleTitle: 'Treasurer',
         role: BoardMemberRole.Treasurer,
-        name: 'Bryce Klinker',
-        email: 'bonsoccertreasurer@gmail.com',
+        name: 'Nicholas Stanley',
+        email: 'treasurer@bondurantsoccerclub.com',
         roleGroup: BoardMemberRoleGroup.Official
     },
     {
@@ -37,77 +37,77 @@ export const BOARD_MEMBERS: Array<BoardMemberData> = [
         roleTitle: 'Registrar',
         role: BoardMemberRole.Registrar,
         name: 'Rebecca Sly',
-        email: 'bonsoccerregistrar@gmail.com',
+        email: 'registrar@bondurantsoccerclub.com',
         roleGroup: BoardMemberRoleGroup.Directors
     },
     {
         roleTitle: 'Director of Referees',
         role: BoardMemberRole.DirectorOfReferees,
         name: 'Mark Feld',
-        email: 'mark.feld7@gmail.com',
+        email: 'director-referees@bondurantsoccerclub.com',
         roleGroup: BoardMemberRoleGroup.Directors
     },
     {
         roleTitle: 'Director of East Fields',
         role: BoardMemberRole.DirectorOfFields,
         name: 'Jason Greubel',
-        email: 'jasonericca@gmail.com',
+        email: 'director-east-fields@bondurantsoccerclub.com',
         roleGroup: BoardMemberRoleGroup.Directors
     },
     {
         roleTitle: 'Director of West Fields',
         role: BoardMemberRole.DirectorOfFields,
         name: 'Tom Trammell',
-        email: 'tssafety@tssafetyinc.com',
+        email: 'director-west-fields@bondurantsoccerclub.com',
         roleGroup: BoardMemberRoleGroup.Directors
     },
     {
         roleTitle: 'Director of Communications',
         role: BoardMemberRole.DirectorOfCommunications,
         name: 'Nicole Van Houten',
-        email: 'nicole.vanhouten@gmail.com',
+        email: 'director-communications@bondurantsoccerclub.com',
         roleGroup: BoardMemberRoleGroup.Directors
     },
     {
         roleTitle: 'Director of Concessions',
         role: BoardMemberRole.DirectorOfConcessions,
         name: 'Sunny Huisman',
-        email: 'bonsoccerconcessions@gmail.com',
+        email: 'director-concessions@bondurantsoccerclub.com',
         roleGroup: BoardMemberRoleGroup.Directors
     },
     {
         roleTitle: 'Director of U5/U6',
         role: BoardMemberRole.DirectorOfU5U6,
         name: 'Andrea Haselhoff',
-        email: 'u6soccer@yahoo.com',
+        email: 'director-u5.6@bondurantsoccerclub.com',
         roleGroup: BoardMemberRoleGroup.Directors
     },
     {
         roleTitle: 'Director of Coaches (U9+)',
         role: BoardMemberRole.DirectorOfCoaches,
         name: 'Nick Quinlan',
-        email: 'nickolas.quinlan@dsmschooles.org',
+        email: 'director-coaches-u9-up@bondurantsoccerclub.com',
         roleGroup: BoardMemberRoleGroup.Directors
     },
     {
         roleTitle: 'Director of Coaches (U7-U8)',
         role: BoardMemberRole.DirectorOfCoaches,
         name: 'Cole LaZella',
-        email: 'callezal@yahoo.com',
+        email: 'director-coaches-u7.8@bondurantsoccerclub.com',
         roleGroup: BoardMemberRoleGroup.Directors
     },
     {
         roleTitle: 'Director of Uniforms',
         role: BoardMemberRole.DirectorOfEquipment,
         name: 'Rania Robb',
-        email: 'raniarobbsoccer@outlook.com',
+        email: 'director-uniforms@bondurantsoccerclub.com',
         roleGroup: BoardMemberRoleGroup.Directors
     },
     {
         roleTitle: 'At-Large',
         role: BoardMemberRole.AtLarge,
         name: 'Chan Cavan',
-        email: 'madden515@yahoo.com',
+        email: 'at-large-chan@bondurantsoccerclub.com',
         roleGroup: BoardMemberRoleGroup.AtLarge
     }
 ];
