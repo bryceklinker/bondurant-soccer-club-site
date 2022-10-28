@@ -104,6 +104,13 @@ export const BOARD_MEMBERS: Array<BoardMemberData> = [
         roleGroup: BoardMemberRoleGroup.Directors
     },
     {
+        roleTitle: 'Director of Academy Operations',
+        role: BoardMemberRole.DirectorOfAcademyOperations,
+        name: 'Jamie Cornelius',
+        email: 'director-academy-operations@bondurantsoccerclub.com',
+        roleGroup: BoardMemberRoleGroup.Directors
+    },
+    {
         roleTitle: 'At-Large',
         role: BoardMemberRole.AtLarge,
         name: 'Chan Cavan',

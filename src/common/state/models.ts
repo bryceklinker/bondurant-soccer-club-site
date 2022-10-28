@@ -19,7 +19,7 @@ export interface DateRange {
 
 export interface TitleItem {
     title: string;
-    description: string | FunctionComponent;
+    description?: string | FunctionComponent;
 }
 
 export enum SeasonName {
@@ -52,6 +52,7 @@ export enum BoardMemberRole {
     DirectorOfCommunications = 'Director of Communications',
     DirectorOfConcessions = 'Director of Concessions',
     DirectorOfEquipment = 'Director of Equipment',
+    DirectorOfAcademyOperations = 'Director of Academy Operations',
     AtLarge = 'At-Large'
 }
 
