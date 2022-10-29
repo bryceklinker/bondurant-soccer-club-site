@@ -70,6 +70,13 @@ export const BoardMemberData = {
     },
     getMailtoEmails: (members: Array<BoardMemberData>): string => {
         return BoardMemberData.getEmails(members).join(',');
+    },
+    getEmailForRole: (
+        role: BoardMemberRole,
+        members: Array<BoardMemberData>
+    ): string => {
+        const membersInRole = members.filter(b => b.role === role);
+        return BoardMemberData.getMailtoEmails(membersInRole);
     }
 };
 

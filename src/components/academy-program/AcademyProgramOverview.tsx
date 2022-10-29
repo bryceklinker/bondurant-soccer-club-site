@@ -3,8 +3,18 @@ import { Section } from '../../common/components/Section';
 import { SectionTitle } from '../../common/components/SectionTitle';
 import { Paragraph } from '../../common/components/Paragraph';
 import { SubTitle } from '../../common/components/SubTitle';
+import { useBoardMembersInRole } from '../../common/hooks/board-members-hooks';
+import { BoardMemberRole } from '../../common/state/models';
+import { ExternalLink } from '../../common/components/ExternalLink';
 
 export const AcademyProgramOverview: FC = () => {
+    const contacts = useBoardMembersInRole(
+        BoardMemberRole.DirectorOfAcademyOperations
+    ).map(c => (
+        <li>
+            <ExternalLink href={`mailto:${c.email}`}>{c.name}</ExternalLink>
+        </li>
+    ));
     return (
         <Section padded shadow>
             <SectionTitle>Overview</SectionTitle>
@@ -28,6 +38,9 @@ export const AcademyProgramOverview: FC = () => {
             <Paragraph>
                 Scholarships are available for those that need them.
             </Paragraph>
+
+            <SubTitle className={'pt-4'}>Contacts</SubTitle>
+            <ul className={'list-none px-4'}>{contacts}</ul>
         </Section>
     );
 };
