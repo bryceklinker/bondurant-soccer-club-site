@@ -3,11 +3,8 @@ import { Section } from '../../common/components/Section';
 import { CollapsiblePanel } from '../../common/components/CollapsiblePanel';
 import { SectionTitle } from '../../common/components/SectionTitle';
 import { SubTitle } from '../../common/components/SubTitle';
-import {
-    useAcademyEquipmentItems,
-    useAcademyUniformItems
-} from '../../common/hooks/academy-program-hooks';
 import { Paragraph } from '../../common/components/Paragraph';
+import { useAcademyEquipmentItems, useAcademyUniformItems } from './hooks';
 
 export const AcademyProgramSuppliesNeeded: FC = () => {
     const uniformItems = useAcademyUniformItems().map(i => (

@@ -4,11 +4,11 @@ import { Weather } from './Weather';
 import { Coaching } from './Coaching';
 import { PracticesAndGames } from './PracticesAndGames';
 import { DrillsYouCanDoAtHome } from './DrillsYouCanDoAtHome';
-import { useSchedulesLink } from '../../common/hooks/schedules-hooks';
-import { useCoachingDrills } from '../../common/hooks/get-involved-hooks';
 import { GappedStack } from '../../common/components/GappedStack';
 import { Title } from '../../common/components/Title';
 import { Seo } from '../../common/seo/Seo';
+import { useSchedulesLink } from '../schedules/hooks';
+import { useCoachingDrills } from '../get-involved/hooks';
 
 export const U5U6InfoPage: FunctionComponent = () => {
     const schedulesLink = useSchedulesLink();

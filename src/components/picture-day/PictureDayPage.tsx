@@ -1,10 +1,5 @@
 import React, { FunctionComponent } from 'react';
 import { StaticImage } from 'gatsby-plugin-image';
-import {
-    usePicturesAccess,
-    usePicturesCompanyLink,
-    usePicturesDate
-} from '../../common/hooks/picture-day-hooks';
 import { GappedStack } from '../../common/components/GappedStack';
 import { Title } from '../../common/components/Title';
 import { RowFlex } from '../../common/layout/RowFlex';
@@ -15,6 +10,11 @@ import { ExternalLink } from '../../common/components/ExternalLink';
 import { Seo } from '../../common/seo/Seo';
 import { Section } from '../../common/components/Section';
 import { ColumnFlex } from '../../common/layout/ColumnFlex';
+import {
+    usePicturesAccess,
+    usePicturesCompanyLink,
+    usePicturesDate
+} from './hooks';
 
 export const PictureDayPage: FunctionComponent = () => {
     const pictureDate = usePicturesDate();

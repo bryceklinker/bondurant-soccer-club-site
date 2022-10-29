@@ -3,7 +3,7 @@ import { Section } from '../../common/components/Section';
 import { CollapsiblePanel } from '../../common/components/CollapsiblePanel';
 import { SectionTitle } from '../../common/components/SectionTitle';
 import { Paragraph } from '../../common/components/Paragraph';
-import { useAcademyPlayerCharacteristics } from '../../common/hooks/academy-program-hooks';
+import { useAcademyPlayerCharacteristics } from './hooks';
 
 export const AcademyProgramWhy: FC = () => {
     const characteristics = useAcademyPlayerCharacteristics();

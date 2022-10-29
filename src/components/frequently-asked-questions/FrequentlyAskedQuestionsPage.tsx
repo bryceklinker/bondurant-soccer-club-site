@@ -1,9 +1,4 @@
 import { FC } from 'react';
-import {
-    useCoachFrequentlyAskedQuestions,
-    useFrequentlyAskedQuestions,
-    useRegistrationFrequentlyAskedQuestions
-} from '../../common/hooks/frequently-asked-questions-hooks';
 import { GappedStack } from '../../common/components/GappedStack';
 import { SectionTitle } from '../../common/components/SectionTitle';
 import { CollapsiblePanel } from '../../common/components/CollapsiblePanel';
@@ -14,6 +9,11 @@ import { SmartLink } from '../../common/components/SmartLink';
 import { SubTitle } from '../../common/components/SubTitle';
 import { PlainStack } from '../../common/components/PlainStack';
 import { Seo } from '../../common/seo/Seo';
+import {
+    useCoachFrequentlyAskedQuestions,
+    useFrequentlyAskedQuestions,
+    useRegistrationFrequentlyAskedQuestions
+} from './hook';
 
 export const FrequentlyAskedQuestionsPage: FC = () => {
     const frequentlyAskedQuestions = useFrequentlyAskedQuestions().map(

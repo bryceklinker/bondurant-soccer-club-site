@@ -1,16 +1,16 @@
 import React, { FunctionComponent } from 'react';
-import {
-    useDirectorOfRefereesContact,
-    useRefereeRecertificationCost,
-    useRefereeRecertificationSteps,
-    useRefereeRequiredTrainingLink
-} from '../../common/hooks/referees-hooks';
 import { BecomeARefereeInfo } from './BecomeARefereeInfo';
 import { RecertificationUpdate } from './RecertificationUpdate';
 import { RefereeMeetingNotes } from './RefereeMeetingNotes';
 import { GappedStack } from '../../common/components/GappedStack';
 import { Title } from '../../common/components/Title';
 import { Seo } from '../../common/seo/Seo';
+import {
+    useDirectorOfRefereesContact,
+    useRefereeRecertificationCost,
+    useRefereeRecertificationSteps,
+    useRefereeRequiredTrainingLink
+} from './hooks';
 
 export const RefereeInfoPage: FunctionComponent = () => {
     const directorOfRefereesLink = useDirectorOfRefereesContact();

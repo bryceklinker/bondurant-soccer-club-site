@@ -2,14 +2,14 @@ import React, { FunctionComponent } from 'react';
 import { Headline } from './Headline';
 import { JumpToLinks } from './JumpToLinks';
 import { Description } from './Description';
+import { GappedStack } from '../../common/components/GappedStack';
+import { Seo } from '../../common/seo/Seo';
 import {
     useCurrentSeason,
     useMaxRegistrationBirthYear,
     useMinRegistrationBirthYear,
     useRegistrationLink
-} from '../../common/hooks/registration-hooks';
-import { GappedStack } from '../../common/components/GappedStack';
-import { Seo } from '../../common/seo/Seo';
+} from '../registration-info/hooks';
 
 export const HomePage: FunctionComponent = () => {
     const season = useCurrentSeason();

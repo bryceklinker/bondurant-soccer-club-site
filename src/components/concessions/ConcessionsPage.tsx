@@ -3,12 +3,12 @@ import { TreatTickets } from './TreatTickets';
 import { ConcessionStandDutyAndSignup } from './ConcessionStandDutyAndSignup';
 import { GappedStack } from '../../common/components/GappedStack';
 import { Title } from '../../common/components/Title';
+import { Seo } from '../../common/seo/Seo';
 import {
     useConcessionSignupLink,
     useConcessionsLocation,
     useDirectorOfConcessionsMailLink
-} from '../../common/hooks/concessions-hooks';
-import { Seo } from '../../common/seo/Seo';
+} from './hooks';
 
 export const ConcessionsPage: FunctionComponent = () => {
     const concessionLocation = useConcessionsLocation();

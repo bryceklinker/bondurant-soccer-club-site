@@ -3,7 +3,7 @@ import { CollapsiblePanel } from '../../common/components/CollapsiblePanel';
 import { Section } from '../../common/components/Section';
 import { SectionTitle } from '../../common/components/SectionTitle';
 import { Paragraph } from '../../common/components/Paragraph';
-import { useAcademyProgramGoals } from '../../common/hooks/academy-program-hooks';
+import { useAcademyProgramGoals } from './hooks';
 
 export const AcademyProgramGoals: FC = () => {
     const goals = useAcademyProgramGoals();

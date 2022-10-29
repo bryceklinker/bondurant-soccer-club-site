@@ -1,9 +1,9 @@
 import React, { FunctionComponent } from 'react';
 import { GetInvolvedOption } from './GetInvolvedOption';
-import { useGetInvolvedOptions } from '../../common/hooks/get-involved-hooks';
 import { GappedStack } from '../../common/components/GappedStack';
 import { Title } from '../../common/components/Title';
 import { Seo } from '../../common/seo/Seo';
+import { useGetInvolvedOptions } from './hooks';
 
 export const GetInvolvedPage: FunctionComponent = () => {
     const getInvolvedOptions = useGetInvolvedOptions();

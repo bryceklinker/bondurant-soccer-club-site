@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { LinkButton, LinkButtonProps } from './LinkButton';
-import { useRegistrationLink } from '../hooks/registration-hooks';
+import { useRegistrationLink } from '../../components/registration-info/hooks';
 
 export type RegisterHereButtonProps = Omit<
     LinkButtonProps,

@@ -2,8 +2,8 @@ import { FC } from 'react';
 import { CollapsiblePanel } from '../../common/components/CollapsiblePanel';
 import { SectionTitle } from '../../common/components/SectionTitle';
 import { Section } from '../../common/components/Section';
-import { useAcademyLeagueFormatRules } from '../../common/hooks/academy-program-hooks';
 import { Paragraph } from '../../common/components/Paragraph';
+import { useAcademyLeagueFormatRules } from './hooks';
 
 export const AcademyProgramLeagueFormat: FC = () => {
     const rules = useAcademyLeagueFormatRules();

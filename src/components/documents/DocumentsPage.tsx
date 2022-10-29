@@ -4,17 +4,17 @@ import { CoachingCodeOfConduct } from './CoachingCodeOfConduct';
 import { ParentCodeOfConduct } from './ParentCodeOfConduct';
 import { PlayerCodeOfConduct } from './PlayerCodeOfConduct';
 import { DownloadableDocuments } from './DownloadableDocuments';
-import { useByLaws } from '../../common/hooks/by-laws-hooks';
-import {
-    useCoachingCodeOfConductExpectations,
-    useCodeOfConductPunishments,
-    useCodeOfConductReportHandlingSteps,
-    useParentCodeOfConductExpectations
-} from '../../common/hooks/code-of-conduct-hooks';
-import { useDownloadableDocuments } from '../../common/hooks/downloadable-document-hooks';
 import { GappedStack } from '../../common/components/GappedStack';
 import { Title } from '../../common/components/Title';
 import { Seo } from '../../common/seo/Seo';
+import {
+    useByLaws,
+    useCoachingCodeOfConductExpectations,
+    useCodeOfConductPunishments,
+    useCodeOfConductReportHandlingSteps,
+    useDownloadableDocuments,
+    useParentCodeOfConductExpectations
+} from './hooks';
 
 export const DocumentsPage: FunctionComponent = () => {
     const byLaws = useByLaws();

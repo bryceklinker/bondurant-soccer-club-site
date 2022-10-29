@@ -2,8 +2,8 @@ import { FC } from 'react';
 import { Section } from '../../common/components/Section';
 import { CollapsiblePanel } from '../../common/components/CollapsiblePanel';
 import { SectionTitle } from '../../common/components/SectionTitle';
-import { useAcademyTeamFormationRules } from '../../common/hooks/academy-program-hooks';
 import { Paragraph } from '../../common/components/Paragraph';
+import { useAcademyTeamFormationRules } from './hooks';
 
 export const AcademyProgramTeamFormation: FC = () => {
     const teamFormation = useAcademyTeamFormationRules();
