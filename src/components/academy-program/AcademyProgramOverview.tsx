@@ -21,14 +21,14 @@ export const AcademyProgramOverview: FC = () => {
 
             <Paragraph className={'p-4'}>
                 As part of the Youth Academy Program governed by the Iowa Soccer
-                Association, the Bondurant Soccer Club (BSC) Academy Program
-                provides a quality environment for players to grow in their
+                Association, the Bondurant Soccer Club (BSC) Academy Program is
+                a developmental program run by professionally educated staff for
+                players to develop their technical abilities and tactical
                 understanding of the game of soccer. The BSC Academy program
-                focuses on beginning the development of competitive soccer
-                enthusiasts for the U9 and U10 age groups. Through quality
-                instruction, improved methodology, developmentally appropriate
-                competition, and effective communication, a solid foundation is
-                established for children to continue progressing in the sport.
+                focuses on entry into competitive soccer for the U9 and U10 age
+                groups. Through professional instruction, defined curriculum,
+                developmentally appropriate competition, the players will be
+                prepared for a future in competitive soccer.
             </Paragraph>
 
             <SubTitle>Pricing</SubTitle>

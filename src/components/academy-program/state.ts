@@ -9,7 +9,7 @@ export const ACADEMY_GOALS: Array<TitleItem> = [
     {
         title: 'Technical Development',
         description:
-            'Players improve their ability to move and manipulate the ball.'
+            'Players learn technical ball handling and footwork for improved confidence.'
     },
     {
         title: 'Tactical Development',
