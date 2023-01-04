@@ -5,7 +5,8 @@ import { CollapsiblePanel } from '../../common/components/CollapsiblePanel';
 import { SectionTitle } from '../../common/components/SectionTitle';
 import { PlainStack } from '../../common/components/PlainStack';
 import { Paragraph } from '../../common/components/Paragraph';
-import { AgeRegistrationData, Season } from '../../common/state/models';
+import { Season } from '../../common/state/season';
+import { AgeRegistrationData } from '../../common/state/age-registration-data';
 
 export interface RegistrationAgeGroupsProps {
     season: Season;

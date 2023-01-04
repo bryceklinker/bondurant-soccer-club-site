@@ -1,5 +1,6 @@
-import { LinkData, PictureAccessData } from '../../common/state/models';
 import { parseISO } from 'date-fns';
+import { LinkData } from '../../common/state/link-data';
+import { PictureAccessData } from '../../common/state/picture-access-data';
 
 export const PICTURES_DATE = parseISO('2021-09-21');
 export const PICTURES_COMPANY_LINK: LinkData = {

@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { Link as GatsbyLink, GatsbyLinkProps } from 'gatsby';
 
-import { LinkData } from '../../state/models';
+import { LinkData } from '../../state/link-data';
 
 export type NavLinkProps = Omit<
     GatsbyLinkProps<never>,

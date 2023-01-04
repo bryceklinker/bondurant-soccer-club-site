@@ -1,13 +1,11 @@
-import {
-    LinkData,
-    RegistrationDatesData,
-    RegistrationSeasonData,
-    RegistrationSoftwareData,
-    Season,
-    SeasonName
-} from '../../common/state/models';
 import { parseISO } from 'date-fns';
 import { ALL_AGE_GROUPS } from '../../common/state/age-groups';
+import { LinkData } from '../../common/state/link-data';
+import { SeasonName } from '../../common/state/season-name';
+import { Season } from '../../common/state/season';
+import { RegistrationSeasonData } from '../../common/state/registration-season-data';
+import { RegistrationDatesData } from '../../common/state/registration-dates-data';
+import { RegistrationSoftwareData } from '../../common/state/registration-software-data';
 
 function currentSeason(): Season {
     const currentDate = new Date();

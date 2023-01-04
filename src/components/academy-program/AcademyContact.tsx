@@ -1,6 +1,6 @@
 import { FC } from 'react';
-import { BoardMemberData } from '../../common/state/models';
 import { ExternalLink } from '../../common/components/ExternalLink';
+import { BoardMemberData } from '../../common/state/board-member-data';
 
 export type AcademyContactProps = {
     contact: BoardMemberData;

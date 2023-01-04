@@ -1,8 +1,4 @@
 import {
-    BoardMemberData,
-    FrequentlyAskedQuestionData
-} from '../../common/state/models';
-import {
     DIRECTORS_OF_COACHES,
     DIRECTORS_OF_CONCESSIONS,
     DIRECTORS_OF_EQUIPMENT,
@@ -19,6 +15,8 @@ import {
     REGISTRATION_SOFTWARE,
     SPRING_REGISTRATION_DATES
 } from '../registration-info/state';
+import { BoardMemberData } from '../../common/state/board-member-data';
+import { FrequentlyAskedQuestionData } from '../../common/state/frequently-asked-question-data';
 
 export const FREQUENTLY_ASKED_QUESTIONS: Array<FrequentlyAskedQuestionData> = [
     {

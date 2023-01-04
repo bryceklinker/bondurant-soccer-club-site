@@ -4,10 +4,10 @@ import { SectionTitle } from '../../common/components/SectionTitle';
 import { Paragraph } from '../../common/components/Paragraph';
 import { SubTitle } from '../../common/components/SubTitle';
 import { useBoardMembersInRole } from '../../common/hooks/board-members-hooks';
-import { BoardMemberRole } from '../../common/state/models';
 import { AcademyContact } from './AcademyContact';
 import { NavLink } from '../../common/layout/navigation/NavLink';
 import { RouteNames } from '../../common/routing/route-names';
+import { BoardMemberRole } from '../../common/state/board-member-role';
 
 export const AcademyProgramOverview: FC = () => {
     const operations = useBoardMembersInRole(

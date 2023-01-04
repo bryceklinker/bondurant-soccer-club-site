@@ -1,12 +1,12 @@
 import React, { FunctionComponent } from 'react';
 import { Section } from '../../common/components/Section';
-import { LinkData } from '../../common/state/models';
 import { SectionTitle } from '../../common/components/SectionTitle';
 import { CollapsiblePanel } from '../../common/components/CollapsiblePanel';
 import { Paragraph } from '../../common/components/Paragraph';
 import { ParagraphList } from '../../common/components/ParagraphList';
 import { SmartLink } from '../../common/components/SmartLink';
 import { Numbers } from '../../common/extensions/numbers';
+import { LinkData } from '../../common/state/link-data';
 
 export interface RecertificationUpdateProps {
     steps: Array<string>;

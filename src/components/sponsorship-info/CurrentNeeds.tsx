@@ -1,10 +1,10 @@
 import { FunctionComponent } from 'react';
 import { Section } from '../../common/components/Section';
-import { LinkData } from '../../common/state/models';
 import { CollapsiblePanel } from '../../common/components/CollapsiblePanel';
 import { SectionTitle } from '../../common/components/SectionTitle';
 import { Paragraph } from '../../common/components/Paragraph';
 import { ExternalLink } from '../../common/components/ExternalLink';
+import { LinkData } from '../../common/state/link-data';
 
 export interface CurrentNeedsProps {
     boardMembersEmailLink: LinkData;

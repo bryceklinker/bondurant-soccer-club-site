@@ -1,5 +1,3 @@
-import { AgeGroup } from './models';
-
 export const AGE_GROUPS = {
     U6: { name: 'U5/U6', minAge: 5, maxAge: 6, cost: 65 },
     U8: { name: 'U7/U8', minAge: 7, maxAge: 8, cost: 105 },
@@ -9,6 +7,14 @@ export const AGE_GROUPS = {
     U16: { name: 'U15/U16', minAge: 15, maxAge: 16, cost: 125 },
     U19: { name: 'U17/U19', minAge: 17, maxAge: 19, cost: 125 }
 };
+
+export interface AgeGroup {
+    name: string;
+    maxAge: number;
+    minAge: number;
+    cost: number;
+}
+
 export const ALL_AGE_GROUPS: Array<AgeGroup> = [
     AGE_GROUPS.U6,
     AGE_GROUPS.U8,

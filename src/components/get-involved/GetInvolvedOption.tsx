@@ -1,6 +1,5 @@
 import React, { FunctionComponent } from 'react';
 import { Link as GatsbyLink } from 'gatsby';
-import { GetInvolvedData, LinkData } from '../../common/state/models';
 import { Paragraph } from '../../common/components/Paragraph';
 import { ExternalLink } from '../../common/components/ExternalLink';
 import { CollapsiblePanel } from '../../common/components/CollapsiblePanel';
@@ -8,6 +7,8 @@ import { ColumnFlex } from '../../common/layout/ColumnFlex';
 import { SectionTitle } from '../../common/components/SectionTitle';
 import { SubTitle } from '../../common/components/SubTitle';
 import { Section } from '../../common/components/Section';
+import { LinkData } from '../../common/state/link-data';
+import { GetInvolvedData } from '../../common/state/get-involved-data';
 
 export interface GetInvolvedLinkProps {
     data: LinkData;

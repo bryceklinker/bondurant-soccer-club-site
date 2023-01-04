@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from 'react';
 import { JumboTitle } from '../../common/components/JumboTitle';
-import { LinkData } from '../../common/state/models';
 import { ColumnFlex } from '../../common/layout/ColumnFlex';
+import { LinkData } from '../../common/state/link-data';
 
 export interface HeadlineProps {
     registrationLink: LinkData;

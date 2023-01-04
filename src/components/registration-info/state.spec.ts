@@ -1,6 +1,6 @@
-import { SeasonName } from '../../common/state/models';
 import { AGE_GROUPS } from '../../common/state/age-groups';
 import { Registration } from './state';
+import { SeasonName } from '../../common/state/season-name';
 
 describe('registration state', () => {
     beforeEach(() => {

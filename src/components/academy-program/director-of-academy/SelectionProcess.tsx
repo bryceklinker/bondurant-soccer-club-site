@@ -4,7 +4,7 @@ import { Paragraph } from '../../../common/components/Paragraph';
 import { BulletedList } from '../../../common/components/BulletedList';
 import { ListItem } from '../../../common/components/ListItem';
 import { useBoardMemberEmailsInRole } from '../../../common/hooks/board-members-hooks';
-import { BoardMemberRole } from '../../../common/state/models';
+import { BoardMemberRole } from '../../../common/state/board-member-role';
 
 export const SelectionProcess: FC = () => {
     const directorOfOperationsEmail = useBoardMemberEmailsInRole(

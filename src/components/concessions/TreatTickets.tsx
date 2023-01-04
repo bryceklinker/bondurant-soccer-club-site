@@ -4,8 +4,8 @@ import { Section } from '../../common/components/Section';
 import { CollapsiblePanel } from '../../common/components/CollapsiblePanel';
 import { SectionTitle } from '../../common/components/SectionTitle';
 import { Paragraph } from '../../common/components/Paragraph';
-import { LocationData } from '../../common/state/models';
 import { RouteNames } from '../../common/routing/route-names';
+import { LocationData } from '../../common/state/location-data';
 
 export type TreatTicketsProps = {
     location: LocationData;

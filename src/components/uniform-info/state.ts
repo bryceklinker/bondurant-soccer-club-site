@@ -1,8 +1,6 @@
-import {
-    UniformPart,
-    UniformPurchaseOption,
-    UniformSize
-} from '../../common/state/models';
+import { UniformSize } from '../../common/state/uniform-size';
+import { UniformPart } from '../../common/state/uniform-part';
+import { UniformPurchaseOption } from '../../common/state/uniform-purchase-option';
 
 export const UNIFORM_SIZES = [
     UniformSize.YXS,

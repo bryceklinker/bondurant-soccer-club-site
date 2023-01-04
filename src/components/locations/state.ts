@@ -1,5 +1,5 @@
-import { LocationData } from '../../common/state/models';
 import { AGE_GROUPS } from '../../common/state/age-groups';
+import { LocationData } from '../../common/state/location-data';
 
 export const WEST_COMPLEX_LOCATION: LocationData = {
     title: 'Collison Soccer Park',

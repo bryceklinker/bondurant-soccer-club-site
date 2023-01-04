@@ -1,5 +1,5 @@
 import { FunctionComponent } from 'react';
-import { AgeRegistrationData } from '../../common/state/models';
+import { AgeRegistrationData } from '../../common/state/age-registration-data';
 
 export interface RegistrationAgesTableProps {
     ages: Array<AgeRegistrationData>;

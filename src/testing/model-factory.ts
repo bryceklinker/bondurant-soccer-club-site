@@ -1,9 +1,7 @@
 import { faker } from '@faker-js/faker';
-import {
-    BoardMemberData,
-    BoardMemberRole,
-    BoardMemberRoleGroup
-} from '../common/state/models';
+import { BoardMemberRoleGroup } from '../common/state/board-member-role-group';
+import { BoardMemberRole } from '../common/state/board-member-role';
+import { BoardMemberData } from '../common/state/board-member-data';
 
 function boardMember(model: Partial<BoardMemberData> = {}): BoardMemberData {
     return {

@@ -1,5 +1,6 @@
-import { BoardMemberData, LinkData } from '../../common/state/models';
 import { DIRECTORS_OF_REFEREES } from '../../common/state/board-members';
+import { LinkData } from '../../common/state/link-data';
+import { BoardMemberData } from '../../common/state/board-member-data';
 
 export const DIRECTOR_OF_REFEREES_CONTACT_LINK: LinkData = {
     text: 'Director of Referees',

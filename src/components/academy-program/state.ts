@@ -1,4 +1,4 @@
-import { TitleItem } from '../../common/state/models';
+import { TitleItem } from '../../common/state/title-item';
 
 export const ACADEMY_GOALS: Array<TitleItem> = [
     {

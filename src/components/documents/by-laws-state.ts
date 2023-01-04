@@ -1,4 +1,5 @@
-import { ByLawArticleData, ByLawsData } from '../../common/state/models';
+import { ByLawArticleData } from '../../common/state/by-law-article-data';
+import { ByLawsData } from '../../common/state/by-laws-data';
 
 const ARTICLE_1: ByLawArticleData = {
     key: 'I',

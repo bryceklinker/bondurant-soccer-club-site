@@ -1,5 +1,4 @@
 import { FC } from 'react';
-import { ProgramInfo, ProgramInfoAttribute } from '../../common/state/models';
 import { Section } from '../../common/components/Section';
 import { SectionTitle } from '../../common/components/SectionTitle';
 import { Paragraph } from '../../common/components/Paragraph';
@@ -7,6 +6,8 @@ import { CollapsiblePanel } from '../../common/components/CollapsiblePanel';
 import { PlainStack } from '../../common/components/PlainStack';
 import { SubTitle } from '../../common/components/SubTitle';
 import { SmartLink } from '../../common/components/SmartLink';
+import { ProgramInfoAttribute } from '../../common/state/program-info-attribute';
+import { ProgramInfo } from '../../common/state/program-info';
 
 export type ProgramProps = {
     program: ProgramInfo;

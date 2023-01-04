@@ -1,7 +1,3 @@
-import {
-    RegistrationDatesData,
-    RegistrationSeasonData
-} from '../../common/state/models';
 import { useMemo } from 'react';
 import {
     REGISTER_HERE_LINK,
@@ -9,6 +5,8 @@ import {
     REGISTRATION_DATES,
     REGISTRATION_SOFTWARE
 } from './state';
+import { RegistrationSeasonData } from '../../common/state/registration-season-data';
+import { RegistrationDatesData } from '../../common/state/registration-dates-data';
 
 export function useCurrentSeason() {
     return useMemo(Registration.currentSeason, []);

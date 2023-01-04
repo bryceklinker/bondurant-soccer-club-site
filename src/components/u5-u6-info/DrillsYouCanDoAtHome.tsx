@@ -1,10 +1,10 @@
 import React, { FunctionComponent } from 'react';
 import { CollapsiblePanel } from '../../common/components/CollapsiblePanel';
 import { ExternalLinks } from '../../common/components/ExternalLinks';
-import { LinkData } from '../../common/state/models';
 import { SectionTitle } from '../../common/components/SectionTitle';
 import { Paragraph } from '../../common/components/Paragraph';
 import { Section } from '../../common/components/Section';
+import { LinkData } from '../../common/state/link-data';
 
 export interface DrillsYouCanDoAtHomeProps {
     drillLinks: Array<LinkData>;

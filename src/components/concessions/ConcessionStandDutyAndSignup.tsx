@@ -1,6 +1,5 @@
 import React, { FunctionComponent } from 'react';
 import { StaticImage } from 'gatsby-plugin-image';
-import { LinkData } from '../../common/state/models';
 import { Section } from '../../common/components/Section';
 import { CollapsiblePanel } from '../../common/components/CollapsiblePanel';
 import { SectionTitle } from '../../common/components/SectionTitle';
@@ -8,6 +7,7 @@ import { PlainStack } from '../../common/components/PlainStack';
 import { Paragraph } from '../../common/components/Paragraph';
 import { ExternalLink } from '../../common/components/ExternalLink';
 import { Flex } from '../../common/layout/Flex';
+import { LinkData } from '../../common/state/link-data';
 
 export interface ConcessionStandDutyAndSignupProps {
     signupLink: LinkData;

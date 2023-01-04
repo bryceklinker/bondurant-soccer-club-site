@@ -1,6 +1,6 @@
-import { ProgramInfo } from '../../common/state/models';
 import { AGE_GROUPS } from '../../common/state/age-groups';
 import { RouteNames } from '../../common/routing/route-names';
+import { ProgramInfo } from '../../common/state/program-info';
 
 const U7U8Program: ProgramInfo = {
     title: AGE_GROUPS.U8.name,

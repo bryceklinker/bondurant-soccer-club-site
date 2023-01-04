@@ -1,4 +1,4 @@
-import { LinkData } from '../../common/state/models';
+import { LinkData } from '../../common/state/link-data';
 
 export const SPONSOR_LINKS: Array<LinkData> = [
     {

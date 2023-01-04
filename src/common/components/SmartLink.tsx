@@ -1,8 +1,8 @@
 import React, { FunctionComponent } from 'react';
 import { Link } from 'gatsby';
 import { ExternalLink, ExternalLinkProps } from './ExternalLink';
-import { LinkData } from '../state/models';
 import { Strings } from '../extensions/strings';
+import { LinkData } from '../state/link-data';
 
 export interface SmartLinkProps extends ExternalLinkProps {
     link: LinkData;

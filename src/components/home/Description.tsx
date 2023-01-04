@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { Section } from '../../common/components/Section';
-import { Season } from '../../common/state/models';
+import { Season } from '../../common/state/season';
 
 export interface DescriptionProps {
     season: Season;

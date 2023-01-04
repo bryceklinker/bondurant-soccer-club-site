@@ -1,7 +1,8 @@
-import { BoardMemberData, LinkData } from '../../common/state/models';
 import { useMemo } from 'react';
 import { DIRECTORS_OF_EQUIPMENT } from '../../common/state/board-members';
 import { UNIFORM_PURCHASE_OPTIONS, UNIFORM_SIZES } from './state';
+import { LinkData } from '../../common/state/link-data';
+import { BoardMemberData } from '../../common/state/board-member-data';
 
 export function useUniformSizes() {
     return useMemo(() => UNIFORM_SIZES, []);

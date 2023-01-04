@@ -1,9 +1,9 @@
 import { FunctionComponent } from 'react';
-import { BoardMemberData } from '../../common/state/models';
 import { RowFlex } from '../../common/layout/RowFlex';
 import { SubTitle } from '../../common/components/SubTitle';
 import { Link } from 'gatsby';
 import { ColumnFlex } from '../../common/layout/ColumnFlex';
+import { BoardMemberData } from '../../common/state/board-member-data';
 
 export interface BoardMemberProps {
     member: BoardMemberData;

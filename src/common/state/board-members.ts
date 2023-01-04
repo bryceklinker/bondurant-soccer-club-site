@@ -1,9 +1,7 @@
-import {
-    BoardMemberData,
-    BoardMemberRole,
-    BoardMemberRoleGroup
-} from './models';
 import { RouteNames } from '../routing/route-names';
+import { BoardMemberRoleGroup } from './board-member-role-group';
+import { BoardMemberRole } from './board-member-role';
+import { BoardMemberData } from './board-member-data';
 
 export const BOARD_MEMBERS: Array<BoardMemberData> = [
     {

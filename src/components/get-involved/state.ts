@@ -1,8 +1,3 @@
-import {
-    BoardMemberData,
-    GetInvolvedData,
-    LinkData
-} from '../../common/state/models';
 import { BecomeACoach } from './BecomeACoach';
 import {
     DIRECTORS_OF_COACHES,
@@ -12,6 +7,9 @@ import {
 } from '../../common/state/board-members';
 import { BecomeAReferee } from './BecomeAReferee';
 import { RouteNames } from '../../common/routing/route-names';
+import { LinkData } from '../../common/state/link-data';
+import { BoardMemberData } from '../../common/state/board-member-data';
+import { GetInvolvedData } from '../../common/state/get-involved-data';
 
 export const LAWS_OF_THE_GAME: LinkData = {
     text: 'Laws of the Game',

@@ -1,8 +1,8 @@
 import { FunctionComponent } from 'react';
 import { BoardMemberGroup } from './BoardMemberGroup';
-import { BoardMemberData } from '../../common/state/models';
 import { Arrays } from '../../common/extensions/arrays';
 import { GappedStack } from '../../common/components/GappedStack';
+import { BoardMemberData } from '../../common/state/board-member-data';
 
 export interface BoardMembersProps {
     members: Array<BoardMemberData>;

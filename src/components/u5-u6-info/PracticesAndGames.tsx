@@ -1,10 +1,10 @@
 import React, { FunctionComponent } from 'react';
 import { Link } from 'gatsby';
-import { LinkData } from '../../common/state/models';
 import { Section } from '../../common/components/Section';
 import { CollapsiblePanel } from '../../common/components/CollapsiblePanel';
 import { SectionTitle } from '../../common/components/SectionTitle';
 import { Paragraph } from '../../common/components/Paragraph';
+import { LinkData } from '../../common/state/link-data';
 
 export interface PracticesAndGamesProps {
     schedulesLink: LinkData;

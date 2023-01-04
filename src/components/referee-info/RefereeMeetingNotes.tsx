@@ -1,11 +1,11 @@
 import { FunctionComponent } from 'react';
 import { Section } from '../../common/components/Section';
-import { LinkData } from '../../common/state/models';
 import { SectionTitle } from '../../common/components/SectionTitle';
 import { SubTitle } from '../../common/components/SubTitle';
 import { Paragraph } from '../../common/components/Paragraph';
 import { SmartLink } from '../../common/components/SmartLink';
 import { CollapsiblePanel } from '../../common/components/CollapsiblePanel';
+import { LinkData } from '../../common/state/link-data';
 
 export interface RefereeMeetingNotesProps {
     contactLink: LinkData;

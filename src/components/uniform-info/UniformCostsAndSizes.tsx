@@ -1,9 +1,4 @@
 import { FunctionComponent } from 'react';
-import {
-    LinkData,
-    UniformPurchaseOption,
-    UniformSize
-} from '../../common/state/models';
 import { SectionTitle } from '../../common/components/SectionTitle';
 import { CollapsiblePanel } from '../../common/components/CollapsiblePanel';
 import { Section } from '../../common/components/Section';
@@ -11,6 +6,9 @@ import { Paragraph } from '../../common/components/Paragraph';
 import { ExternalLink } from '../../common/components/ExternalLink';
 import { SubTitle } from '../../common/components/SubTitle';
 import { Numbers } from '../../common/extensions/numbers';
+import { LinkData } from '../../common/state/link-data';
+import { UniformSize } from '../../common/state/uniform-size';
+import { UniformPurchaseOption } from '../../common/state/uniform-purchase-option';
 
 export interface UniformCostsAndSizesProps {
     sizes: Array<UniformSize>;

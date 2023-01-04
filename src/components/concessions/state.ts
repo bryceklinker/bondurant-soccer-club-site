@@ -1,5 +1,6 @@
-import { BoardMemberData, LinkData } from '../../common/state/models';
 import { DIRECTORS_OF_CONCESSIONS } from '../../common/state/board-members';
+import { LinkData } from '../../common/state/link-data';
+import { BoardMemberData } from '../../common/state/board-member-data';
 
 export const CONCESSION_SIGNUP_LINK: LinkData = {
     text: 'Signup',

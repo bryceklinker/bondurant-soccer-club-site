@@ -3,7 +3,6 @@ import { GappedStack } from '../../common/components/GappedStack';
 import { SectionTitle } from '../../common/components/SectionTitle';
 import { CollapsiblePanel } from '../../common/components/CollapsiblePanel';
 import { Section } from '../../common/components/Section';
-import { FrequentlyAskedQuestionData } from '../../common/state/models';
 import { Paragraph } from '../../common/components/Paragraph';
 import { SmartLink } from '../../common/components/SmartLink';
 import { SubTitle } from '../../common/components/SubTitle';
@@ -14,6 +13,7 @@ import {
     useFrequentlyAskedQuestions,
     useRegistrationFrequentlyAskedQuestions
 } from './hook';
+import { FrequentlyAskedQuestionData } from '../../common/state/frequently-asked-question-data';
 
 export const FrequentlyAskedQuestionsPage: FC = () => {
     const frequentlyAskedQuestions = useFrequentlyAskedQuestions().map(

@@ -1,16 +1,14 @@
 import { FunctionComponent } from 'react';
 import { CollapsiblePanel } from '../../common/components/CollapsiblePanel';
-import {
-    ByLawArticleData,
-    ByLawsData,
-    ByLawSectionData
-} from '../../common/state/models';
 import { SectionTitle } from '../../common/components/SectionTitle';
 import { Paragraph } from '../../common/components/Paragraph';
 import { Section } from '../../common/components/Section';
 import { SubTitle } from '../../common/components/SubTitle';
 import { PlainStack } from '../../common/components/PlainStack';
 import { Numbers } from '../../common/extensions/numbers';
+import { ByLawSectionData } from '../../common/state/by-law-section-data';
+import { ByLawArticleData } from '../../common/state/by-law-article-data';
+import { ByLawsData } from '../../common/state/by-laws-data';
 
 export interface ByLawsProps {
     byLaws: ByLawsData;
