@@ -1,4 +1,5 @@
 import { FC, HTMLAttributes } from 'react';
+import { ClassNames } from '../extensions/class-names';
 
 export type ParagraphProps = HTMLAttributes<HTMLParagraphElement> & {
     italic?: boolean;
@@ -14,11 +15,11 @@ export const Paragraph: FC<ParagraphProps> = ({
     className,
     ...props
 }) => {
-    const classes = [
-        italic ? 'italic' : '',
-        bold ? 'font-bold' : '',
-        indent ? 'pl-4' : '',
+    const classes = ClassNames.join(
+        italic ? 'italic' : undefined,
+        bold ? 'font-bold' : undefined,
+        indent ? 'pl-4' : undefined,
         className
-    ].join(' ');
+    );
     return <p className={classes} {...props} />;
 };

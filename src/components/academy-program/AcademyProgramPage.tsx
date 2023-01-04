@@ -11,7 +11,6 @@ import { AcademyProgramTeamFormation } from './AcademyProgramTeamFormation';
 import { AcademyProgramLeagueFormat } from './AcademyProgramLeagueFormat';
 import { AcademyProgramRequirements } from './AcademyProgramRequirements';
 import { AcademyProgramSuppliesNeeded } from './AcademyProgramSuppliesNeeded';
-import { AcademyProgramCosts } from './AcademyProgramCosts';
 
 export const AcademyProgramPage: FC = () => {
     return (

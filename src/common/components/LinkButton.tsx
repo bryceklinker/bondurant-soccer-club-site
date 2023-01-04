@@ -1,4 +1,5 @@
 import { FunctionComponent, PropsWithChildren } from 'react';
+import { ClassNames } from '../extensions/class-names';
 
 export type LinkButtonProps = PropsWithChildren & {
     href: string;
@@ -12,11 +13,6 @@ export const LinkButton: FunctionComponent<LinkButtonProps> = ({
     ...props
 }) => {
     const target = external ? '_blank' : undefined;
-    return (
-        <a
-            target={target}
-            className={`hover:brightness-90 ${className}`}
-            {...props}
-        />
-    );
+    const classes = ClassNames.join('hover:brightness-90', className);
+    return <a target={target} className={classes} {...props} />;
 };

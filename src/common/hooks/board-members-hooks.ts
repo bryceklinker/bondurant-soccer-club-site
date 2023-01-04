@@ -26,3 +26,11 @@ export function useBoardMembersInRole(
         [role, boardMembers]
     );
 }
+
+export function useBoardMemberEmailsInRole(role: BoardMemberRole) {
+    const boardMembers = useBoardMembersInRole(role);
+    return useMemo(
+        () => BoardMemberData.getMailtoEmails(boardMembers),
+        [role, boardMembers]
+    );
+}

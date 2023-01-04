@@ -4,6 +4,7 @@ import {
     PADDED_CONTENT_CLASS_NAME,
     SECTION_SHADOW_CLASS_NAME
 } from '../layout/flex-styles';
+import { ClassNames } from '../extensions/class-names';
 
 export interface SectionProps extends Omit<ColumnFlexProps, 'shadow'> {
     shadow?: boolean;
@@ -17,14 +18,14 @@ export const Section: FC<SectionProps> = ({
     className,
     ...rest
 }) => {
-    const shadowClass = shadow ? SECTION_SHADOW_CLASS_NAME : '';
-    const paddedClass = padded ? PADDED_CONTENT_CLASS_NAME : '';
-    const borderClass = 'border-b-blue-700 border-b-4';
-
+    const classes = ClassNames.join(
+        shadow ? SECTION_SHADOW_CLASS_NAME : undefined,
+        padded ? PADDED_CONTENT_CLASS_NAME : undefined,
+        'bg-white flex-initial border-b-blue-700 border-b-4',
+        className
+    );
     return (
-        <ColumnFlex
-            className={`bg-white flex-initial ${shadowClass} ${paddedClass} ${borderClass} ${className}`}
-            {...rest}>
+        <ColumnFlex className={classes} {...rest}>
             {children}
         </ColumnFlex>
     );

@@ -1,5 +1,6 @@
 import { FC } from 'react';
 import { Paragraph } from './Paragraph';
+import { ClassNames } from '../extensions/class-names';
 
 export type ParagraphListProps = {
     numbered?: boolean;
@@ -13,10 +14,12 @@ export const ParagraphList: FC<ParagraphListProps> = ({ items, numbered }) => {
         </Paragraph>
     ));
 
-    const className = 'flex flex-col gap-2';
+    const classes = ClassNames.join('flex flex-col gap-2');
     if (numbered) {
-        return <ol className={className}>{listItems}</ol>;
+        return <ol className={classes}>{listItems}</ol>;
     }
 
-    return <ul className={`list-none ${className}`}>{listItems}</ul>;
+    return (
+        <ul className={ClassNames.join('list-none', classes)}>{listItems}</ul>
+    );
 };
