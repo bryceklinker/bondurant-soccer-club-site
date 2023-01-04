@@ -7,5 +7,5 @@ export const CONCESSION_SIGNUP_LINK: LinkData = {
 };
 export const DIRECTOR_OF_CONCESSIONS_LINK: LinkData = {
     text: 'Director of Concessions',
-    url: `mailto:${BoardMemberData.getMailtoEmails(DIRECTORS_OF_CONCESSIONS)}`
+    url: BoardMemberData.getMailToLink(DIRECTORS_OF_CONCESSIONS)
 };

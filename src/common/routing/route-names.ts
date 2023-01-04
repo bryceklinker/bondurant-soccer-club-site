@@ -3,6 +3,7 @@ import { LinkData } from '../state/models';
 export const RouteNames = {
     About: '/about',
     AcademyProgram: '/academy-program',
+    DirectorOfAcademyJobDescription: '/academy-program/director-of-academy',
     Concessions: '/concessions',
     ContactUs: '/contact-us',
     Documents: '/documents',

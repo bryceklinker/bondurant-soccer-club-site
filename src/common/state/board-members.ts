@@ -3,6 +3,7 @@ import {
     BoardMemberRole,
     BoardMemberRoleGroup
 } from './models';
+import { RouteNames } from '../routing/route-names';
 
 export const BOARD_MEMBERS: Array<BoardMemberData> = [
     {
@@ -109,6 +110,14 @@ export const BOARD_MEMBERS: Array<BoardMemberData> = [
         name: 'Jamie Cornelius',
         email: 'director-academy-operations@bondurantsoccerclub.com',
         roleGroup: BoardMemberRoleGroup.Directors
+    },
+    {
+        roleTitle: 'Director of Academy',
+        role: BoardMemberRole.DirectorOfAcademy,
+        name: 'TBD',
+        email: 'director-academy@bondurantsoccerclub.com',
+        roleGroup: BoardMemberRoleGroup.Directors,
+        jobDescriptionRoute: RouteNames.DirectorOfAcademyJobDescription
     },
     {
         roleTitle: 'At-Large',

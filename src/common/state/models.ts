@@ -53,6 +53,7 @@ export enum BoardMemberRole {
     DirectorOfConcessions = 'Director of Concessions',
     DirectorOfEquipment = 'Director of Equipment',
     DirectorOfAcademyOperations = 'Director of Academy Operations',
+    DirectorOfAcademy = 'Director of Academy',
     AtLarge = 'At-Large'
 }
 
@@ -62,21 +63,16 @@ export interface BoardMemberData {
     name: string;
     email: string;
     roleGroup: BoardMemberRoleGroup;
+    jobDescriptionRoute?: string;
 }
 
 export const BoardMemberData = {
     getEmails: (members: Array<BoardMemberData>): Array<string> => {
         return members.map(m => m.email).filter(e => e && e !== '');
     },
-    getMailtoEmails: (members: Array<BoardMemberData>): string => {
-        return BoardMemberData.getEmails(members).join(',');
-    },
-    getEmailForRole: (
-        role: BoardMemberRole,
-        members: Array<BoardMemberData>
-    ): string => {
-        const membersInRole = members.filter(b => b.role === role);
-        return BoardMemberData.getMailtoEmails(membersInRole);
+    getMailToLink: (members: Array<BoardMemberData>): string => {
+        const emails = BoardMemberData.getEmails(members).join(',');
+        return `mailto:${emails}`;
     }
 };
 

@@ -59,9 +59,7 @@ export const FREQUENTLY_ASKED_QUESTIONS: Array<FrequentlyAskedQuestionData> = [
         links: [
             {
                 text: 'Director of Coaches',
-                url: `mailto:${BoardMemberData.getMailtoEmails(
-                    DIRECTORS_OF_COACHES
-                )}`
+                url: BoardMemberData.getMailToLink(DIRECTORS_OF_COACHES)
             }
         ]
     },
@@ -83,9 +81,7 @@ export const FREQUENTLY_ASKED_QUESTIONS: Array<FrequentlyAskedQuestionData> = [
         links: [
             {
                 text: 'Director of Referees',
-                url: `mailto:${BoardMemberData.getMailtoEmails(
-                    DIRECTORS_OF_REFEREES
-                )}`
+                url: BoardMemberData.getMailToLink(DIRECTORS_OF_REFEREES)
             }
         ]
     },
@@ -96,7 +92,7 @@ export const FREQUENTLY_ASKED_QUESTIONS: Array<FrequentlyAskedQuestionData> = [
         links: [
             {
                 text: 'President',
-                url: `mailto:${BoardMemberData.getMailtoEmails(PRESIDENTS)}`
+                url: BoardMemberData.getMailToLink(PRESIDENTS)
             }
         ]
     },
@@ -164,7 +160,7 @@ export const REGISTRATION_FREQUENTLY_ASKED_QUESTIONS: Array<FrequentlyAskedQuest
             links: [
                 {
                     text: 'Registrar Contact',
-                    url: `mailto:${BoardMemberData.getMailtoEmails(REGISTRARS)}`
+                    url: BoardMemberData.getMailToLink(REGISTRARS)
                 }
             ]
         },
@@ -192,7 +188,7 @@ export const REGISTRATION_FREQUENTLY_ASKED_QUESTIONS: Array<FrequentlyAskedQuest
             links: [
                 {
                     text: 'Registrar Contact',
-                    url: `mailto:${BoardMemberData.getMailtoEmails(REGISTRARS)}`
+                    url: BoardMemberData.getMailToLink(REGISTRARS)
                 }
             ]
         },
@@ -203,7 +199,7 @@ export const REGISTRATION_FREQUENTLY_ASKED_QUESTIONS: Array<FrequentlyAskedQuest
             links: [
                 {
                     text: 'Registrar Contact',
-                    url: `mailto:${BoardMemberData.getMailtoEmails(REGISTRARS)}`
+                    url: BoardMemberData.getMailToLink(REGISTRARS)
                 }
             ]
         }
@@ -227,11 +223,11 @@ export const COACH_FREQUENTLY_ASKED_QUESTIONS: Array<FrequentlyAskedQuestionData
             links: [
                 {
                     text: 'Game Cancellation Contact',
-                    url: `mailto:${BoardMemberData.getMailtoEmails(
+                    url: BoardMemberData.getMailToLink(
                         DIRECTORS_OF_REFEREES.concat(
                             ...DIRECTORS_OF_CONCESSIONS
                         )
-                    )}`
+                    )
                 }
             ]
         },
@@ -245,9 +241,7 @@ export const COACH_FREQUENTLY_ASKED_QUESTIONS: Array<FrequentlyAskedQuestionData
                 },
                 {
                     text: 'U5/U6 Director Contact',
-                    url: `mailto:${BoardMemberData.getMailtoEmails(
-                        DIRECTORS_OF_U5_U6
-                    )}`
+                    url: BoardMemberData.getMailToLink(DIRECTORS_OF_U5_U6)
                 }
             ]
         },
@@ -269,9 +263,7 @@ export const COACH_FREQUENTLY_ASKED_QUESTIONS: Array<FrequentlyAskedQuestionData
             links: [
                 {
                     text: 'Director of Coaches',
-                    url: `mailto:${BoardMemberData.getMailtoEmails(
-                        DIRECTORS_OF_COACHES
-                    )}`
+                    url: BoardMemberData.getMailToLink(DIRECTORS_OF_COACHES)
                 }
             ]
         },
@@ -281,9 +273,7 @@ export const COACH_FREQUENTLY_ASKED_QUESTIONS: Array<FrequentlyAskedQuestionData
             links: [
                 {
                     text: 'Director of Equipment',
-                    url: `mailto:${BoardMemberData.getMailtoEmails(
-                        DIRECTORS_OF_EQUIPMENT
-                    )}`
+                    url: BoardMemberData.getMailToLink(DIRECTORS_OF_EQUIPMENT)
                 }
             ]
         }

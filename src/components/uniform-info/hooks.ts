@@ -13,9 +13,9 @@ export function useUniformPurchaseOptions() {
 
 export function useDirectorOfUniformsLink(): LinkData {
     return useMemo(() => {
-        const emails = BoardMemberData.getMailtoEmails(DIRECTORS_OF_EQUIPMENT);
+        const emails = BoardMemberData.getMailToLink(DIRECTORS_OF_EQUIPMENT);
         return {
-            url: `mailto:${emails}`,
+            url: emails,
             text: 'Director of Uniforms'
         };
     }, []);

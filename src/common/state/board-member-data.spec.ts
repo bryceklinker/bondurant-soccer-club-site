@@ -8,7 +8,7 @@ describe('BoardMemberData', () => {
             ModelFactory.boardMember({ email: 'bob@jim.com' })
         ];
 
-        const mailto = BoardMemberData.getMailtoEmails(members);
-        expect(mailto).toEqual('bob@jim.com');
+        const mailto = BoardMemberData.getMailToLink(members);
+        expect(mailto).toEqual('mailto:bob@jim.com');
     });
 });

@@ -3,7 +3,7 @@ import { DIRECTORS_OF_REFEREES } from '../../common/state/board-members';
 
 export const DIRECTOR_OF_REFEREES_CONTACT_LINK: LinkData = {
     text: 'Director of Referees',
-    url: `mailto:${BoardMemberData.getMailtoEmails(DIRECTORS_OF_REFEREES)}`
+    url: BoardMemberData.getMailToLink(DIRECTORS_OF_REFEREES)
 };
 export const REFEREE_RECERTIFICATION_STEPS: Array<string> = [
     'Complete the Grassroots training required for renewal.',

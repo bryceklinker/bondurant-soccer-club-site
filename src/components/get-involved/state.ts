@@ -47,9 +47,7 @@ export const GET_INVOLVED_OPTIONS: Array<GetInvolvedData> = [
             LAWS_OF_THE_GAME,
             {
                 text: 'Contact Director of Coaches',
-                url: `mailto:${BoardMemberData.getMailtoEmails(
-                    DIRECTORS_OF_COACHES
-                )}`
+                url: BoardMemberData.getMailToLink(DIRECTORS_OF_COACHES)
             }
         ]
     },
@@ -64,9 +62,7 @@ export const GET_INVOLVED_OPTIONS: Array<GetInvolvedData> = [
             LAWS_OF_THE_GAME,
             {
                 text: 'Contact Director of Referees',
-                url: `mailto:${BoardMemberData.getMailtoEmails(
-                    DIRECTORS_OF_REFEREES
-                )}`
+                url: BoardMemberData.getMailToLink(DIRECTORS_OF_REFEREES)
             },
             {
                 text: 'Terry Vaughn Referee Academy',
@@ -85,9 +81,7 @@ export const GET_INVOLVED_OPTIONS: Array<GetInvolvedData> = [
         links: [
             {
                 text: 'Contact Director of Fields',
-                url: `mailto:${BoardMemberData.getMailtoEmails(
-                    DIRECTORS_OF_FIELDS
-                )}`
+                url: BoardMemberData.getMailToLink(DIRECTORS_OF_FIELDS)
             }
         ]
     },
@@ -98,7 +92,7 @@ export const GET_INVOLVED_OPTIONS: Array<GetInvolvedData> = [
         links: [
             {
                 text: 'Contact',
-                url: `mailto:${BoardMemberData.getMailtoEmails(PRESIDENTS)}`
+                url: BoardMemberData.getMailToLink(PRESIDENTS)
             },
             {
                 text: 'Current Board',

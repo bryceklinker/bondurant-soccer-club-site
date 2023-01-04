@@ -11,7 +11,7 @@ export function useBoardMembersEmailLink(): LinkData {
     return useMemo(
         () => ({
             text: 'Board Members',
-            url: BoardMemberData.getMailtoEmails(boardMembers)
+            url: BoardMemberData.getMailToLink(boardMembers)
         }),
         [boardMembers]
     );
@@ -30,7 +30,7 @@ export function useBoardMembersInRole(
 export function useBoardMemberEmailsInRole(role: BoardMemberRole) {
     const boardMembers = useBoardMembersInRole(role);
     return useMemo(
-        () => BoardMemberData.getMailtoEmails(boardMembers),
+        () => BoardMemberData.getMailToLink(boardMembers),
         [role, boardMembers]
     );
 }
