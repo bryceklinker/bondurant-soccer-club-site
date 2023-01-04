@@ -37,6 +37,17 @@ export const COACHING_DRILLS: Array<LinkData> = [
 ];
 export const GET_INVOLVED_OPTIONS: Array<GetInvolvedData> = [
     {
+        title: 'Director of Academy',
+        description:
+            'Help cultivate youth players interested in learning and achieving more before transitioning to higher level soccer.',
+        links: [
+            {
+                text: 'Apply Here',
+                url: RouteNames.DirectorOfAcademyJobDescription
+            }
+        ]
+    },
+    {
         title: 'Become A Coach',
         description: BecomeACoach,
         links: [
