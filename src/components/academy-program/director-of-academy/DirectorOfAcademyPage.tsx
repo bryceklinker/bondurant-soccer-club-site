@@ -13,24 +13,17 @@ import { QuestionsAndApplication } from './QuestionsAndApplication';
 
 export const DirectorOfAcademyPage: FC = () => {
     return (
-        <>
-            <Seo
-                title={'Director of Academy'}
-                description={'Bondurant soccer club academy director'}
-                route={'director-of-academy'}
-            />
-            <GappedStack padded>
-                <Title>Director of Academy Job Description</Title>
-                <Section shadow padded>
-                    <JobSummary />
-                    <RolesAndResponsibilities />
-                    <RequirementsAndQualifications />
-                    <AdditionalExpectations />
-                    <TrainingStructure />
-                    <SelectionProcess />
-                    <QuestionsAndApplication />
-                </Section>
-            </GappedStack>
-        </>
+        <GappedStack padded>
+            <Title>Director of Academy Job Description</Title>
+            <Section shadow padded>
+                <JobSummary />
+                <RolesAndResponsibilities />
+                <RequirementsAndQualifications />
+                <AdditionalExpectations />
+                <TrainingStructure />
+                <SelectionProcess />
+                <QuestionsAndApplication />
+            </Section>
+        </GappedStack>
     );
 };

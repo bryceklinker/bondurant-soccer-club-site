@@ -1,83 +1,46 @@
-import { graphql, useStaticQuery } from 'gatsby';
-import { GatsbySeo } from 'gatsby-plugin-next-seo';
 import { FC } from 'react';
-
-type Site = {
-    siteMetadata: {
-        title: string;
-        description: string;
-        author: string;
-        siteUrl: string;
-    };
-};
+import { useSiteMetadata } from './hooks';
 
 export type SeoProps = {
     description?: string;
     title?: string;
     route?: string;
+    keywords?: string[];
 };
 
-export const Seo: FC<SeoProps> = ({ description, title, route }: SeoProps) => {
-    const { site } = useStaticQuery<{ site: Site }>(
-        graphql`
-            query {
-                site {
-                    siteMetadata {
-                        title
-                        description
-                        siteUrl
-                    }
-                }
-            }
-        `
-    );
-
-    const seoFriendlyTitle =
-        title && title.length > 50 ? title : `%s - ${site.siteMetadata.title}`;
-    const seoDescription = description || site.siteMetadata.description;
-    const url = route
-        ? `${site.siteMetadata.siteUrl}/${route}`
-        : site.siteMetadata.siteUrl;
+export const Seo: FC<SeoProps> = ({
+    description,
+    title,
+    route,
+    keywords
+}: SeoProps) => {
+    const metadata = useSiteMetadata();
+    const seoDescription = description || metadata.description;
+    const url = route ? `${metadata.siteUrl}/${route}` : metadata.siteUrl;
+    const fullTitle = `${title} | ${metadata.title}`;
+    const seoFriendlyTitle = fullTitle.length > 50 ? title : fullTitle;
+    const seoKeywords = (keywords || []).concat('soccer', 'bondurant', 'club');
     return (
-        <GatsbySeo
-            title={title}
-            titleTemplate={seoFriendlyTitle}
-            description={seoDescription}
-            htmlAttributes={{
-                language: 'en'
-            }}
-            metaTags={[
-                {
-                    name: 'viewport',
-                    content: 'width=device-width, initial-scale=1.0'
-                },
-                {
-                    name: 'description',
-                    content: seoDescription
-                },
-                {
-                    property: 'og:title',
-                    content: title || site.siteMetadata.title
-                },
-                {
-                    property: 'og:description',
-                    content: seoDescription
-                },
-                {
-                    property: 'og:url',
-                    content: url
-                },
-                {
-                    property: 'og:type',
-                    content: 'website'
-                }
-            ]}
-            openGraph={{
-                title: seoFriendlyTitle,
-                type: 'website',
-                description: seoDescription,
-                url: url
-            }}
-        />
+        <>
+            <title>{fullTitle}</title>
+            <meta name={'description'} content={seoDescription} />
+            <meta property={'og:type'} content={'website'} />
+            <meta property={'og:site_name'} content={'Bondurant Soccer Club'} />
+            <meta property={'og:locale'} content={'en_us'} />
+            <meta property={'og:title'} content={seoFriendlyTitle} />
+            <meta property={'og:description'} content={seoDescription} />
+            <meta property={'og:url'} content={url} />
+            <meta property={'keywords'} content={seoKeywords.join(',')} />
+            <script
+                type={'application/ld+json'}
+                dangerouslySetInnerHTML={{
+                    __html: JSON.stringify({
+                        '@context': 'https://schema.org',
+                        '@type': 'NewsArticle',
+                        headline: seoFriendlyTitle
+                    })
+                }}
+            />
+        </>
     );
 };

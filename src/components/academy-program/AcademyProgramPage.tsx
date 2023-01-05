@@ -14,28 +14,19 @@ import { AcademyProgramSuppliesNeeded } from './AcademyProgramSuppliesNeeded';
 
 export const AcademyProgramPage: FC = () => {
     return (
-        <>
-            <Seo
-                title={'Academy Program'}
-                description={
-                    'Bondurant soccer club academy program information'
-                }
-                route={'academy-program'}
-            />
-            <GappedStack padded>
-                <Title>Academy Program</Title>
+        <GappedStack padded>
+            <Title>Academy Program</Title>
 
-                <RegisterHereButton />
+            <RegisterHereButton />
 
-                <AcademyProgramOverview />
-                <AcademyProgramGoals />
-                <AcademyProgramWhy />
-                <AcademyProgramBenefits />
-                <AcademyProgramTeamFormation />
-                <AcademyProgramLeagueFormat />
-                <AcademyProgramRequirements />
-                <AcademyProgramSuppliesNeeded />
-            </GappedStack>
-        </>
+            <AcademyProgramOverview />
+            <AcademyProgramGoals />
+            <AcademyProgramWhy />
+            <AcademyProgramBenefits />
+            <AcademyProgramTeamFormation />
+            <AcademyProgramLeagueFormat />
+            <AcademyProgramRequirements />
+            <AcademyProgramSuppliesNeeded />
+        </GappedStack>
     );
 };

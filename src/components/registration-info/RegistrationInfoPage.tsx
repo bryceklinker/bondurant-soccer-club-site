@@ -14,25 +14,16 @@ export const RegistrationInfoPage: FunctionComponent = () => {
     const { season, ages } = useCurrentRegistrationSeason();
     const dates = useRegistrationDates();
     return (
-        <>
-            <Seo
-                title={'Registration Info'}
-                description={
-                    'Sign your child up to play for Bondurant Soccer Club'
-                }
-                route={'registration-info'}
-            />
-            <GappedStack padded>
-                <Title>Registration Info</Title>
+        <GappedStack padded>
+            <Title>Registration Info</Title>
 
-                <RegisterHereButton />
+            <RegisterHereButton />
 
-                <RegistrationInfoWelcome />
-                <RegistrationDates dates={dates} />
-                <RegistrationAgeGroups season={season} ages={ages} />
-                <ScholarshipInfo />
-                <RefundPolicy />
-            </GappedStack>
-        </>
+            <RegistrationInfoWelcome />
+            <RegistrationDates dates={dates} />
+            <RegistrationAgeGroups season={season} ages={ages} />
+            <ScholarshipInfo />
+            <RefundPolicy />
+        </GappedStack>
     );
 };

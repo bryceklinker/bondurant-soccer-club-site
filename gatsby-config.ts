@@ -71,17 +71,6 @@ const config: GatsbyConfig = {
                 icon: path.resolve(__dirname, 'src', 'assets', 'logo.ico')
             }
         },
-        {
-            resolve: 'gatsby-plugin-next-seo',
-            options: {
-                openGraph: {
-                    type: 'website',
-                    locale: 'en_us',
-                    siteUrl: process.env.SITE_URL || 'http://localhost:3000',
-                    site_name: 'Bondurant Soccer Club'
-                }
-            }
-        },
         ...plugins
     ]
 };

@@ -15,21 +15,14 @@ export const ConcessionsPage: FunctionComponent = () => {
     const signupLink = useConcessionSignupLink();
     const contactLink = useDirectorOfConcessionsMailLink();
     return (
-        <>
-            <Seo
-                title={'Concessions'}
-                description={'Bondurant Soccer Club concession stand info'}
-                route={'concessions'}
-            />
-            <GappedStack padded>
-                <Title>Concessions Info</Title>
+        <GappedStack padded>
+            <Title>Concessions Info</Title>
 
-                <TreatTickets location={concessionLocation} />
-                <ConcessionStandDutyAndSignup
-                    signupLink={signupLink}
-                    contactLink={contactLink}
-                />
-            </GappedStack>
-        </>
+            <TreatTickets location={concessionLocation} />
+            <ConcessionStandDutyAndSignup
+                signupLink={signupLink}
+                contactLink={contactLink}
+            />
+        </GappedStack>
     );
 };

@@ -10,20 +10,11 @@ import { useU9AndUpScheduleLink } from './hooks';
 export const SchedulesPage: FunctionComponent = () => {
     const u9AndUpLink = useU9AndUpScheduleLink();
     return (
-        <>
-            <Seo
-                title={'Schedules'}
-                description={
-                    'View game schedules for teams of the Bondurant Soccer Club'
-                }
-                route={'schedules'}
-            />
-            <GappedStack padded>
-                <U5U6Schedule />
-                <U7U8CoedSchedule />
-                <U7U8GirlsSchedule />
-                <U9AndUpSchedules link={u9AndUpLink} />
-            </GappedStack>
-        </>
+        <GappedStack padded>
+            <U5U6Schedule />
+            <U7U8CoedSchedule />
+            <U7U8GirlsSchedule />
+            <U9AndUpSchedules link={u9AndUpLink} />
+        </GappedStack>
     );
 };

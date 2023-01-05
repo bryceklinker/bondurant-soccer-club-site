@@ -28,45 +28,36 @@ export const FrequentlyAskedQuestionsPage: FC = () => {
         <FrequentlyAskedQuestion key={index} question={q} />
     ));
     return (
-        <>
-            <Seo
-                title={'FAQ'}
-                description={'Bondurant soccer club frequently asked questions'}
-                route={'frequently-asked-questions'}
-            />
-            <GappedStack padded>
-                <Section shadow padded>
-                    <CollapsiblePanel
-                        title={
-                            <SectionTitle>
-                                Frequently Asked Questions
-                            </SectionTitle>
-                        }>
-                        {frequentlyAskedQuestions}
-                    </CollapsiblePanel>
-                </Section>
-                <Section shadow padded>
-                    <CollapsiblePanel
-                        title={
-                            <SectionTitle>
-                                Registration Frequently Asked Questions
-                            </SectionTitle>
-                        }>
-                        {registrationFaq}
-                    </CollapsiblePanel>
-                </Section>
-                <Section shadow padded>
-                    <CollapsiblePanel
-                        title={
-                            <SectionTitle>
-                                Coach Frequently Asked Questions
-                            </SectionTitle>
-                        }>
-                        {coachFaq}
-                    </CollapsiblePanel>
-                </Section>
-            </GappedStack>
-        </>
+        <GappedStack padded>
+            <Section shadow padded>
+                <CollapsiblePanel
+                    title={
+                        <SectionTitle>Frequently Asked Questions</SectionTitle>
+                    }>
+                    {frequentlyAskedQuestions}
+                </CollapsiblePanel>
+            </Section>
+            <Section shadow padded>
+                <CollapsiblePanel
+                    title={
+                        <SectionTitle>
+                            Registration Frequently Asked Questions
+                        </SectionTitle>
+                    }>
+                    {registrationFaq}
+                </CollapsiblePanel>
+            </Section>
+            <Section shadow padded>
+                <CollapsiblePanel
+                    title={
+                        <SectionTitle>
+                            Coach Frequently Asked Questions
+                        </SectionTitle>
+                    }>
+                    {coachFaq}
+                </CollapsiblePanel>
+            </Section>
+        </GappedStack>
     );
 };
 

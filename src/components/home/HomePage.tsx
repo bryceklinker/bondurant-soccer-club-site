@@ -17,22 +17,16 @@ export const HomePage: FunctionComponent = () => {
     const maxRegistrationYear = useMaxRegistrationBirthYear();
     const registrationLink = useRegistrationLink();
     return (
-        <>
-            <Seo
-                title={'Home'}
-                description={'Official home page of the Bondurant Soccer club'}
+        <GappedStack className={'gap-8'}>
+            <Headline registrationLink={registrationLink} />
+
+            <JumpToLinks />
+
+            <Description
+                season={season}
+                maxBirthYear={maxRegistrationYear}
+                minBirthYear={minRegistrationYear}
             />
-            <GappedStack className={'gap-8'}>
-                <Headline registrationLink={registrationLink} />
-
-                <JumpToLinks />
-
-                <Description
-                    season={season}
-                    maxBirthYear={maxRegistrationYear}
-                    minBirthYear={minRegistrationYear}
-                />
-            </GappedStack>
-        </>
+        </GappedStack>
     );
 };

@@ -14,23 +14,14 @@ export const U5U6InfoPage: FunctionComponent = () => {
     const schedulesLink = useSchedulesLink();
     const drillLinks = useCoachingDrills();
     return (
-        <>
-            <Seo
-                title={'U5/U6 Program Info'}
-                description={
-                    'Learn about U5/U6 program at the Bondurant Soccer Club'
-                }
-                route={'u5-u6-info'}
-            />
-            <GappedStack padded>
-                <Title>U5/U6 Info</Title>
+        <GappedStack padded>
+            <Title>U5/U6 Info</Title>
 
-                <RequiredEquipment />
-                <Weather />
-                <Coaching />
-                <PracticesAndGames schedulesLink={schedulesLink} />
-                <DrillsYouCanDoAtHome drillLinks={drillLinks} />
-            </GappedStack>
-        </>
+            <RequiredEquipment />
+            <Weather />
+            <Coaching />
+            <PracticesAndGames schedulesLink={schedulesLink} />
+            <DrillsYouCanDoAtHome drillLinks={drillLinks} />
+        </GappedStack>
     );
 };

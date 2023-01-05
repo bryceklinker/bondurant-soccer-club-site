@@ -10,19 +10,10 @@ export const ProgramInfoPage: FunctionComponent = () => {
         <Program key={i} program={p} />
     ));
     return (
-        <>
-            <Seo
-                title={'Program Info'}
-                description={
-                    'Learn about the programs offered at Bondurant Soccer Club'
-                }
-                route={'program-info'}
-            />
-            <GappedStack padded>
-                <Title>Program Info</Title>
+        <GappedStack padded>
+            <Title>Program Info</Title>
 
-                {programs}
-            </GappedStack>
-        </>
+            {programs}
+        </GappedStack>
     );
 };

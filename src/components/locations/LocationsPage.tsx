@@ -11,16 +11,9 @@ export const LocationsPage: FunctionComponent = () => {
         <LocationSegment key={i} data={l} />
     ));
     return (
-        <>
-            <Seo
-                title={'Locations'}
-                description={'Find the locations for the Bondurant Soccer Club'}
-                route={'locations'}
-            />
-            <GappedStack padded>
-                <Title>Locations</Title>
-                {segments}
-            </GappedStack>
-        </>
+        <GappedStack padded>
+            <Title>Locations</Title>
+            {segments}
+        </GappedStack>
     );
 };
