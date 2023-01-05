@@ -39,6 +39,8 @@ export const Seo: FC<SeoProps> = ({
             <meta property={'og:description'} content={seoDescription} />
             <meta property={'og:url'} content={url} />
             <meta property={'keywords'} content={seoKeywords.join(',')} />
+            <meta name={'robots'} content={'index,follow'} />
+            <meta name={'googlebot'} content={'index,follow'} />
             <script
                 type={'application/ld+json'}
                 dangerouslySetInnerHTML={{
