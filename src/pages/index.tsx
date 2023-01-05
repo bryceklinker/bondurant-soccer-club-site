@@ -13,5 +13,6 @@ export const Head = () => (
     <Seo
         title={'Home'}
         description={'Official home page of the Bondurant Soccer club'}
+        keywords={['official']}
     />
 );

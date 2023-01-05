@@ -14,5 +14,6 @@ export const Head = () => (
         title={'Locations'}
         description={'Find the locations for the Bondurant Soccer Club'}
         route={'locations'}
+        keywords={['locations', 'fields']}
     />
 );

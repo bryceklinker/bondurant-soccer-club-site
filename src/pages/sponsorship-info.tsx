@@ -16,5 +16,6 @@ export const Head = () => (
             'Learn how to become a sponsor for the Bondurant Soccer Club'
         }
         route={'sponsorship-info'}
+        keywords={['sponsors']}
     />
 );

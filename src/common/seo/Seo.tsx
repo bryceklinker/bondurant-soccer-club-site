@@ -19,7 +19,14 @@ export const Seo: FC<SeoProps> = ({
     const url = route ? `${metadata.siteUrl}/${route}` : metadata.siteUrl;
     const fullTitle = `${title} | ${metadata.title}`;
     const seoFriendlyTitle = fullTitle.length > 50 ? title : fullTitle;
-    const seoKeywords = (keywords || []).concat('soccer', 'bondurant', 'club');
+    const seoKeywords = (keywords || []).concat(
+        'soccer',
+        'bondurant',
+        'club',
+        'youth',
+        'kids',
+        'children'
+    );
     return (
         <>
             <title>{fullTitle}</title>

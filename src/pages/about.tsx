@@ -13,5 +13,6 @@ export const Head = () => (
         title={'About'}
         description={'About Bondurant Soccer Club'}
         route={'about'}
+        keywords={['about']}
     />
 );

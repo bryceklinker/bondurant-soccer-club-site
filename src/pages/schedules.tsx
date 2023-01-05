@@ -16,5 +16,6 @@ export const Head = () => (
             'View game schedules for teams of the Bondurant Soccer Club'
         }
         route={'schedules'}
+        keywords={['schedules']}
     />
 );

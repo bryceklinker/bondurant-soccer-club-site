@@ -13,5 +13,6 @@ export const Head = () => (
         title={'FAQ'}
         description={'Bondurant soccer club frequently asked questions'}
         route={'frequently-asked-questions'}
+        keywords={['questions']}
     />
 );

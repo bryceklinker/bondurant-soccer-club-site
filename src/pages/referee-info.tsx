@@ -16,5 +16,6 @@ export const Head = () => (
             'Learn how to become a referee for the Bondurant Soccer Club'
         }
         route={'referee-info'}
+        keywords={['referee']}
     />
 );

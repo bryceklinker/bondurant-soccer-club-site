@@ -16,5 +16,6 @@ export const Head = () => (
             'Learn about the programs offered at Bondurant Soccer Club'
         }
         route={'program-info'}
+        keywords={['programs']}
     />
 );
