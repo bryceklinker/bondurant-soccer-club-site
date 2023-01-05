@@ -25,7 +25,8 @@ export const Seo: FC<SeoProps> = ({
         'club',
         'youth',
         'kids',
-        'children'
+        'children',
+        'official'
     );
     return (
         <>
@@ -44,7 +45,16 @@ export const Seo: FC<SeoProps> = ({
                     __html: JSON.stringify({
                         '@context': 'https://schema.org',
                         '@type': 'NewsArticle',
-                        headline: seoFriendlyTitle
+                        headline: seoFriendlyTitle,
+                        datePublished: new Date().toISOString(),
+                        image: [`${metadata.siteUrl}/favicon-32x32.png`],
+                        author: [
+                            {
+                                '@type': 'Organization',
+                                name: 'Bondurant Soccer Club',
+                                url: metadata.siteUrl
+                            }
+                        ]
                     })
                 }}
             />
