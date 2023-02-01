@@ -4,6 +4,6 @@ describe('Documents', () => {
     it('should show documents', () => {
         DocumentsPage.navigate();
 
-        DocumentsPage.findSections().should('have.length', 6);
+        DocumentsPage.findSections().should('have.length', 7);
     });
 });
