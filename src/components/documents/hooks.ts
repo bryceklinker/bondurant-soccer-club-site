@@ -1,5 +1,9 @@
 import { useMemo } from 'react';
-import { DOWNLOADABLE_DOCUMENT_LINKS, MEETING_MINUTES_LINK } from './state';
+import {
+    DOWNLOADABLE_DOCUMENT_LINKS,
+    MEETING_AGENDAS_LINK,
+    MEETING_MINUTES_LINK
+} from './state';
 import { BY_LAWS } from './by-laws-state';
 import {
     COACHING_CODE_OF_CONDUCT_EXPECTATIONS,
@@ -39,4 +43,8 @@ export function useCoachingCodeOfConductExpectations() {
 
 export function useMeetingMinutesLink() {
     return useMemo(() => MEETING_MINUTES_LINK, []);
+}
+
+export function useMeetingAgendasLink() {
+    return useMemo(() => MEETING_AGENDAS_LINK, []);
 }

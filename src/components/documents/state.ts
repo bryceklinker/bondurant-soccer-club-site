@@ -13,3 +13,6 @@ export const DOWNLOADABLE_DOCUMENT_LINKS: Array<LinkData> = [
 
 export const MEETING_MINUTES_LINK =
     'https://drive.google.com/drive/folders/1SbJJ5gW5unfIqEz2WGpuTs6CG-jUSDwx?usp=sharing';
+
+export const MEETING_AGENDAS_LINK =
+    'https://drive.google.com/drive/folders/1PyoNuuJypfqcBoKURQd-QYGmbBNdAH9y?usp=share_link';

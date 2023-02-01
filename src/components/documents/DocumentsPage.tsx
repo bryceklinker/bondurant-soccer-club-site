@@ -15,6 +15,7 @@ import {
     useParentCodeOfConductExpectations
 } from './hooks';
 import { MeetingMinutes } from './MeetingMinutes';
+import { MeetingAgendas } from './MeetingAgendas';
 
 export const DocumentsPage: FunctionComponent = () => {
     const byLaws = useByLaws();
@@ -28,6 +29,7 @@ export const DocumentsPage: FunctionComponent = () => {
             <Title>Documents</Title>
 
             <DownloadableDocuments documentLinks={documentLinks} />
+            <MeetingAgendas />
             <MeetingMinutes />
 
             <ByLaws byLaws={byLaws} />
