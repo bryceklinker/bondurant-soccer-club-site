@@ -8,6 +8,7 @@ import { SectionTitle } from '../../common/components/SectionTitle';
 import { SubTitle } from '../../common/components/SubTitle';
 import { EmbeddedMap } from '../../common/components/EmbeddedMap';
 import { LocationData } from '../../common/state/location-data';
+import { FieldLayout } from './FieldLayout';
 
 export type LocationSegmentProps = {
     data: LocationData;
@@ -16,6 +17,9 @@ export type LocationSegmentProps = {
 export const LocationSegment: FC<LocationSegmentProps> = ({ data }) => {
     const ageGroups = data.ageGroups.map((a, i) => (
         <Paragraph key={i}>{a.name}</Paragraph>
+    ));
+    const fieldLayouts = data.fieldLayouts.map((l, i) => (
+        <FieldLayout key={i} data={l} />
     ));
     return (
         <Section shadow padded>
@@ -36,7 +40,14 @@ export const LocationSegment: FC<LocationSegmentProps> = ({ data }) => {
                         </address>
                     </ColumnFlex>
 
-                    <EmbeddedMap url={data.mapsUrl} />
+                    <CollapsiblePanel title={<SectionTitle>Map</SectionTitle>}>
+                        <EmbeddedMap url={data.mapsUrl} />
+                    </CollapsiblePanel>
+
+                    <CollapsiblePanel
+                        title={<SectionTitle>Field Layouts</SectionTitle>}>
+                        {fieldLayouts}
+                    </CollapsiblePanel>
                 </ColumnFlex>
             </CollapsiblePanel>
         </Section>

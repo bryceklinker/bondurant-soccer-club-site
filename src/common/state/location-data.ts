@@ -6,4 +6,12 @@ export interface LocationData {
     ageGroups: Array<AgeGroup>;
     mapsUrl: string;
     address: Address;
+
+    fieldLayouts: Array<FieldLayoutData>;
+}
+
+export interface FieldLayoutData {
+    title: string;
+    image: string;
+    alt: string;
 }
