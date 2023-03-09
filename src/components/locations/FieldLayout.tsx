@@ -39,7 +39,6 @@ export const FieldLayout: FC<FieldLayoutProps> = ({ data }) => {
             }
         }
     `);
-    console.log('IMAGE DATA', imageData);
     const image = imageData.allFile.nodes.find(i => i.name === data.image);
 
     if (!image) {
