@@ -1,8 +1,7 @@
-import { FC, useCallback, useState } from 'react';
+import { FC } from 'react';
 import { RowFlex } from '../layout/RowFlex';
 import { AlertIcon } from './AlertIcon';
 import { AlertModel } from './state/models';
-import { Button } from '../components/Button';
 import { Spacer } from '../components/Spacer';
 
 export type AlertProps = {
