@@ -1,13 +1,12 @@
 module.exports = {
-    preset: 'ts-jest',
     testEnvironment: 'jsdom',
     testPathIgnorePatterns: ['/cypress/', '/node_modules/'],
     setupFilesAfterEnv: ['<rootDir>/src/testing/setup-tests.ts'],
     transform: {
-        '^.+\\.(ts|tsx)$': [
+        '^.+\\.tsx?$': [
             `ts-jest`,
             {
-                tsConfig: '<rootDir>/tsconfig.spec.json'
+                tsconfig: '<rootDir>/tsconfig.spec.json'
             }
         ]
     },
