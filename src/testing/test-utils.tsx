@@ -1,7 +1,8 @@
 import {
     render as testingLibraryRender,
     screen,
-    waitFor
+    waitFor,
+    waitForElementToBeRemoved
 } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { ReactElement } from 'react';
@@ -18,4 +19,4 @@ function render(ui: ReactElement, options?: RenderOptions) {
     );
 }
 
-export { render, userEvent, waitFor, screen };
+export { render, userEvent, waitFor, screen, waitForElementToBeRemoved };
