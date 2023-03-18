@@ -7,10 +7,12 @@ import {
     UseFormHandleSubmit
 } from 'react-hook-form';
 
+export type AlertFormModel = Omit<AlertModel, 'id'>;
+
 export type AlertFormProps = {
-    state: FormState<AlertModel>;
-    control: Control<AlertModel>;
-    onSubmit: ReturnType<UseFormHandleSubmit<AlertModel>>;
+    state: FormState<AlertFormModel>;
+    control: Control<AlertFormModel>;
+    onSubmit: ReturnType<UseFormHandleSubmit<AlertFormModel>>;
 };
 export const AlertForm: FC<AlertFormProps> = ({ control, state, onSubmit }) => {
     return (

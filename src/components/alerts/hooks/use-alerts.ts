@@ -1,6 +1,6 @@
 import { AlertModel } from '../state/models';
 import { useMutation, useQuery } from 'react-query';
-import { useSettings } from '../../../common/settings/use-settings';
+import { useApi } from '../../../common/api/use-api';
 
 export function useAlerts() {
     return useQuery<AlertModel[]>('alerts', async () => {
@@ -9,15 +9,26 @@ export function useAlerts() {
     });
 }
 
-export function usePostAlert() {
-    const { settings } = useSettings();
-    return useMutation('alerts', async (alert: AlertModel) => {
-        if (!settings) {
+export function useUpdateAlert() {
+    const api = useApi();
+    return useMutation('update-alert', async (alert: AlertModel) => {
+        if (!api) {
             return;
         }
-        return fetch(`${settings.apiUrl}/alerts`, {
-            method: 'POST',
-            body: JSON.stringify(alert)
-        });
+        return api.put(`/alerts/${alert.id}`, alert);
     });
+}
+
+export function useCreateAlert() {
+    const api = useApi();
+    return useMutation(
+        'create-alert',
+        async (alert: Omit<AlertModel, 'id'>) => {
+            if (!api) {
+                return;
+            }
+
+            return api.post('/alerts', alert);
+        }
+    );
 }

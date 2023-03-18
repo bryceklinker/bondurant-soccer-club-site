@@ -5,13 +5,11 @@ import {
     screen,
     userEvent
 } from '../../testing';
-import { AlertModal } from './AlertModal';
+import { EditAlertModal } from './EditAlertModal';
 import { RestRequest } from 'msw';
 import { AlertModel } from './state/models';
 
-describe('AlertModal', () => {
-    let saveRequest: RestRequest | null;
-    let alert: AlertModel;
+describe('EditAlertModal', () => {
     const severityTextBox = () =>
         screen.getByRole('textbox', { name: 'severity' });
     const textTextBox = () => screen.getByRole('textbox', { name: 'text' });
@@ -20,22 +18,26 @@ describe('AlertModal', () => {
     const cancelButton = () =>
         screen.getByRole('button', { name: 'cancel button' });
 
+    let saveRequest: RestRequest | null;
+    let alert: AlertModel;
+
     beforeEach(() => {
         alert = ModelFactory.alert();
-        FakeServer.setupApiPost('/alerts', null, {
+        saveRequest = null;
+        FakeServer.setupApiPut(`/alerts/${alert.id}`, null, {
             captureRest: req => (saveRequest = req)
         });
     });
 
     test('when rendered then shows alert fields', () => {
-        render(<AlertModal open={true} alert={alert} />);
+        render(<EditAlertModal open={true} alert={alert} />);
 
         expect(textTextBox()).toHaveValue(alert.text);
         expect(severityTextBox()).toHaveValue(alert.severity);
     });
 
     test('when submitted then posts alert to api', async () => {
-        render(<AlertModal open={true} alert={alert} />);
+        render(<EditAlertModal open={true} alert={alert} />);
 
         await userEvent.type(textTextBox(), 'three');
         await userEvent.click(saveButton());
@@ -49,7 +51,7 @@ describe('AlertModal', () => {
 
     test('when submitted then closes modal', async () => {
         const onClose = jest.fn();
-        render(<AlertModal open={true} alert={alert} onClose={onClose} />);
+        render(<EditAlertModal open={true} alert={alert} onClose={onClose} />);
 
         await userEvent.click(saveButton());
 
@@ -57,9 +59,9 @@ describe('AlertModal', () => {
     });
 
     test('when saving then disabled', async () => {
-        FakeServer.setupApiPost('/alerts', null, { delay: 400 });
+        FakeServer.setupApiPut(`/alerts/${alert.id}`, null, { delay: 400 });
 
-        render(<AlertModal open={true} alert={alert} />);
+        render(<EditAlertModal open={true} alert={alert} />);
         await userEvent.click(saveButton());
 
         expect(saveButton()).toBeDisabled();
@@ -69,7 +71,7 @@ describe('AlertModal', () => {
 
     test('when closed then closes modal', async () => {
         const onClose = jest.fn();
-        render(<AlertModal open={true} alert={alert} onClose={onClose} />);
+        render(<EditAlertModal open={true} alert={alert} onClose={onClose} />);
 
         await userEvent.click(cancelButton());
 

@@ -4,19 +4,25 @@ import { Modal, ModalProps } from '../../common/components/modals/Modal';
 import { ModalBody } from '../../common/components/modals/ModalBody';
 import { ModalActions } from '../../common/components/modals/ModalActions';
 import { useForm } from 'react-hook-form';
-import { AlertForm } from './AlertForm';
+import { AlertForm, AlertFormModel } from './AlertForm';
 import { Button } from '../../common/components/Button';
-import { usePostAlert } from './hooks/use-alerts';
+import { useUpdateAlert } from './hooks/use-alerts';
 
 export type AlertModalProps = ModalProps & {
     alert: AlertModel;
 };
-export const AlertModal: FC<AlertModalProps> = ({ alert, open, onClose }) => {
-    const { mutateAsync } = usePostAlert();
+export const EditAlertModal: FC<AlertModalProps> = ({
+    alert,
+    open,
+    onClose
+}) => {
+    const { mutateAsync } = useUpdateAlert();
     const defaultValues = useMemo(() => ({ ...alert }), [alert]);
-    const { control, handleSubmit, formState } = useForm({ defaultValues });
-    const submitHandler = handleSubmit(async (values: AlertModel) => {
-        await mutateAsync(values);
+    const { control, handleSubmit, formState } = useForm<AlertFormModel>({
+        defaultValues
+    });
+    const onSubmit = handleSubmit(async (values: AlertFormModel) => {
+        await mutateAsync({ ...values, id: alert.id });
         if (onClose) {
             onClose();
         }
@@ -27,13 +33,13 @@ export const AlertModal: FC<AlertModalProps> = ({ alert, open, onClose }) => {
                 <AlertForm
                     state={formState}
                     control={control}
-                    onSubmit={submitHandler}
+                    onSubmit={onSubmit}
                 />
             </ModalBody>
             <ModalActions>
                 <Button
                     disabled={formState.isSubmitting}
-                    onClick={submitHandler}
+                    onClick={onSubmit}
                     aria-label={'save button'}>
                     Save
                 </Button>

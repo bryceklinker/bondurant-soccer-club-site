@@ -9,7 +9,7 @@ export type AlertsPanelProps = {};
 
 export const AlertsPanel: FC<AlertsPanelProps> = () => {
     const { data } = useAlerts();
-    const models = data ?? [];
+    const models = useMemo(() => (Array.isArray(data) ? data : []), [data]);
     const alerts = useMemo(
         () => models.map(m => <Alert key={m.id} model={m} />),
         [models]

@@ -54,6 +54,14 @@ function setupRestPost<T = unknown>(
     server.use(rest.post(url, createRestResolver(responseBody, options)));
 }
 
+function setupRestPut<T = unknown>(
+    url: string,
+    responseBody: T,
+    options?: SetupRequestOptions
+) {
+    server.use(rest.put(url, createRestResolver(responseBody, options)));
+}
+
 function setupRestDelete(url: string, options?: SetupRequestOptions) {
     server.use(rest.delete(url, createRestResolver(null, options)));
 }
@@ -75,6 +83,13 @@ function setupApiPost<T = unknown>(
 ) {
     setupRestPost(apiUrl(path), responseBody, options);
 }
+function setupApiPut<T = unknown>(
+    path: string,
+    responseBody: T,
+    options?: SetupRequestOptions
+) {
+    setupRestPut(apiUrl(path), responseBody, options);
+}
 
 function setupApiDelete(path: string, options?: SetupRequestOptions) {
     setupRestDelete(apiUrl(path), options);
@@ -93,5 +108,6 @@ export const FakeServer = {
     setupRestPost,
     setupApiGet,
     setupApiPost,
+    setupApiPut,
     setupApiDelete
 };

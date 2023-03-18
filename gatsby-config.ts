@@ -37,7 +37,9 @@ const config: GatsbyConfig = {
         siteUrl: process.env.SITE_URL || 'http://localhost:3000',
         title: 'Bondurant Soccer Club',
         description: 'Official website of the Bondurant Soccer Club',
-        clientId: process.env.GOOGLE_CLIENT_ID ?? ''
+        clientId:
+            process.env.GOOGLE_CLIENT_ID ??
+            '672664614504-rqd6lg32u1u52v0bqdr4ae6jpo712hob.apps.googleusercontent.com'
     },
     plugins: [
         'gatsby-plugin-image',

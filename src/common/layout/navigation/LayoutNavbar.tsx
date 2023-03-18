@@ -1,9 +1,11 @@
-import { FC } from 'react';
+import { FC, useState } from 'react';
 import { MainNavigationLinks } from './MainNavigationLinks';
 import { MoreNavigationLinks } from './MoreNavigationLinks';
 import { LayoutNavPanel } from './LayoutNavPanel';
 import { useBooleanToggle } from '../../hooks/use-boolean-toggle';
 import { RowFlex } from '../RowFlex';
+import { AuthLoginButton } from '../../auth/AuthLoginButton';
+import { useIsLoggedIn } from '../../auth/auth-hooks';
 
 export type LayoutNavbarProps = {};
 export const LayoutNavbar: FC<LayoutNavbarProps> = () => {
@@ -23,6 +25,7 @@ export const LayoutNavbar: FC<LayoutNavbarProps> = () => {
                     <MainNavigationLinks onClick={toggleOff} />
                     <MoreNavigationLinks onClick={toggleOff} />
                 </RowFlex>
+                <AuthLoginButton />
             </nav>
         </>
     );

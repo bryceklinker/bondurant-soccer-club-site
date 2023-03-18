@@ -14,6 +14,8 @@ describe('AlertsPage', () => {
     const loading = () => screen.getByRole('progressbar');
     const editAlertButton = () =>
         screen.getByRole('button', { name: 'edit alert' });
+    const createAlertButton = () =>
+        screen.getByRole('button', { name: 'create alert' });
     const alertRows = () => screen.getAllByRole('row', { name: 'alert' });
     const dialog = () => screen.getByRole('dialog');
 
@@ -43,6 +45,16 @@ describe('AlertsPage', () => {
 
         await waitForElementToBeRemoved(loading());
         await userEvent.click(editAlertButton());
+
+        expect(dialog()).toBeVisible();
+    });
+
+    test('when alert created then opens create alert modal', async () => {
+        FakeServer.setupRestGet('/db/alerts.json', []);
+
+        render(<AlertsPage />);
+        await waitForElementToBeRemoved(loading());
+        await userEvent.click(createAlertButton());
 
         expect(dialog()).toBeVisible();
     });
