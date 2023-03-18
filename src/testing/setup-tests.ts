@@ -1,8 +1,17 @@
-import crypto from 'crypto';
 import '@testing-library/jest-dom';
+import 'cross-fetch/polyfill';
+import { FakeServer } from './fake-server';
+import { ResizeObserver } from './resize-observer';
 
-Object.defineProperty(global, 'crypto', {
-    value: {
-        randomUUID: crypto.randomUUID
-    }
+beforeAll(() => {
+    FakeServer.listen();
+});
+
+beforeEach(() => {
+    window.ResizeObserver = ResizeObserver;
+    FakeServer.reset();
+});
+
+afterAll(() => {
+    FakeServer.close();
 });

@@ -1,6 +1,6 @@
 export type AlertModel = {
     id: string;
-    status: AlertSeverity;
+    severity: AlertSeverity;
     text: string;
 };
 

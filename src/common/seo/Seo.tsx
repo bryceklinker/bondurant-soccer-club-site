@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { useSiteMetadata } from './hooks';
+import { useSiteMetadata } from '../hooks/useSiteMetadata';
 
 export type SeoProps = {
     description?: string;

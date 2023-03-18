@@ -36,7 +36,8 @@ const config: GatsbyConfig = {
     siteMetadata: {
         siteUrl: process.env.SITE_URL || 'http://localhost:3000',
         title: 'Bondurant Soccer Club',
-        description: 'Official website of the Bondurant Soccer Club'
+        description: 'Official website of the Bondurant Soccer Club',
+        clientId: process.env.GOOGLE_CLIENT_ID ?? ''
     },
     plugins: [
         'gatsby-plugin-image',

@@ -6,6 +6,7 @@ type Site = {
         description: string;
         author: string;
         siteUrl: string;
+        clientId: string;
     };
 };
 
@@ -18,6 +19,7 @@ export function useSiteMetadata() {
                         title
                         description
                         siteUrl
+                        clientId
                     }
                 }
             }
