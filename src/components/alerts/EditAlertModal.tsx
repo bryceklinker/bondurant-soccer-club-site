@@ -5,7 +5,7 @@ import { ModalBody } from '../../common/components/modals/ModalBody';
 import { ModalActions } from '../../common/components/modals/ModalActions';
 import { useForm } from 'react-hook-form';
 import { AlertForm, AlertFormModel } from './AlertForm';
-import { Button } from '../../common/components/Button';
+import { Button, StyledButton } from '../../common/components/Button';
 import { useUpdateAlert } from './hooks/use-alerts';
 
 export type AlertModalProps = ModalProps & {
@@ -37,18 +37,19 @@ export const EditAlertModal: FC<AlertModalProps> = ({
                 />
             </ModalBody>
             <ModalActions>
-                <Button
+                <StyledButton
+                    color={'blue'}
                     disabled={formState.isSubmitting}
                     onClick={onSubmit}
                     aria-label={'save button'}>
                     Save
-                </Button>
-                <Button
+                </StyledButton>
+                <StyledButton
                     disabled={formState.isSubmitting}
                     onClick={onClose}
                     aria-label={'cancel button'}>
                     Cancel
-                </Button>
+                </StyledButton>
             </ModalActions>
         </Modal>
     );

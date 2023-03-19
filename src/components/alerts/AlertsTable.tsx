@@ -4,16 +4,12 @@ import { Loading } from '../../common/components/Loading';
 import { Button } from '../../common/components/Button';
 import PencilIcon from '@heroicons/react/24/solid/PencilIcon';
 
-export type AlertsTableProps = {
+export type AlertsTable = {
     alerts: AlertModel[];
     isLoading: boolean;
     onEdit?: (alert: AlertModel) => void;
 };
-export const AlertsTable: FC<AlertsTableProps> = ({
-    alerts,
-    isLoading,
-    onEdit
-}) => {
+export const AlertsTable: FC<AlertsTable> = ({ alerts, isLoading, onEdit }) => {
     const rows = useMemo(
         () =>
             alerts.map(a => (
@@ -22,7 +18,7 @@ export const AlertsTable: FC<AlertsTableProps> = ({
         [alerts]
     );
     return (
-        <table>
+        <table className={'table-auto'}>
             <thead>
                 <tr>
                     <th>Text</th>

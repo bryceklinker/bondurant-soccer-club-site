@@ -8,7 +8,7 @@ export const ModalActions: FC<ModalActionsProps> = ({
     ...rest
 }) => {
     const classes = ClassNames.join(
-        'bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6',
+        'bg-gray-50 px-4 py-3 gap-4 sm:flex sm:flex-row-reverse sm:px-6',
         className
     );
     return <div className={classes}>{children}</div>;

@@ -6,7 +6,7 @@ import { AlertModel, AlertSeverity } from './state/models';
 import { useForm } from 'react-hook-form';
 import { AlertForm, AlertFormModel } from './AlertForm';
 import { useCreateAlert } from './hooks/use-alerts';
-import { Button } from '../../common/components/Button';
+import { Button, StyledButton } from '../../common/components/Button';
 import { ModalTitle } from '../../common/components/modals/ModalTitle';
 
 export type CreateAlertModalProps = Omit<ModalProps, 'children'>;
@@ -45,18 +45,19 @@ export const CreateAlertModal: FC<CreateAlertModalProps> = ({
                 />
             </ModalBody>
             <ModalActions>
-                <Button
+                <StyledButton
+                    color={'blue'}
                     disabled={formState.isSubmitting}
                     onClick={onSubmit}
                     aria-label={'save button'}>
                     Save
-                </Button>
-                <Button
+                </StyledButton>
+                <StyledButton
                     disabled={formState.isSubmitting}
                     onClick={handleClose}
                     aria-label={'cancel button'}>
                     Cancel
-                </Button>
+                </StyledButton>
             </ModalActions>
         </Modal>
     );
