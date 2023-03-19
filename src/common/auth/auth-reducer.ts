@@ -22,7 +22,7 @@ export const AUTH_INITIAL_STATE: AuthState = {
     credentials: null,
     error: null
 };
-export function authReducer(state: AuthState, action: AuthAction): AuthState {
+function stateReducer(state: AuthState, action: AuthAction): AuthState {
     switch (action.type) {
         case 'success':
             return {
@@ -35,4 +35,19 @@ export function authReducer(state: AuthState, action: AuthAction): AuthState {
         case 'clear':
             return { ...state, credentials: null, error: null };
     }
+}
+
+export function initialAuthState(credentials?: CredentialResponse): AuthState {
+    const storedState = sessionStorage.getItem('auth-state');
+    if (storedState) {
+        return JSON.parse(storedState) as AuthState;
+    }
+
+    return { ...AUTH_INITIAL_STATE, credentials: credentials ?? null };
+}
+
+export function authReducer(state: AuthState, action: AuthAction): AuthState {
+    const newState = stateReducer(state, action);
+    sessionStorage.setItem('auth-state', JSON.stringify(newState));
+    return newState;
 }

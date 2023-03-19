@@ -8,6 +8,7 @@ beforeAll(() => {
 });
 
 beforeEach(() => {
+    sessionStorage.clear();
     window.ResizeObserver = ResizeObserver;
     FakeServer.reset();
 });

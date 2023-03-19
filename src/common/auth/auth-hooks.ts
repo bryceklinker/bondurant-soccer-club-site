@@ -2,7 +2,7 @@ import { AuthUser } from './auth-types';
 import { useAuthContext } from './auth-context';
 import { googleLogout } from '@react-oauth/google';
 import { useCallback, useMemo } from 'react';
-import * as jose from 'jose';
+import { Jwt } from './jwt-decode';
 
 export function useAuthLogin() {
     const { handleAuthCredentials, handleAuthError } = useAuthContext();
@@ -25,11 +25,10 @@ export function useAuthUser(): AuthUser | null {
     const {
         state: { credentials }
     } = useAuthContext();
-    console.log('Credentials', credentials);
     return useMemo(
         () =>
             credentials?.credential
-                ? (jose.decodeJwt(credentials.credential) as AuthUser)
+                ? (Jwt.decodePayload(credentials.credential) as AuthUser)
                 : null,
         [credentials]
     );

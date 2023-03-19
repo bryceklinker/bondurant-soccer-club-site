@@ -3,6 +3,7 @@ import { Menu, Transition } from '@headlessui/react';
 import { NavLink } from './NavLink';
 import { MORE_INFO_NAVIGATION_LINKS } from '../../routing/route-names';
 import { ColumnFlex } from '../ColumnFlex';
+import { useAuthUser, useIsLoggedIn } from '../../auth/auth-hooks';
 
 export type MoreNavigationLinksProps = {
     onClick: () => void;
@@ -11,7 +12,10 @@ export type MoreNavigationLinksProps = {
 export const MoreNavigationLinks: FC<MoreNavigationLinksProps> = ({
     onClick
 }) => {
-    const moreNavLinks = MORE_INFO_NAVIGATION_LINKS.map((data, index) => (
+    const isLoggedIn = useIsLoggedIn();
+    const moreNavLinks = MORE_INFO_NAVIGATION_LINKS.filter(
+        l => !l.requiresUser || isLoggedIn
+    ).map((data, index) => (
         <Menu.Item key={index} as={NavLink} data={data} onClick={onClick} />
     ));
     return (

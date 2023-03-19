@@ -1,13 +1,12 @@
-import { FC, PropsWithChildren, useCallback, useReducer } from 'react';
-import { GoogleOAuthProvider } from '@react-oauth/google';
+import { FC, PropsWithChildren, useCallback, useMemo, useReducer } from 'react';
+import { CredentialResponse, GoogleOAuthProvider } from '@react-oauth/google';
 
-import { useSiteMetadata } from '../hooks/useSiteMetadata';
+import { SiteMetadata, useSiteMetadata } from '../hooks/useSiteMetadata';
 import {
     AUTH_INITIAL_STATE,
     AuthActions,
-    AuthCredentials,
-    AuthError,
-    authReducer
+    authReducer,
+    initialAuthState
 } from './auth-reducer';
 import { AuthContext } from './auth-context';
 
@@ -15,14 +14,34 @@ export type AuthProviderProps = PropsWithChildren;
 
 export const AuthProvider: FC<AuthProviderProps> = ({ children }) => {
     const metadata = useSiteMetadata();
-    const [state, dispatch] = useReducer(authReducer, AUTH_INITIAL_STATE);
+    return (
+        <MetadataAuthProvider metadata={metadata}>
+            {children}
+        </MetadataAuthProvider>
+    );
+};
+
+export type MetadataAuthProviderProps = AuthProviderProps & {
+    credentials?: CredentialResponse;
+    metadata: SiteMetadata;
+};
+export const MetadataAuthProvider: FC<MetadataAuthProviderProps> = ({
+    children,
+    metadata,
+    credentials
+}) => {
+    const initialState = useMemo(
+        () => initialAuthState(credentials),
+        [credentials]
+    );
+    const [state, dispatch] = useReducer(authReducer, initialState);
 
     const handleAuthCredentials = useCallback(
-        (creds: AuthCredentials) => dispatch(AuthActions.success(creds)),
+        (creds: CredentialResponse) => dispatch(AuthActions.success(creds)),
         [dispatch]
     );
     const handleAuthError = useCallback(
-        (error: AuthError) => dispatch(AuthActions.error(error)),
+        (error: string) => dispatch(AuthActions.error(error)),
         [dispatch]
     );
     const clearAuth = useCallback(

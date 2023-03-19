@@ -1,4 +1,4 @@
-import { FC, useCallback, useMemo, useState } from 'react';
+import { FC, useCallback, useState } from 'react';
 import PlusIcon from '@heroicons/react/24/solid/PlusIcon';
 import { useAlerts } from './hooks/use-alerts';
 import { ColumnFlex } from '../../common/layout/ColumnFlex';
@@ -10,10 +10,12 @@ import { RowFlex } from '../../common/layout/RowFlex';
 import { Button } from '../../common/components/Button';
 import { useModalState } from '../../common/hooks/use-modal-state';
 import { CreateAlertModal } from './CreateAlertModal';
+import { useIsLoggedIn } from '../../common/auth/auth-hooks';
+import { navigate } from 'gatsby';
 
 export const AlertsPage: FC = () => {
-    const { data, isLoading } = useAlerts();
-    const alerts = useMemo(() => data ?? [], [data]);
+    const isLoggedIn = useIsLoggedIn();
+    const { alerts, isLoading } = useAlerts();
     const [isCreatingAlert, onCloseCreate, onOpenCreate] = useModalState();
     const [isEditingAlert, onCloseEdit, onOpenEdit] = useModalState();
     const [alertToEdit, setAlertToEdit] = useState<AlertModel | null>(null);
@@ -28,6 +30,11 @@ export const AlertsPage: FC = () => {
         setAlertToEdit(null);
         onCloseEdit();
     }, [setAlertToEdit, onCloseEdit]);
+
+    if (!isLoggedIn) {
+        navigate('/');
+        return null;
+    }
     return (
         <ColumnFlex>
             <RowFlex>

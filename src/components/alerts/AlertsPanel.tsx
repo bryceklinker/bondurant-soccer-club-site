@@ -8,11 +8,10 @@ import { ColumnFlex } from '../../common/layout/ColumnFlex';
 export type AlertsPanelProps = {};
 
 export const AlertsPanel: FC<AlertsPanelProps> = () => {
-    const { data } = useAlerts();
-    const models = useMemo(() => (Array.isArray(data) ? data : []), [data]);
-    const alerts = useMemo(
-        () => models.map(m => <Alert key={m.id} model={m} />),
-        [models]
+    const { alerts } = useAlerts();
+    const alertItems = useMemo(
+        () => alerts.map(m => <Alert key={m.id} model={m} />),
+        [alerts]
     );
-    return <ColumnFlex className={'flex-none'}>{alerts}</ColumnFlex>;
+    return <ColumnFlex className={'flex-none'}>{alertItems}</ColumnFlex>;
 };

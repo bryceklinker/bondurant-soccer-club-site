@@ -9,6 +9,10 @@ import {
 } from '../../testing';
 import React from 'react';
 import { AlertsPage } from './AlertsPage';
+import { AuthUser } from '../../common/auth/auth-types';
+import { navigate } from 'gatsby';
+
+jest.mock('gatsby');
 
 describe('AlertsPage', () => {
     const loading = () => screen.getByRole('progressbar');
@@ -19,11 +23,17 @@ describe('AlertsPage', () => {
     const alertRows = () => screen.getAllByRole('row', { name: 'alert' });
     const dialog = () => screen.getByRole('dialog');
 
+    let user: AuthUser;
+
+    beforeEach(() => {
+        user = ModelFactory.user();
+    });
+
     test('when rendered then shows all alerts', async () => {
         const alerts = ModelFactory.many(ModelFactory.alert, 6);
         FakeServer.setupRestGet('/db/alerts.json', alerts);
 
-        render(<AlertsPage />);
+        render(<AlertsPage />, { user });
 
         await waitFor(() => expect(alertRows()).toHaveLength(6));
     });
@@ -32,7 +42,7 @@ describe('AlertsPage', () => {
         const alerts = ModelFactory.many(ModelFactory.alert, 6);
         FakeServer.setupRestGet('/db/alerts.json', alerts, { delay: 400 });
 
-        render(<AlertsPage />);
+        render(<AlertsPage />, { user });
 
         await waitFor(() => expect(loading()).toBeInTheDocument());
     });
@@ -41,7 +51,7 @@ describe('AlertsPage', () => {
         const alert = ModelFactory.alert();
         FakeServer.setupRestGet('/db/alerts.json', [alert]);
 
-        render(<AlertsPage />);
+        render(<AlertsPage />, { user });
 
         await waitForElementToBeRemoved(loading());
         await userEvent.click(editAlertButton());
@@ -52,10 +62,16 @@ describe('AlertsPage', () => {
     test('when alert created then opens create alert modal', async () => {
         FakeServer.setupRestGet('/db/alerts.json', []);
 
-        render(<AlertsPage />);
+        render(<AlertsPage />, { user });
         await waitForElementToBeRemoved(loading());
         await userEvent.click(createAlertButton());
 
         expect(dialog()).toBeVisible();
+    });
+
+    test('when rendered missing user then redirects to home', async () => {
+        render(<AlertsPage />);
+
+        expect(navigate).toHaveBeenCalledWith('/');
     });
 });

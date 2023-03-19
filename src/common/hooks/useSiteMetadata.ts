@@ -1,13 +1,15 @@
 import { graphql, useStaticQuery } from 'gatsby';
 
+export type SiteMetadata = {
+    title: string;
+    description: string;
+    author: string;
+    siteUrl: string;
+    clientId: string;
+};
+
 type Site = {
-    siteMetadata: {
-        title: string;
-        description: string;
-        author: string;
-        siteUrl: string;
-        clientId: string;
-    };
+    siteMetadata: SiteMetadata;
 };
 
 export function useSiteMetadata() {

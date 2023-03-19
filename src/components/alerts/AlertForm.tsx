@@ -6,6 +6,10 @@ import {
     FormState,
     UseFormHandleSubmit
 } from 'react-hook-form';
+import {
+    ControlledTextInput,
+    TextInput
+} from '../../common/components/TextInput';
 
 export type AlertFormModel = Omit<AlertModel, 'id'>;
 
@@ -17,38 +21,20 @@ export type AlertFormProps = {
 export const AlertForm: FC<AlertFormProps> = ({ control, state, onSubmit }) => {
     return (
         <form onSubmit={onSubmit} aria-label={'alert form'}>
-            <Controller
+            <ControlledTextInput
+                label={'Text'}
                 name={'text'}
+                aria-label={'text'}
                 control={control}
-                render={({ field }) => {
-                    return (
-                        <div>
-                            <label htmlFor={'text'}>Text</label>
-                            <input
-                                disabled={state.isSubmitting}
-                                aria-label={'text'}
-                                {...field}
-                            />
-                        </div>
-                    );
-                }}
+                state={state}
             />
 
-            <Controller
+            <ControlledTextInput
+                label={'Severity'}
+                aria-label={'severity'}
                 name={'severity'}
                 control={control}
-                render={({ field }) => {
-                    return (
-                        <div>
-                            <label htmlFor={'severity'}>Severity</label>
-                            <input
-                                disabled={state.isSubmitting}
-                                aria-label={'severity'}
-                                {...field}
-                            />
-                        </div>
-                    );
-                }}
+                state={state}
             />
         </form>
     );

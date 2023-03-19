@@ -3,10 +3,15 @@ import { useMutation, useQuery } from 'react-query';
 import { useApi } from '../../../common/api/use-api';
 
 export function useAlerts() {
-    return useQuery<AlertModel[]>('alerts', async () => {
+    const { data, ...rest } = useQuery<AlertModel[]>('alerts', async () => {
         const response = await fetch('/db/alerts.json');
         return await response.json();
     });
+
+    return {
+        ...rest,
+        alerts: Array.isArray(data) ? data : []
+    };
 }
 
 export function useUpdateAlert() {

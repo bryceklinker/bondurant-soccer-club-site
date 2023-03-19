@@ -3,6 +3,7 @@ import { LinkData } from '../state/link-data';
 export const RouteNames = {
     About: '/about',
     AcademyProgram: '/academy-program',
+    Alerts: '/alerts',
     DirectorOfAcademyJobDescription: '/academy-program/director-of-academy',
     Concessions: '/concessions',
     ContactUs: '/contact-us',
@@ -52,6 +53,11 @@ export const MORE_INFO_NAVIGATION_LINKS: Array<LinkData> = [
     {
         text: 'Academy Program',
         url: RouteNames.AcademyProgram
+    },
+    {
+        text: 'Alerts',
+        url: RouteNames.Alerts,
+        requiresUser: true
     },
     {
         text: 'Concessions',

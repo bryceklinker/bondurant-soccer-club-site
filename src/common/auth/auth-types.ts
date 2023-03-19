@@ -17,7 +17,7 @@ export type AuthUser = Record<string, unknown> & {
     hd: string;
     sub: string;
     given_name: string;
-    familly_name: string;
+    family_name: string;
     exp: number;
     iat: number;
     picture: string;
