@@ -10,9 +10,6 @@ import {
 import React from 'react';
 import { AlertsPage } from './AlertsPage';
 import { AuthUser } from '../../common/auth/auth-types';
-import { navigate } from 'gatsby';
-
-jest.mock('gatsby');
 
 describe('AlertsPage', () => {
     const loading = () => screen.getByRole('progressbar');
@@ -69,9 +66,11 @@ describe('AlertsPage', () => {
         expect(dialog()).toBeVisible();
     });
 
-    test('when rendered missing user then redirects to home', async () => {
+    test('when missing user then shows unauthorized', async () => {
         render(<AlertsPage />);
 
-        expect(navigate).toHaveBeenCalledWith('/');
+        expect(
+            screen.getByRole('alert', { name: 'unauthorized' })
+        ).toBeInTheDocument();
     });
 });

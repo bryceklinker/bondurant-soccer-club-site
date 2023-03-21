@@ -2,7 +2,7 @@ import { AlertModel } from './state/models';
 import { FC, useCallback, useMemo } from 'react';
 import { Loading } from '../../common/components/Loading';
 import { Button } from '../../common/components/Button';
-import PencilIcon from '@heroicons/react/24/solid/PencilIcon';
+import { PencilIcon } from '@heroicons/react/20/solid';
 
 export type AlertsTable = {
     alerts: AlertModel[];

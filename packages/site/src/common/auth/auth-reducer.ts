@@ -1,4 +1,5 @@
 import { CredentialResponse } from '@react-oauth/google';
+import { AuthStorage } from './auth-storage';
 
 export type AuthState = {
     credentials: CredentialResponse | null;
@@ -38,9 +39,9 @@ function stateReducer(state: AuthState, action: AuthAction): AuthState {
 }
 
 export function initialAuthState(credentials?: CredentialResponse): AuthState {
-    const storedState = sessionStorage.getItem('auth-state');
+    const storedState = AuthStorage.getState();
     if (storedState) {
-        return JSON.parse(storedState) as AuthState;
+        return storedState;
     }
 
     return { ...AUTH_INITIAL_STATE, credentials: credentials ?? null };
@@ -48,6 +49,6 @@ export function initialAuthState(credentials?: CredentialResponse): AuthState {
 
 export function authReducer(state: AuthState, action: AuthAction): AuthState {
     const newState = stateReducer(state, action);
-    sessionStorage.setItem('auth-state', JSON.stringify(newState));
+    AuthStorage.setState(newState);
     return newState;
 }

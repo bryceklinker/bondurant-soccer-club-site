@@ -1,0 +1,26 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es6",
+    "outDir": "dist",
+    "lib": ["esnext"],
+    "moduleResolution": "node",
+    "noEmit": true,
+    "rootDir": ".",
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "sourceMap": true,
+    "strict": false
+  },
+  "exclude": [
+    "node_modules",
+    "src/**/*.spec.ts",
+    "rest-api/**/*.spec.ts",
+    "update-alerts-handler/**/*.spec.ts"
+  ],
+  "include": [
+    "src/**/*.ts",
+    "rest-api/**/*.ts",
+    "update-alerts-handler/**/*.ts"
+  ]
+}

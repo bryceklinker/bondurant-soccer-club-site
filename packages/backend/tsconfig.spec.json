@@ -1,0 +1,15 @@
+{
+  "extends": "./tsconfig.json",
+  "include": [
+    "./src/**/*",
+    "./src/**/*.spec.ts",
+    "./src/testing/**/*.ts",
+    "./rest-api/**/*.ts",
+    "./update-alerts-handler/**/*.ts",
+  ],
+  "exclude": [
+    "node_modules",
+    "cypress/**/*.ts",
+    "cypress/**/*.js"
+  ]
+}

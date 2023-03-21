@@ -34,27 +34,10 @@ resource "azuread_service_principal" "cdn" {
   use_existing = true
 }
 
-resource "azurerm_storage_account" "site_storage" {
-  location            = var.location
-  name                = "st${replace(var.name, "-", "")}"
-  resource_group_name = var.resource_group_name
-
-  account_tier              = "Standard"
-  account_replication_type  = "LRS"
-  enable_https_traffic_only = true
-
-  static_website {
-    index_document     = "index.html"
-    error_404_document = "index.html"
-  }
-
-  tags = var.tags
-}
-
 resource "azurerm_storage_blob" "site_content" {
   for_each = fileset(var.site_directory, "**")
 
-  storage_account_name   = azurerm_storage_account.site_storage.name
+  storage_account_name   = var.storage_account_name
   storage_container_name = "$web"
 
   name         = each.key
@@ -80,7 +63,7 @@ resource "azurerm_cdn_endpoint" "cdn_endpoint" {
   is_http_allowed           = true
   optimization_type         = "GeneralWebDelivery"
   content_types_to_compress = local.content_types_to_compress
-  origin_host_header        = azurerm_storage_account.site_storage.primary_web_host
+  origin_host_header        = var.storage_account_web_host
 
   delivery_rule {
     name  = "HTTPSRedirect"
@@ -119,8 +102,8 @@ resource "azurerm_cdn_endpoint" "cdn_endpoint" {
 
 
   origin {
-    host_name = azurerm_storage_account.site_storage.primary_web_host
-    name      = azurerm_storage_account.site_storage.name
+    host_name = var.storage_account_web_host
+    name      = var.storage_account_name
   }
 }
 
@@ -141,21 +124,4 @@ resource "azurerm_cdn_endpoint_custom_domain" "custom_domain" {
     certificate_type = "Dedicated"
     protocol_type    = "ServerNameIndication"
   }
-}
-
-resource "azurerm_log_analytics_workspace" "log_workspace" {
-  location            = var.location
-  name                = "log-${var.name}"
-  resource_group_name = var.resource_group_name
-  daily_quota_gb      = 0.5
-}
-
-resource "azurerm_application_insights" "web_app_insights" {
-  location            = var.location
-  name                = "appi-${var.name}"
-  resource_group_name = var.resource_group_name
-  application_type    = "other"
-  workspace_id        = azurerm_log_analytics_workspace.log_workspace.id
-
-  tags = var.tags
 }

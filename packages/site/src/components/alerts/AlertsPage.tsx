@@ -1,18 +1,17 @@
 import { FC, useCallback, useState } from 'react';
-import PlusIcon from '@heroicons/react/24/solid/PlusIcon';
+import { PlusIcon } from '@heroicons/react/20/solid';
 import { useAlerts } from './hooks/use-alerts';
-import { ColumnFlex } from '../../common/layout/ColumnFlex';
 import { AlertsTable } from './AlertsTable';
 import { AlertModel } from './state/models';
 import { EditAlertModal } from './EditAlertModal';
 import { Spacer } from '../../common/components/Spacer';
 import { RowFlex } from '../../common/layout/RowFlex';
-import { Button, IconButton } from '../../common/components/Button';
+import { IconButton } from '../../common/components/Button';
 import { useModalState } from '../../common/hooks/use-modal-state';
 import { CreateAlertModal } from './CreateAlertModal';
 import { useIsLoggedIn } from '../../common/auth/auth-hooks';
-import { navigate } from 'gatsby';
 import { Section } from '../../common/components/Section';
+import { Unauthorized } from '../../common/auth/Unauthorized';
 
 export const AlertsPage: FC = () => {
     const isLoggedIn = useIsLoggedIn();
@@ -33,8 +32,7 @@ export const AlertsPage: FC = () => {
     }, [setAlertToEdit, onCloseEdit]);
 
     if (!isLoggedIn) {
-        navigate('/');
-        return null;
+        return <Unauthorized />;
     }
     return (
         <Section className={'p-8 h-full gap-2'}>
