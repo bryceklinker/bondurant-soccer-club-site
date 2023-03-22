@@ -26,6 +26,10 @@ variable "storage_account_web_host" {
   type = string
 }
 
+variable "storage_account_web_container" {
+  type = string
+}
+
 variable "site_directory" {
   type = string
 }

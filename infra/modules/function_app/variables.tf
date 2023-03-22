@@ -26,6 +26,10 @@ variable "storage_account_id" {
   type = string
 }
 
+variable "storage_account_web_container" {
+  type = string
+}
+
 variable "application_insights_connection_string" {
   type = string
 }

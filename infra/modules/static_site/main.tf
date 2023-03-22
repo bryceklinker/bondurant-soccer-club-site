@@ -38,7 +38,7 @@ resource "azurerm_storage_blob" "site_content" {
   for_each = fileset(var.site_directory, "**")
 
   storage_account_name   = var.storage_account_name
-  storage_container_name = "$web"
+  storage_container_name = var.storage_account_web_container
 
   name         = each.key
   source       = "${var.site_directory}/${each.value}"

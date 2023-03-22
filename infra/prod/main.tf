@@ -41,6 +41,7 @@ module "function_app" {
   storage_account_connection_string = module.storage.storage_account_connection_string
   storage_account_id = module.storage.storage_account_id
   storage_account_name = module.storage.storage_account_name
+  storage_account_web_container = module.storage.storage_account_web_container
 
   name = "${local.name}-app"
   function_app_directory = local.backend_directory
@@ -57,6 +58,7 @@ module "site" {
   resource_group_name = azurerm_resource_group.resource_group.name
   storage_account_name = module.storage.storage_account_name
   storage_account_web_host = module.storage.storage_account_web_host
+  storage_account_web_container = module.storage.storage_account_web_container
   site_directory = local.site_directory
   name = "${local.name}-site"
 

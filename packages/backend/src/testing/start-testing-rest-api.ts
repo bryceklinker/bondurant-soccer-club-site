@@ -1,23 +1,13 @@
 import { Server } from 'http';
 import { BackendContext } from '../common/backend-context';
-import { FakeBlobServiceClient } from './fakes/fake-blob-service-client';
-import { FakeQueueServiceClient } from './fakes/fake-queue-service-client';
 import { createApiApp } from '../createApiApp';
+import { createTestingBackendContext } from './create-testing-backend-context';
 
 export type TestingRestApi = {
     server: Server;
     baseUrl: string;
     close: () => Promise<void>;
 };
-
-function createTestingBackendContext(
-    context?: Partial<BackendContext>
-): BackendContext {
-    return {
-        blobClient: context?.blobClient ?? new FakeBlobServiceClient(),
-        queueClient: context?.queueClient ?? new FakeQueueServiceClient()
-    };
-}
 
 export function startTestingRestApi(
     context?: Partial<BackendContext>

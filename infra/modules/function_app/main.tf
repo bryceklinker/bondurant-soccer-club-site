@@ -48,10 +48,13 @@ resource "azurerm_linux_function_app" "app" {
   }
 
   site_config {
+
     APPLICATIONINSIGHTS_CONNECTION_STRING = var.application_insights_connection_string
     STORAGE_ACCOUNT_CONNECTION_STRING = var.storage_account_connection_string
     ALERTS_QUEUE_NAME = azurerm_storage_queue.alerts_queue.name
+    SITE_CONTAINER_NAME = var.storage_account_web_container
     WEBSITE_RUN_FROM_PACKAGE = azurerm_storage_blob.function_app.url
+    DB_BLOB_PREFIX = "db"
   }
 }
 
