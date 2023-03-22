@@ -38,7 +38,7 @@ const config: GatsbyConfig = {
         title: 'Bondurant Soccer Club',
         description: 'Official website of the Bondurant Soccer Club',
         clientId:
-            process.env.GOOGLE_CLIENT_ID ??
+            process.env.GOOGLE_AUTH_CLIENT_ID ??
             '672664614504-rqd6lg32u1u52v0bqdr4ae6jpo712hob.apps.googleusercontent.com'
     },
     plugins: [

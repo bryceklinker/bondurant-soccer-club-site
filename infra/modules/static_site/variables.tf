@@ -34,6 +34,10 @@ variable "site_directory" {
   type = string
 }
 
+variable "api_url" {
+  type = string
+}
+
 variable "subdomain" {
   type = string
   default = "www"

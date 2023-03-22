@@ -52,6 +52,7 @@ module "function_app" {
 module "site" {
   source = "../modules/static_site"
 
+  api_url = module.function_app.function_app_url
   dns_resource_group_name = var.dns_resource_group_name
   dns_zone_name = var.dns_zone_name
   location = azurerm_resource_group.resource_group.location

@@ -47,6 +47,18 @@ resource "azurerm_storage_blob" "site_content" {
   type         = "Block"
 }
 
+resource "azurerm_storage_blob" "settings_json" {
+  storage_account_name   = var.storage_account_name
+  storage_container_name = var.storage_account_web_container
+
+  type = "Block"
+  name = "settings.json"
+  content_type = "text/json"
+  source_content = jsonencode({
+    "apiUrl": var.api_url
+  })
+}
+
 resource "azurerm_cdn_profile" "cdn_profile" {
   name                = "cdnp-${var.name}"
   resource_group_name = var.resource_group_name

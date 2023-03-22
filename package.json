@@ -11,7 +11,7 @@
     "build": "yarn workspaces run build",
     "start": "yarn workspaces run start --parallel",
     "preserve": "yarn build",
-    "serve": "yarn worksapces run serve --parallel",
+    "serve": "yarn workspaces run serve --parallel",
     "clean": "yarn workspaces run clean",
     "test": "cross-env TZ=UTC yarn workspaces run test",
     "e2e": "concurrently --success \"first\" --kill-others \"yarn serve\" \"wait-on http://localhost:3000 && yarn cypress run\"",
