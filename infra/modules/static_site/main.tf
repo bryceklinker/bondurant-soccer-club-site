@@ -1,4 +1,6 @@
 locals {
+  web_container_name = "$web"
+
   content_types_to_compress = [
     "text/plain",
     "text/html",
@@ -34,29 +36,34 @@ resource "azuread_service_principal" "cdn" {
   use_existing = true
 }
 
+resource "azurerm_storage_account" "site_storage" {
+  location            = var.location
+  name                = "st${replace(var.name, "-", "")}"
+  resource_group_name = var.resource_group_name
+
+  account_tier              = "Standard"
+  account_replication_type  = "LRS"
+  enable_https_traffic_only = true
+
+  static_website {
+    index_document     = "index.html"
+    error_404_document = "index.html"
+  }
+
+  tags = var.tags
+}
+
 resource "azurerm_storage_blob" "site_content" {
   for_each = fileset(var.site_directory, "**")
 
-  storage_account_name   = var.storage_account_name
-  storage_container_name = var.storage_account_web_container
+  storage_account_name   = azurerm_storage_account.site_storage.name
+  storage_container_name = local.web_container_name
 
   name         = each.key
   source       = "${var.site_directory}/${each.value}"
   content_type = lookup(local.mime_types, regex("\\.[^.]+$", each.value))
   content_md5  = filemd5("${var.site_directory}/${each.value}")
   type         = "Block"
-}
-
-resource "azurerm_storage_blob" "settings_json" {
-  storage_account_name   = var.storage_account_name
-  storage_container_name = var.storage_account_web_container
-
-  type = "Block"
-  name = "settings.json"
-  content_type = "text/json"
-  source_content = jsonencode({
-    "apiUrl": var.api_url
-  })
 }
 
 resource "azurerm_cdn_profile" "cdn_profile" {
@@ -75,7 +82,7 @@ resource "azurerm_cdn_endpoint" "cdn_endpoint" {
   is_http_allowed           = true
   optimization_type         = "GeneralWebDelivery"
   content_types_to_compress = local.content_types_to_compress
-  origin_host_header        = var.storage_account_web_host
+  origin_host_header        = azurerm_storage_account.site_storage.primary_web_host
 
   delivery_rule {
     name  = "HTTPSRedirect"
@@ -93,29 +100,9 @@ resource "azurerm_cdn_endpoint" "cdn_endpoint" {
     }
   }
 
-  delivery_rule {
-    name  = "Caching"
-    order = 2
-
-    request_uri_condition {
-      operator = "Any"
-    }
-
-    request_method_condition {
-      operator = "Equal"
-      match_values = ["GET", "HEAD", "OPTIONS"]
-    }
-
-    cache_expiration_action {
-      behavior = "SetIfMissing"
-      duration = "30.00:00:00"
-    }
-  }
-
-
   origin {
-    host_name = var.storage_account_web_host
-    name      = var.storage_account_name
+    host_name = azurerm_storage_account.site_storage.primary_web_host
+    name      = azurerm_storage_account.site_storage.name
   }
 }
 
@@ -136,4 +123,50 @@ resource "azurerm_cdn_endpoint_custom_domain" "custom_domain" {
     certificate_type = "Dedicated"
     protocol_type    = "ServerNameIndication"
   }
+}
+
+resource "azurerm_log_analytics_workspace" "log_workspace" {
+  location            = var.location
+  name                = "log-${var.name}"
+  resource_group_name = var.resource_group_name
+  daily_quota_gb      = 0.5
+}
+
+resource "azurerm_application_insights" "web_app_insights" {
+  location            = var.location
+  name                = "appi-${var.name}"
+  resource_group_name = var.resource_group_name
+  application_type    = "other"
+  workspace_id        = azurerm_log_analytics_workspace.log_workspace.id
+
+  tags = var.tags
+}
+
+module "function_app" {
+  source = "../function_app"
+
+  name = "${var.name}-app"
+  application_insights_connection_string = azurerm_application_insights.web_app_insights.connection_string
+  function_app_directory = var.function_app_directory
+  location = var.location
+  resource_group_name = var.resource_group_name
+  storage_account_access_key = azurerm_storage_account.site_storage.primary_access_key
+  storage_account_connection_string = azurerm_storage_account.site_storage.primary_connection_string
+  storage_account_id = azurerm_storage_account.site_storage.id
+  storage_account_name = azurerm_storage_account.site_storage.name
+  storage_account_web_container = local.web_container_name
+}
+
+resource "azurerm_storage_blob" "settings_json" {
+  storage_account_name   = azurerm_storage_account.site_storage.name
+  storage_container_name = local.web_container_name
+
+  type = "Block"
+  name = "settings.json"
+  content_type = "text/json"
+  source_content = jsonencode({
+    "apiUrl": module.function_app.function_app_url
+  })
+
+  depends_on = [module.function_app]
 }

@@ -18,23 +18,11 @@ variable "resource_group_name" {
   type = string
 }
 
-variable "storage_account_name" {
-  type = string
-}
-
-variable "storage_account_web_host" {
-  type = string
-}
-
-variable "storage_account_web_container" {
-  type = string
-}
-
 variable "site_directory" {
   type = string
 }
 
-variable "api_url" {
+variable "function_app_directory" {
   type = string
 }
 
