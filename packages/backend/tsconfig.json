@@ -10,7 +10,8 @@
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "sourceMap": true,
-    "strict": false
+    "strict": false,
+    "resolveJsonModule": true
   },
   "exclude": [
     "node_modules",

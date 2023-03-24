@@ -13,7 +13,7 @@ locals {
   location = "Central US"
   resource_group_name = "rg-${local.name}"
   site_directory = "${path.cwd}/../../packages/site/public"
-  backend_directory = "${path.cwd}/../../packages/backend/dist"
+  backend_directory = "${path.cwd}/../../packages/backend"
 }
 
 resource "azurerm_resource_group" "resource_group" {

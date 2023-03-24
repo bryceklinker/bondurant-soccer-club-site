@@ -32,11 +32,11 @@ resource "azurerm_service_plan" "plan" {
 }
 
 resource "azurerm_linux_function_app" "app" {
-  location                   = var.location
-  resource_group_name        = var.resource_group_name
-  storage_account_access_key = var.storage_account_access_key
-  storage_account_name       = var.storage_account_name
-  service_plan_id            = azurerm_service_plan.plan.id
+  location                      = var.location
+  resource_group_name           = var.resource_group_name
+  storage_account_name          = var.storage_account_name
+  service_plan_id               = azurerm_service_plan.plan.id
+  storage_uses_managed_identity = true
 
   name       = "func-${var.name}"
   https_only = true
@@ -46,16 +46,23 @@ resource "azurerm_linux_function_app" "app" {
   }
 
   site_config {
+    cors {
+      allowed_origins = ["*"]
+    }
+
+    application_stack {
+      node_version = "18"
+    }
+
     application_insights_connection_string = var.application_insights_connection_string
   }
 
   app_settings = {
-    STORAGE_ACCOUNT_CONNECTION_STRING     = var.storage_account_connection_string
-    ALERTS_QUEUE_NAME                     = azurerm_storage_queue.alerts_queue.name
-    SITE_CONTAINER_NAME                   = var.storage_account_web_container
-    WEBSITE_RUN_FROM_PACKAGE              = azurerm_storage_blob.function_app.url
-    DB_BLOB_PREFIX                        = "db"
-    FUNCTIONS_WORKER_RUNTIME              = "node"
+    STORAGE_ACCOUNT_CONNECTION_STRING = var.storage_account_connection_string
+    ALERTS_QUEUE_NAME                 = azurerm_storage_queue.alerts_queue.name
+    SITE_CONTAINER_NAME               = var.storage_account_web_container
+    WEBSITE_RUN_FROM_PACKAGE          = azurerm_storage_blob.function_app.url
+    DB_BLOB_PREFIX                    = "db"
   }
 }
 
