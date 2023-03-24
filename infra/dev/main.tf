@@ -25,7 +25,7 @@ module "storage" {
   source = "../modules/storage"
 
   location = local.location
-  name = "${local.name}-storage"
+  name = "${local.name}-site"
   resource_group_name = local.resource_group_name
 
   depends_on = [azurerm_resource_group.resource_group]
