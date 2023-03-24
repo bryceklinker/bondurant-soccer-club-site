@@ -5,7 +5,7 @@ data "archive_file" "function_app_archive" {
 }
 
 resource "azurerm_storage_container" "function_app" {
-  name                 = "function_apps"
+  name                 = "function-apps"
   storage_account_name = var.storage_account_name
 }
 
