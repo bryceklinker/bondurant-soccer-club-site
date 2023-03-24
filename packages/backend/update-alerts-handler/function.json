@@ -1,12 +1,12 @@
 {
   "bindings": [
     {
-      "name": "myQueueItem",
+      "name": "alerts-handler",
       "type": "queueTrigger",
       "direction": "in",
-      "queueName": "js-queue-items",
-      "connection": ""
+      "queueName": "alerts-queue",
+      "connection": "STORAGE_ACCOUNT_CONNECTION_STRING"
     }
   ],
-  "scriptFile": "../dist/update-alerts-handler/alertsHandler.js"
+  "scriptFile": "../dist/alertsHandler.js"
 }

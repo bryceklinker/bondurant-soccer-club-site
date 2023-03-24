@@ -16,5 +16,5 @@
       "name": "res"
     }
   ],
-  "scriptFile": "../dist/rest-api/restApi.js"
+  "scriptFile": "../dist/restApi.js"
 }
