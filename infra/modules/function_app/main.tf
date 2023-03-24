@@ -39,8 +39,6 @@ resource "azurerm_linux_function_app" "app" {
   service_plan_id            = azurerm_service_plan.plan.id
 
   name       = "func-${var.name}"
-  os_type    = "linux"
-  version    = "~4"
   https_only = true
 
   identity {
@@ -48,8 +46,10 @@ resource "azurerm_linux_function_app" "app" {
   }
 
   site_config {
+    application_insights_connection_string = var.application_insights_connection_string
+  }
 
-    APPLICATIONINSIGHTS_CONNECTION_STRING = var.application_insights_connection_string
+  app_settings = {
     STORAGE_ACCOUNT_CONNECTION_STRING     = var.storage_account_connection_string
     ALERTS_QUEUE_NAME                     = azurerm_storage_queue.alerts_queue.name
     SITE_CONTAINER_NAME                   = var.storage_account_web_container
