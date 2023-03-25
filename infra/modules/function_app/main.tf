@@ -37,9 +37,9 @@ resource "azurerm_linux_function_app" "app" {
   storage_account_name          = var.storage_account_name
   service_plan_id               = azurerm_service_plan.plan.id
   storage_uses_managed_identity = true
-
-  name       = "func-${var.name}"
-  https_only = true
+  https_only                    = true
+  name                          = "func-${var.name}"
+  tags                          = var.tags
 
   identity {
     type = "SystemAssigned"
@@ -76,11 +76,4 @@ resource "azurerm_role_assignment" "queue_contributor" {
   principal_id         = azurerm_linux_function_app.app.identity.0.principal_id
   role_definition_name = "Storage Queue Data Contributor"
   scope                = var.storage_account_id
-}
-
-data "azurerm_function_app_host_keys" "function_app_keys" {
-  name = azurerm_linux_function_app.app.name
-  resource_group_name = var.resource_group_name
-
-  depends_on = [azurerm_linux_function_app.app]
 }

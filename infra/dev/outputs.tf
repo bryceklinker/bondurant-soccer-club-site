@@ -14,10 +14,6 @@ output "function_app_name" {
   value = module.site.function_app_name
 }
 
-output "function_app_master_kay" {
-  value = module.site.function_app_master_key
-}
-
 output "resource_group_name" {
   value = azurerm_resource_group.resource_group.name
 }
