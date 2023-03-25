@@ -13,3 +13,7 @@ output "cdn_endpoint_name" {
 output "function_app_name" {
   value = module.function_app.function_app_name
 }
+
+output "function_app_master_key" {
+  value = module.function_app.function_app_master_key
+}

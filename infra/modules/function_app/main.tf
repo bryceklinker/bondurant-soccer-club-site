@@ -77,3 +77,10 @@ resource "azurerm_role_assignment" "queue_contributor" {
   role_definition_name = "Storage Queue Data Contributor"
   scope                = var.storage_account_id
 }
+
+data "azurerm_function_app_host_keys" "function_app_keys" {
+  name = azurerm_linux_function_app.app.name
+  resource_group_name = var.resource_group_name
+
+  depends_on = [azurerm_linux_function_app.app]
+}
