@@ -10,6 +10,10 @@ output "cdn_endpoint_name" {
   value = module.site.cdn_endpoint_name
 }
 
+output "function_app_name" {
+  value = module.site.function_app_name
+}
+
 output "resource_group_name" {
   value = azurerm_resource_group.resource_group.name
 }

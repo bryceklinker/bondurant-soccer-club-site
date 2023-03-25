@@ -137,6 +137,9 @@ jobs:
       - run: ${{ github.workspace }}/scripts/purge-cdn.sh
         name: Purge CDN Content
 
+      - run: ${{ github.workspace }}/scripts/sync-function-triggers.sh
+        name: Sync Function Triggers
+
       - name: Run Lighthouse Audit
         uses: treosh/lighthouse-ci-action@v9
         with:
@@ -207,6 +210,9 @@ jobs:
 
       - run: ${{ github.workspace }}/scripts/purge-cdn.sh
         name: Purge CDN Content
+
+      - run: ${{ github.workspace }}/scripts/sync-function-triggers.sh
+        name: Sync Function Triggers
 
       - name: Run Lighthouse Audit
         uses: treosh/lighthouse-ci-action@v9
