@@ -72,6 +72,12 @@ resource "azurerm_role_assignment" "blob_contributor" {
   scope                = var.storage_account_id
 }
 
+resource "azurerm_role_assignment" "blob_reader" {
+  principal_id         = azurerm_linux_function_app.app.identity.0.principal_id
+  role_definition_name = "Storage Blob Data Reader"
+  scope                = var.storage_account_id
+}
+
 resource "azurerm_role_assignment" "queue_contributor" {
   principal_id         = azurerm_linux_function_app.app.identity.0.principal_id
   role_definition_name = "Storage Queue Data Contributor"
