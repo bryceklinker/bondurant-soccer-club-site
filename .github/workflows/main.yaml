@@ -106,6 +106,9 @@ jobs:
         env:
           GOOGLE_AUTH_CLIENT_ID: ${{ secrets.GOOGLE_AUTH_CLIENT_ID }}
 
+      - run: ${{ github.workspace }}/scripts/register-azure-features.sh
+        name: Register Azure Features
+
       - run: ${{ github.workspace }}/scripts/install-terraform.sh
         name: Install Terraform
 
