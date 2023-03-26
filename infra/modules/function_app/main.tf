@@ -40,6 +40,7 @@ resource "azurerm_linux_function_app" "app" {
   https_only                    = true
   name                          = "func-${var.name}"
   tags                          = var.tags
+  functions_extension_version = "~4"
 
   identity {
     type = "SystemAssigned"
@@ -51,7 +52,7 @@ resource "azurerm_linux_function_app" "app" {
     }
 
     application_stack {
-      node_version = "18"
+      node_version = 18
     }
 
     application_insights_connection_string = var.application_insights_connection_string
