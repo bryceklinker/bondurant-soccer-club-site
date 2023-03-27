@@ -10,9 +10,6 @@ resource "azurerm_storage_container" "function_app" {
   container_access_type = "private"
 }
 
-resource "azurerm_storage_share_file" "" }
-
-
 resource "azurerm_storage_queue" "alerts_queue" {
   name                 = "alerts-queue"
   storage_account_name = var.storage_account_name
