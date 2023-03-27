@@ -11,9 +11,9 @@ resource "azurerm_storage_container" "function_app" {
 }
 
 resource "azurerm_storage_share" "func" {
-  name = "function-apps"
+  name                 = "function-apps"
   storage_account_name = var.storage_account_name
-  quota = 5120
+  quota                = 5120
 }
 
 resource "azurerm_storage_queue" "alerts_queue" {
@@ -30,15 +30,15 @@ resource "azurerm_service_plan" "plan" {
 }
 
 resource "azurerm_windows_function_app" "app" {
-  location                      = var.location
-  resource_group_name           = var.resource_group_name
-  storage_account_name          = var.storage_account_name
-  storage_account_access_key    = var.storage_account_access_key
-  service_plan_id               = azurerm_service_plan.plan.id
-  https_only                    = true
-  name                          = "func-${var.name}"
-  tags                          = var.tags
-  functions_extension_version   = "~4"
+  location                    = var.location
+  resource_group_name         = var.resource_group_name
+  storage_account_name        = var.storage_account_name
+  storage_account_access_key  = var.storage_account_access_key
+  service_plan_id             = azurerm_service_plan.plan.id
+  https_only                  = true
+  name                        = "func-${var.name}"
+  tags                        = var.tags
+  functions_extension_version = "~4"
 
   identity {
     type = "SystemAssigned"
@@ -57,11 +57,14 @@ resource "azurerm_windows_function_app" "app" {
     application_insights_connection_string = var.application_insights_connection_string
   }
 
-  auth_settings {
-    enabled = true
+  auth_settings_v2 {
+    enabled                       = true
+    require_https                 = true
+    unauthenticated_client_action = "Return401"
 
-    google {
-      client_id = var.google_client_id
+    google_v2 {
+      client_id                  = var.google_client_id
+      client_secret_setting_name = "GOOGLE_AUTH_CLIENT_SECRET"
     }
   }
 
@@ -70,6 +73,7 @@ resource "azurerm_windows_function_app" "app" {
     ALERTS_QUEUE_NAME                 = azurerm_storage_queue.alerts_queue.name
     SITE_CONTAINER_NAME               = var.storage_account_web_container
     DB_BLOB_PREFIX                    = "db"
+    GOOGLE_AUTH_CLIENT_SECRET         = var.google_client_secret
   }
 }
 

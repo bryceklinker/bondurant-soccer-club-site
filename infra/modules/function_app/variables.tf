@@ -14,6 +14,10 @@ variable "google_client_id" {
   type = string
 }
 
+variable "google_client_secret" {
+  type = string
+}
+
 variable "storage_account_name" {
   type = string
 }
