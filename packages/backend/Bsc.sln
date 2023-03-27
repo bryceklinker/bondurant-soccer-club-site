@@ -14,6 +14,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".build", ".build", "{2C1CCBE2-2166-4DD5-ADCF-2AB60D515C78}"
 	ProjectSection(SolutionItems) = preProject
 		global.json = global.json
+		package.json = package.json
 	EndProjectSection
 EndProject
 Global

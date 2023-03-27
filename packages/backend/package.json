@@ -5,7 +5,7 @@
     "build": "dotnet build",
     "test": "dotnet test",
     "clean": "dotnet clean",
-    "serve": ""
+    "serve": "cd src/Bsc.Function && func start"
   },
   "dependencies": {
   }
