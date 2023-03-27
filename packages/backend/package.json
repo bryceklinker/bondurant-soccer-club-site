@@ -2,7 +2,7 @@
   "name": "backend",
   "version": "1.0.0",
   "scripts": {
-    "build": "dotnet build --configuration Release --output ../../dist/backend",
+    "build": "cd src/Bsc.Function && dotnet build --configuration Release --output ../../../../dist/backend",
     "test": "dotnet test",
     "clean": "dotnet clean",
     "serve": "echo 'skipping serve...'"
