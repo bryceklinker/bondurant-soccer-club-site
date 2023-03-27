@@ -28,7 +28,7 @@ jobs:
       - uses: actions/setup-dotnet@v3
         name: Setup Dotnet
         with:
-          global-json-file: ${{ github.workspace }}/packages/backend/global.json
+          global-json-file: packages/backend/global.json
 
       - run: yarn install
         name: Install Dependencies
@@ -106,7 +106,7 @@ jobs:
       - uses: actions/setup-dotnet@v3
         name: Setup Dotnet
         with:
-          global-json-file: ${{ github.workspace }}/packages/backend/global.json
+          global-json-file: packages/backend/global.json
 
       - run: yarn install
         name: Install Dependencies
@@ -190,7 +190,7 @@ jobs:
       - uses: actions/setup-dotnet@v3
         name: Setup Dotnet
         with:
-          global-json-file: ${{ github.workspace }}/packages/backend/global.json
+          global-json-file: packages/backend/global.json
 
       - run: yarn install
         name: Install Dependencies
