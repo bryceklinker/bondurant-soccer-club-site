@@ -1,3 +1,5 @@
+using System;
+using System.IO;
 using System.Linq;
 using System.Text.Json;
 using System.Threading;
@@ -6,6 +8,7 @@ using Azure.Storage.Blobs;
 using Azure.Storage.Blobs.Specialized;
 using Bsc.Function.Alerts.Config;
 using Bsc.Function.Alerts.Models;
+using Bsc.Function.Common;
 using MediatR;
 
 namespace Bsc.Function.Alerts.Commands;
@@ -29,9 +32,12 @@ public class CreateAlertCommandHandler : IRequestHandler<CreateAlertCommand>
         await container.CreateIfNotExistsAsync(cancellationToken: cancellationToken).ConfigureAwait(false);
         var alertsBlob = container.GetBlockBlobClient(_config.BlobPath);
         await using var readStream = await alertsBlob.OpenReadAsync(cancellationToken: cancellationToken).ConfigureAwait(false);
-        var currentAlerts = await JsonSerializer.DeserializeAsync<AlertModel[]>(readStream, cancellationToken: cancellationToken);
+        var serializerResult = await BscSerializer.DeserializeAsync<AlertModel[]>(readStream, cancellationToken).ConfigureAwait(false);
+        var currentAlerts = serializerResult.Success ? serializerResult.Result : Array.Empty<AlertModel>();
         var updatedAlerts = currentAlerts.Append(AlertModel.FromCreateModel(request.Model)).ToArray();
-        await using var writeStream = await alertsBlob.OpenWriteAsync(true, cancellationToken: cancellationToken).ConfigureAwait(false);
-        await JsonSerializer.SerializeAsync(writeStream, updatedAlerts, cancellationToken: cancellationToken).ConfigureAwait(false);
+        using var content = new MemoryStream();
+        await JsonSerializer.SerializeAsync(content, updatedAlerts, cancellationToken: cancellationToken).ConfigureAwait(false);
+        content.Seek(0, SeekOrigin.Begin);
+        await alertsBlob.UploadAsync(content, cancellationToken: cancellationToken);
     }
 }

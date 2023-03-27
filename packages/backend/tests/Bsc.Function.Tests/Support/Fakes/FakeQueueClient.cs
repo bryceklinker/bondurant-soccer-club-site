@@ -20,7 +20,14 @@ public class FakeQueueClient : QueueClient
     private readonly ConcurrentBag<FakeSentMessage> _sentMessages = new();
 
     public FakeSentMessage[] SentMessages => _sentMessages.ToArray();
+    public bool WasCreated { get; private set; }
     
+    public override Task<Response> CreateIfNotExistsAsync(IDictionary<string, string> metadata = null, CancellationToken cancellationToken = new CancellationToken())
+    {
+        WasCreated = true;
+        return Task.FromResult<Response>(new FakeResponse());
+    }
+
     public override Task<Response<SendReceipt>> SendMessageAsync(string messageText, TimeSpan? visibilityTimeout = null, TimeSpan? timeToLive = null,
         CancellationToken cancellationToken = new CancellationToken())
     {
