@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using Azure.Storage.Queues;
 using Bsc.Function.Alerts.Config;
 using Bsc.Function.Alerts.Models;
+using Bsc.Function.Common;
 using MediatR;
 
 namespace Bsc.Function.Alerts.Commands;
@@ -24,7 +25,7 @@ public class EnqueueCreateAlertCommandHandler : IRequestHandler<EnqueueCreateAle
     public async Task Handle(EnqueueCreateAlertCommand request, CancellationToken cancellationToken)
     {
         var queue = _client.GetQueueClient(_config.QueueName);
-        var json = JsonSerializer.Serialize(request.Model);
+        var json = await BscSerializer.SerializeAsync(request.Model, cancellationToken).ConfigureAwait(false);
         await queue.SendMessageAsync(json, cancellationToken).ConfigureAwait(false);
     }
 }

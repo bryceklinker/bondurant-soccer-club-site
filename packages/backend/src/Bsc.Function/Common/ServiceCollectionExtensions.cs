@@ -18,6 +18,7 @@ public static class ServiceCollectionExtensions
             b.AddBlobServiceClient(alertsConfig.ConnectionString);
             b.AddQueueServiceClient(alertsConfig.ConnectionString);
         });
+        services.AddTransient<IRepositoryFactory, RepositoryFactory>();
         return services;
     }
 }
