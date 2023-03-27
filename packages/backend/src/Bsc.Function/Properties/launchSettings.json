@@ -1,0 +1,9 @@
+{
+  "profiles": {
+    "Bsc_Function": {
+      "commandName": "Project",
+      "commandLineArgs": "--port 7026",
+      "launchBrowser": false
+    }
+  }
+}

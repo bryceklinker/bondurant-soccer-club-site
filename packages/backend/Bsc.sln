@@ -1,0 +1,41 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{C45B7D23-D3CB-4BF3-9002-BA67E1160D3F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bsc.Function", "src\Bsc.Function\Bsc.Function.csproj", "{B28DBC7F-BD9E-490A-938A-7B96FCDC9979}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{7B939A86-E78B-4EDD-9E24-90F31DEE1C04}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bsc.Function.Tests", "tests\Bsc.Function.Tests\Bsc.Function.Tests.csproj", "{5097552C-2FCD-463F-95FC-320456C2B51E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".build", ".build", "{2C1CCBE2-2166-4DD5-ADCF-2AB60D515C78}"
+	ProjectSection(SolutionItems) = preProject
+		global.json = global.json
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B28DBC7F-BD9E-490A-938A-7B96FCDC9979}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B28DBC7F-BD9E-490A-938A-7B96FCDC9979}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B28DBC7F-BD9E-490A-938A-7B96FCDC9979}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B28DBC7F-BD9E-490A-938A-7B96FCDC9979}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5097552C-2FCD-463F-95FC-320456C2B51E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5097552C-2FCD-463F-95FC-320456C2B51E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5097552C-2FCD-463F-95FC-320456C2B51E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5097552C-2FCD-463F-95FC-320456C2B51E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{B28DBC7F-BD9E-490A-938A-7B96FCDC9979} = {C45B7D23-D3CB-4BF3-9002-BA67E1160D3F}
+		{5097552C-2FCD-463F-95FC-320456C2B51E} = {7B939A86-E78B-4EDD-9E24-90F31DEE1C04}
+	EndGlobalSection
+EndGlobal
