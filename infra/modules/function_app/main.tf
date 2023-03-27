@@ -5,8 +5,8 @@ data "archive_file" "function_app_archive" {
 }
 
 resource "azurerm_storage_container" "function_app" {
-  name                 = "function-apps"
-  storage_account_name = var.storage_account_name
+  name                  = "function-apps"
+  storage_account_name  = var.storage_account_name
   container_access_type = "private"
 }
 
@@ -41,7 +41,7 @@ resource "azurerm_linux_function_app" "app" {
   https_only                    = true
   name                          = "func-${var.name}"
   tags                          = var.tags
-  functions_extension_version = "~4"
+  functions_extension_version   = "~4"
 
   identity {
     type = "SystemAssigned"
@@ -53,7 +53,7 @@ resource "azurerm_linux_function_app" "app" {
     }
 
     application_stack {
-      dotnet_version = "7.0"
+      dotnet_version              = "7.0"
       use_dotnet_isolated_runtime = true
     }
 
