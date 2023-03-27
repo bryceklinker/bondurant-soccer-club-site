@@ -3,7 +3,7 @@ set -ex
 
 export FUNCTION_APP_NAME=""
 export RESOURCE_GROUP_NAME=""
-export ZIP_FILE_PATH="infra/${TARGET_ENV}/function_app.zip"
+export ZIP_FILE_PATH="infra/modules/function_app/function_app.zip"
 
 function login() {
   az login --service-principal -u "${ARM_CLIENT_ID}" -p "${ARM_CLIENT_SECRET}" --tenant "${ARM_TENANT_ID}"
