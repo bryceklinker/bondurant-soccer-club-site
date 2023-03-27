@@ -13,6 +13,7 @@
     "serve": "yarn workspaces run serve",
     "clean": "yarn workspaces run clean",
     "test": "cross-env TZ=UTC yarn workspaces run test",
+    "pree2e": "yarn build",
     "e2e": "concurrently --success \"first\" --kill-others \"yarn serve\" \"wait-on http://localhost:3000 && yarn cypress run\"",
     "e2e:dev": "cross-env concurrently --success \"first\" --kill-others \"yarn serve\" \"wait-on http://localhost:3000 && yarn cypress open\"",
     "verify": "yarn test && yarn e2e"

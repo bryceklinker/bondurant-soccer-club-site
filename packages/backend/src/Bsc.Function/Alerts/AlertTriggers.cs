@@ -1,13 +1,12 @@
+using System.Net;
 using System.Text.Json;
 using System.Threading.Tasks;
 using Bsc.Function.Alerts.Commands;
 using Bsc.Function.Alerts.Config;
 using Bsc.Function.Alerts.Models;
 using MediatR;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Azure.WebJobs;
-using Microsoft.Azure.WebJobs.Extensions.Http;
-using Microsoft.AspNetCore.Http;
+using Microsoft.Azure.Functions.Worker;
+using Microsoft.Azure.Functions.Worker.Http;
 using Microsoft.Extensions.Logging;
 
 namespace Bsc.Function.Alerts;
@@ -21,17 +20,17 @@ public class AlertTriggers
         _mediator = mediator;
     }
 
-    [FunctionName("PostAlert")]
-    public async Task<IActionResult> RunAsync(
-        [HttpTrigger(AuthorizationLevel.Function, "post", Route = "alerts")] HttpRequest req, ILogger log)
+    [Function("PostAlert")]
+    public async Task<HttpResponseData> PostAlertAsync(
+        [HttpTrigger(AuthorizationLevel.Function, "post", Route = "alerts")] HttpRequestData req, ILogger log)
     {
         var model = await JsonSerializer.DeserializeAsync<CreateAlertModel>(req.Body).ConfigureAwait(false);
         await _mediator.Send(new EnqueueCreateAlertCommand(model));
-        return new OkResult();
+        return req.CreateResponse(HttpStatusCode.OK);
     }
     
-    [FunctionName("CreateAlert")]
-    public async Task RunAsync([QueueTrigger("alerts-queue", Connection = ConfigurationKeys.StorageAccountConnectionString)] string messageText, ILogger log)
+    [Function("CreateAlert")]
+    public async Task CreateAlertAsync([QueueTrigger("alerts-queue", Connection = ConfigurationKeys.StorageAccountConnectionString)] string messageText, ILogger log)
     {
         var model = JsonSerializer.Deserialize<CreateAlertModel>(messageText);
         await _mediator.Send(new CreateAlertCommand(model)).ConfigureAwait(false);

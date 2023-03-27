@@ -12,7 +12,7 @@ public static class ServiceCollectionExtensions
     {
         var alertsConfig = new AlertsConfiguration(config);
         services.AddSingleton<IAlertsConfiguration>(alertsConfig);
-        services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblyContaining<Startup>());
+        services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblyContaining<Program>());
         services.AddAzureClients(b =>
         {
             b.AddBlobServiceClient(alertsConfig.ConnectionString);

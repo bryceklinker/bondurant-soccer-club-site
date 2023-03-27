@@ -1,9 +1,4 @@
 /Users/bryce/Projects/bondurant-soccer-club-site/packages/backend/tests/Bsc.Function.Tests/bin/Debug/net6.0/CoverletSourceRootsMapping
-/Users/bryce/Projects/bondurant-soccer-club-site/packages/backend/tests/Bsc.Function.Tests/obj/Debug/net6.0/Bsc.Function.Tests.csproj.AssemblyReference.cache
-/Users/bryce/Projects/bondurant-soccer-club-site/packages/backend/tests/Bsc.Function.Tests/obj/Debug/net6.0/Bsc.Function.Tests.GeneratedMSBuildEditorConfig.editorconfig
-/Users/bryce/Projects/bondurant-soccer-club-site/packages/backend/tests/Bsc.Function.Tests/obj/Debug/net6.0/Bsc.Function.Tests.AssemblyInfoInputs.cache
-/Users/bryce/Projects/bondurant-soccer-club-site/packages/backend/tests/Bsc.Function.Tests/obj/Debug/net6.0/Bsc.Function.Tests.AssemblyInfo.cs
-/Users/bryce/Projects/bondurant-soccer-club-site/packages/backend/tests/Bsc.Function.Tests/obj/Debug/net6.0/Bsc.Function.Tests.csproj.CoreCompileInputs.cache
 /Users/bryce/Projects/bondurant-soccer-club-site/packages/backend/tests/Bsc.Function.Tests/bin/Debug/net6.0/host.json
 /Users/bryce/Projects/bondurant-soccer-club-site/packages/backend/tests/Bsc.Function.Tests/bin/Debug/net6.0/local.settings.json
 /Users/bryce/Projects/bondurant-soccer-club-site/packages/backend/tests/Bsc.Function.Tests/bin/Debug/net6.0/xunit.runner.visualstudio.dotnetcore.testadapter.dll
@@ -165,6 +160,11 @@
 /Users/bryce/Projects/bondurant-soccer-club-site/packages/backend/tests/Bsc.Function.Tests/bin/Debug/net6.0/runtimes/win/lib/netstandard2.0/System.Security.Cryptography.ProtectedData.dll
 /Users/bryce/Projects/bondurant-soccer-club-site/packages/backend/tests/Bsc.Function.Tests/bin/Debug/net6.0/Bsc.Function.dll
 /Users/bryce/Projects/bondurant-soccer-club-site/packages/backend/tests/Bsc.Function.Tests/bin/Debug/net6.0/Bsc.Function.pdb
+/Users/bryce/Projects/bondurant-soccer-club-site/packages/backend/tests/Bsc.Function.Tests/obj/Debug/net6.0/Bsc.Function.Tests.csproj.AssemblyReference.cache
+/Users/bryce/Projects/bondurant-soccer-club-site/packages/backend/tests/Bsc.Function.Tests/obj/Debug/net6.0/Bsc.Function.Tests.GeneratedMSBuildEditorConfig.editorconfig
+/Users/bryce/Projects/bondurant-soccer-club-site/packages/backend/tests/Bsc.Function.Tests/obj/Debug/net6.0/Bsc.Function.Tests.AssemblyInfoInputs.cache
+/Users/bryce/Projects/bondurant-soccer-club-site/packages/backend/tests/Bsc.Function.Tests/obj/Debug/net6.0/Bsc.Function.Tests.AssemblyInfo.cs
+/Users/bryce/Projects/bondurant-soccer-club-site/packages/backend/tests/Bsc.Function.Tests/obj/Debug/net6.0/Bsc.Function.Tests.csproj.CoreCompileInputs.cache
 /Users/bryce/Projects/bondurant-soccer-club-site/packages/backend/tests/Bsc.Function.Tests/obj/Debug/net6.0/Bsc.Function.Tests.csproj.CopyComplete
 /Users/bryce/Projects/bondurant-soccer-club-site/packages/backend/tests/Bsc.Function.Tests/obj/Debug/net6.0/Bsc.Function.Tests.dll
 /Users/bryce/Projects/bondurant-soccer-club-site/packages/backend/tests/Bsc.Function.Tests/obj/Debug/net6.0/refint/Bsc.Function.Tests.dll

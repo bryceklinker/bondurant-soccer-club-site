@@ -52,7 +52,7 @@ resource "azurerm_linux_function_app" "app" {
     }
 
     application_stack {
-      dotnet_version = "6.0"
+      use_dotnet_isolated_runtime = true
     }
 
     application_insights_connection_string = var.application_insights_connection_string

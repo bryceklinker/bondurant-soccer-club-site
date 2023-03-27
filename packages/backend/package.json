@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "scripts": {
     "build": "dotnet build",
-    "test": "dotnet test"
+    "test": "dotnet test",
+    "clean": "dotnet clean",
+    "serve": ""
   },
   "dependencies": {
   }
