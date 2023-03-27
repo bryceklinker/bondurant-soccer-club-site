@@ -21,7 +21,7 @@ export const LayoutNavbar: FC<LayoutNavbarProps> = () => {
                     onOpen={toggleOn}
                     onClose={toggleOff}
                 />
-                <RowFlex className={'hidden md:block'}>
+                <RowFlex className={'hidden md:flex'}>
                     <MainNavigationLinks onClick={toggleOff} />
                     <MoreNavigationLinks onClick={toggleOff} />
                 </RowFlex>

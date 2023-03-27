@@ -31,7 +31,7 @@ export const LayoutNavPanel: FC<LayoutNavPanelProps> = ({
             <Button
                 onClick={onOpen}
                 aria-label={'menu'}
-                className={'px-4 py-2 sm:visible md:hidden'}>
+                className={'px-4 py-2 md:hidden'}>
                 <Bars3Icon className={'h-6 w-6 text-white'} />
             </Button>
             <Transition.Root show={isOpen} as={Fragment}>
