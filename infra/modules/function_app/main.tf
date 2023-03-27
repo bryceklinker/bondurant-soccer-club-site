@@ -10,18 +10,15 @@ resource "azurerm_storage_container" "function_app" {
   container_access_type = "private"
 }
 
+resource "azurerm_storage_share" "func" {
+  name = "function-apps"
+  storage_account_name = var.storage_account_name
+  quota = 5120
+}
+
 resource "azurerm_storage_queue" "alerts_queue" {
   name                 = "alerts-queue"
   storage_account_name = var.storage_account_name
-}
-
-resource "azurerm_storage_blob" "function_app" {
-  name                   = "func-${var.name}-${substr(data.archive_file.function_app_archive.output_md5, 0, 10)}.zip"
-  storage_account_name   = var.storage_account_name
-  storage_container_name = azurerm_storage_container.function_app.name
-  type                   = "Block"
-  content_md5            = data.archive_file.function_app_archive.output_md5
-  source                 = data.archive_file.function_app_archive.output_path
 }
 
 resource "azurerm_service_plan" "plan" {
@@ -53,7 +50,7 @@ resource "azurerm_windows_function_app" "app" {
     }
 
     application_stack {
-      dotnet_version              = "7.0"
+      dotnet_version              = "v7.0"
       use_dotnet_isolated_runtime = true
     }
 

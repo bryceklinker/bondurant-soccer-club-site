@@ -144,11 +144,11 @@ jobs:
         name: Apply Terraform
         working-directory: ${{ github.workspace }}/infra/dev
 
+      - run: ${{ github.workspace }}/scripts/deploy-backend.sh
+        name: Deploy Backend
+
       - run: ${{ github.workspace }}/scripts/purge-cdn.sh
         name: Purge CDN Content
-
-      - run: ${{ github.workspace }}/scripts/sync-function-triggers.sh
-        name: Sync Function Triggers
 
       - name: Run Lighthouse Audit
         uses: treosh/lighthouse-ci-action@v9
@@ -223,11 +223,11 @@ jobs:
         name: Apply Terraform
         working-directory: ${{ github.workspace }}/infra/prod
 
+      - run: ${{ github.workspace }}/scripts/deploy-backend.sh
+        name: Deploy Backend
+
       - run: ${{ github.workspace }}/scripts/purge-cdn.sh
         name: Purge CDN Content
-
-      - run: ${{ github.workspace }}/scripts/sync-function-triggers.sh
-        name: Sync Function Triggers
 
       - name: Run Lighthouse Audit
         uses: treosh/lighthouse-ci-action@v9
