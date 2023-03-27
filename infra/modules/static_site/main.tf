@@ -170,3 +170,19 @@ resource "azurerm_storage_blob" "settings_json" {
 
   depends_on = [module.function_app]
 }
+
+resource "azurerm_storage_blob" "alerts_json" {
+  storage_account_name   = azurerm_storage_account.site_storage.name
+  storage_container_name = local.web_container_name
+
+  type = "Block"
+  name = "db/alerts.json"
+  content_type = "text/json"
+  source_content = jsonencode([])
+
+  lifecycle {
+    ignore_changes = [content_md5]
+  }
+
+  depends_on = [module.function_app]
+}
