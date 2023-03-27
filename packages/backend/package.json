@@ -5,7 +5,7 @@
     "build": "dotnet build",
     "test": "dotnet test",
     "clean": "dotnet clean",
-    "serve": "cd src/Bsc.Function && func start"
+    "serve": "echo 'skipping serve...'"
   },
   "dependencies": {
   }
