@@ -37,12 +37,16 @@ describe('EditAlertModal', () => {
     });
 
     test('when submitted then posts alert to api', async () => {
-        render(<EditAlertModal open={true} alert={alert} />);
+        const user = ModelFactory.user();
+        render(<EditAlertModal open={true} alert={alert} />, { user });
 
         await userEvent.type(textTextBox(), 'three');
         await userEvent.click(saveButton());
 
         expect(saveRequest).not.toEqual(null);
+        expect(saveRequest?.headers.get('Authorization')).toEqual(
+            expect.stringContaining('Bearer ')
+        );
         expect(await saveRequest?.json()).toEqual({
             ...alert,
             text: alert.text + 'three'

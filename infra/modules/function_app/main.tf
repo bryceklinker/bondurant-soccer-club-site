@@ -57,6 +57,14 @@ resource "azurerm_windows_function_app" "app" {
     application_insights_connection_string = var.application_insights_connection_string
   }
 
+  auth_settings {
+    enabled = true
+
+    google {
+      client_id = var.google_client_id
+    }
+  }
+
   app_settings = {
     STORAGE_ACCOUNT_CONNECTION_STRING = var.storage_account_connection_string
     ALERTS_QUEUE_NAME                 = azurerm_storage_queue.alerts_queue.name

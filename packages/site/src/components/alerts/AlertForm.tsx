@@ -33,6 +33,7 @@ export const AlertForm: FC<AlertFormProps> = ({ control, state, onSubmit }) => {
                 label={'Severity'}
                 aria-label={'severity'}
                 name={'severity'}
+                disabled={true}
                 control={control}
                 state={state}
             />

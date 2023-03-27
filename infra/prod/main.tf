@@ -6,6 +6,10 @@ variable "dns_resource_group_name" {
   type = string
 }
 
+variable "google_client_id" {
+  type = string
+}
+
 locals {
   app_name = "bsc-site"
   env_name = "prod"
@@ -26,6 +30,7 @@ module "site" {
 
   dns_resource_group_name = var.dns_resource_group_name
   dns_zone_name = var.dns_zone_name
+  google_client_id = var.google_client_id
   location = azurerm_resource_group.resource_group.location
   resource_group_name = azurerm_resource_group.resource_group.name
   site_directory = local.site_directory

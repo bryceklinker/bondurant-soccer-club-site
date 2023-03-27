@@ -25,7 +25,6 @@ export const LayoutNavbar: FC<LayoutNavbarProps> = () => {
                     <MainNavigationLinks onClick={toggleOff} />
                     <MoreNavigationLinks onClick={toggleOff} />
                 </RowFlex>
-                <Spacer />
                 <AuthLoginButton />
             </nav>
         </>

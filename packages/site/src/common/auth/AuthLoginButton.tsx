@@ -20,13 +20,15 @@ export const AuthLoginButton: FC = () => {
             size={'medium'}
             width={'40px'}
             type={'icon'}
+            containerProps={{
+                className: 'flex',
+                style: {
+                    width: '48px'
+                }
+            }}
         />
     );
-    return (
-        <RowFlex style={{ width: '64px' }} className={'flex-none'}>
-            {button}
-        </RowFlex>
-    );
+    return <RowFlex className={'flex-none w-12 h-8'}>{button}</RowFlex>;
 };
 
 const LogoutButton: FC<{ user: AuthUser }> = ({ user }) => {

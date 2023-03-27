@@ -1,4 +1,4 @@
-namespace Bsc.Function.Alerts.Config;
+namespace Bsc.Function.Common;
 
 public static class ConfigurationKeys
 {
@@ -6,4 +6,5 @@ public static class ConfigurationKeys
     public const string SiteContainerName = "SITE_CONTAINER_NAME";
     public const string AlertsQueueName = "ALERTS_QUEUE_NAME";
     public const string DbBlobPrefix = "DB_BLOB_PREFIX";
+    public const string TokenAudience = "TOKEN_AUDIENCE";
 }

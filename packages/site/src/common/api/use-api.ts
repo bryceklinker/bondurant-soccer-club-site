@@ -1,13 +1,27 @@
 import { SettingsModel } from '../settings/settings-model';
 import { useSettings } from '../settings/use-settings';
 import { useMemo } from 'react';
+import { useAccessToken, useAuthUser } from '../auth/auth-hooks';
 
 export type Api = {
     post: <T>(path: string, body: T) => Promise<Response>;
     put: <T>(path: string, body: T) => Promise<Response>;
 };
 
-function createApi(settings?: SettingsModel): Api | null {
+function getHeaders(accessToken?: string | null): HeadersInit {
+    if (!accessToken) {
+        return {};
+    }
+
+    return {
+        Authorization: `Bearer ${accessToken}`
+    };
+}
+
+function createApi(
+    settings?: SettingsModel,
+    accessToken?: string | null
+): Api | null {
     if (!settings) {
         return null;
     }
@@ -16,13 +30,15 @@ function createApi(settings?: SettingsModel): Api | null {
         post: async <T = unknown>(path: string, body: T) => {
             return await fetch(`${settings.apiUrl}${path}`, {
                 method: 'POST',
-                body: JSON.stringify(body)
+                body: JSON.stringify(body),
+                headers: getHeaders(accessToken)
             });
         },
         put: async <T = unknown>(path: string, body: T) => {
             return await fetch(`${settings.apiUrl}${path}`, {
                 method: 'PUT',
-                body: JSON.stringify(body)
+                body: JSON.stringify(body),
+                headers: getHeaders(accessToken)
             });
         }
     };
@@ -30,5 +46,6 @@ function createApi(settings?: SettingsModel): Api | null {
 
 export function useApi(): ReturnType<typeof createApi> {
     const { settings } = useSettings();
-    return useMemo(() => createApi(settings), [settings]);
+    const accessToken = useAccessToken();
+    return useMemo(() => createApi(settings, accessToken), [settings]);
 }

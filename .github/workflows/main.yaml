@@ -36,8 +36,8 @@ jobs:
       - run: yarn test
         name: Run Unit Tests
 
-#      - run: yarn e2e
-#        name: Run E2E Tests
+      - run: yarn e2e
+        name: Run E2E Tests
 
       - name: Bump version and push tag
         id: tag_version
@@ -132,6 +132,10 @@ jobs:
         name: Set DNS Variables
         working-directory: ${{ github.workspace }}/infra/dns
 
+      - run: |
+          echo "TF_VAR_google_client_id=${GOOGLE_AUTH_CLIENT_ID}" >> $GITHUB_ENV
+        name: Setup Terraform Variables
+
       - run: terraform init
         name: Initialize Terraform
         working-directory: ${{ github.workspace }}/infra/dev
@@ -210,6 +214,10 @@ jobs:
           echo "TF_VAR_dns_resource_group_name=${dns_resource_group_name}" >> $GITHUB_ENV
         name: Set DNS Variables
         working-directory: ${{ github.workspace }}/infra/dns
+
+      - run: |
+          echo "TF_VAR_google_client_id=${GOOGLE_AUTH_CLIENT_ID}" >> $GITHUB_ENV
+        name: Setup Terraform Variables
 
       - run: terraform init
         name: Initialize Terraform

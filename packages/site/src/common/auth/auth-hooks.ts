@@ -34,6 +34,11 @@ export function useAuthUser(): AuthUser | null {
     );
 }
 
+export function useAccessToken(): string | null {
+    const { state } = useAuthContext();
+    return useMemo(() => state.credentials?.credential ?? null, [state]);
+}
+
 export function useIsLoggedIn() {
     const user = useAuthUser();
     return user !== null;

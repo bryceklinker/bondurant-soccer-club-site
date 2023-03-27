@@ -1,4 +1,11 @@
-import { FakeServer, render, screen, userEvent, waitFor } from '../../testing';
+import {
+    FakeServer,
+    ModelFactory,
+    render,
+    screen,
+    userEvent,
+    waitFor
+} from '../../testing';
 import { CreateAlertModal } from './CreateAlertModal';
 import { RestRequest } from 'msw';
 import { AlertSeverity } from './state/models';
@@ -41,12 +48,16 @@ describe('CreateAlertModal', () => {
     });
 
     test('when submitted then sends alert to api', async () => {
-        render(<CreateAlertModal open={true} />);
+        const user = ModelFactory.user();
+        render(<CreateAlertModal open={true} />, { user });
 
         await userEvent.type(textTextBox(), 'fields are closed');
         await userEvent.click(saveButton());
 
         await waitFor(() => expect(saveRequest).not.toEqual(null));
+        expect(saveRequest?.headers.get('Authorization')).toEqual(
+            expect.stringContaining('Bearer ')
+        );
         expect(await saveRequest?.json()).toEqual({
             text: 'fields are closed',
             severity: 'High'

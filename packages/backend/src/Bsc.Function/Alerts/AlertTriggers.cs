@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using Bsc.Function.Alerts.Commands;
 using Bsc.Function.Alerts.Config;
 using Bsc.Function.Alerts.Models;
+using Bsc.Function.Common;
 using MediatR;
 using Microsoft.Azure.Functions.Worker;
 using Microsoft.Azure.Functions.Worker.Http;
@@ -22,7 +23,7 @@ public class AlertTriggers
 
     [Function("PostAlert")]
     public async Task<HttpResponseData> PostAlertAsync(
-        [HttpTrigger(AuthorizationLevel.Function, "post", Route = "alerts")] HttpRequestData req, ILogger log)
+        [HttpTrigger(AuthorizationLevel.Anonymous, "post", Route = "alerts")] HttpRequestData req, ILogger log)
     {
         var model = await JsonSerializer.DeserializeAsync<CreateAlertModel>(req.Body).ConfigureAwait(false);
         await _mediator.Send(new EnqueueCreateAlertCommand(model));

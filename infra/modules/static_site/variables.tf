@@ -26,6 +26,10 @@ variable "function_app_directory" {
   type = string
 }
 
+variable "google_client_id" {
+  type = string
+}
+
 variable "subdomain" {
   type = string
   default = "www"

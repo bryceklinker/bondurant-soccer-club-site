@@ -1,4 +1,4 @@
-import { FC, useCallback, useMemo, useState } from 'react';
+import { FC, useCallback, useState } from 'react';
 import { Modal, ModalProps } from '../../common/components/modals/Modal';
 import { ModalBody } from '../../common/components/modals/ModalBody';
 import { ModalActions } from '../../common/components/modals/ModalActions';
@@ -6,7 +6,7 @@ import { AlertModel, AlertSeverity } from './state/models';
 import { useForm } from 'react-hook-form';
 import { AlertForm, AlertFormModel } from './AlertForm';
 import { useCreateAlert } from './hooks/use-alerts';
-import { Button, StyledButton } from '../../common/components/Button';
+import { StyledButton } from '../../common/components/Button';
 import { ModalTitle } from '../../common/components/modals/ModalTitle';
 
 export type CreateAlertModalProps = Omit<ModalProps, 'children'>;
