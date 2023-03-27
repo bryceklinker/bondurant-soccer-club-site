@@ -25,6 +25,11 @@ jobs:
           node-version: '18'
           cache: yarn
 
+      - uses: actions/setup-dotnet@v3
+        name: Setup Dotnet
+        with:
+          global-json-file: ${{ github.workspace }}/packages/backend/global.json
+
       - run: yarn install
         name: Install Dependencies
 
@@ -97,6 +102,11 @@ jobs:
         with:
           node-version: '18'
           cache: yarn
+
+      - uses: actions/setup-dotnet@v3
+        name: Setup Dotnet
+        with:
+          global-json-file: ${{ github.workspace }}/packages/backend/global.json
 
       - run: yarn install
         name: Install Dependencies
@@ -176,6 +186,11 @@ jobs:
         with:
           node-version: '18'
           cache: yarn
+
+      - uses: actions/setup-dotnet@v3
+        name: Setup Dotnet
+        with:
+          global-json-file: ${{ github.workspace }}/packages/backend/global.json
 
       - run: yarn install
         name: Install Dependencies

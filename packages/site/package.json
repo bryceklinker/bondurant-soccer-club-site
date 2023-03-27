@@ -8,6 +8,7 @@
     "prepare": "husky install",
     "prebuild": "yarn clean",
     "build": "gatsby build",
+    "postbuild": "cp -R ./public ../../dist/site",
     "start": "gatsby develop",
     "serve": "serve ./public",
     "clean": "gatsby clean",

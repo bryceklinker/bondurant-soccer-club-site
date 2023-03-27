@@ -12,8 +12,8 @@ locals {
   name = "${local.env_name}-${local.app_name}"
   location = "Central US"
   resource_group_name = "rg-${local.name}"
-  site_directory = "${path.cwd}/../../packages/site/public"
-  backend_directory = "${path.cwd}/../../packages/backend"
+  site_directory = "${path.cwd}/../../dist/site"
+  backend_directory = "${path.cwd}/../../dist/backend"
 }
 
 resource "azurerm_resource_group" "resource_group" {
