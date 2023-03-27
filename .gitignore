@@ -11,3 +11,4 @@ cypress/downloads/
 public/
 .terraform/
 *.html
+**/*.zip
