@@ -77,7 +77,7 @@ resource "azurerm_role_assignment" "blob_contributor" {
 
 resource "azurerm_role_assignment" "blob_reader" {
   principal_id         = azurerm_linux_function_app.app.identity.0.principal_id
-  role_definition_name = "Storage Blob Data Reader"
+  role_definition_name = "Storage Blob Data Owner"
   scope                = var.storage_account_id
 }
 
