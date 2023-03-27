@@ -7,6 +7,7 @@ data "archive_file" "function_app_archive" {
 resource "azurerm_storage_container" "function_app" {
   name                 = "function-apps"
   storage_account_name = var.storage_account_name
+  container_access_type = "private"
 }
 
 resource "azurerm_storage_queue" "alerts_queue" {
@@ -15,7 +16,7 @@ resource "azurerm_storage_queue" "alerts_queue" {
 }
 
 resource "azurerm_storage_blob" "function_app" {
-  name                   = "func-${var.name}-app-${substr(data.archive_file.function_app_archive.output_md5, 0, 10)}.zip"
+  name                   = "func-${var.name}-${substr(data.archive_file.function_app_archive.output_md5, 0, 10)}.zip"
   storage_account_name   = var.storage_account_name
   storage_container_name = azurerm_storage_container.function_app.name
   type                   = "Block"
