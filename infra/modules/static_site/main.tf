@@ -165,7 +165,7 @@ resource "azurerm_storage_blob" "settings_json" {
   name = "settings.json"
   content_type = "text/json"
   source_content = jsonencode({
-    "apiUrl": module.function_app.function_app_url
+    "apiUrl": "${module.function_app.function_app_url}/api"
   })
 
   depends_on = [module.function_app]

@@ -5,6 +5,7 @@ import { LayoutNavPanel } from './LayoutNavPanel';
 import { useBooleanToggle } from '../../hooks/use-boolean-toggle';
 import { RowFlex } from '../RowFlex';
 import { AuthLoginButton } from '../../auth/AuthLoginButton';
+import { Spacer } from '../../components/Spacer';
 
 export type LayoutNavbarProps = {};
 export const LayoutNavbar: FC<LayoutNavbarProps> = () => {
@@ -24,6 +25,7 @@ export const LayoutNavbar: FC<LayoutNavbarProps> = () => {
                     <MainNavigationLinks onClick={toggleOff} />
                     <MoreNavigationLinks onClick={toggleOff} />
                 </RowFlex>
+                <Spacer />
                 <AuthLoginButton />
             </nav>
         </>
