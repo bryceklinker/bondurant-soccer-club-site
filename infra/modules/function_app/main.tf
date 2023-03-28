@@ -58,14 +58,19 @@ resource "azurerm_windows_function_app" "app" {
   }
 
   auth_settings_v2 {
-    enabled                       = true
+    auth_enabled = true
     require_https                 = true
-    unauthenticated_client_action = "Return401"
+    unauthenticated_action = "Return401"
+
+    login {
+
+    }
 
     google_v2 {
       client_id                  = var.google_client_id
       client_secret_setting_name = "GOOGLE_AUTH_CLIENT_SECRET"
     }
+
   }
 
   app_settings = {

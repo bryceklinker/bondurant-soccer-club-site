@@ -17,6 +17,10 @@ public class BscFixture
 
     public IMediator Mediator => GetService<IMediator>();
 
+    public FakeBlockBlobClient AlertsBlobClient => GetService<FakeBlobServiceClient>()
+        .GetFakeBlobContainerClient("$web")
+        .GetFakeBlockBlobClient("db/alerts.json");
+    
     public BscFixture()
     {
         Configuration = new ConfigurationBuilder()

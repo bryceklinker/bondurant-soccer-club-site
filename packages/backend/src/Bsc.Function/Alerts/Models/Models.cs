@@ -20,7 +20,8 @@ public record AlertModel(
 {
     public static AlertModel FromCreateModel(CreateAlertModel model)
     {
-        return new AlertModel(Guid.NewGuid(), model.Text, model.Severity, model.StartDate, model.ExpirationDate);
+        var startDate = model.StartDate ?? DateTimeOffset.UtcNow;
+        return new AlertModel(Guid.NewGuid(), model.Text, model.Severity, startDate, model.ExpirationDate);
     }
 }
 

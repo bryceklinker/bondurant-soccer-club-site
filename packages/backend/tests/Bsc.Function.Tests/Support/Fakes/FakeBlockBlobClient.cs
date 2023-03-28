@@ -1,3 +1,4 @@
+using System.Text;
 using Azure;
 using Azure.Storage.Blobs.Models;
 using Azure.Storage.Blobs.Specialized;
@@ -29,5 +30,30 @@ public class FakeBlockBlobClient : BlockBlobClient
         _content = stream.ToArray();
         var response = Response.FromValue(JsonConvert.DeserializeObject<BlobContentInfo>("{}"), new FakeResponse());
         return response;
+    }
+
+    public string ContentAsString()
+    {
+        return Encoding.UTF8.GetString(Content);
+    }
+
+    public T? ContentAsJson<T>()
+    {
+        return JsonConvert.DeserializeObject<T>(ContentAsString());
+    }
+    
+    public void SetupJsonContent<T>(T value)
+    {
+        SetupContent(JsonConvert.SerializeObject(value));
+    }
+    
+    public void SetupContent(string value)
+    {
+        SetupContent(Encoding.UTF8.GetBytes(value));
+    }
+    
+    public void SetupContent(byte[] bytes)
+    {
+        _content = bytes;
     }
 }

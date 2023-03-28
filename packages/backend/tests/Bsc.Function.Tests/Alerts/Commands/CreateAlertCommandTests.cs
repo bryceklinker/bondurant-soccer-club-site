@@ -15,19 +15,39 @@ public class CreateAlertCommandTests
     {
         var fixture = new BscFixture();
 
-        _blobClient = fixture.GetService<FakeBlobServiceClient>()
-            .GetFakeBlobContainerClient("$web")
-            .GetFakeBlockBlobClient("db/alerts.json");
-        
+        _blobClient = fixture.AlertsBlobClient;
         _mediator = fixture.Mediator;
     }
 
     [Fact]
     public async Task WhenExecutedThenCreatesAlertsJsonBlob()
     {
+        var model = new CreateAlertModel("hello", Severity.High);
+        await _mediator.Send(new CreateAlertCommand(model));
+
+        var content = _blobClient.ContentAsJson<AlertModel[]>();
+        content.Should().HaveCount(1);
+        content![0].Id.Should().NotBeEmpty();
+        content[0].Severity.Should().Be(Severity.High);
+        content[0].Text.Should().Be("hello");
+        content[0].StartDate.Should().BeCloseTo(DateTimeOffset.UtcNow, TimeSpan.FromSeconds(1));
+        content[0].ExpirationDate.Should().BeNull();
+    }
+
+    [Fact]
+    public async Task WhenAlertsExistThenNewAlertIsAddedToAlerts()
+    {
+        _blobClient.SetupJsonContent(new []
+        {
+            new AlertModel(Guid.NewGuid(), "idk", Severity.High),
+            new AlertModel(Guid.NewGuid(), "idk", Severity.High),
+            new AlertModel(Guid.NewGuid(), "idk", Severity.High),
+        });
+        
         var model = new CreateAlertModel("", Severity.High);
         await _mediator.Send(new CreateAlertCommand(model));
 
-        _blobClient.Content.Should().NotBeEmpty();
+        var alerts = _blobClient.ContentAsJson<AlertModel[]>();
+        alerts.Should().HaveCount(4);
     }
 }
