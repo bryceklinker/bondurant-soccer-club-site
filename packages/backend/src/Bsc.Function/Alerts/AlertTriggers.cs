@@ -26,11 +26,11 @@ public class AlertTriggers
     public async Task<HttpResponseData> PostAlertAsync(
         [HttpTrigger(AuthorizationLevel.Anonymous, "post", Route = "alerts")] HttpRequestData req)
     {
-        var command = await BscSerializer.DeserializeAsync<CreateAlertCommand>(req.Body).ConfigureAwait(false);
-        if (!command.Success || command.Result == null)
+        var serializerResult = await BscSerializer.DeserializeAsync<CreateAlertCommand>(req.Body).ConfigureAwait(false);
+        if (!serializerResult.Success || serializerResult.Result == null)
             throw new InvalidOperationException("No data found in request body");
         
-        await _mediator.Send(command);
+        await _mediator.Send(serializerResult.Result);
         return req.CreateResponse(HttpStatusCode.OK);
     }
     
@@ -38,11 +38,11 @@ public class AlertTriggers
     public async Task<HttpResponseData> PutAlertAsync(
         [HttpTrigger(AuthorizationLevel.Anonymous, "put", Route = "alerts/{id:guid}")] HttpRequestData req, Guid id)
     {
-        var command = await BscSerializer.DeserializeAsync<UpdateAlertCommand>(req.Body).ConfigureAwait(false);
-        if (!command.Success || command.Result == null)
+        var serializerResult = await BscSerializer.DeserializeAsync<UpdateAlertCommand>(req.Body).ConfigureAwait(false);
+        if (!serializerResult.Success || serializerResult.Result == null)
             throw new InvalidOperationException("No data found in request body");
 
-        await _mediator.Send(command.Result with { Id = id });
+        await _mediator.Send(serializerResult.Result with { Id = id });
         return req.CreateResponse(HttpStatusCode.OK);
     }
 }
