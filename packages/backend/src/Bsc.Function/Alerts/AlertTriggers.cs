@@ -3,6 +3,7 @@ using System.Net;
 using System.Text.Json;
 using System.Threading.Tasks;
 using Bsc.Function.Alerts.Models;
+using Bsc.Function.Common;
 using MediatR;
 using Microsoft.Azure.Functions.Worker;
 using Microsoft.Azure.Functions.Worker.Http;
@@ -25,15 +26,10 @@ public class AlertTriggers
     public async Task<HttpResponseData> PostAlertAsync(
         [HttpTrigger(AuthorizationLevel.Anonymous, "post", Route = "alerts")] HttpRequestData req)
     {
-        
-        foreach (var identity in req.Identities)
-        {
-            _logger.LogInformation("Identity {Identity}", identity);
-        }
-        var command = await JsonSerializer.DeserializeAsync<CreateAlertCommand>(req.Body).ConfigureAwait(false);
-        if (command == null)
+        var command = await BscSerializer.DeserializeAsync<CreateAlertCommand>(req.Body).ConfigureAwait(false);
+        if (!command.Success || command.Result == null)
             throw new InvalidOperationException("No data found in request body");
-
+        
         await _mediator.Send(command);
         return req.CreateResponse(HttpStatusCode.OK);
     }
@@ -42,15 +38,11 @@ public class AlertTriggers
     public async Task<HttpResponseData> PutAlertAsync(
         [HttpTrigger(AuthorizationLevel.Anonymous, "put", Route = "alerts/{id:guid}")] HttpRequestData req, Guid id)
     {
-        foreach (var identity in req.Identities)
-        {
-            _logger.LogInformation("Identity {Identity}", identity);
-        }
-        var command = await JsonSerializer.DeserializeAsync<UpdateAlertCommand>(req.Body).ConfigureAwait(false);
-        if (command == null)
+        var command = await BscSerializer.DeserializeAsync<UpdateAlertCommand>(req.Body).ConfigureAwait(false);
+        if (!command.Success || command.Result == null)
             throw new InvalidOperationException("No data found in request body");
 
-        await _mediator.Send(command with { Id = id });
+        await _mediator.Send(command.Result with { Id = id });
         return req.CreateResponse(HttpStatusCode.OK);
     }
 }
