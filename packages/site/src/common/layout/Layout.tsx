@@ -10,14 +10,18 @@ import { QueryClient, QueryClientProvider } from 'react-query';
 export type LayoutProps = PropsWithChildren & {};
 
 export const Layout: FC<LayoutProps> = ({ children }) => {
-    const client = useMemo(() => new QueryClient({
-        defaultOptions: {
-            queries: {
-                refetchInterval: false,
-                refetchIntervalInBackground: false
-            }
-        }
-    }), []);
+    const client = useMemo(
+        () =>
+            new QueryClient({
+                defaultOptions: {
+                    queries: {
+                        refetchInterval: false,
+                        refetchIntervalInBackground: false
+                    }
+                }
+            }),
+        []
+    );
     return (
         <QueryClientProvider client={client}>
             <AuthProvider>

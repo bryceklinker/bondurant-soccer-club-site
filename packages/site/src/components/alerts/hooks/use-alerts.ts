@@ -1,5 +1,5 @@
 import { AlertModel } from '../state/models';
-import {useMutation, useQuery, useQueryClient} from 'react-query';
+import { useMutation, useQuery, useQueryClient } from 'react-query';
 import { useApi } from '../../../common/api/use-api';
 
 export function useAlerts() {
@@ -28,9 +28,8 @@ export function useUpdateAlert() {
         if (!api) {
             return;
         }
-        const response =await api.put(`/alerts/${alert.id}`, alert);
-        if (response.ok)
-            await client.invalidateQueries('alerts');
+        const response = await api.put(`/alerts/${alert.id}`, alert);
+        if (response.ok) await client.invalidateQueries('alerts');
         return response;
     });
 }
@@ -46,8 +45,7 @@ export function useCreateAlert() {
             }
 
             const response = await api.post('/alerts', alert);
-            if (response.ok)
-                await client.invalidateQueries('alerts');
+            if (response.ok) await client.invalidateQueries('alerts');
             return response;
         }
     );
