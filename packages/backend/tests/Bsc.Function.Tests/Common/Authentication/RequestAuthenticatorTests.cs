@@ -28,10 +28,9 @@ public class RequestAuthenticatorTests
     [Fact]
     public async Task WhenRequestIsMissingAuthorizationHeaderThenUnauthenticated()
     {
-        var request = new FakeHttpRequestData(headers: new HttpHeadersCollection
-        {
-            { "other", "here" }
-        });
+        var request = new FakeHttpRequestData(
+            headers: new HttpHeadersCollection { { "other", "here" } }
+        );
 
         var result = await _authenticator.IsAuthenticatedAsync(request);
         result.Should().BeFalse();
@@ -40,10 +39,9 @@ public class RequestAuthenticatorTests
     [Fact]
     public async Task WhenAuthorizationHeaderIsNotABearerTokenThenUnauthenticated()
     {
-        var request = new FakeHttpRequestData(headers: new HttpHeadersCollection
-        {
-            { "Authorization", "NOT_GOOD_ENOUGH" }
-        });
+        var request = new FakeHttpRequestData(
+            headers: new HttpHeadersCollection { { "Authorization", "NOT_GOOD_ENOUGH" } }
+        );
 
         var result = await _authenticator.IsAuthenticatedAsync(request);
         result.Should().BeFalse();
@@ -52,10 +50,9 @@ public class RequestAuthenticatorTests
     [Fact]
     public async Task WhenAuthorizationIsMissingTheTokenThenUnauthenticated()
     {
-        var request = new FakeHttpRequestData(headers: new HttpHeadersCollection
-        {
-            { "Authorization", "Bearer " }
-        });
+        var request = new FakeHttpRequestData(
+            headers: new HttpHeadersCollection { { "Authorization", "Bearer " } }
+        );
 
         var result = await _authenticator.IsAuthenticatedAsync(request);
         result.Should().BeFalse();
@@ -64,10 +61,9 @@ public class RequestAuthenticatorTests
     [Fact]
     public async Task WhenAuthorizationHasAnInvalidTokenThenUnauthenticated()
     {
-        var request = new FakeHttpRequestData(headers: new HttpHeadersCollection
-        {
-            { "Authorization", "Bearer not.a.real.token" }
-        });
+        var request = new FakeHttpRequestData(
+            headers: new HttpHeadersCollection { { "Authorization", "Bearer not.a.real.token" } }
+        );
 
         var result = await _authenticator.IsAuthenticatedAsync(request);
         result.Should().BeFalse();
@@ -76,10 +72,9 @@ public class RequestAuthenticatorTests
     [Fact]
     public async Task WhenAuthorizationHasValidTokenThenAuthenticated()
     {
-        var request = new FakeHttpRequestData(headers: new HttpHeadersCollection
-        {
-            { "Authorization", $"Bearer {_validToken}" }
-        });
+        var request = new FakeHttpRequestData(
+            headers: new HttpHeadersCollection { { "Authorization", $"Bearer {_validToken}" } }
+        );
 
         var result = await _authenticator.IsAuthenticatedAsync(request);
         result.Should().BeTrue();

@@ -22,12 +22,24 @@ public record AlertModel(
     public static AlertModel FromCreateCommand(CreateAlertCommand command)
     {
         var startDate = command.StartDate ?? DateTimeOffset.UtcNow;
-        return new AlertModel(Guid.NewGuid(), command.Text, command.Severity, startDate, command.ExpirationDate);
+        return new AlertModel(
+            Guid.NewGuid(),
+            command.Text,
+            command.Severity,
+            startDate,
+            command.ExpirationDate
+        );
     }
 
     public static AlertModel FromUpdateCommand(UpdateAlertCommand command)
     {
-        return new AlertModel(command.Id, command.Text, command.Severity, command.StartDate, command.ExpirationDate);
+        return new AlertModel(
+            command.Id,
+            command.Text,
+            command.Severity,
+            command.StartDate,
+            command.ExpirationDate
+        );
     }
 };
 
@@ -37,7 +49,7 @@ public record UpdateAlertCommand(
     Severity Severity,
     DateTimeOffset? StartDate = null,
     DateTimeOffset? ExpirationDate = null
-): IRequest;
+) : IRequest;
 
 public record CreateAlertCommand(
     string Text,

@@ -13,15 +13,21 @@ public static class FakeServicesCollectionExtensions
     {
         services.RemoveAll(typeof(QueueServiceClient));
         services.AddSingleton<FakeQueueServiceClient>();
-        services.AddSingleton<QueueServiceClient>(p => p.GetRequiredService<FakeQueueServiceClient>());
+        services.AddSingleton<QueueServiceClient>(
+            p => p.GetRequiredService<FakeQueueServiceClient>()
+        );
 
         services.RemoveAll(typeof(BlobServiceClient));
         services.AddSingleton<FakeBlobServiceClient>();
-        services.AddSingleton<BlobServiceClient>(p => p.GetRequiredService<FakeBlobServiceClient>());
+        services.AddSingleton<BlobServiceClient>(
+            p => p.GetRequiredService<FakeBlobServiceClient>()
+        );
 
         services.RemoveAll(typeof(ConfigurationManager<OpenIdConnectConfiguration>));
         services.AddSingleton<FakeConfigurationManager>();
-        services.AddSingleton<ConfigurationManager<OpenIdConnectConfiguration>>(p => p.GetRequiredService<FakeConfigurationManager>());
+        services.AddSingleton<ConfigurationManager<OpenIdConnectConfiguration>>(
+            p => p.GetRequiredService<FakeConfigurationManager>()
+        );
         return services;
     }
 }

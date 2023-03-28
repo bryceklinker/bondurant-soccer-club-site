@@ -18,7 +18,9 @@ public class UpdateAlertCommandHandler : IRequestHandler<UpdateAlertCommand>
 
     public async Task Handle(UpdateAlertCommand request, CancellationToken cancellationToken)
     {
-        var repository = await _repositoryFactory.CreateAlertsRepositoryAsync(cancellationToken).ConfigureAwait(false);
+        var repository = await _repositoryFactory
+            .CreateAlertsRepositoryAsync(cancellationToken)
+            .ConfigureAwait(false);
         var alerts = await repository.GetAllAsync(cancellationToken).ConfigureAwait(false);
         var updatedAlerts = alerts
             .Where(a => a.Id != request.Id)

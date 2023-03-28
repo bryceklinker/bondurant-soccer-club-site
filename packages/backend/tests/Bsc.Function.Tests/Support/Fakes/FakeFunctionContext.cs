@@ -13,7 +13,8 @@ public class FakeFunctionContext : FunctionContext
 
     public override IServiceProvider InstanceServices { get; set; }
     public override FunctionDefinition FunctionDefinition { get; }
-    public override IDictionary<object, object> Items { get; set; } = new Dictionary<object, object>();
+    public override IDictionary<object, object> Items { get; set; } =
+        new Dictionary<object, object>();
     public override IInvocationFeatures Features { get; }
 
     public FakeFunctionContext(
@@ -24,7 +25,7 @@ public class FakeFunctionContext : FunctionContext
         IInvocationFeatures? invocationFeatures = null,
         IServiceProvider? serviceProvider = null,
         BscFixture? fixture = null
-        )
+    )
     {
         TraceContext = traceContext ?? new FakeTraceContext();
         BindingContext = bindingContext ?? new FakeBindingContext();
@@ -34,7 +35,10 @@ public class FakeFunctionContext : FunctionContext
         InstanceServices = DetermineServiceProvider(fixture, serviceProvider);
     }
 
-    private static IServiceProvider DetermineServiceProvider(BscFixture? fixture, IServiceProvider? provider)
+    private static IServiceProvider DetermineServiceProvider(
+        BscFixture? fixture,
+        IServiceProvider? provider
+    )
     {
         if (fixture != null)
             return fixture.Provider;

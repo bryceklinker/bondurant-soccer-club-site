@@ -10,16 +10,18 @@ public class Program
     static async Task Main(string[] args)
     {
         var host = new HostBuilder()
-            .ConfigureFunctionsWorkerDefaults((ctx, b) =>
-            {
-                b.AddApplicationInsights()
-                    .AddApplicationInsightsLogger();
-                
-            })
-            .ConfigureServices((ctx, services) =>
-            {
-                services.AddBscFunctionServices(ctx.Configuration);
-            })
+            .ConfigureFunctionsWorkerDefaults(
+                (ctx, b) =>
+                {
+                    b.AddApplicationInsights().AddApplicationInsightsLogger();
+                }
+            )
+            .ConfigureServices(
+                (ctx, services) =>
+                {
+                    services.AddBscFunctionServices(ctx.Configuration);
+                }
+            )
             .Build();
         await host.RunAsync();
     }

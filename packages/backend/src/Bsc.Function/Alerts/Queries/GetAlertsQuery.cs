@@ -15,9 +15,14 @@ public class GetAlertsQueryHandler : IRequestHandler<GetAlertsQuery, AlertModel[
         _repositoryFactory = repositoryFactory;
     }
 
-    public async Task<AlertModel[]> Handle(GetAlertsQuery request, CancellationToken cancellationToken)
+    public async Task<AlertModel[]> Handle(
+        GetAlertsQuery request,
+        CancellationToken cancellationToken
+    )
     {
-        var repository = await _repositoryFactory.CreateAlertsRepositoryAsync(cancellationToken).ConfigureAwait(false);
+        var repository = await _repositoryFactory
+            .CreateAlertsRepositoryAsync(cancellationToken)
+            .ConfigureAwait(false);
         var alerts = await repository.GetAllAsync(cancellationToken).ConfigureAwait(false);
         return alerts
             .Where(a => a.ExpirationDate == null || a.ExpirationDate > DateTimeOffset.UtcNow)

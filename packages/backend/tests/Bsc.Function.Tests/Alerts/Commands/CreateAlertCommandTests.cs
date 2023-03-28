@@ -38,13 +38,15 @@ public class CreateAlertCommandTests
     [Fact]
     public async Task WhenAlertsExistThenNewAlertIsAddedToAlerts()
     {
-        _blobClient.SetupJsonContent(new []
-        {
-            new AlertModel(Guid.NewGuid(), "idk", Severity.High),
-            new AlertModel(Guid.NewGuid(), "idk", Severity.High),
-            new AlertModel(Guid.NewGuid(), "idk", Severity.High),
-        });
-        
+        _blobClient.SetupJsonContent(
+            new[]
+            {
+                new AlertModel(Guid.NewGuid(), "idk", Severity.High),
+                new AlertModel(Guid.NewGuid(), "idk", Severity.High),
+                new AlertModel(Guid.NewGuid(), "idk", Severity.High),
+            }
+        );
+
         var command = new CreateAlertCommand("new hotness", Severity.High);
         await _mediator.Send(command);
 

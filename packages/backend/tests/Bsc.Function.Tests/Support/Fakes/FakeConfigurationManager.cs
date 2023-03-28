@@ -10,19 +10,24 @@ public class FakeConfigurationManager : ConfigurationManager<OpenIdConnectConfig
 {
     private readonly IAuthConfiguration _config;
     public static readonly SymmetricSecurityKey SigningKey = new("this-is-not-good"u8.ToArray());
-    
+
     public FakeConfigurationManager(IAuthConfiguration config)
-        : base($"{config.Authority}/.well-known/openid-configuration", new OpenIdConnectConfigurationRetriever())
+        : base(
+            $"{config.Authority}/.well-known/openid-configuration",
+            new OpenIdConnectConfigurationRetriever()
+        )
     {
         _config = config;
     }
 
     public override Task<BaseConfiguration> GetBaseConfigurationAsync(CancellationToken cancel)
     {
-        return Task.FromResult<BaseConfiguration>(new OpenIdConnectConfiguration
-        {
-            Issuer = _config.Authority,
-            SigningKeys = { SigningKey }
-        });
+        return Task.FromResult<BaseConfiguration>(
+            new OpenIdConnectConfiguration
+            {
+                Issuer = _config.Authority,
+                SigningKeys = { SigningKey }
+            }
+        );
     }
 }

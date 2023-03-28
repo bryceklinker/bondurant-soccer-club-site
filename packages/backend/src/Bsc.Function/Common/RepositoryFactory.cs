@@ -8,7 +8,9 @@ namespace Bsc.Function.Common;
 
 public interface IRepositoryFactory
 {
-    Task<IRepository<AlertModel>> CreateAlertsRepositoryAsync(CancellationToken cancellationToken = default);
+    Task<IRepository<AlertModel>> CreateAlertsRepositoryAsync(
+        CancellationToken cancellationToken = default
+    );
 }
 
 public class RepositoryFactory : IRepositoryFactory
@@ -16,16 +18,24 @@ public class RepositoryFactory : IRepositoryFactory
     private readonly BlobServiceClient _blobServiceClient;
     private readonly IAlertsConfiguration _alertsConfiguration;
 
-    public RepositoryFactory(IAlertsConfiguration alertsConfiguration, BlobServiceClient blobServiceClient)
+    public RepositoryFactory(
+        IAlertsConfiguration alertsConfiguration,
+        BlobServiceClient blobServiceClient
+    )
     {
         _alertsConfiguration = alertsConfiguration;
         _blobServiceClient = blobServiceClient;
     }
 
-    public Task<IRepository<AlertModel>> CreateAlertsRepositoryAsync(CancellationToken cancellationToken = default)
+    public Task<IRepository<AlertModel>> CreateAlertsRepositoryAsync(
+        CancellationToken cancellationToken = default
+    )
     {
-        var repository = new BlobStorageRepository<AlertModel>(_blobServiceClient,
-            _alertsConfiguration.SiteContainerName, _alertsConfiguration.BlobPath);
+        var repository = new BlobStorageRepository<AlertModel>(
+            _blobServiceClient,
+            _alertsConfiguration.SiteContainerName,
+            _alertsConfiguration.BlobPath
+        );
         return Task.FromResult<IRepository<AlertModel>>(repository);
     }
 }

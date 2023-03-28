@@ -25,10 +25,7 @@ public class UpdateAlertCommandTests
     public async Task WhenAlertIsUpdatedThenAlertIsReplacedInAlerts()
     {
         var command = new UpdateAlertCommand(Guid.NewGuid(), "stuff", Severity.High);
-        _blobClient.SetupJsonContent(new []
-        {
-            AlertModel.FromUpdateCommand(command)
-        });
+        _blobClient.SetupJsonContent(new[] { AlertModel.FromUpdateCommand(command) });
 
         await _mediator.Send(command with { Text = "new stuff" });
 

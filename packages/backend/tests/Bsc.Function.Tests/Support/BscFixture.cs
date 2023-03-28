@@ -18,31 +18,47 @@ public class BscFixture
 
     public IMediator Mediator => GetService<IMediator>();
 
-    public FakeBlockBlobClient AlertsBlobClient => GetService<FakeBlobServiceClient>()
-        .GetFakeBlobContainerClient("$web")
-        .GetFakeBlockBlobClient("db/alerts.json");
-    
+    public FakeBlockBlobClient AlertsBlobClient =>
+        GetService<FakeBlobServiceClient>()
+            .GetFakeBlobContainerClient("$web")
+            .GetFakeBlockBlobClient("db/alerts.json");
+
     public BscFixture()
     {
         Configuration = new ConfigurationBuilder()
-            .AddInMemoryCollection(new []
-            {
-                new KeyValuePair<string, string>(ConfigurationKeys.AlertsQueueName, "alerts-queue"),
-                new KeyValuePair<string, string>(ConfigurationKeys.StorageAccountConnectionString, "UseDevelopmentStorage=true"),
-                new KeyValuePair<string, string>(ConfigurationKeys.DbBlobPrefix, "db"),
-                new KeyValuePair<string, string>(ConfigurationKeys.SiteContainerName, "$web"),
-                new KeyValuePair<string, string>(ConfigurationKeys.AuthAudience, "https://data.com"),
-                new KeyValuePair<string, string>(ConfigurationKeys.AuthAuthority, "https://authority.com"),
-            })
+            .AddInMemoryCollection(
+                new[]
+                {
+                    new KeyValuePair<string, string>(
+                        ConfigurationKeys.AlertsQueueName,
+                        "alerts-queue"
+                    ),
+                    new KeyValuePair<string, string>(
+                        ConfigurationKeys.StorageAccountConnectionString,
+                        "UseDevelopmentStorage=true"
+                    ),
+                    new KeyValuePair<string, string>(ConfigurationKeys.DbBlobPrefix, "db"),
+                    new KeyValuePair<string, string>(ConfigurationKeys.SiteContainerName, "$web"),
+                    new KeyValuePair<string, string>(
+                        ConfigurationKeys.AuthAudience,
+                        "https://data.com"
+                    ),
+                    new KeyValuePair<string, string>(
+                        ConfigurationKeys.AuthAuthority,
+                        "https://authority.com"
+                    ),
+                }
+            )
             .Build();
-        
+
         Provider = new ServiceCollection()
             .AddBscFunctionServices(Configuration)
             .AddBscFakeServices()
             .BuildServiceProvider();
     }
 
-    public T GetService<T>() where T : notnull => Provider.GetRequiredService<T>();
+    public T GetService<T>()
+        where T : notnull => Provider.GetRequiredService<T>();
 
     public string GenerateToken()
     {
@@ -50,7 +66,12 @@ public class BscFixture
         var signingKey = FakeConfigurationManager.SigningKey;
         var authConfig = GetService<IAuthConfiguration>();
         var signingCredentials = new SigningCredentials(signingKey, SecurityAlgorithms.HmacSha512);
-        var token = handler.CreateJwtSecurityToken(authConfig.Authority, authConfig.Audience, new ClaimsIdentity(), signingCredentials: signingCredentials);
+        var token = handler.CreateJwtSecurityToken(
+            authConfig.Authority,
+            authConfig.Audience,
+            new ClaimsIdentity(),
+            signingCredentials: signingCredentials
+        );
         return token.RawData;
     }
 }

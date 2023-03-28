@@ -13,12 +13,12 @@ public class FakeHttpRequestData : HttpRequestData
     public override string Method { get; }
 
     public FakeHttpRequestData(
-            Stream? body = null,
-            HttpHeadersCollection? headers = null,
-            Uri? uri = null,
-            ClaimsIdentity[]? identities = null,
-            string method = "GET"
-        ) 
+        Stream? body = null,
+        HttpHeadersCollection? headers = null,
+        Uri? uri = null,
+        ClaimsIdentity[]? identities = null,
+        string method = "GET"
+    )
         : base(new FakeFunctionContext())
     {
         Body = body ?? new MemoryStream();

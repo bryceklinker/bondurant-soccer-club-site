@@ -9,9 +9,10 @@ public class FakeBindingMetadata : BindingMetadata
     public override BindingDirection Direction { get; }
 
     public FakeBindingMetadata(
-        string name = "", 
-        string type = "", 
-        BindingDirection direction = BindingDirection.In)
+        string name = "",
+        string type = "",
+        BindingDirection direction = BindingDirection.In
+    )
     {
         Name = name;
         Type = type;

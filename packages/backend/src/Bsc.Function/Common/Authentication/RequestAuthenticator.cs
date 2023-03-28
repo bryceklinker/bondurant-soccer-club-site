@@ -19,9 +19,10 @@ public class RequestAuthenticator : IRequestAuthenticator
     private readonly ConfigurationManager<OpenIdConnectConfiguration> _manager;
 
     public RequestAuthenticator(
-        IAuthConfiguration config, 
+        IAuthConfiguration config,
         ConfigurationManager<OpenIdConnectConfiguration> manager,
-        ILoggerFactory loggerFactory)
+        ILoggerFactory loggerFactory
+    )
     {
         _config = config;
         _manager = manager;
@@ -63,11 +64,12 @@ public class RequestAuthenticator : IRequestAuthenticator
         var parameters = new TokenValidationParameters
         {
             ConfigurationManager = _manager,
-            ValidAudiences = new []{_config.Audience}
+            ValidAudiences = new[] { _config.Audience }
         };
         var result = await handler.ValidateTokenAsync(token, parameters).ConfigureAwait(false);
-        if (!result.IsValid) _logger.LogError("token validation failed: {Exception}", result.Exception);
-        
+        if (!result.IsValid)
+            _logger.LogError("token validation failed: {Exception}", result.Exception);
+
         return result.IsValid;
     }
 }

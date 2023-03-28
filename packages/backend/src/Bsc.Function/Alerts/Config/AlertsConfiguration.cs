@@ -20,9 +20,14 @@ public class AlertsConfiguration : IAlertsConfiguration
 
     public AlertsConfiguration(IConfiguration config)
     {
-        ConnectionString = config.GetValue<string>(ConfigurationKeys.StorageAccountConnectionString);
+        ConnectionString = config.GetValue<string>(
+            ConfigurationKeys.StorageAccountConnectionString
+        );
         SiteContainerName = config.GetValue<string>(ConfigurationKeys.SiteContainerName);
         QueueName = config.GetValue<string>(ConfigurationKeys.AlertsQueueName);
-        BlobPath = Path.Join(config.GetValue<string>(ConfigurationKeys.DbBlobPrefix), "alerts.json");
+        BlobPath = Path.Join(
+            config.GetValue<string>(ConfigurationKeys.DbBlobPrefix),
+            "alerts.json"
+        );
     }
 }
