@@ -1,4 +1,5 @@
 using Bsc.Function.Common;
+using Bsc.Function.Common.Authentication;
 using Microsoft.Azure.Functions.Worker;
 using Microsoft.Extensions.Hosting;
 
@@ -13,6 +14,7 @@ public class Program
             {
                 b.AddApplicationInsights()
                     .AddApplicationInsightsLogger();
+                
             })
             .ConfigureServices((ctx, services) =>
             {

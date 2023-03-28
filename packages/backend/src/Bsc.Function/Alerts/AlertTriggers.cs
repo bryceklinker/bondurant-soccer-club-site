@@ -1,7 +1,4 @@
-using System;
 using System.Net;
-using System.Text.Json;
-using System.Threading.Tasks;
 using Bsc.Function.Alerts.Models;
 using Bsc.Function.Common;
 using MediatR;

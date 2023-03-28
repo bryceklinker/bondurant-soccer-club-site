@@ -1,17 +1,18 @@
-using System;
-using System.Collections.Generic;
-using Bsc.Function.Alerts.Config;
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
 using Bsc.Function.Common;
+using Bsc.Function.Common.Authentication;
 using Bsc.Function.Tests.Support.Fakes;
 using MediatR;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.IdentityModel.Tokens;
 
 namespace Bsc.Function.Tests.Support;
 
 public class BscFixture
 {
-    private readonly IServiceProvider _provider;
+    public IServiceProvider Provider { get; }
 
     public IConfiguration Configuration { get; }
 
@@ -29,15 +30,27 @@ public class BscFixture
                 new KeyValuePair<string, string>(ConfigurationKeys.AlertsQueueName, "alerts-queue"),
                 new KeyValuePair<string, string>(ConfigurationKeys.StorageAccountConnectionString, "UseDevelopmentStorage=true"),
                 new KeyValuePair<string, string>(ConfigurationKeys.DbBlobPrefix, "db"),
-                new KeyValuePair<string, string>(ConfigurationKeys.SiteContainerName, "$web")
+                new KeyValuePair<string, string>(ConfigurationKeys.SiteContainerName, "$web"),
+                new KeyValuePair<string, string>(ConfigurationKeys.AuthAudience, "https://data.com"),
+                new KeyValuePair<string, string>(ConfigurationKeys.AuthAuthority, "https://authority.com"),
             })
             .Build();
         
-        _provider = new ServiceCollection()
+        Provider = new ServiceCollection()
             .AddBscFunctionServices(Configuration)
             .AddBscFakeServices()
             .BuildServiceProvider();
     }
 
-    public T GetService<T>() where T : notnull => _provider.GetRequiredService<T>();
+    public T GetService<T>() where T : notnull => Provider.GetRequiredService<T>();
+
+    public string GenerateToken()
+    {
+        var handler = new JwtSecurityTokenHandler();
+        var signingKey = FakeConfigurationManager.SigningKey;
+        var authConfig = GetService<IAuthConfiguration>();
+        var signingCredentials = new SigningCredentials(signingKey, SecurityAlgorithms.HmacSha512);
+        var token = handler.CreateJwtSecurityToken(authConfig.Authority, authConfig.Audience, new ClaimsIdentity(), signingCredentials: signingCredentials);
+        return token.RawData;
+    }
 }

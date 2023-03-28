@@ -2,6 +2,8 @@ using Azure.Storage.Blobs;
 using Azure.Storage.Queues;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
+using Microsoft.IdentityModel.Protocols;
+using Microsoft.IdentityModel.Protocols.OpenIdConnect;
 
 namespace Bsc.Function.Tests.Support.Fakes;
 
@@ -16,6 +18,10 @@ public static class FakeServicesCollectionExtensions
         services.RemoveAll(typeof(BlobServiceClient));
         services.AddSingleton<FakeBlobServiceClient>();
         services.AddSingleton<BlobServiceClient>(p => p.GetRequiredService<FakeBlobServiceClient>());
+
+        services.RemoveAll(typeof(ConfigurationManager<OpenIdConnectConfiguration>));
+        services.AddSingleton<FakeConfigurationManager>();
+        services.AddSingleton<ConfigurationManager<OpenIdConnectConfiguration>>(p => p.GetRequiredService<FakeConfigurationManager>());
         return services;
     }
 }

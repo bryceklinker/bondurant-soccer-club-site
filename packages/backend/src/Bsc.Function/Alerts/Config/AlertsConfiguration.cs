@@ -1,4 +1,3 @@
-using System.IO;
 using Bsc.Function.Common;
 using Microsoft.Extensions.Configuration;
 
