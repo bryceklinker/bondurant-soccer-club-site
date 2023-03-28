@@ -4,7 +4,7 @@
   "private": true,
   "license": "MIT",
   "scripts": {
-    "precommit": "lint-staged",
+    "precommit": "prettier --write src",
     "prepare": "husky install",
     "prebuild": "yarn clean",
     "build": "gatsby build",

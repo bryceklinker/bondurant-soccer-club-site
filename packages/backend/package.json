@@ -2,6 +2,7 @@
   "name": "backend",
   "version": "1.0.0",
   "scripts": {
+    "precommit": "dotnet csharpier .",
     "build": "cd src/Bsc.Function && dotnet build --configuration Release --output ../../../../dist/backend",
     "test": "dotnet test",
     "clean": "dotnet clean",

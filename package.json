@@ -5,7 +5,7 @@
     "packages/*"
   ],
   "scripts": {
-    "precommit": "lint-staged",
+    "precommit": "yarn workspaces run precommit",
     "prepare": "husky install",
     "prebuild": "rimraf ./dist && yarn clean",
     "build": "yarn workspaces run build",
