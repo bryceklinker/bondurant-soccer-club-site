@@ -6,6 +6,31 @@ using Microsoft.IdentityModel.Tokens;
 
 namespace Bsc.Function.Tests.Support.Fakes;
 
+public class FakeOpenIdConfigurationRetriever : IConfigurationRetriever<OpenIdConnectConfiguration>
+{
+    private readonly string _issuer;
+
+    public FakeOpenIdConfigurationRetriever(string issuer)
+    {
+        _issuer = issuer;
+    }
+
+    public Task<OpenIdConnectConfiguration> GetConfigurationAsync(
+        string address,
+        IDocumentRetriever retriever,
+        CancellationToken cancel
+    )
+    {
+        return Task.FromResult(
+            new OpenIdConnectConfiguration
+            {
+                Issuer = _issuer,
+                SigningKeys = { FakeConfigurationManager.SigningKey }
+            }
+        );
+    }
+}
+
 public class FakeConfigurationManager : ConfigurationManager<OpenIdConnectConfiguration>
 {
     private readonly IAuthConfiguration _config;
@@ -14,7 +39,7 @@ public class FakeConfigurationManager : ConfigurationManager<OpenIdConnectConfig
     public FakeConfigurationManager(IAuthConfiguration config)
         : base(
             $"{config.Authority}/.well-known/openid-configuration",
-            new OpenIdConnectConfigurationRetriever()
+            new FakeOpenIdConfigurationRetriever(config.Authority)
         )
     {
         _config = config;

@@ -61,9 +61,11 @@ public class RequestAuthenticator : IRequestAuthenticator
     private async Task<bool> ValidateTokenAsync(string token)
     {
         var handler = new JwtSecurityTokenHandler();
+        var openIdConfig = await _manager.GetConfigurationAsync();
         var parameters = new TokenValidationParameters
         {
-            ConfigurationManager = _manager,
+            ValidIssuers = new[] { openIdConfig.Issuer },
+            IssuerSigningKeys = openIdConfig.SigningKeys,
             ValidAudiences = new[] { _config.Audience }
         };
         var result = await handler.ValidateTokenAsync(token, parameters).ConfigureAwait(false);
