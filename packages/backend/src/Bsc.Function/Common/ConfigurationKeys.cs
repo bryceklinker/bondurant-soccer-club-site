@@ -7,5 +7,5 @@ public static class ConfigurationKeys
     public const string AlertsQueueName = "ALERTS_QUEUE_NAME";
     public const string DbBlobPrefix = "DB_BLOB_PREFIX";
     public const string AuthAudience = "AUTH_AUDIENCE";
-    public const string AuthAuthority = "AUTH_ISSUER";
+    public const string AuthAuthority = "AUTH_AUTHORITY";
 }

@@ -1,4 +1,3 @@
-using System.Text;
 using Bsc.Function.Common.Authentication;
 using Microsoft.IdentityModel.Protocols;
 using Microsoft.IdentityModel.Protocols.OpenIdConnect;

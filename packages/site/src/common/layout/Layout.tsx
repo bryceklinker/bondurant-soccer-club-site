@@ -16,7 +16,10 @@ export const Layout: FC<LayoutProps> = ({ children }) => {
                 defaultOptions: {
                     queries: {
                         refetchInterval: false,
-                        refetchIntervalInBackground: false
+                        refetchIntervalInBackground: false,
+                        refetchOnWindowFocus: false,
+                        refetchOnReconnect: false,
+                        refetchOnMount: false
                     }
                 }
             }),
