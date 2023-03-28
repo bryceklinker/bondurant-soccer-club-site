@@ -28,7 +28,7 @@ describe('AlertsPage', () => {
 
     test('when rendered then shows all alerts', async () => {
         const alerts = ModelFactory.many(ModelFactory.alert, 6);
-        FakeServer.setupRestGet('/db/alerts.json', alerts);
+        FakeServer.setupApiGet('/alerts', alerts);
 
         render(<AlertsPage />, { user });
 
@@ -37,7 +37,7 @@ describe('AlertsPage', () => {
 
     test('when rendered then shows loading while alerts load', async () => {
         const alerts = ModelFactory.many(ModelFactory.alert, 6);
-        FakeServer.setupRestGet('/db/alerts.json', alerts, { delay: 400 });
+        FakeServer.setupApiGet('/alerts', alerts, { delay: 400 });
 
         render(<AlertsPage />, { user });
 
@@ -46,7 +46,7 @@ describe('AlertsPage', () => {
 
     test('when alert edited then opens alert modal', async () => {
         const alert = ModelFactory.alert();
-        FakeServer.setupRestGet('/db/alerts.json', [alert]);
+        FakeServer.setupApiGet('/alerts', [alert]);
 
         render(<AlertsPage />, { user });
 
@@ -57,7 +57,7 @@ describe('AlertsPage', () => {
     });
 
     test('when alert created then opens create alert modal', async () => {
-        FakeServer.setupRestGet('/db/alerts.json', []);
+        FakeServer.setupApiGet('/alerts', []);
 
         render(<AlertsPage />, { user });
         await waitForElementToBeRemoved(loading());
