@@ -1,4 +1,5 @@
 using Bsc.Function.Alerts.Config;
+using FluentValidation;
 using MediatR;
 using Microsoft.Extensions.Azure;
 using Microsoft.Extensions.Configuration;
@@ -12,7 +13,11 @@ public static class ServiceCollectionExtensions
     {
         var alertsConfig = new AlertsConfiguration(config);
         services.AddSingleton<IAlertsConfiguration>(alertsConfig);
-        services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblyContaining<Program>());
+        services.AddValidatorsFromAssemblyContaining<Program>();
+        services.AddMediatR(cfg =>
+            cfg.RegisterServicesFromAssemblyContaining<Program>()
+                .AddOpenBehavior(typeof(ValidationPipelineBehavior<,>))
+        );
         services.AddAzureClients(b =>
         {
             b.AddBlobServiceClient(alertsConfig.ConnectionString);

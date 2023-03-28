@@ -1,8 +1,9 @@
-using Bsc.Function.Alerts.Commands;
 using Bsc.Function.Alerts.Models;
 using Bsc.Function.Tests.Support;
 using Bsc.Function.Tests.Support.Fakes;
+using FluentValidation;
 using MediatR;
+using Severity = Bsc.Function.Alerts.Models.Severity;
 
 namespace Bsc.Function.Tests.Alerts.Commands;
 
@@ -22,8 +23,8 @@ public class CreateAlertCommandTests
     [Fact]
     public async Task WhenExecutedThenCreatesAlertsJsonBlob()
     {
-        var model = new CreateAlertModel("hello", Severity.High);
-        await _mediator.Send(new CreateAlertCommand(model));
+        var command = new CreateAlertCommand("hello", Severity.High);
+        await _mediator.Send(command);
 
         var content = _blobClient.ContentAsJson<AlertModel[]>();
         content.Should().HaveCount(1);
@@ -44,10 +45,19 @@ public class CreateAlertCommandTests
             new AlertModel(Guid.NewGuid(), "idk", Severity.High),
         });
         
-        var model = new CreateAlertModel("", Severity.High);
-        await _mediator.Send(new CreateAlertCommand(model));
+        var command = new CreateAlertCommand("new hotness", Severity.High);
+        await _mediator.Send(command);
 
         var alerts = _blobClient.ContentAsJson<AlertModel[]>();
         alerts.Should().HaveCount(4);
+    }
+
+    [Fact]
+    public async Task WhenModelIsInvalidThenThrowsException()
+    {
+        var command = new CreateAlertCommand("", Severity.High);
+
+        var act = () => _mediator.Send(command);
+        await act.Should().ThrowAsync<ValidationException>();
     }
 }

@@ -7,8 +7,6 @@ using MediatR;
 
 namespace Bsc.Function.Alerts.Commands;
 
-public record CreateAlertCommand(CreateAlertModel Model) : IRequest;
-
 public class CreateAlertCommandHandler : IRequestHandler<CreateAlertCommand>
 {
     private readonly IRepositoryFactory _repositoryFactory;
@@ -22,7 +20,7 @@ public class CreateAlertCommandHandler : IRequestHandler<CreateAlertCommand>
     {
         var repository = await _repositoryFactory.CreateAlertsRepositoryAsync(cancellationToken).ConfigureAwait(false);
         var existingAlerts = await repository.GetAllAsync(cancellationToken).ConfigureAwait(false);
-        var updatedAlerts = existingAlerts.Append(AlertModel.FromCreateModel(request.Model)).ToArray();
+        var updatedAlerts = existingAlerts.Append(AlertModel.FromCreateCommand(request)).ToArray();
         await repository.SaveAllAsync(updatedAlerts, cancellationToken).ConfigureAwait(false);
     }
 }

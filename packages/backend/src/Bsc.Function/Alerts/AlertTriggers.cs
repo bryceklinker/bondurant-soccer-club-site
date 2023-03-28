@@ -1,10 +1,8 @@
+using System;
 using System.Net;
 using System.Text.Json;
 using System.Threading.Tasks;
-using Bsc.Function.Alerts.Commands;
-using Bsc.Function.Alerts.Config;
 using Bsc.Function.Alerts.Models;
-using Bsc.Function.Common;
 using MediatR;
 using Microsoft.Azure.Functions.Worker;
 using Microsoft.Azure.Functions.Worker.Http;
@@ -25,15 +23,23 @@ public class AlertTriggers
     public async Task<HttpResponseData> PostAlertAsync(
         [HttpTrigger(AuthorizationLevel.Anonymous, "post", Route = "alerts")] HttpRequestData req, ILogger log)
     {
-        var model = await JsonSerializer.DeserializeAsync<CreateAlertModel>(req.Body).ConfigureAwait(false);
-        await _mediator.Send(new EnqueueCreateAlertCommand(model));
+        var command = await JsonSerializer.DeserializeAsync<CreateAlertCommand>(req.Body).ConfigureAwait(false);
+        if (command == null)
+            throw new InvalidOperationException("No data found in request body");
+
+        await _mediator.Send(command);
         return req.CreateResponse(HttpStatusCode.OK);
     }
     
-    [Function("CreateAlert")]
-    public async Task CreateAlertAsync([QueueTrigger("alerts-queue", Connection = ConfigurationKeys.StorageAccountConnectionString)] string messageText, ILogger log)
+    [Function("PutAlert")]
+    public async Task<HttpResponseData> PutAlertAsync(
+        [HttpTrigger(AuthorizationLevel.Anonymous, "put", Route = "alerts/{id:guid}")] HttpRequestData req, Guid id, ILogger log)
     {
-        var model = JsonSerializer.Deserialize<CreateAlertModel>(messageText);
-        await _mediator.Send(new CreateAlertCommand(model)).ConfigureAwait(false);
+        var command = await JsonSerializer.DeserializeAsync<UpdateAlertCommand>(req.Body).ConfigureAwait(false);
+        if (command == null)
+            throw new InvalidOperationException("No data found in request body");
+
+        await _mediator.Send(command with { Id = id });
+        return req.CreateResponse(HttpStatusCode.OK);
     }
 }
