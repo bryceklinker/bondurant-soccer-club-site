@@ -3,10 +3,17 @@ import { useMutation, useQuery } from 'react-query';
 import { useApi } from '../../../common/api/use-api';
 
 export function useAlerts() {
-    const { data, ...rest } = useQuery<AlertModel[]>('alerts', async () => {
-        const response = await fetch('/db/alerts.json');
-        return await response.json();
-    });
+    const api = useApi();
+    const { data, ...rest } = useQuery<AlertModel[]>(
+        ['alerts', api],
+        async () => {
+            if (!api) {
+                return [];
+            }
+            const response = await api.get('/alerts');
+            return await response.json();
+        }
+    );
 
     return {
         ...rest,
@@ -16,7 +23,7 @@ export function useAlerts() {
 
 export function useUpdateAlert() {
     const api = useApi();
-    return useMutation('update-alert', async (alert: AlertModel) => {
+    return useMutation(['update-alert', api], async (alert: AlertModel) => {
         if (!api) {
             return;
         }
@@ -27,7 +34,7 @@ export function useUpdateAlert() {
 export function useCreateAlert() {
     const api = useApi();
     return useMutation(
-        'create-alert',
+        ['create-alert', api],
         async (alert: Omit<AlertModel, 'id'>) => {
             if (!api) {
                 return;

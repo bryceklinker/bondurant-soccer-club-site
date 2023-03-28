@@ -1,8 +1,6 @@
-import { FC, useCallback, useMemo, useState } from 'react';
-import { RowFlex } from '../../common/layout/RowFlex';
+import { FC, useMemo } from 'react';
 import { Alert } from './Alert';
 import { useAlerts } from './hooks/use-alerts';
-import { Button } from '../../common/components/Button';
 import { ColumnFlex } from '../../common/layout/ColumnFlex';
 
 export type AlertsPanelProps = {};

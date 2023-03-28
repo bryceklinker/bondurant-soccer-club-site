@@ -4,6 +4,7 @@ import { useMemo } from 'react';
 import { useAccessToken, useAuthUser } from '../auth/auth-hooks';
 
 export type Api = {
+    get: (path: string) => Promise<Response>;
     post: <T>(path: string, body: T) => Promise<Response>;
     put: <T>(path: string, body: T) => Promise<Response>;
 };
@@ -27,6 +28,11 @@ function createApi(
     }
 
     return {
+        get: async (path: string) => {
+            return await fetch(`${settings.apiUrl}${path}`, {
+                headers: getHeaders(accessToken)
+            });
+        },
         post: async <T = unknown>(path: string, body: T) => {
             return await fetch(`${settings.apiUrl}${path}`, {
                 method: 'POST',
@@ -47,5 +53,8 @@ function createApi(
 export function useApi(): ReturnType<typeof createApi> {
     const { settings } = useSettings();
     const accessToken = useAccessToken();
-    return useMemo(() => createApi(settings, accessToken), [settings]);
+    return useMemo(
+        () => createApi(settings, accessToken),
+        [settings, accessToken]
+    );
 }

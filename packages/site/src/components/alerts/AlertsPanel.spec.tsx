@@ -12,7 +12,7 @@ describe('AlertsPanel', () => {
         const alert = ModelFactory.alert({
             text: 'Fields are closed until March 27th'
         });
-        FakeServer.setupRestGet('/db/alerts.json', [alert]);
+        FakeServer.setupApiGet('/alerts', [alert]);
 
         render(<AlertsPanel />);
 

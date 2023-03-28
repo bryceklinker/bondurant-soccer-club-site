@@ -1,5 +1,6 @@
 using System.Net;
 using Bsc.Function.Alerts.Models;
+using Bsc.Function.Alerts.Queries;
 using Bsc.Function.Common;
 using Bsc.Function.Common.Authentication;
 using MediatR;
@@ -19,6 +20,16 @@ public class AlertTriggers
         _authenticator = authenticator;
     }
 
+    [Function("GetAlerts")]
+    public async Task<HttpResponseData> GetAlertsAsync(
+        [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "alerts")] HttpRequestData req)
+    {
+        var alerts = await _mediator.Send(new GetAlertsQuery());
+        var response = req.CreateResponse(HttpStatusCode.OK);
+        await response.WriteAsJsonAsync(alerts);
+        return response;
+    }
+    
     [Function("PostAlert")]
     public async Task<HttpResponseData> PostAlertAsync(
         [HttpTrigger(AuthorizationLevel.Anonymous, "post", Route = "alerts")] HttpRequestData req)
