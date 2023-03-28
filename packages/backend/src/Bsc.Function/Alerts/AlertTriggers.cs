@@ -13,19 +13,22 @@ namespace Bsc.Function.Alerts;
 public class AlertTriggers
 {
     private readonly IMediator _mediator;
+    private readonly ILogger _logger;
 
-    public AlertTriggers(IMediator mediator)
+    public AlertTriggers(IMediator mediator, ILoggerFactory loggerFactory)
     {
         _mediator = mediator;
+        _logger = loggerFactory.CreateLogger<AlertTriggers>();
     }
 
     [Function("PostAlert")]
     public async Task<HttpResponseData> PostAlertAsync(
-        [HttpTrigger(AuthorizationLevel.Anonymous, "post", Route = "alerts")] HttpRequestData req, ILogger log)
+        [HttpTrigger(AuthorizationLevel.Anonymous, "post", Route = "alerts")] HttpRequestData req)
     {
+        
         foreach (var identity in req.Identities)
         {
-            log.LogInformation("Identity {Identity}", identity);
+            _logger.LogInformation("Identity {Identity}", identity);
         }
         var command = await JsonSerializer.DeserializeAsync<CreateAlertCommand>(req.Body).ConfigureAwait(false);
         if (command == null)
@@ -37,11 +40,11 @@ public class AlertTriggers
     
     [Function("PutAlert")]
     public async Task<HttpResponseData> PutAlertAsync(
-        [HttpTrigger(AuthorizationLevel.Anonymous, "put", Route = "alerts/{id:guid}")] HttpRequestData req, Guid id, ILogger log)
+        [HttpTrigger(AuthorizationLevel.Anonymous, "put", Route = "alerts/{id:guid}")] HttpRequestData req, Guid id)
     {
         foreach (var identity in req.Identities)
         {
-            log.LogInformation("Identity {Identity}", identity);
+            _logger.LogInformation("Identity {Identity}", identity);
         }
         var command = await JsonSerializer.DeserializeAsync<UpdateAlertCommand>(req.Body).ConfigureAwait(false);
         if (command == null)
