@@ -1,8 +1,4 @@
-using System;
-using System.IO;
 using System.Text.Json;
-using System.Threading;
-using System.Threading.Tasks;
 
 namespace Bsc.Function.Common;
 
@@ -21,12 +17,13 @@ public record SerializerResult<T>(bool Success, T? Result, Exception? Exception)
 
 public static class BscSerializer
 {
+    private static JsonSerializerOptions JsonOptions = new(JsonSerializerDefaults.Web);
     public static async ValueTask<SerializerResult<T>> DeserializeAsync<T>(Stream stream,
         CancellationToken cancellationToken = default)
     {
         try
         {
-            var result = await JsonSerializer.DeserializeAsync<T>(stream, cancellationToken: cancellationToken)
+            var result = await JsonSerializer.DeserializeAsync<T>(stream, JsonOptions, cancellationToken: cancellationToken)
                 .ConfigureAwait(false);
             return SerializerResult<T>.FromResult(result);
         }
@@ -41,12 +38,12 @@ public static class BscSerializer
         T value,
         CancellationToken cancellationToken = default)
     {
-        await JsonSerializer.SerializeAsync(stream, value, cancellationToken: cancellationToken).ConfigureAwait(false);
+        await JsonSerializer.SerializeAsync(stream, value, JsonOptions, cancellationToken: cancellationToken).ConfigureAwait(false);
     }
 
     public static ValueTask<string> SerializeAsync<T>(T value, CancellationToken cancellationToken = default)
     {
-        var json = JsonSerializer.Serialize(value);
+        var json = JsonSerializer.Serialize(value, JsonOptions);
         return ValueTask.FromResult(json);
     }
 }
