@@ -25,9 +25,7 @@ public class AlertTriggers
         [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "alerts")] HttpRequestData req)
     {
         var alerts = await _mediator.Send(new GetAlertsQuery());
-        var response = req.CreateResponse(HttpStatusCode.OK);
-        await response.WriteAsJsonAsync(alerts);
-        return response;
+        return await req.CreateJsonResponse(alerts);
     }
     
     [Function("PostAlert")]
