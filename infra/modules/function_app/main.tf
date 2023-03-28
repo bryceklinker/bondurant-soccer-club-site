@@ -77,12 +77,12 @@ resource "azurerm_windows_function_app" "app" {
   }
 
   app_settings = {
-    STORAGE_ACCOUNT_CONNECTION_STRING = var.storage_account_connection_string
-    ALERTS_QUEUE_NAME                 = azurerm_storage_queue.alerts_queue.name
-    SITE_CONTAINER_NAME               = var.storage_account_web_container
-    DB_BLOB_PREFIX                    = "db"
-    GOOGLE_AUTH_CLIENT_SECRET         = var.google_client_secret
-    SCM_DO_BUILD_DURING_DEPLOYMENT    = true
+    STORAGE_ACCOUNT_CONNECTION_STRING     = var.storage_account_connection_string
+    ALERTS_QUEUE_NAME                     = azurerm_storage_queue.alerts_queue.name
+    SITE_CONTAINER_NAME                   = var.storage_account_web_container
+    DB_BLOB_PREFIX                        = "db"
+    GOOGLE_AUTH_CLIENT_SECRET             = var.google_client_secret
+    SCM_ZIPDEPLOY_DONOT_PRESERVE_FILETIME = 1
   }
 }
 
