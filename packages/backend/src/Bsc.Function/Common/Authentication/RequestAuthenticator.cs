@@ -1,4 +1,5 @@
 using System.IdentityModel.Tokens.Jwt;
+using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Protocols;
 using Microsoft.IdentityModel.Protocols.OpenIdConnect;
 using Microsoft.IdentityModel.Tokens;
@@ -13,13 +14,18 @@ public interface IRequestAuthenticator
 
 public class RequestAuthenticator : IRequestAuthenticator
 {
+    private readonly ILogger _logger;
     private readonly IAuthConfiguration _config;
     private readonly ConfigurationManager<OpenIdConnectConfiguration> _manager;
 
-    public RequestAuthenticator(IAuthConfiguration config, ConfigurationManager<OpenIdConnectConfiguration> manager)
+    public RequestAuthenticator(
+        IAuthConfiguration config, 
+        ConfigurationManager<OpenIdConnectConfiguration> manager,
+        ILoggerFactory loggerFactory)
     {
         _config = config;
         _manager = manager;
+        _logger = loggerFactory.CreateLogger<RequestAuthenticator>();
     }
 
     public async Task<bool> IsAuthenticatedAsync(HttpRequestData? request)
@@ -60,6 +66,8 @@ public class RequestAuthenticator : IRequestAuthenticator
             ValidAudiences = new []{_config.Audience}
         };
         var result = await handler.ValidateTokenAsync(token, parameters).ConfigureAwait(false);
+        if (!result.IsValid) _logger.LogError("token validation failed: {Exception}", result.Exception);
+        
         return result.IsValid;
     }
 }
