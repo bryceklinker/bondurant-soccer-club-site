@@ -17,7 +17,7 @@ public record SerializerResult<T>(bool Success, T? Result, Exception? Exception)
 
 public static class BscSerializer
 {
-    private static JsonSerializerOptions JsonOptions = new(JsonSerializerDefaults.Web);
+    private static readonly JsonSerializerOptions JsonOptions = new(JsonSerializerDefaults.Web);
 
     public static async ValueTask<SerializerResult<T>> DeserializeAsync<T>(
         Stream stream,
