@@ -1,28 +1,32 @@
 using System.Net;
 using Bsc.Function.Alerts.Models;
 using Bsc.Function.Common;
+using Bsc.Function.Common.Authentication;
 using MediatR;
 using Microsoft.Azure.Functions.Worker;
 using Microsoft.Azure.Functions.Worker.Http;
-using Microsoft.Extensions.Logging;
 
 namespace Bsc.Function.Alerts;
 
 public class AlertTriggers
 {
     private readonly IMediator _mediator;
-    private readonly ILogger _logger;
+    private readonly IRequestAuthenticator _authenticator;
 
-    public AlertTriggers(IMediator mediator, ILoggerFactory loggerFactory)
+    public AlertTriggers(IMediator mediator, IRequestAuthenticator authenticator)
     {
         _mediator = mediator;
-        _logger = loggerFactory.CreateLogger<AlertTriggers>();
+        _authenticator = authenticator;
     }
 
     [Function("PostAlert")]
     public async Task<HttpResponseData> PostAlertAsync(
         [HttpTrigger(AuthorizationLevel.Anonymous, "post", Route = "alerts")] HttpRequestData req)
     {
+        var isAuthenticated = await _authenticator.IsAuthenticatedAsync(req);
+        if (!isAuthenticated)
+            throw new UnauthorizedAccessException();
+        
         var serializerResult = await BscSerializer.DeserializeAsync<CreateAlertCommand>(req.Body).ConfigureAwait(false);
         if (!serializerResult.Success || serializerResult.Result == null)
             throw new InvalidOperationException("No data found in request body");
@@ -35,6 +39,10 @@ public class AlertTriggers
     public async Task<HttpResponseData> PutAlertAsync(
         [HttpTrigger(AuthorizationLevel.Anonymous, "put", Route = "alerts/{id:guid}")] HttpRequestData req, Guid id)
     {
+        var isAuthenticated = await _authenticator.IsAuthenticatedAsync(req);
+        if (!isAuthenticated)
+            throw new UnauthorizedAccessException();
+        
         var serializerResult = await BscSerializer.DeserializeAsync<UpdateAlertCommand>(req.Body).ConfigureAwait(false);
         if (!serializerResult.Success || serializerResult.Result == null)
             throw new InvalidOperationException("No data found in request body");

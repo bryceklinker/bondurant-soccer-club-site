@@ -10,11 +10,11 @@ variable "resource_group_name" {
   type = string
 }
 
-variable "google_client_id" {
+variable "auth_audience" {
   type = string
 }
 
-variable "google_client_secret" {
+variable "auth_authority" {
   type = string
 }
 

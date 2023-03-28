@@ -30,8 +30,9 @@ variable "google_client_id" {
   type = string
 }
 
-variable "google_client_secret" {
+variable "google_authority" {
   type = string
+  default = "https://accounts.google.com"
 }
 
 variable "subdomain" {

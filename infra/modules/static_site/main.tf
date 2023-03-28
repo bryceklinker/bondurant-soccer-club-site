@@ -148,8 +148,8 @@ module "function_app" {
   name = "${var.name}-app"
   application_insights_connection_string = azurerm_application_insights.web_app_insights.connection_string
   function_app_directory = var.function_app_directory
-  google_client_id = var.google_client_id
-  google_client_secret = var.google_client_secret
+  auth_audience = var.google_client_id
+  auth_authority = var.google_authority
   location = var.location
   resource_group_name = var.resource_group_name
   storage_account_access_key = azurerm_storage_account.site_storage.primary_access_key
