@@ -60,7 +60,8 @@ resource "azurerm_windows_function_app" "app" {
   auth_settings_v2 {
     auth_enabled = true
     require_https                 = true
-    unauthenticated_action = "Return401"
+    unauthenticated_action = "AllowAnonymous"
+
 
     login {
 
@@ -69,8 +70,10 @@ resource "azurerm_windows_function_app" "app" {
     google_v2 {
       client_id                  = var.google_client_id
       client_secret_setting_name = "GOOGLE_AUTH_CLIENT_SECRET"
+      allowed_audiences = [
+        var.google_client_id
+      ]
     }
-
   }
 
   app_settings = {

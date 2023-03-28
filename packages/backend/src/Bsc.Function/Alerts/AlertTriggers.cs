@@ -23,6 +23,10 @@ public class AlertTriggers
     public async Task<HttpResponseData> PostAlertAsync(
         [HttpTrigger(AuthorizationLevel.Anonymous, "post", Route = "alerts")] HttpRequestData req, ILogger log)
     {
+        foreach (var identity in req.Identities)
+        {
+            log.LogInformation("Identity {Identity}", identity);
+        }
         var command = await JsonSerializer.DeserializeAsync<CreateAlertCommand>(req.Body).ConfigureAwait(false);
         if (command == null)
             throw new InvalidOperationException("No data found in request body");
@@ -35,6 +39,10 @@ public class AlertTriggers
     public async Task<HttpResponseData> PutAlertAsync(
         [HttpTrigger(AuthorizationLevel.Anonymous, "put", Route = "alerts/{id:guid}")] HttpRequestData req, Guid id, ILogger log)
     {
+        foreach (var identity in req.Identities)
+        {
+            log.LogInformation("Identity {Identity}", identity);
+        }
         var command = await JsonSerializer.DeserializeAsync<UpdateAlertCommand>(req.Body).ConfigureAwait(false);
         if (command == null)
             throw new InvalidOperationException("No data found in request body");
