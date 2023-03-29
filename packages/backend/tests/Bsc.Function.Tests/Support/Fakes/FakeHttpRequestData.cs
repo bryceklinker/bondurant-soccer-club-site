@@ -1,4 +1,6 @@
+using System.Net;
 using System.Security.Claims;
+using Microsoft.Azure.Functions.Worker;
 using Microsoft.Azure.Functions.Worker.Http;
 
 namespace Bsc.Function.Tests.Support.Fakes;
@@ -31,6 +33,19 @@ public class FakeHttpRequestData : HttpRequestData
 
     public override HttpResponseData CreateResponse()
     {
-        throw new NotImplementedException();
+        return new FakeHttpResponseData(FunctionContext);
+    }
+}
+
+public class FakeHttpResponseData : HttpResponseData
+{
+    public override HttpStatusCode StatusCode { get; set; } = HttpStatusCode.OK;
+    public override HttpHeadersCollection Headers { get; set; } = new();
+    public override Stream Body { get; set; } = new MemoryStream();
+    public override HttpCookies Cookies { get; }
+
+    public FakeHttpResponseData(FunctionContext functionContext) 
+        : base(functionContext)
+    {
     }
 }

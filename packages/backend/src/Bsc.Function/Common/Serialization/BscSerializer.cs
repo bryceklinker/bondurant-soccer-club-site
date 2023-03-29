@@ -1,6 +1,7 @@
 using System.Text.Json;
+using Microsoft.Extensions.Caching.Memory;
 
-namespace Bsc.Function.Common;
+namespace Bsc.Function.Common.Serialization;
 
 public record SerializerResult<T>(bool Success, T? Result, Exception? Exception)
 {
@@ -19,6 +20,25 @@ public static class BscSerializer
 {
     private static readonly JsonSerializerOptions JsonOptions = new(JsonSerializerDefaults.Web);
 
+    public static void Serialize<T>(Stream stream, T? value)
+    {
+        JsonSerializer.Serialize(stream, value, JsonOptions);
+    }
+
+    public static object? Deserialize(Stream stream, Type targetType)
+    {
+        return JsonSerializer.Deserialize(stream, targetType, JsonOptions);
+    }
+
+    public static async ValueTask<object?> DeserializeAsync(
+        Stream stream, 
+        Type targetType,
+        CancellationToken cancellationToken = default)
+    {
+        return await JsonSerializer.DeserializeAsync(stream, targetType, JsonOptions, cancellationToken)
+            .ConfigureAwait(false);
+    }
+    
     public static async ValueTask<SerializerResult<T>> DeserializeAsync<T>(
         Stream stream,
         CancellationToken cancellationToken = default

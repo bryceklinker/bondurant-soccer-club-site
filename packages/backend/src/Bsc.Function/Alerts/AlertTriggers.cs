@@ -3,6 +3,7 @@ using Bsc.Function.Alerts.Models;
 using Bsc.Function.Alerts.Queries;
 using Bsc.Function.Common;
 using Bsc.Function.Common.Authentication;
+using Bsc.Function.Common.Serialization;
 using MediatR;
 using Microsoft.Azure.Functions.Worker;
 using Microsoft.Azure.Functions.Worker.Http;
@@ -26,7 +27,7 @@ public class AlertTriggers
     )
     {
         var alerts = await _mediator.Send(new GetAlertsQuery());
-        return await req.CreateJsonResponse(alerts);
+        return await req.CreateJsonResponse(alerts, cache: true);
     }
 
     [Function("PostAlert")]
