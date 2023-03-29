@@ -44,8 +44,6 @@ public class FakeHttpResponseData : HttpResponseData
     public override Stream Body { get; set; } = new MemoryStream();
     public override HttpCookies Cookies { get; }
 
-    public FakeHttpResponseData(FunctionContext functionContext) 
-        : base(functionContext)
-    {
-    }
+    public FakeHttpResponseData(FunctionContext functionContext)
+        : base(functionContext) { }
 }

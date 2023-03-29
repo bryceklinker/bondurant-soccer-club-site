@@ -28,8 +28,7 @@ public class HttpRequestDataExtensionsTests
 
         var response = await request.CreateJsonResponse(new object(), cache: true);
 
-        var cacheControl = response.Headers.GetValues("Cache-Control")
-            .ToArray();
+        var cacheControl = response.Headers.GetValues("Cache-Control").ToArray();
         cacheControl.Should().HaveCount(1);
         cacheControl[0].Should().Contain("max-age=3600");
         cacheControl[0].Should().Contain("must-revalidate");

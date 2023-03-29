@@ -31,14 +31,16 @@ public static class BscSerializer
     }
 
     public static async ValueTask<object?> DeserializeAsync(
-        Stream stream, 
+        Stream stream,
         Type targetType,
-        CancellationToken cancellationToken = default)
+        CancellationToken cancellationToken = default
+    )
     {
-        return await JsonSerializer.DeserializeAsync(stream, targetType, JsonOptions, cancellationToken)
+        return await JsonSerializer
+            .DeserializeAsync(stream, targetType, JsonOptions, cancellationToken)
             .ConfigureAwait(false);
     }
-    
+
     public static async ValueTask<SerializerResult<T>> DeserializeAsync<T>(
         Stream stream,
         CancellationToken cancellationToken = default
