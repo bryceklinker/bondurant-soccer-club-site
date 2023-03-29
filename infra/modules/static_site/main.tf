@@ -27,6 +27,8 @@ locals {
     ".map"         = "application/json"
     ".webmanifest" = "application/manifest+json"
   }
+
+  cache_control = "max-age=604800, must-revalidate"
 }
 
 data "azurerm_client_config" "current" {}
@@ -64,6 +66,7 @@ resource "azurerm_storage_blob" "site_content" {
   content_type = lookup(local.mime_types, regex("\\.[^.]+$", each.value))
   content_md5  = filemd5("${var.site_directory}/${each.value}")
   type         = "Block"
+  cache_control = local.cache_control
 }
 
 resource "azurerm_cdn_profile" "cdn_profile" {
@@ -169,6 +172,7 @@ resource "azurerm_storage_blob" "settings_json" {
   source_content = jsonencode({
     "apiUrl": "${module.function_app.function_app_url}/api"
   })
+  cache_control = local.cache_control
 
   depends_on = [module.function_app]
 }
@@ -181,6 +185,7 @@ resource "azurerm_storage_blob" "alerts_json" {
   name = "db/alerts.json"
   content_type = "text/json"
   source_content = jsonencode([])
+  cache_control = local.cache_control
 
   lifecycle {
     ignore_changes = [content_md5]
