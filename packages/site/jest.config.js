@@ -1,7 +1,7 @@
 module.exports = {
     testEnvironment: 'jsdom',
     testPathIgnorePatterns: ['/cypress/', '/node_modules/'],
-    setupFilesAfterEnv: ['<rootDir>/src/testing/setup-tests.ts'],
+    setupFilesAfterEnv: ['<rootDir>/src/testing/setup-tests.tsx'],
     transform: {
         '^.+\\.tsx?$': [
             `ts-jest`,

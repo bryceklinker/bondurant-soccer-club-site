@@ -1,23 +1,22 @@
-import { FC, Fragment } from 'react';
-import { Menu, Transition } from '@headlessui/react';
-import { NavLink } from './NavLink';
-import { MORE_INFO_NAVIGATION_LINKS } from '../../routing/route-names';
-import { ColumnFlex } from '../ColumnFlex';
-import { useAuthUser, useIsLoggedIn } from '../../auth/auth-hooks';
+import {FC, Fragment} from 'react';
+import {Menu, Transition} from '@headlessui/react';
+import {NavLink} from './NavLink';
+import {MORE_INFO_NAVIGATION_LINKS} from '../../routing/route-names';
+import {ColumnFlex} from '../ColumnFlex';
+import {useAuthUser, useIsLoggedIn} from '../../auth/auth-hooks';
+import {useMoreNavigationLinks} from './hooks/useVisibleLinks';
 
 export type MoreNavigationLinksProps = {
     onClick: () => void;
 };
 
 export const MoreNavigationLinks: FC<MoreNavigationLinksProps> = ({
-    onClick
-}) => {
-    const isLoggedIn = useIsLoggedIn();
-    const moreNavLinks = MORE_INFO_NAVIGATION_LINKS.filter(
-        l => !l.requiresUser || isLoggedIn
-    ).map((data, index) => (
-        <Menu.Item key={index} as={NavLink} data={data} onClick={onClick} />
-    ));
+                                                                      onClick
+                                                                  }) => {
+    const moreNavLinks = useMoreNavigationLinks()
+        .map((data, index) => (
+            <Menu.Item key={index} as={NavLink} data={data} onClick={onClick}/>
+        ));
     return (
         <Menu as={'div'} className={'relative inline-block text-left z-40'}>
             <Menu.Button

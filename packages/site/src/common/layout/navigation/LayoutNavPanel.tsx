@@ -1,17 +1,18 @@
-import { FC, Fragment } from 'react';
-import { ColumnFlex } from '../ColumnFlex';
-import { Transition, Dialog } from '@headlessui/react';
-import { XMarkIcon, Bars3Icon } from '@heroicons/react/20/solid';
+import {FC, Fragment} from 'react';
+import {ColumnFlex} from '../ColumnFlex';
+import {Transition, Dialog} from '@headlessui/react';
+import {XMarkIcon, Bars3Icon} from '@heroicons/react/20/solid';
 
 import {
     MAIN_NAVIGATION_LINKS,
     MORE_INFO_NAVIGATION_LINKS
 } from '../../routing/route-names';
-import { NavLink } from './NavLink';
-import { Button } from '../../components/Button';
+import {NavLink} from './NavLink';
+import {Button} from '../../components/Button';
 
-import { RowFlex } from '../RowFlex';
-import { LayoutFooter } from '../footer/LayoutFooter';
+import {RowFlex} from '../RowFlex';
+import {LayoutFooter} from '../footer/LayoutFooter';
+import {useAllNavigationLinks, useVisibleLinks} from './hooks/useVisibleLinks';
 
 export type LayoutNavPanelProps = {
     isOpen: boolean;
@@ -19,20 +20,22 @@ export type LayoutNavPanelProps = {
     onClose: () => void;
 };
 export const LayoutNavPanel: FC<LayoutNavPanelProps> = ({
-    isOpen,
-    onClose,
-    onOpen
-}) => {
-    const links = MAIN_NAVIGATION_LINKS.concat(MORE_INFO_NAVIGATION_LINKS).map(
-        (link, index) => <NavLink key={index} data={link} onClick={onClose} />
-    );
+                                                            isOpen,
+                                                            onClose,
+                                                            onOpen
+                                                        }) => {
+
+    const links = useAllNavigationLinks()
+        .map(
+            (link, index) => <NavLink key={index} data={link} onClick={onClose}/>
+        );
     return (
         <>
             <Button
                 onClick={onOpen}
                 aria-label={'menu'}
                 className={'px-4 py-2 md:hidden'}>
-                <Bars3Icon className={'h-6 w-6 text-white'} />
+                <Bars3Icon className={'h-6 w-6 text-white'}/>
             </Button>
             <Transition.Root show={isOpen} as={Fragment}>
                 <Dialog
@@ -81,7 +84,7 @@ export const LayoutNavPanel: FC<LayoutNavPanelProps> = ({
                                                 'h-full overflow-y-auto shadow-xl'
                                             }>
                                             <RowFlex className={'flex-initial'}>
-                                                <RowFlex />
+                                                <RowFlex/>
                                                 <Button
                                                     className={
                                                         'text-gray-300 p-4 hover:text-white focus:outline-none'
