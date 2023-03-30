@@ -11,9 +11,7 @@ export const Alert: FC<AlertProps> = ({ model }) => {
     return (
         <RowFlex
             role={'alert'}
-            className={
-                'flex-none gap-2 bg-red-400 shadow h-16 p-4'
-            }>
+            className={'flex-none gap-2 bg-red-400 shadow h-16 p-4'}>
             <AlertIcon status={model.severity} />
             {model.text}
         </RowFlex>
