@@ -3,13 +3,11 @@ import { ClassNames } from '../extensions/class-names';
 
 export type Color = 'primary' | 'error' | 'default';
 export type ColorToClassMap = Record<Color, string>;
-
 const BACKGROUND_COLOR_MAP: ColorToClassMap = {
     default: 'bg-slate-200',
     error: 'bg-red-500',
     primary: 'bg-blue-600'
 };
-
 const TEXT_COLOR_MAP: ColorToClassMap = {
     default: 'text-black',
     error: 'text-black',

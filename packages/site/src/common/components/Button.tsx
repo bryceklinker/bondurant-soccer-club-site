@@ -1,7 +1,7 @@
 import { ButtonHTMLAttributes, FC, ReactElement } from 'react';
 import { RowFlex } from '../layout/RowFlex';
 import { ClassNames } from '../extensions/class-names';
-import { Color, useTextAndBackgroundColorClasses } from '../styles/style-hooks';
+import { Color, useTextAndBackgroundColorClasses } from '../hooks/style-hooks';
 
 export type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement>;
 
