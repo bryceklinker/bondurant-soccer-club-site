@@ -14,6 +14,7 @@ jobs:
   build:
     name: Build
     runs-on: ubuntu-20.04
+    concurrency: build
     env:
       ASSETS_PATH: ${{ github.workspace}}/src/assets
     steps:
@@ -60,6 +61,7 @@ jobs:
     if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-20.04
     environment: dns
+    concurrency: dns
     needs: [build]
     env:
       PLAN_PATH: ${{ github.workspace }}/infra/dns/dns.tfplan
@@ -86,6 +88,7 @@ jobs:
     name: Deploy Dev Site
     if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-20.04
+    concurrency: dev
     environment:
       name: dev
       url: ${{ env.SITE_URL }}
@@ -172,6 +175,7 @@ jobs:
     name: Deploy Prod Site
     if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-20.04
+    concurrency: prod
     environment:
       name: prod
       url: ${{ env.SITE_URL }}
