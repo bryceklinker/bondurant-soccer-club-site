@@ -22,19 +22,42 @@ public class FakeBlobContainerClient : BlobContainerClient
         return GetFakeBlockBlobClient(blobName);
     }
 
-    public override Task<Response<BlobContainerInfo>> CreateIfNotExistsAsync(
+    public override Task<Response<BlobContainerInfo>> CreateAsync(
         PublicAccessType publicAccessType = PublicAccessType.None,
         IDictionary<string, string> metadata = null,
         BlobContainerEncryptionScopeOptions encryptionScopeOptions = null,
         CancellationToken cancellationToken = new CancellationToken()
     )
     {
+        WasCreated = true;
         var json = BlobContainerInfoTemplate;
         var response = Response.FromValue<BlobContainerInfo>(
             JsonConvert.DeserializeObject<BlobContainerInfo>(json),
             new FakeResponse()
         );
         return Task.FromResult(response);
+    }
+
+    public override Task<Response<bool>> ExistsAsync(
+        CancellationToken cancellationToken = new CancellationToken()
+    )
+    {
+        return Task.FromResult(Response.FromValue(WasCreated, new FakeResponse()));
+    }
+
+    public override async Task<Response<BlobContainerInfo>> CreateIfNotExistsAsync(
+        PublicAccessType publicAccessType = PublicAccessType.None,
+        IDictionary<string, string> metadata = null,
+        BlobContainerEncryptionScopeOptions encryptionScopeOptions = null,
+        CancellationToken cancellationToken = new CancellationToken()
+    )
+    {
+        return await CreateAsync(
+            publicAccessType,
+            metadata,
+            encryptionScopeOptions,
+            cancellationToken
+        );
     }
 
     public FakeBlockBlobClient GetFakeBlockBlobClient(string blobName)

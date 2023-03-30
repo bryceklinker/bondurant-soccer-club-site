@@ -1,7 +1,3 @@
-using System;
-using System.IO;
-using System.Threading;
-using System.Threading.Tasks;
 using Azure.Storage.Blobs;
 using Azure.Storage.Blobs.Specialized;
 using Bsc.Function.Common.Serialization;
@@ -38,7 +34,11 @@ public class BlobStorageRepository<T> : IRepository<T>
 
     public async Task<T[]> GetAllAsync(CancellationToken cancellationToken = default)
     {
-        await ContainerClient.CreateIfNotExistsAsync(cancellationToken: cancellationToken);
+        if (!await ContainerClient.ExistsAsync(cancellationToken).ConfigureAwait(false))
+            await ContainerClient
+                .CreateAsync(cancellationToken: cancellationToken)
+                .ConfigureAwait(false);
+
         await using var readStream = await BlobClient
             .OpenReadAsync(cancellationToken: cancellationToken)
             .ConfigureAwait(false);
