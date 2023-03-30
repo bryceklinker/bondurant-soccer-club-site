@@ -1,7 +1,6 @@
 import { AlertModel } from '../state/models';
 import { useMutation, useQuery, useQueryClient } from 'react-query';
 import { useApi } from '../../../common/api/use-api';
-import { useCallback } from 'react';
 
 export function useAlerts() {
     const api = useApi();
@@ -50,4 +49,18 @@ export function useCreateAlert() {
             return response;
         }
     );
+}
+
+export function useDeleteAlert() {
+    const api = useApi();
+    const client = useQueryClient();
+    return useMutation(['delete-alert', api], async (alert: AlertModel) => {
+        if (!api) {
+            return;
+        }
+
+        const response = await api.delete(`/alerts/${alert.id}`);
+        if (response.ok) await client.invalidateQueries('alerts');
+        return response;
+    });
 }

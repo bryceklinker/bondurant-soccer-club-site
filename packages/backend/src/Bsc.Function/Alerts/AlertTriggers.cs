@@ -1,9 +1,9 @@
 using System.Net;
+using Bsc.Function.Alerts.Commands;
 using Bsc.Function.Alerts.Models;
 using Bsc.Function.Alerts.Queries;
 using Bsc.Function.Common;
 using Bsc.Function.Common.Authentication;
-using Bsc.Function.Common.Serialization;
 using MediatR;
 using Microsoft.Azure.Functions.Worker;
 using Microsoft.Azure.Functions.Worker.Http;
@@ -35,17 +35,9 @@ public class AlertTriggers
         [HttpTrigger(AuthorizationLevel.Anonymous, "post", Route = "alerts")] HttpRequestData req
     )
     {
-        var isAuthenticated = await _authenticator.IsAuthenticatedAsync(req);
-        if (!isAuthenticated)
-            throw new UnauthorizedAccessException();
-
-        var serializerResult = await BscSerializer
-            .DeserializeAsync<CreateAlertCommand>(req.Body)
-            .ConfigureAwait(false);
-        if (!serializerResult.Success || serializerResult.Result == null)
-            throw new InvalidOperationException("No data found in request body");
-
-        await _mediator.Send(serializerResult.Result);
+        await req.AuthenticateAsync(_authenticator);
+        var command = await req.ReadBodyAsJsonAsync<CreateAlertCommand>();
+        await _mediator.Send(command);
         return req.CreateResponse(HttpStatusCode.OK);
     }
 
@@ -56,17 +48,22 @@ public class AlertTriggers
         Guid id
     )
     {
-        var isAuthenticated = await _authenticator.IsAuthenticatedAsync(req);
-        if (!isAuthenticated)
-            throw new UnauthorizedAccessException();
+        await req.AuthenticateAsync(_authenticator).ConfigureAwait(false);
+        var command = await req.ReadBodyAsJsonAsync<UpdateAlertCommand>().ConfigureAwait(false);
+        await _mediator.Send(command with { Id = id });
+        return req.CreateResponse(HttpStatusCode.OK);
+    }
 
-        var serializerResult = await BscSerializer
-            .DeserializeAsync<UpdateAlertCommand>(req.Body)
-            .ConfigureAwait(false);
-        if (!serializerResult.Success || serializerResult.Result == null)
-            throw new InvalidOperationException("No data found in request body");
-
-        await _mediator.Send(serializerResult.Result with { Id = id });
+    [Function("DeleteAlert")]
+    public async Task<HttpResponseData> DeleteAlertAsync(
+        [HttpTrigger(AuthorizationLevel.Anonymous, "delete", Route = "alerts/{id:guid}")]
+            HttpRequestData req,
+        Guid id
+    )
+    {
+        await req.AuthenticateAsync(_authenticator).ConfigureAwait(false);
+        var command = new DeleteAlertCommand(id);
+        await _mediator.Send(command);
         return req.CreateResponse(HttpStatusCode.OK);
     }
 }

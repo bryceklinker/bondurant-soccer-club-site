@@ -11,15 +11,17 @@ import React from 'react';
 import { AlertsPage } from './AlertsPage';
 import { AuthUser } from '../../common/auth/auth-types';
 
-describe('AlertsPage', () => {
-    const loading = () => screen.getByRole('progressbar');
-    const editAlertButton = () =>
-        screen.getByRole('button', { name: 'edit alert' });
-    const createAlertButton = () =>
-        screen.getByRole('button', { name: 'create alert' });
-    const alertRows = () => screen.getAllByRole('row', { name: 'alert' });
-    const dialog = () => screen.getByRole('dialog');
+const loading = () => screen.getByRole('progressbar');
+const editAlertButton = () =>
+    screen.getByRole('button', { name: 'edit alert' });
+const createAlertButton = () =>
+    screen.getByRole('button', { name: 'create alert' });
+const deleteAlertButton = () =>
+    screen.getByRole('button', { name: 'delete alert' });
+const alertRows = () => screen.getAllByRole('row', { name: 'alert' });
+const dialog = () => screen.getByRole('dialog');
 
+describe('AlertsPage', () => {
     let user: AuthUser;
 
     beforeEach(() => {
@@ -62,6 +64,17 @@ describe('AlertsPage', () => {
         render(<AlertsPage />, { user });
         await waitForElementToBeRemoved(loading());
         await userEvent.click(createAlertButton());
+
+        expect(dialog()).toBeVisible();
+    });
+
+    test('when alert is deleted then opens delete alert modal', async () => {
+        const alert = ModelFactory.alert();
+        FakeServer.setupApiGet('/alerts', [alert]);
+
+        render(<AlertsPage />, { user });
+        await waitForElementToBeRemoved(loading());
+        await userEvent.click(deleteAlertButton());
 
         expect(dialog()).toBeVisible();
     });

@@ -7,6 +7,7 @@ export type Api = {
     get: (path: string) => Promise<Response>;
     post: <T>(path: string, body: T) => Promise<Response>;
     put: <T>(path: string, body: T) => Promise<Response>;
+    delete: <T>(path: string) => Promise<Response>;
 };
 
 function getHeaders(accessToken?: string | null): HeadersInit {
@@ -30,6 +31,12 @@ function createApi(
     return {
         get: async (path: string) => {
             return await fetch(`${settings.apiUrl}${path}`, {
+                headers: getHeaders(accessToken)
+            });
+        },
+        delete: async (path: string) => {
+            return await fetch(`${settings.apiUrl}${path}`, {
+                method: 'DELETE',
                 headers: getHeaders(accessToken)
             });
         },

@@ -12,19 +12,29 @@ import { CreateAlertModal } from './CreateAlertModal';
 import { useIsLoggedIn } from '../../common/auth/auth-hooks';
 import { Section } from '../../common/components/Section';
 import { Unauthorized } from '../../common/auth/Unauthorized';
+import { DeleteAlertModal } from './DeleteAlertModal';
 
 export const AlertsPage: FC = () => {
     const isLoggedIn = useIsLoggedIn();
     const { alerts, isLoading } = useAlerts();
     const [isCreatingAlert, onCloseCreate, onOpenCreate] = useModalState();
     const [isEditingAlert, onCloseEdit, onOpenEdit] = useModalState();
+    const [isDeletingAlert, onCloseDelete, onOpenDelete] = useModalState();
     const [alertToEdit, setAlertToEdit] = useState<AlertModel | null>(null);
+    const [alertToDelete, setAlertToDelete] = useState<AlertModel | null>(null);
     const onEditAlert = useCallback(
         (alert: AlertModel) => {
             setAlertToEdit(alert);
             onOpenEdit();
         },
         [setAlertToEdit, onOpenEdit]
+    );
+    const onDeleteAlert = useCallback(
+        (alert: AlertModel) => {
+            setAlertToDelete(alert);
+            onOpenDelete();
+        },
+        [setAlertToDelete, onOpenDelete]
     );
     const onCloseAlertEdit = useCallback(() => {
         setAlertToEdit(null);
@@ -51,12 +61,20 @@ export const AlertsPage: FC = () => {
                 alerts={alerts}
                 isLoading={isLoading}
                 onEdit={onEditAlert}
+                onDelete={onDeleteAlert}
             />
             {isEditingAlert && alertToEdit ? (
                 <EditAlertModal
                     open={true}
                     alert={alertToEdit}
                     onClose={onCloseAlertEdit}
+                />
+            ) : null}
+            {isDeletingAlert && alertToDelete ? (
+                <DeleteAlertModal
+                    open={true}
+                    alert={alertToDelete}
+                    onClose={onCloseDelete}
                 />
             ) : null}
             <CreateAlertModal open={isCreatingAlert} onClose={onCloseCreate} />
