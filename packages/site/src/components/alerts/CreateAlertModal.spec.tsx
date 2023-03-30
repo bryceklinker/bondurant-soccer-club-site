@@ -1,4 +1,5 @@
 import {
+    AlertFormHarness,
     FakeServer,
     ModelFactory,
     render,
@@ -12,17 +13,6 @@ import { RestRequest } from 'msw';
 import { AlertSeverity } from './state/models';
 
 describe('CreateAlertModal', () => {
-    const textTextBox = () => screen.getByRole('textbox', { name: 'text' });
-    const severityBox = () =>
-        screen.getByRole('combobox', { name: 'severity' });
-    const startDateBox = () => screen.getByLabelText('start date');
-    const expirationDateBox = () => screen.getByLabelText('expiration date');
-
-    const saveButton = () =>
-        screen.getByRole('button', { name: 'save button' });
-    const cancelButton = () =>
-        screen.getByRole('button', { name: 'cancel button' });
-
     let saveRequest: RestRequest | null;
 
     beforeEach(() => {
@@ -35,37 +25,37 @@ describe('CreateAlertModal', () => {
     test('when rendered then fields are blank', () => {
         render(<CreateAlertModal open={true} />);
 
-        expect(textTextBox()).toHaveValue('');
-        expect(severityBox()).toHaveValue(AlertSeverity.High);
-        expect(startDateBox()).toHaveValue('');
-        expect(expirationDateBox()).toHaveValue('');
+        expect(AlertFormHarness.textTextBox()).toHaveValue('');
+        expect(AlertFormHarness.severityBox()).toHaveValue(AlertSeverity.High);
+        expect(AlertFormHarness.startDateBox()).toHaveValue('');
+        expect(AlertFormHarness.expirationDateBox()).toHaveValue('');
     });
 
     test('when saving the form is disabled', async () => {
         FakeServer.setupApiPost('/alerts', null, { delay: 400 });
         render(<CreateAlertModal open={true} />);
 
-        await userEvent.type(textTextBox(), 'fields are closed');
-        await waitForElementToBeEnabled(saveButton());
-        await userEvent.click(saveButton());
+        await userEvent.type(AlertFormHarness.textTextBox(), 'fields are closed');
+        await waitForElementToBeEnabled(AlertFormHarness.saveButton());
+        await userEvent.click(AlertFormHarness.saveButton());
 
-        expect(textTextBox()).toBeDisabled();
-        expect(severityBox()).toBeDisabled();
-        expect(startDateBox()).toBeDisabled();
-        expect(expirationDateBox()).toBeDisabled();
-        expect(saveButton()).toBeDisabled();
-        expect(cancelButton()).toBeDisabled();
+        expect(AlertFormHarness.textTextBox()).toBeDisabled();
+        expect(AlertFormHarness.severityBox()).toBeDisabled();
+        expect(AlertFormHarness.startDateBox()).toBeDisabled();
+        expect(AlertFormHarness.expirationDateBox()).toBeDisabled();
+        expect(AlertFormHarness.saveButton()).toBeDisabled();
+        expect(AlertFormHarness.cancelButton()).toBeDisabled();
     });
 
     test('when submitted then sends alert to api', async () => {
         const user = ModelFactory.user();
         render(<CreateAlertModal open={true} />, { user });
 
-        await userEvent.type(textTextBox(), 'fields are closed');
-        await userEvent.type(startDateBox(), '2022-09-23');
-        await userEvent.type(expirationDateBox(), '2022-10-23');
-        await waitForElementToBeEnabled(saveButton());
-        await userEvent.click(saveButton());
+        await userEvent.type(AlertFormHarness.textTextBox(), 'fields are closed');
+        await userEvent.type(AlertFormHarness.startDateBox(), '2022-09-23');
+        await userEvent.type(AlertFormHarness.expirationDateBox(), '2022-10-23');
+        await waitForElementToBeEnabled(AlertFormHarness.saveButton());
+        await userEvent.click(AlertFormHarness.saveButton());
 
         await waitFor(() => expect(saveRequest).not.toEqual(null));
         expect(saveRequest?.headers.get('Authorization')).toEqual(
@@ -83,9 +73,9 @@ describe('CreateAlertModal', () => {
         const onClose = jest.fn();
         render(<CreateAlertModal open={true} onClose={onClose} />);
 
-        await userEvent.type(textTextBox(), 'fields are closed');
-        await waitForElementToBeEnabled(saveButton());
-        await userEvent.click(saveButton());
+        await userEvent.type(AlertFormHarness.textTextBox(), 'fields are closed');
+        await waitForElementToBeEnabled(AlertFormHarness.saveButton());
+        await userEvent.click(AlertFormHarness.saveButton());
 
         await waitFor(() => expect(onClose).toHaveBeenCalled());
     });
@@ -94,7 +84,7 @@ describe('CreateAlertModal', () => {
         const onClose = jest.fn();
         render(<CreateAlertModal open={true} onClose={onClose} />);
 
-        await userEvent.click(cancelButton());
+        await userEvent.click(AlertFormHarness.cancelButton());
 
         expect(onClose).toHaveBeenCalled();
     });

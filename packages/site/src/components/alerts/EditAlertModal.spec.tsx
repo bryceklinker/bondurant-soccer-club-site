@@ -1,4 +1,5 @@
 import {
+    AlertFormHarness,
     FakeServer,
     ModelFactory,
     render,
@@ -10,14 +11,6 @@ import { RestRequest } from 'msw';
 import { AlertModel } from './state/models';
 
 describe('EditAlertModal', () => {
-    const severityTextBox = () =>
-        screen.getByRole('combobox', { name: 'severity' });
-    const textTextBox = () => screen.getByRole('textbox', { name: 'text' });
-    const saveButton = () =>
-        screen.getByRole('button', { name: 'save button' });
-    const cancelButton = () =>
-        screen.getByRole('button', { name: 'cancel button' });
-
     let saveRequest: RestRequest | null;
     let alert: AlertModel;
 
@@ -32,16 +25,16 @@ describe('EditAlertModal', () => {
     test('when rendered then shows alert fields', () => {
         render(<EditAlertModal open={true} alert={alert} />);
 
-        expect(textTextBox()).toHaveValue(alert.text);
-        expect(severityTextBox()).toHaveValue(alert.severity);
+        expect(AlertFormHarness.textTextBox()).toHaveValue(alert.text);
+        expect(AlertFormHarness.severityBox()).toHaveValue(alert.severity);
     });
 
-    test('when submitted then posts alert to api', async () => {
+    test('when submitted then sends alert to api', async () => {
         const user = ModelFactory.user();
         render(<EditAlertModal open={true} alert={alert} />, { user });
 
-        await userEvent.type(textTextBox(), 'three');
-        await userEvent.click(saveButton());
+        await userEvent.type(AlertFormHarness.textTextBox(), 'three');
+        await userEvent.click(AlertFormHarness.saveButton());
 
         expect(saveRequest).not.toEqual(null);
         expect(saveRequest?.headers.get('Authorization')).toEqual(
@@ -57,7 +50,7 @@ describe('EditAlertModal', () => {
         const onClose = jest.fn();
         render(<EditAlertModal open={true} alert={alert} onClose={onClose} />);
 
-        await userEvent.click(saveButton());
+        await userEvent.click(AlertFormHarness.saveButton());
 
         expect(onClose).toHaveBeenCalledWith();
     });
@@ -66,18 +59,18 @@ describe('EditAlertModal', () => {
         FakeServer.setupApiPut(`/alerts/${alert.id}`, null, { delay: 400 });
 
         render(<EditAlertModal open={true} alert={alert} />);
-        await userEvent.click(saveButton());
+        await userEvent.click(AlertFormHarness.saveButton());
 
-        expect(saveButton()).toBeDisabled();
-        expect(textTextBox()).toBeDisabled();
-        expect(severityTextBox()).toBeDisabled();
+        expect(AlertFormHarness.saveButton()).toBeDisabled();
+        expect(AlertFormHarness.textTextBox()).toBeDisabled();
+        expect(AlertFormHarness.severityBox()).toBeDisabled();
     });
 
     test('when closed then closes modal', async () => {
         const onClose = jest.fn();
         render(<EditAlertModal open={true} alert={alert} onClose={onClose} />);
 
-        await userEvent.click(cancelButton());
+        await userEvent.click(AlertFormHarness.cancelButton());
 
         expect(onClose).toHaveBeenCalled();
     });
