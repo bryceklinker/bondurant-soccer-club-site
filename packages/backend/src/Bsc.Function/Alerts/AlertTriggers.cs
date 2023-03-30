@@ -27,7 +27,7 @@ public class AlertTriggers
     )
     {
         var alerts = await _mediator.Send(new GetAlertsQuery());
-        return await req.CreateJsonResponse(alerts, cache: true);
+        return await req.CreateJsonResponse(alerts);
     }
 
     [Function("PostAlert")]
