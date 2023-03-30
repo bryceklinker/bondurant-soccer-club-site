@@ -50,7 +50,7 @@ export const AlertsPage: FC = () => {
                 <Spacer />
                 <IconButton
                     onClick={onOpenCreate}
-                    color={'blue'}
+                    color={'primary'}
                     icon={<PlusIcon width={'1em'} />}
                     className={'p-2 rounded'}
                     aria-label={'create alert'}>

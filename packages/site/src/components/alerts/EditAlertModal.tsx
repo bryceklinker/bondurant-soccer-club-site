@@ -40,7 +40,7 @@ export const EditAlertModal: FC<AlertModalProps> = ({
             </ModalBody>
             <ModalActions>
                 <StyledButton
-                    color={'blue'}
+                    color={'primary'}
                     disabled={formState.isSubmitting}
                     onClick={onSubmit}
                     aria-label={'save button'}>
