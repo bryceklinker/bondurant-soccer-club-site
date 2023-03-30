@@ -11,7 +11,7 @@ import { AlertModel } from './state/models';
 
 describe('EditAlertModal', () => {
     const severityTextBox = () =>
-        screen.getByRole('textbox', { name: 'severity' });
+        screen.getByRole('combobox', { name: 'severity' });
     const textTextBox = () => screen.getByRole('textbox', { name: 'text' });
     const saveButton = () =>
         screen.getByRole('button', { name: 'save button' });

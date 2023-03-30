@@ -1,12 +1,13 @@
-import { AlertModel } from './state/models';
+import { AlertModel, AlertModelSchema } from './state/models';
 import { FC, useMemo } from 'react';
 import { Modal, ModalProps } from '../../common/components/modals/Modal';
 import { ModalBody } from '../../common/components/modals/ModalBody';
 import { ModalActions } from '../../common/components/modals/ModalActions';
 import { useForm } from 'react-hook-form';
 import { AlertForm, AlertFormModel } from './AlertForm';
-import { Button, StyledButton } from '../../common/components/Button';
+import { StyledButton } from '../../common/components/Button';
 import { useUpdateAlert } from './hooks/use-alerts';
+import { zodResolver } from '@hookform/resolvers/zod';
 
 export type AlertModalProps = ModalProps & {
     alert: AlertModel;
@@ -19,7 +20,8 @@ export const EditAlertModal: FC<AlertModalProps> = ({
     const { mutateAsync } = useUpdateAlert();
     const defaultValues = useMemo(() => ({ ...alert }), [alert]);
     const { control, handleSubmit, formState } = useForm<AlertFormModel>({
-        defaultValues
+        defaultValues,
+        resolver: zodResolver(AlertModelSchema)
     });
     const onSubmit = handleSubmit(async (values: AlertFormModel) => {
         await mutateAsync({ ...values, id: alert.id });

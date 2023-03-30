@@ -1,4 +1,4 @@
-import { FC, HTMLAttributes, PropsWithChildren } from 'react';
+import { FC, HTMLAttributes } from 'react';
 import { Dialog } from '@headlessui/react';
 import { ClassNames } from '../../extensions/class-names';
 
@@ -11,10 +11,8 @@ export const ModalTitle: FC<ModalTitleProps> = ({
 }) => {
     const classes = ClassNames.join('p-2 text-lg font-bold', className);
     return (
-        <Dialog.Title>
-            <h3 className={classes} {...props}>
-                {children}
-            </h3>
+        <Dialog.Title className={classes} {...props}>
+            {children}
         </Dialog.Title>
     );
 };

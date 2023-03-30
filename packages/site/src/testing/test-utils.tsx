@@ -7,9 +7,7 @@ import {
 import userEvent from '@testing-library/user-event';
 import { ReactElement } from 'react';
 import { QueryClient, QueryClientProvider } from 'react-query';
-import { AuthProvider } from '../common/auth/AuthProvider';
 import { AuthUser } from '../common/auth/auth-types';
-import { ModelFactory } from './model-factory';
 import { TestingAuthProvider } from './TestingAuthProvider';
 
 export type RenderOptions = Partial<{
@@ -24,6 +22,10 @@ function render(ui: ReactElement, options?: RenderOptions) {
             <TestingAuthProvider user={options?.user}>{ui}</TestingAuthProvider>
         </QueryClientProvider>
     );
+}
+
+export async function waitForElementToBeEnabled(element: Element) {
+    await waitFor(() => expect(element).toBeEnabled());
 }
 
 export { render, userEvent, waitFor, screen, waitForElementToBeRemoved };

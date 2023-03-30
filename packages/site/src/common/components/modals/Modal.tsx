@@ -44,7 +44,9 @@ export const Modal: FC<ModalProps> = ({
                                 'flex min-h-full items-center justify-center p-4'
                             }>
                             <Dialog.Panel
-                                className={'mx-auto max-w-sm rounded bg-white'}>
+                                className={
+                                    'mx-auto max-w-sm rounded shadow-2xl bg-white'
+                                }>
                                 {children}
                             </Dialog.Panel>
                         </div>

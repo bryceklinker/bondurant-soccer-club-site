@@ -1,6 +1,7 @@
 import { AlertModel } from '../state/models';
 import { useMutation, useQuery, useQueryClient } from 'react-query';
 import { useApi } from '../../../common/api/use-api';
+import { useCallback } from 'react';
 
 export function useAlerts() {
     const api = useApi();

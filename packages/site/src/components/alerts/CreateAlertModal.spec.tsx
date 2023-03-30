@@ -4,7 +4,8 @@ import {
     render,
     screen,
     userEvent,
-    waitFor
+    waitFor,
+    waitForElementToBeEnabled
 } from '../../testing';
 import { CreateAlertModal } from './CreateAlertModal';
 import { RestRequest } from 'msw';
@@ -12,7 +13,11 @@ import { AlertSeverity } from './state/models';
 
 describe('CreateAlertModal', () => {
     const textTextBox = () => screen.getByRole('textbox', { name: 'text' });
-    const severityBox = () => screen.getByRole('textbox', { name: 'severity' });
+    const severityBox = () =>
+        screen.getByRole('combobox', { name: 'severity' });
+    const startDateBox = () => screen.getByLabelText('start date');
+    const expirationDateBox = () => screen.getByLabelText('expiration date');
+
     const saveButton = () =>
         screen.getByRole('button', { name: 'save button' });
     const cancelButton = () =>
@@ -32,6 +37,8 @@ describe('CreateAlertModal', () => {
 
         expect(textTextBox()).toHaveValue('');
         expect(severityBox()).toHaveValue(AlertSeverity.High);
+        expect(startDateBox()).toHaveValue('');
+        expect(expirationDateBox()).toHaveValue('');
     });
 
     test('when saving the form is disabled', async () => {
@@ -39,10 +46,13 @@ describe('CreateAlertModal', () => {
         render(<CreateAlertModal open={true} />);
 
         await userEvent.type(textTextBox(), 'fields are closed');
+        await waitForElementToBeEnabled(saveButton());
         await userEvent.click(saveButton());
 
         expect(textTextBox()).toBeDisabled();
         expect(severityBox()).toBeDisabled();
+        expect(startDateBox()).toBeDisabled();
+        expect(expirationDateBox()).toBeDisabled();
         expect(saveButton()).toBeDisabled();
         expect(cancelButton()).toBeDisabled();
     });
@@ -52,6 +62,9 @@ describe('CreateAlertModal', () => {
         render(<CreateAlertModal open={true} />, { user });
 
         await userEvent.type(textTextBox(), 'fields are closed');
+        await userEvent.type(startDateBox(), '2022-09-23');
+        await userEvent.type(expirationDateBox(), '2022-10-23');
+        await waitForElementToBeEnabled(saveButton());
         await userEvent.click(saveButton());
 
         await waitFor(() => expect(saveRequest).not.toEqual(null));
@@ -60,7 +73,9 @@ describe('CreateAlertModal', () => {
         );
         expect(await saveRequest?.json()).toEqual({
             text: 'fields are closed',
-            severity: 'High'
+            severity: 'High',
+            startDate: '2022-09-23T00:00:00.000Z',
+            expirationDate: '2022-10-23T00:00:00.000Z'
         });
     });
 
@@ -69,6 +84,7 @@ describe('CreateAlertModal', () => {
         render(<CreateAlertModal open={true} onClose={onClose} />);
 
         await userEvent.type(textTextBox(), 'fields are closed');
+        await waitForElementToBeEnabled(saveButton());
         await userEvent.click(saveButton());
 
         await waitFor(() => expect(onClose).toHaveBeenCalled());

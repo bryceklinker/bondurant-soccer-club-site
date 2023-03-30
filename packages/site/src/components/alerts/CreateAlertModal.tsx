@@ -1,9 +1,14 @@
 import { FC, useCallback, useState } from 'react';
+import { useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
 import { Modal, ModalProps } from '../../common/components/modals/Modal';
 import { ModalBody } from '../../common/components/modals/ModalBody';
 import { ModalActions } from '../../common/components/modals/ModalActions';
-import { AlertModel, AlertSeverity } from './state/models';
-import { useForm } from 'react-hook-form';
+import {
+    AlertSeverity,
+    CreateAlertModel,
+    CreateAlertModelSchema
+} from './state/models';
 import { AlertForm, AlertFormModel } from './AlertForm';
 import { useCreateAlert } from './hooks/use-alerts';
 import { StyledButton } from '../../common/components/Button';
@@ -16,11 +21,18 @@ export const CreateAlertModal: FC<CreateAlertModalProps> = ({
     open
 }) => {
     const { mutateAsync } = useCreateAlert();
-    const [defaultValues, setDefaultValues] = useState<Omit<AlertModel, 'id'>>({
+    const [defaultValues, setDefaultValues] = useState<CreateAlertModel>({
         text: '',
-        severity: AlertSeverity.High
+        severity: AlertSeverity.High,
+        expirationDate: '',
+        startDate: ''
     });
-    const { handleSubmit, formState, control } = useForm({ defaultValues });
+    const { handleSubmit, formState, control } = useForm({
+        mode: 'all',
+        reValidateMode: 'onChange',
+        defaultValues,
+        resolver: zodResolver(CreateAlertModelSchema)
+    });
     const onSubmit = handleSubmit(async (values: AlertFormModel) => {
         await mutateAsync(values);
         if (onClose) {
@@ -47,7 +59,7 @@ export const CreateAlertModal: FC<CreateAlertModalProps> = ({
             <ModalActions>
                 <StyledButton
                     color={'blue'}
-                    disabled={formState.isSubmitting}
+                    disabled={formState.isSubmitting || !formState.isValid}
                     onClick={onSubmit}
                     aria-label={'save button'}>
                     Save

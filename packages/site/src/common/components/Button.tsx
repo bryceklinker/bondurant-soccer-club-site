@@ -20,6 +20,7 @@ export const StyledButton: FC<StyledButtonProps> = ({
         color === 'blue' ? 'bg-blue-600 text-white' : 'bg-slate-200';
     const classes = ClassNames.join(
         'rounded p-2 shadow hover:brightness-75',
+        'disabled:opacity-75 disabled:cursor-not-allowed',
         colorClassName,
         className
     );

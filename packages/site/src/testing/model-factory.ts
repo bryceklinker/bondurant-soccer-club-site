@@ -26,6 +26,7 @@ function alert(model: Partial<AlertModel> = {}): AlertModel {
         severity: faker.helpers.arrayElement(Object.values(AlertSeverity)),
         text: faker.lorem.sentence(),
         id: faker.datatype.uuid(),
+        startDate: faker.date.recent().toISOString(),
         ...model
     };
 }
