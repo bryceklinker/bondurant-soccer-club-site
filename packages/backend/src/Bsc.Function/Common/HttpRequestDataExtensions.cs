@@ -26,7 +26,7 @@ public static class HttpRequestDataExtensions
         await response.WriteAsJsonAsync(value, new BscObjectSerializer());
         return response;
     }
-    
+
     public static async Task<T> ReadBodyAsJsonAsync<T>(this HttpRequestData req)
     {
         var result = await BscSerializer.DeserializeAsync<T>(req.Body).ConfigureAwait(false);
