@@ -16,7 +16,8 @@ function getHeaders(accessToken?: string | null): HeadersInit {
     }
 
     return {
-        Authorization: `Bearer ${accessToken}`
+        Authorization: `Bearer ${accessToken}`,
+        'Cache-Control': 'no-store'
     };
 }
 

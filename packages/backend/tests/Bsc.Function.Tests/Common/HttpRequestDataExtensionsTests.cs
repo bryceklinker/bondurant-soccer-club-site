@@ -30,7 +30,7 @@ public class HttpRequestDataExtensionsTests
 
         var cacheControl = response.Headers.GetValues("Cache-Control").ToArray();
         cacheControl.Should().HaveCount(1);
-        cacheControl[0].Should().Contain("max-age=3600");
+        cacheControl[0].Should().Contain("max-age=60");
         cacheControl[0].Should().Contain("must-revalidate");
     }
 
