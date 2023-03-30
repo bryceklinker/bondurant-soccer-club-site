@@ -35,7 +35,10 @@ describe('CreateAlertModal', () => {
         FakeServer.setupApiPost('/alerts', null, { delay: 400 });
         render(<CreateAlertModal open={true} />);
 
-        await userEvent.type(AlertFormHarness.textTextBox(), 'fields are closed');
+        await userEvent.type(
+            AlertFormHarness.textTextBox(),
+            'fields are closed'
+        );
         await waitForElementToBeEnabled(AlertFormHarness.saveButton());
         await userEvent.click(AlertFormHarness.saveButton());
 
@@ -51,9 +54,15 @@ describe('CreateAlertModal', () => {
         const user = ModelFactory.user();
         render(<CreateAlertModal open={true} />, { user });
 
-        await userEvent.type(AlertFormHarness.textTextBox(), 'fields are closed');
+        await userEvent.type(
+            AlertFormHarness.textTextBox(),
+            'fields are closed'
+        );
         await userEvent.type(AlertFormHarness.startDateBox(), '2022-09-23');
-        await userEvent.type(AlertFormHarness.expirationDateBox(), '2022-10-23');
+        await userEvent.type(
+            AlertFormHarness.expirationDateBox(),
+            '2022-10-23'
+        );
         await waitForElementToBeEnabled(AlertFormHarness.saveButton());
         await userEvent.click(AlertFormHarness.saveButton());
 
@@ -73,7 +82,10 @@ describe('CreateAlertModal', () => {
         const onClose = jest.fn();
         render(<CreateAlertModal open={true} onClose={onClose} />);
 
-        await userEvent.type(AlertFormHarness.textTextBox(), 'fields are closed');
+        await userEvent.type(
+            AlertFormHarness.textTextBox(),
+            'fields are closed'
+        );
         await waitForElementToBeEnabled(AlertFormHarness.saveButton());
         await userEvent.click(AlertFormHarness.saveButton());
 
