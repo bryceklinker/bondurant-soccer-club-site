@@ -1,6 +1,7 @@
 import { ButtonHTMLAttributes, FC, ReactElement } from 'react';
 import { RowFlex } from '../layout/RowFlex';
 import { ClassNames } from '../extensions/class-names';
+import {Color, useTextAndBackgroundColorClasses} from '../styles/style-hooks';
 
 export type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement>;
 
@@ -9,15 +10,15 @@ export const Button: FC<ButtonProps> = ({ className, ...props }) => {
 };
 
 export type StyledButtonProps = ButtonProps & {
-    color?: 'blue' | 'none';
+    color?: Color;
 };
 export const StyledButton: FC<StyledButtonProps> = ({
     color,
     className,
     ...props
 }) => {
-    const colorClassName =
-        color === 'blue' ? 'bg-blue-600 text-white' : 'bg-slate-200';
+
+    const colorClassName = useTextAndBackgroundColorClasses(color);
     const classes = ClassNames.join(
         'rounded p-2 shadow hover:brightness-75',
         'disabled:opacity-75 disabled:cursor-not-allowed',

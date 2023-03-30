@@ -71,13 +71,14 @@ export const AlertTableRow: FC<AlertTableRowProps> = ({
             <td className={'text-left'}>{alert.severity}</td>
             <td className={'flex justify-start gap-8'}>
                 <IconButton
-                    className={'bg-red-500'}
                     aria-label={'edit alert'}
+                    color={'primary'}
                     icon={<PencilIcon width={'1em'} />}
                     onClick={handleEdit}
                 />
                 <IconButton
                     aria-label={'delete alert'}
+                    color={'error'}
                     icon={<TrashIcon width={'1em'} />}
                     onClick={handleDelete}
                 />
