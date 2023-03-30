@@ -34,7 +34,7 @@ export const DeleteAlertModal: FC<DeleteAlertModalProps> = ({
                 <IconButton
                     onClick={onDelete}
                     disabled={isLoading}
-                    className={'bg-red-500'}
+                    color={'error'}
                     aria-label={'delete alert'}
                     icon={<TrashIcon width={'1em'} />}>
                     Delete?
