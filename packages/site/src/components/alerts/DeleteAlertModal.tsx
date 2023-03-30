@@ -26,7 +26,6 @@ export const DeleteAlertModal: FC<DeleteAlertModalProps> = ({
             onClose();
         }
     }, [mutateAsync, alert, onClose]);
-    console.log('IS LOADING', isLoading);
     return (
         <Modal open={open} onClose={onClose}>
             <ModalTitle>Delete Alert?</ModalTitle>

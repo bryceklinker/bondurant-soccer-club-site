@@ -36,7 +36,7 @@ describe('DeleteAlertModal', () => {
     });
 
     test('when alert is deleting then buttons are disabled', async () => {
-        FakeServer.setupApiDelete('/alerts', { delay: 400 });
+        FakeServer.setupApiDelete(`/alerts/${alert.id}`, { delay: 400 });
 
         render(<DeleteAlertModal open={true} alert={alert} />);
 
