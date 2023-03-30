@@ -1,7 +1,7 @@
 import { ButtonHTMLAttributes, FC, ReactElement } from 'react';
 import { RowFlex } from '../layout/RowFlex';
 import { ClassNames } from '../extensions/class-names';
-import {Color, useTextAndBackgroundColorClasses} from '../styles/style-hooks';
+import { Color, useTextAndBackgroundColorClasses } from '../styles/style-hooks';
 
 export type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement>;
 
@@ -17,7 +17,6 @@ export const StyledButton: FC<StyledButtonProps> = ({
     className,
     ...props
 }) => {
-
     const colorClassName = useTextAndBackgroundColorClasses(color);
     const classes = ClassNames.join(
         'rounded p-2 shadow hover:brightness-75',
