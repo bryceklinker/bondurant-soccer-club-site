@@ -12,3 +12,4 @@ public/
 .terraform/
 *.html
 **/*.zip
+.env.local

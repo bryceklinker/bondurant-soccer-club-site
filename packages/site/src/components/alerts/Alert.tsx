@@ -12,11 +12,10 @@ export const Alert: FC<AlertProps> = ({ model }) => {
         <RowFlex
             role={'alert'}
             className={
-                'flex-none justify-center gap-2 bg-red-400 shadow h-16 p-4'
+                'flex-none gap-2 bg-red-400 shadow h-16 p-4'
             }>
             <AlertIcon status={model.severity} />
             {model.text}
-            <Spacer />
         </RowFlex>
     );
 };
