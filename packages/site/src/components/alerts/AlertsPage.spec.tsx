@@ -95,7 +95,7 @@ describe('AlertsPage', () => {
 
         render(<AlertsPage />, { user });
 
-        await userEvent.click(editAlertButton());
+        await waitFor(async () => await userEvent.click(editAlertButton()));
 
         expect(dialog()).toBeVisible();
     });
@@ -114,7 +114,7 @@ describe('AlertsPage', () => {
         FakeServer.setupApiGet('/alerts', [alert]);
 
         render(<AlertsPage />, { user });
-        await userEvent.click(deleteAlertButton());
+        await waitFor(async () => await userEvent.click(deleteAlertButton()));
 
         expect(dialog()).toBeVisible();
     });
