@@ -56,7 +56,7 @@ function user(user: Partial<AuthUser> = {}): AuthUser {
 function jwtForUser(user: Partial<AuthUser> = {}): string {
     const header = {
         alg: 'RS256',
-        kid: faker.datatype.uuid().replaceAll('-', ''),
+        kid: faker.datatype.uuid().replace(/-/g, ''),
         typ: 'JWT'
     };
     const payload = ModelFactory.user(user);

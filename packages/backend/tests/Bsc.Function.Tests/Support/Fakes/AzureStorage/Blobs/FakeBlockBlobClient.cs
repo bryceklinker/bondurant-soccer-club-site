@@ -20,11 +20,13 @@ public class FakeBlockBlobClient : BlockBlobClient
     {
         if (_content == null)
             throw new HttpRequestException("Blob not found");
-        
+
         return Task.FromResult<Stream>(new MemoryStream(_content));
     }
 
-    public override Task<Response<bool>> ExistsAsync(CancellationToken cancellationToken = new CancellationToken())
+    public override Task<Response<bool>> ExistsAsync(
+        CancellationToken cancellationToken = new CancellationToken()
+    )
     {
         return Task.FromResult(Response.FromValue(_content != null, new FakeResponse()));
     }
@@ -49,7 +51,7 @@ public class FakeBlockBlobClient : BlockBlobClient
     {
         _content = null;
     }
-    
+
     public string ContentAsString()
     {
         return Encoding.UTF8.GetString(Content);

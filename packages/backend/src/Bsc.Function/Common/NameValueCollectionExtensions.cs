@@ -4,7 +4,11 @@ namespace Bsc.Function.Common;
 
 public static class NameValueCollectionExtensions
 {
-    public static bool TryGetString(this NameValueCollection collection, string key, out string? result)
+    public static bool TryGetString(
+        this NameValueCollection collection,
+        string key,
+        out string? result
+    )
     {
         result = null;
         var dictionary = collection.ToDictionary();
@@ -14,7 +18,7 @@ public static class NameValueCollectionExtensions
         result = value?.ToString();
         return value != null;
     }
-    
+
     public static bool TryGetBool(this NameValueCollection collection, string key, out bool result)
     {
         result = false;
@@ -30,7 +34,8 @@ public static class NameValueCollectionExtensions
         if (!collection.HasKeys())
             return new Dictionary<string, object?>();
 
-        return collection.Keys.Cast<string?>()
+        return collection.Keys
+            .Cast<string?>()
             .Where(key => !string.IsNullOrWhiteSpace(key))
             .ToDictionary<string?, string, object?>(key => key, key => collection[key]);
     }

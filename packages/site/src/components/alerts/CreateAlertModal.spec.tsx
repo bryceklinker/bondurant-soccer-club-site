@@ -108,5 +108,5 @@ describe('CreateAlertModal', () => {
         await userEvent.click(AlertFormHarness.cancelButton());
 
         expect(AlertFormHarness.textTextBox()).toHaveValue('');
-    })
+    });
 });

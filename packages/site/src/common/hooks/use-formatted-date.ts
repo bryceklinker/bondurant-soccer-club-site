@@ -1,5 +1,5 @@
-import {useMemo} from 'react';
-import {Dates} from '../extensions/dates';
+import { useMemo } from 'react';
+import { Dates } from '../extensions/dates';
 
 export function useFormattedDate(date?: string | null): string {
     return useMemo(() => {

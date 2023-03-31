@@ -3,7 +3,7 @@ import { PencilIcon, TrashIcon } from '@heroicons/react/20/solid';
 import { AlertModel } from './state/models';
 import { Loading } from '../../common/components/Loading';
 import { IconButton } from '../../common/components/Button';
-import {useFormattedDate} from '../../common/hooks/use-formatted-date';
+import { useFormattedDate } from '../../common/hooks/use-formatted-date';
 
 export type AlertsTable = {
     alerts: AlertModel[];

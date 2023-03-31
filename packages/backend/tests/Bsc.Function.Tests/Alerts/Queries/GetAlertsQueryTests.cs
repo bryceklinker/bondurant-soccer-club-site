@@ -101,7 +101,7 @@ public class GetAlertsQueryTests
     public async Task WhenBlobDoesNotExistThenReturnsEmptyAlerts()
     {
         _blobClient.Delete();
-        
+
         var result = await _mediator.Send(new GetAlertsQuery());
 
         result.Should().BeEmpty();

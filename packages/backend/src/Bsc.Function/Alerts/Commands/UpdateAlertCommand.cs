@@ -9,7 +9,10 @@ public class UpdateAlertCommandHandler : IRequestHandler<UpdateAlertCommand>
 {
     private readonly IRepositoryFactory _repositoryFactory;
 
-    public UpdateAlertCommandHandler(IRepositoryFactory repositoryFactory, ILoggerFactory loggerFactory)
+    public UpdateAlertCommandHandler(
+        IRepositoryFactory repositoryFactory,
+        ILoggerFactory loggerFactory
+    )
     {
         _repositoryFactory = repositoryFactory;
     }

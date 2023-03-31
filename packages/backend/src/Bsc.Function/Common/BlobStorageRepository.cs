@@ -57,7 +57,7 @@ public class BlobStorageRepository<T> : IRepository<T>
                 _logger.LogInformation("deserialized item {@Result}", result);
             }
         }
-        
+
         var items = serializerResult.Success ? serializerResult.Result : Array.Empty<T>();
         return items ?? Array.Empty<T>();
     }

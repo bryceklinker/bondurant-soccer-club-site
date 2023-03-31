@@ -17,7 +17,7 @@ export function useAlerts(includeExpired = false) {
             const response = await api.get(`/alerts?${queryParams}`);
             return await response.json();
         },
-        {enabled: api !== null}
+        { enabled: api !== null }
     );
 
     return {

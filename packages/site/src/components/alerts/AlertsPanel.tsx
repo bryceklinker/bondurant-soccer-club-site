@@ -1,7 +1,7 @@
 import { FC, useMemo } from 'react';
 import { Alert } from './Alert';
 import { useAlerts } from './hooks/use-alerts';
-import {RowFlex} from '../../common/layout/RowFlex';
+import { RowFlex } from '../../common/layout/RowFlex';
 
 export type AlertsPanelProps = {};
 

@@ -13,12 +13,12 @@ import { useIsLoggedIn } from '../../common/auth/auth-hooks';
 import { Section } from '../../common/components/Section';
 import { Unauthorized } from '../../common/auth/Unauthorized';
 import { DeleteAlertModal } from './DeleteAlertModal';
-import {useBooleanToggle} from '../../common/hooks/use-boolean-toggle';
-import {ToggleSwitch} from '../../common/components/forms/ToggleSwitch';
+import { useBooleanToggle } from '../../common/hooks/use-boolean-toggle';
+import { ToggleSwitch } from '../../common/components/forms/ToggleSwitch';
 
 export const AlertsPage: FC = () => {
     const isLoggedIn = useIsLoggedIn();
-    const {value: includeExpired, toggle: toggleExpired} = useBooleanToggle();
+    const { value: includeExpired, toggle: toggleExpired } = useBooleanToggle();
     const { alerts, isLoading } = useAlerts(includeExpired);
     const [isCreatingAlert, onCloseCreate, onOpenCreate] = useModalState();
     const [isEditingAlert, onCloseEdit, onOpenEdit] = useModalState();
@@ -54,7 +54,8 @@ export const AlertsPage: FC = () => {
                 <ToggleSwitch
                     checked={includeExpired}
                     onChange={toggleExpired}
-                    aria-label={'toggle expired alerts'} />
+                    aria-label={'toggle expired alerts'}
+                />
                 <IconButton
                     onClick={onOpenCreate}
                     color={'primary'}

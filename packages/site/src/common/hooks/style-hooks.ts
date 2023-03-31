@@ -9,25 +9,28 @@ export const BACKGROUND_COLOR_CLASSES = {
     error: 'bg-red-500',
     primary: 'bg-blue-600',
     default: 'bg-slate-200'
-}
+};
 const BACKGROUND_COLOR_MAP: ColorToClassMap = {
     default: BACKGROUND_COLOR_CLASSES.default,
     error: BACKGROUND_COLOR_CLASSES.error,
-    primary: BACKGROUND_COLOR_CLASSES.primary,
+    primary: BACKGROUND_COLOR_CLASSES.primary
 };
 
 export const TEXT_COLOR_CLASSES = {
     default: 'text-black',
     error: 'text-black',
-    primary: 'text-white',
-}
+    primary: 'text-white'
+};
 const TEXT_COLOR_MAP: ColorToClassMap = {
     default: TEXT_COLOR_CLASSES.default,
     error: TEXT_COLOR_CLASSES.error,
     primary: TEXT_COLOR_CLASSES.primary
 };
 
-export function useBackgroundColorClass(color?: Color, defaultColor = BACKGROUND_COLOR_MAP.default) {
+export function useBackgroundColorClass(
+    color?: Color,
+    defaultColor = BACKGROUND_COLOR_MAP.default
+) {
     return useMemo(() => {
         return color && color in BACKGROUND_COLOR_MAP
             ? BACKGROUND_COLOR_MAP[color]
@@ -35,7 +38,10 @@ export function useBackgroundColorClass(color?: Color, defaultColor = BACKGROUND
     }, [color]);
 }
 
-export function useTextColorClass(color?: Color, defaultColor = TEXT_COLOR_MAP.default) {
+export function useTextColorClass(
+    color?: Color,
+    defaultColor = TEXT_COLOR_MAP.default
+) {
     return useMemo(() => {
         return color && color in TEXT_COLOR_MAP
             ? TEXT_COLOR_MAP[color]

@@ -1,4 +1,4 @@
-import {format, parseISO} from 'date-fns';
+import { format, parseISO } from 'date-fns';
 import { DateRange } from '../state/date-range';
 
 function formatForInput(date?: Date): string {
@@ -32,7 +32,7 @@ function safeFormatDate(value?: string | null): string {
     return date ? formatDate(date) : '';
 }
 
-function safeFormatForInput(value?: string | null) : string {
+function safeFormatForInput(value?: string | null): string {
     const parsed = safeParse(value);
     return parsed ? formatForInput(parsed) : '';
 }
