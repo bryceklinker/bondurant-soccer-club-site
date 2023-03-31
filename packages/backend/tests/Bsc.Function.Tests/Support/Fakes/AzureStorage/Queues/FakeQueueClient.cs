@@ -1,11 +1,10 @@
 using System.Collections.Concurrent;
-using System.Text.Json;
 using Azure;
 using Azure.Storage.Queues;
 using Azure.Storage.Queues.Models;
 using Newtonsoft.Json;
 
-namespace Bsc.Function.Tests.Support.Fakes;
+namespace Bsc.Function.Tests.Support.Fakes.AzureStorage.Queues;
 
 public class FakeQueueClient : QueueClient
 {

@@ -3,6 +3,7 @@ using System.Security.Claims;
 using Bsc.Function.Common;
 using Bsc.Function.Common.Authentication;
 using Bsc.Function.Tests.Support.Fakes;
+using Bsc.Function.Tests.Support.Fakes.AzureStorage.Blobs;
 using MediatR;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;

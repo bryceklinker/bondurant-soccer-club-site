@@ -1,6 +1,6 @@
 using Azure.Storage.Blobs;
 
-namespace Bsc.Function.Tests.Support.Fakes;
+namespace Bsc.Function.Tests.Support.Fakes.AzureStorage.Blobs;
 
 public class FakeBlobServiceClient : BlobServiceClient
 {

@@ -2,6 +2,7 @@ using Bsc.Function.Alerts.Models;
 using Bsc.Function.Common;
 using Bsc.Function.Common.Serialization;
 using Bsc.Function.Tests.Support.Fakes;
+using Bsc.Function.Tests.Support.Fakes.AzureFunctions;
 using Microsoft.Azure.Functions.Worker.Http;
 
 namespace Bsc.Function.Tests.Common;

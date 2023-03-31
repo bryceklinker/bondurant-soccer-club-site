@@ -1,6 +1,7 @@
 using Bsc.Function.Common.Authentication;
 using Bsc.Function.Tests.Support;
 using Bsc.Function.Tests.Support.Fakes;
+using Bsc.Function.Tests.Support.Fakes.AzureFunctions;
 using Microsoft.Azure.Functions.Worker.Http;
 
 namespace Bsc.Function.Tests.Common.Authentication;

@@ -27,7 +27,7 @@ export const CreateAlertModal: FC<CreateAlertModalProps> = ({
         expirationDate: '',
         startDate: ''
     });
-    const { handleSubmit, formState, control } = useForm({
+    const { handleSubmit, formState, control, reset } = useForm({
         mode: 'all',
         reValidateMode: 'onChange',
         defaultValues,
@@ -44,7 +44,8 @@ export const CreateAlertModal: FC<CreateAlertModalProps> = ({
         if (onClose) {
             onClose();
         }
-    }, [setDefaultValues]);
+        reset();
+    }, [setDefaultValues, reset, onClose]);
 
     return (
         <Modal open={open} onClose={handleClose}>

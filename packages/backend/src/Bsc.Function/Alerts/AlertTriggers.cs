@@ -26,8 +26,9 @@ public class AlertTriggers
         [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "alerts")] HttpRequestData req
     )
     {
-        var alerts = await _mediator.Send(new GetAlertsQuery());
-        return await req.CreateJsonResponse(alerts);
+        req.Query.TryGetBool("includeExpired", out var includeExpired);
+        var alerts = await _mediator.Send(new GetAlertsQuery(includeExpired));
+        return await req.CreateJsonResponse(alerts, cache: true);
     }
 
     [Function("PostAlert")]

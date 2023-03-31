@@ -1,5 +1,7 @@
 using Azure.Storage.Blobs;
 using Azure.Storage.Queues;
+using Bsc.Function.Tests.Support.Fakes.AzureStorage.Blobs;
+using Bsc.Function.Tests.Support.Fakes.AzureStorage.Queues;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.IdentityModel.Protocols;

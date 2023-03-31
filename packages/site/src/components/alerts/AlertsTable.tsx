@@ -1,8 +1,9 @@
-import { AlertModel } from './state/models';
 import { FC, useCallback, useMemo } from 'react';
+import { PencilIcon, TrashIcon } from '@heroicons/react/20/solid';
+import { AlertModel } from './state/models';
 import { Loading } from '../../common/components/Loading';
 import { IconButton } from '../../common/components/Button';
-import { PencilIcon, TrashIcon } from '@heroicons/react/20/solid';
+import {useFormattedDate} from '../../common/hooks/use-formatted-date';
 
 export type AlertsTable = {
     alerts: AlertModel[];
@@ -34,6 +35,8 @@ export const AlertsTable: FC<AlertsTable> = ({
                 <tr>
                     <th className={'text-left'}>Text</th>
                     <th className={'text-left'}>Severity</th>
+                    <th className={'text-left'}>Start Date</th>
+                    <th className={'text-left'}>Expiration Date</th>
                     <th className={'text-left'}>Actions</th>
                 </tr>
             </thead>
@@ -65,10 +68,15 @@ export const AlertTableRow: FC<AlertTableRowProps> = ({
             onDelete(alert);
         }
     }, [onDelete, alert]);
+
+    const startDate = useFormattedDate(alert.startDate);
+    const expirationDate = useFormattedDate(alert.expirationDate);
     return (
         <tr aria-label={'alert'}>
             <td className={'text-left'}>{alert.text}</td>
             <td className={'text-left'}>{alert.severity}</td>
+            <td className={'text-left'}>{startDate}</td>
+            <td className={'text-left'}>{expirationDate}</td>
             <td className={'flex justify-start gap-8'}>
                 <IconButton
                     aria-label={'edit alert'}
@@ -89,7 +97,7 @@ export const AlertTableRow: FC<AlertTableRowProps> = ({
 export const AlertTableLoadingRow: FC = () => {
     return (
         <tr>
-            <td colSpan={3}>
+            <td colSpan={3} className={'justify-center'}>
                 <Loading />
             </td>
         </tr>

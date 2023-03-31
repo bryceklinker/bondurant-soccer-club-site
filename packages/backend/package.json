@@ -4,11 +4,15 @@
   "scripts": {
     "precommit": "dotnet csharpier .",
     "build": "cd src/Bsc.Function && dotnet build --configuration Release --output ../../../../dist/backend",
+    "dev": "cd src/Bsc.Function && nodemon",
     "test": "dotnet test",
     "clean": "dotnet clean",
     "serve": "echo 'skipping serve...'",
     "start": "echo 'skipping start...'"
   },
   "dependencies": {
+  },
+  "devDependencies": {
+    "nodemon": "2.0.22"
   }
 }

@@ -2,7 +2,7 @@ using System.Net;
 using Azure;
 using Azure.Core;
 
-namespace Bsc.Function.Tests.Support.Fakes;
+namespace Bsc.Function.Tests.Support.Fakes.AzureStorage;
 
 public class FakeResponse : Response
 {

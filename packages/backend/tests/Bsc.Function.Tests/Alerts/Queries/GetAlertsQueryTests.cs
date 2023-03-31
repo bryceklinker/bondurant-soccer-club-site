@@ -1,7 +1,7 @@
 using Bsc.Function.Alerts.Models;
 using Bsc.Function.Alerts.Queries;
 using Bsc.Function.Tests.Support;
-using Bsc.Function.Tests.Support.Fakes;
+using Bsc.Function.Tests.Support.Fakes.AzureStorage.Blobs;
 using MediatR;
 
 namespace Bsc.Function.Tests.Alerts.Queries;
@@ -41,20 +41,39 @@ public class GetAlertsQueryTests
         _blobClient.SetupJsonContent(
             new[]
             {
-                new AlertModel(Guid.NewGuid(), "something", Severity.High),
                 new AlertModel(
                     Guid.NewGuid(),
                     "something",
                     Severity.High,
-                    DateTimeOffset.UtcNow.AddDays(-5),
-                    DateTimeOffset.UtcNow.AddDays(-1)
+                    DateOnly.FromDateTime(DateTime.Today),
+                    DateOnly.FromDateTime(DateTime.Today)
                 ),
-                new AlertModel(Guid.NewGuid(), "something", Severity.High),
             }
         );
 
         var result = await _mediator.Send(new GetAlertsQuery());
-        result.Should().HaveCount(2);
+        result.Should().BeEmpty();
+    }
+
+    [Fact]
+    public async Task WhenExpiredAlertsAreIncludedThenReturnsExpiredAlerts()
+    {
+        _blobClient.SetupJsonContent(
+            new[]
+            {
+                new AlertModel(
+                    Guid.NewGuid(),
+                    "something",
+                    Severity.High,
+                    DateOnly.FromDateTime(DateTime.Today),
+                    DateOnly.FromDateTime(DateTime.Today)
+                ),
+            }
+        );
+
+        var result = await _mediator.Send(new GetAlertsQuery(true));
+
+        result.Should().HaveCount(1);
     }
 
     [Fact]
@@ -68,7 +87,7 @@ public class GetAlertsQueryTests
                     Guid.NewGuid(),
                     "something",
                     Severity.High,
-                    DateTimeOffset.UtcNow.AddDays(1)
+                    DateOnly.FromDateTime(DateTime.Today).AddDays(1)
                 ),
                 new AlertModel(Guid.NewGuid(), "something", Severity.High),
             }
@@ -76,5 +95,15 @@ public class GetAlertsQueryTests
 
         var result = await _mediator.Send(new GetAlertsQuery());
         result.Should().HaveCount(2);
+    }
+
+    [Fact]
+    public async Task WhenBlobDoesNotExistThenReturnsEmptyAlerts()
+    {
+        _blobClient.Delete();
+        
+        var result = await _mediator.Send(new GetAlertsQuery());
+
+        result.Should().BeEmpty();
     }
 }

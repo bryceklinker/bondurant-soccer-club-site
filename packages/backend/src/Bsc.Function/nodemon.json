@@ -1,0 +1,16 @@
+{
+  "restartable": "rs",
+  "watch": [
+    "**/*.cs",
+    "*.cs",
+    "*.json"
+  ],
+  "ignore": [
+    "**/bin/**",
+    "**/obj/**"
+  ],
+  "exec": "func start",
+  "execMap": {
+    "cs": "func start"
+  }
+}

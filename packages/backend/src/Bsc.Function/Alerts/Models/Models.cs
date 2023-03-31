@@ -1,6 +1,5 @@
-using System;
-using System.Net.Mime;
 using System.Text.Json.Serialization;
+using Bsc.Function.Common;
 using MediatR;
 
 namespace Bsc.Function.Alerts.Models;
@@ -15,30 +14,32 @@ public record AlertModel(
     Guid Id,
     string Text,
     Severity Severity,
-    DateTimeOffset? StartDate = null,
-    DateTimeOffset? ExpirationDate = null
+    DateOnly? StartDate = null,
+    DateOnly? ExpirationDate = null
 )
 {
     public static AlertModel FromCreateCommand(CreateAlertCommand command)
     {
-        var startDate = command.StartDate ?? DateTimeOffset.UtcNow;
+        var startDate = command.StartDate.ToDateOnly() ?? DateOnly.FromDateTime(DateTime.Today);
+
         return new AlertModel(
             Guid.NewGuid(),
             command.Text,
             command.Severity,
             startDate,
-            command.ExpirationDate
+            command.ExpirationDate.ToDateOnly()
         );
     }
 
     public static AlertModel FromUpdateCommand(UpdateAlertCommand command)
     {
+        var startDate = command.StartDate.ToDateOnly() ?? DateOnly.FromDateTime(DateTime.Today);
         return new AlertModel(
             command.Id,
             command.Text,
             command.Severity,
-            command.StartDate,
-            command.ExpirationDate
+            startDate,
+            command.ExpirationDate.ToDateOnly()
         );
     }
 };
@@ -47,13 +48,13 @@ public record UpdateAlertCommand(
     Guid Id,
     string Text,
     Severity Severity,
-    DateTimeOffset? StartDate = null,
-    DateTimeOffset? ExpirationDate = null
+    DateTime? StartDate = null,
+    DateTime? ExpirationDate = null
 ) : IRequest;
 
 public record CreateAlertCommand(
     string Text,
     Severity Severity,
-    DateTimeOffset? StartDate = null,
-    DateTimeOffset? ExpirationDate = null
+    DateTime? StartDate = null,
+    DateTime? ExpirationDate = null
 ) : IRequest;

@@ -1,6 +1,6 @@
 using Azure.Storage.Queues;
 
-namespace Bsc.Function.Tests.Support.Fakes;
+namespace Bsc.Function.Tests.Support.Fakes.AzureStorage.Queues;
 
 public record FakeSentMessage(
     string MessageText,

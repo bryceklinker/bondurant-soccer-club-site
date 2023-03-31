@@ -4,12 +4,12 @@ using Azure.Storage.Blobs.Models;
 using Azure.Storage.Blobs.Specialized;
 using Newtonsoft.Json;
 
-namespace Bsc.Function.Tests.Support.Fakes;
+namespace Bsc.Function.Tests.Support.Fakes.AzureStorage.Blobs;
 
 public class FakeBlockBlobClient : BlockBlobClient
 {
-    private byte[] _content = Array.Empty<byte>();
-    public byte[] Content => _content.ToArray();
+    private byte[]? _content = Array.Empty<byte>();
+    public byte[]? Content => _content?.ToArray();
 
     public override Task<Stream> OpenReadAsync(
         long position = 0,
@@ -18,7 +18,15 @@ public class FakeBlockBlobClient : BlockBlobClient
         CancellationToken cancellationToken = new CancellationToken()
     )
     {
+        if (_content == null)
+            throw new HttpRequestException("Blob not found");
+        
         return Task.FromResult<Stream>(new MemoryStream(_content));
+    }
+
+    public override Task<Response<bool>> ExistsAsync(CancellationToken cancellationToken = new CancellationToken())
+    {
+        return Task.FromResult(Response.FromValue(_content != null, new FakeResponse()));
     }
 
     public override async Task<Response<BlobContentInfo>> UploadAsync(
@@ -37,6 +45,11 @@ public class FakeBlockBlobClient : BlockBlobClient
         return response;
     }
 
+    public void Delete()
+    {
+        _content = null;
+    }
+    
     public string ContentAsString()
     {
         return Encoding.UTF8.GetString(Content);

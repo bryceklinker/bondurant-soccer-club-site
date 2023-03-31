@@ -4,7 +4,7 @@ using Azure.Storage.Blobs.Models;
 using Azure.Storage.Blobs.Specialized;
 using Newtonsoft.Json;
 
-namespace Bsc.Function.Tests.Support.Fakes;
+namespace Bsc.Function.Tests.Support.Fakes.AzureStorage.Blobs;
 
 public class FakeBlobContainerClient : BlobContainerClient
 {

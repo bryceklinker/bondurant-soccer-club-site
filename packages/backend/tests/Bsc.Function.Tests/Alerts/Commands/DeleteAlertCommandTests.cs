@@ -2,6 +2,7 @@ using Bsc.Function.Alerts.Commands;
 using Bsc.Function.Alerts.Models;
 using Bsc.Function.Tests.Support;
 using Bsc.Function.Tests.Support.Fakes;
+using Bsc.Function.Tests.Support.Fakes.AzureStorage.Blobs;
 using MediatR;
 
 namespace Bsc.Function.Tests.Alerts.Commands;

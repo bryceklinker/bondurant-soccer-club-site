@@ -1,9 +1,7 @@
-using System.Linq;
-using System.Threading;
-using System.Threading.Tasks;
 using Bsc.Function.Alerts.Models;
 using Bsc.Function.Common;
 using MediatR;
+using Microsoft.Extensions.Logging;
 
 namespace Bsc.Function.Alerts.Commands;
 
@@ -11,7 +9,7 @@ public class UpdateAlertCommandHandler : IRequestHandler<UpdateAlertCommand>
 {
     private readonly IRepositoryFactory _repositoryFactory;
 
-    public UpdateAlertCommandHandler(IRepositoryFactory repositoryFactory)
+    public UpdateAlertCommandHandler(IRepositoryFactory repositoryFactory, ILoggerFactory loggerFactory)
     {
         _repositoryFactory = repositoryFactory;
     }

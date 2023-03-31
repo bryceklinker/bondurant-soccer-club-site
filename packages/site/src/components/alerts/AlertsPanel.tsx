@@ -1,7 +1,7 @@
 import { FC, useMemo } from 'react';
 import { Alert } from './Alert';
 import { useAlerts } from './hooks/use-alerts';
-import { ColumnFlex } from '../../common/layout/ColumnFlex';
+import {RowFlex} from '../../common/layout/RowFlex';
 
 export type AlertsPanelProps = {};
 
@@ -11,5 +11,5 @@ export const AlertsPanel: FC<AlertsPanelProps> = () => {
         () => alerts.map(m => <Alert key={m.id} model={m} />),
         [alerts]
     );
-    return <ColumnFlex className={'flex-none'}>{alertItems}</ColumnFlex>;
+    return <RowFlex className={'flex-none'}>{alertItems}</RowFlex>;
 };

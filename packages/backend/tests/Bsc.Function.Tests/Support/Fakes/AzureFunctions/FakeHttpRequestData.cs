@@ -3,7 +3,7 @@ using System.Security.Claims;
 using Microsoft.Azure.Functions.Worker;
 using Microsoft.Azure.Functions.Worker.Http;
 
-namespace Bsc.Function.Tests.Support.Fakes;
+namespace Bsc.Function.Tests.Support.Fakes.AzureFunctions;
 
 public class FakeHttpRequestData : HttpRequestData
 {

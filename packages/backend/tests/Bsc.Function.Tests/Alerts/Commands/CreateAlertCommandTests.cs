@@ -1,6 +1,6 @@
 using Bsc.Function.Alerts.Models;
 using Bsc.Function.Tests.Support;
-using Bsc.Function.Tests.Support.Fakes;
+using Bsc.Function.Tests.Support.Fakes.AzureStorage.Blobs;
 using FluentValidation;
 using MediatR;
 using Severity = Bsc.Function.Alerts.Models.Severity;
@@ -31,7 +31,7 @@ public class CreateAlertCommandTests
         content![0].Id.Should().NotBeEmpty();
         content[0].Severity.Should().Be(Severity.High);
         content[0].Text.Should().Be("hello");
-        content[0].StartDate.Should().BeCloseTo(DateTimeOffset.UtcNow, TimeSpan.FromSeconds(1));
+        content[0].StartDate.Should().Be(DateOnly.FromDateTime(DateTime.Today));
         content[0].ExpirationDate.Should().BeNull();
     }
 

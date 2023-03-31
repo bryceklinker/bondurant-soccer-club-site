@@ -2,17 +2,22 @@ import { AlertModel } from '../state/models';
 import { useMutation, useQuery, useQueryClient } from 'react-query';
 import { useApi } from '../../../common/api/use-api';
 
-export function useAlerts() {
+export function useAlerts(includeExpired = false) {
     const api = useApi();
     const { data, ...rest } = useQuery<AlertModel[]>(
-        ['alerts', api],
+        ['alerts', includeExpired],
         async () => {
             if (!api) {
                 return [];
             }
-            const response = await api.get('/alerts');
+            const queryParams = new URLSearchParams();
+            if (includeExpired) {
+                queryParams.append('includeExpired', 'true');
+            }
+            const response = await api.get(`/alerts?${queryParams}`);
             return await response.json();
-        }
+        },
+        {enabled: api !== null}
     );
 
     return {

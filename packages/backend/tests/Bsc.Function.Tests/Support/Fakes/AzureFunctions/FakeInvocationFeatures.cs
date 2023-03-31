@@ -1,7 +1,7 @@
 using System.Collections;
 using Microsoft.Azure.Functions.Worker;
 
-namespace Bsc.Function.Tests.Support.Fakes;
+namespace Bsc.Function.Tests.Support.Fakes.AzureFunctions;
 
 public class FakeInvocationFeatures : IInvocationFeatures
 {

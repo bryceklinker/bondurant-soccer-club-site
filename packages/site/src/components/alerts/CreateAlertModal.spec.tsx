@@ -100,4 +100,13 @@ describe('CreateAlertModal', () => {
 
         expect(onClose).toHaveBeenCalled();
     });
+
+    test('when modal closes then form is reset', async () => {
+        render(<CreateAlertModal open={true} />);
+
+        await userEvent.type(AlertFormHarness.textTextBox(), 'bob');
+        await userEvent.click(AlertFormHarness.cancelButton());
+
+        expect(AlertFormHarness.textTextBox()).toHaveValue('');
+    })
 });
