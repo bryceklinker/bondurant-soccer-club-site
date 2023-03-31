@@ -11,6 +11,7 @@
     "postbuild": "rm ./public/settings.json && cp -R ./public ../../dist/site",
     "start": "gatsby develop",
     "dev": "gatsby develop",
+    "serve": "serve ./public",
     "clean": "gatsby clean",
     "test": "cross-env TZ=UTC jest"
   },
@@ -68,6 +69,7 @@
     "lint-staged": "13.2.0",
     "msw": "1.2.1",
     "prettier": "2.8.7",
+    "serve": "14.2.0",
     "ts-jest": "29.0.5",
     "tslib": "2.5.0",
     "typescript": "5.0.3",
