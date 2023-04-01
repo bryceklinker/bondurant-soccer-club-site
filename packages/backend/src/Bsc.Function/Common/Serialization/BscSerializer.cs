@@ -18,14 +18,11 @@ public record SerializerResult<T>(bool Success, T? Result, Exception? Exception)
 
 public static class BscSerializer
 {
-    private static readonly JsonSerializerOptions JsonOptions = new(JsonSerializerDefaults.Web)
-    {
-        Converters =
+    private static readonly JsonSerializerOptions JsonOptions =
+        new(JsonSerializerDefaults.Web)
         {
-            new DateOnlyJsonConverter(),
-            new JsonStringEnumConverter()
-        }
-    };
+            Converters = { new DateOnlyJsonConverter(), new JsonStringEnumConverter() }
+        };
 
     public static void Serialize<T>(Stream stream, T? value)
     {

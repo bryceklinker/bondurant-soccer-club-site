@@ -5,10 +5,14 @@ namespace Bsc.Function.Common.Serialization;
 
 public class DateOnlyJsonConverter : JsonConverter<DateOnly>
 {
-    public override DateOnly Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
+    public override DateOnly Read(
+        ref Utf8JsonReader reader,
+        Type typeToConvert,
+        JsonSerializerOptions options
+    )
     {
-        return DateTime.TryParse(reader.GetString(), out var value) 
-            ? DateOnly.FromDateTime(value.ToUniversalTime()) 
+        return DateTime.TryParse(reader.GetString(), out var value)
+            ? DateOnly.FromDateTime(value.ToUniversalTime())
             : DateOnly.MinValue;
     }
 
