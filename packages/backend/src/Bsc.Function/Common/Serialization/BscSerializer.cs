@@ -1,4 +1,5 @@
 using System.Text.Json;
+using System.Text.Json.Serialization;
 
 namespace Bsc.Function.Common.Serialization;
 
@@ -17,16 +18,33 @@ public record SerializerResult<T>(bool Success, T? Result, Exception? Exception)
 
 public static class BscSerializer
 {
-    private static readonly JsonSerializerOptions JsonOptions = new(JsonSerializerDefaults.Web);
+    private static readonly JsonSerializerOptions JsonOptions = new(JsonSerializerDefaults.Web)
+    {
+        Converters =
+        {
+            new DateOnlyJsonConverter(),
+            new JsonStringEnumConverter()
+        }
+    };
 
     public static void Serialize<T>(Stream stream, T? value)
     {
         JsonSerializer.Serialize(stream, value, JsonOptions);
     }
 
+    public static string Serialize<T>(T? value)
+    {
+        return JsonSerializer.Serialize(value, JsonOptions);
+    }
+
     public static object? Deserialize(Stream stream, Type targetType)
     {
         return JsonSerializer.Deserialize(stream, targetType, JsonOptions);
+    }
+
+    public static T? Deserialize<T>(string json)
+    {
+        return JsonSerializer.Deserialize<T>(json, JsonOptions);
     }
 
     public static async ValueTask<object?> DeserializeAsync(

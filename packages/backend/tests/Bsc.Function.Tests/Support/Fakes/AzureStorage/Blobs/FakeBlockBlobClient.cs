@@ -2,6 +2,7 @@ using System.Text;
 using Azure;
 using Azure.Storage.Blobs.Models;
 using Azure.Storage.Blobs.Specialized;
+using Bsc.Function.Common.Serialization;
 using Newtonsoft.Json;
 
 namespace Bsc.Function.Tests.Support.Fakes.AzureStorage.Blobs;
@@ -59,12 +60,12 @@ public class FakeBlockBlobClient : BlockBlobClient
 
     public T? ContentAsJson<T>()
     {
-        return JsonConvert.DeserializeObject<T>(ContentAsString());
+        return BscSerializer.Deserialize<T>(ContentAsString());
     }
 
     public void SetupJsonContent<T>(T value)
     {
-        SetupContent(JsonConvert.SerializeObject(value));
+        SetupContent(BscSerializer.Serialize(value));
     }
 
     public void SetupContent(string value)
