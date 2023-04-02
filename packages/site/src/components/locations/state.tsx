@@ -19,11 +19,6 @@ export const COLLISON_SOCCER_PARK_LOCATION: LocationData = {
             title: 'All Fields',
             image: 'west_complex_all_fields',
             alt: 'Arial view of all collison soccer park fields'
-        },
-        {
-            title: 'East Side',
-            image: 'west_complex_east_side',
-            alt: 'Arial view of east side of collison soccer park fields'
         }
     ]
 };
