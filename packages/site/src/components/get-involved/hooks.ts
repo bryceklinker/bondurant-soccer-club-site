@@ -1,6 +1,6 @@
-import { useMemo } from 'react';
-import { COACHING_DRILLS, GET_INVOLVED_OPTIONS } from './state';
-import { graphql, useStaticQuery } from 'gatsby';
+import {useMemo} from 'react';
+import {COACHING_DRILLS, GET_INVOLVED_OPTIONS} from './state';
+import {graphql, useStaticQuery} from 'gatsby';
 
 export function useGetInvolvedOptions() {
     return useMemo(() => GET_INVOLVED_OPTIONS, []);
@@ -18,10 +18,10 @@ export type SessionPlanFile = {
 
 export function useSessionPlans() {
     const data = useStaticQuery<{
-        allFile: {
-            edges: [
+        allFile?: {
+            edges?: [
                 {
-                    node: SessionPlanFile;
+                    node?: SessionPlanFile;
                 }
             ];
         };
@@ -44,5 +44,8 @@ export function useSessionPlans() {
         }
     `);
 
-    return data.allFile.edges.map(e => e.node);
+    const edges = data?.allFile?.edges ?? [];
+    return edges
+        .filter(e => e.node)
+        .map(e => e.node as SessionPlanFile) ?? [];
 }

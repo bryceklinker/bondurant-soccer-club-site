@@ -8,7 +8,7 @@
     "test": "dotnet test",
     "clean": "dotnet clean",
     "serve": "echo 'skipping serve...'",
-    "start": "echo 'skipping start...'"
+    "start": "cd src/Bsc.Function && func start"
   },
   "dependencies": {
   },

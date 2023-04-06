@@ -13,3 +13,4 @@ public/
 *.html
 **/*.zip
 .env.local
+cypress.env.json

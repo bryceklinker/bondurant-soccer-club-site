@@ -7,10 +7,10 @@
     "precommit": "prettier --write src",
     "prebuild": "yarn clean",
     "build": "gatsby build",
-    "postbuild": "rm ./public/settings.json && cp -R ./public ../../dist/site",
-    "start": "gatsby develop",
+    "postbuild": "cp -R ./public ../../dist/site",
+    "prestart": "yarn build",
+    "start": "serve ./public",
     "dev": "gatsby develop",
-    "serve": "serve ./public",
     "clean": "gatsby clean",
     "test": "cross-env TZ=UTC jest"
   },
