@@ -1,7 +1,7 @@
-import {TitleItem} from '../../common/state/title-item';
-import {BoardMemberRole} from '../../common/state/board-member-role';
-import {BoardMemberRoleGroup} from '../../common/state/board-member-role-group';
-import {RouteNames} from '../../common/routing/route-names';
+import { TitleItem } from '../../common/state/title-item';
+import { BoardMemberRole } from '../../common/state/board-member-role';
+import { BoardMemberRoleGroup } from '../../common/state/board-member-role-group';
+import { RouteNames } from '../../common/routing/route-names';
 
 export const ACADEMY_GOALS: Array<TitleItem> = [
     {
@@ -88,5 +88,5 @@ export const ACADEMY_DIRECTORS = [
         email: 'director-academy@bondurantsoccerclub.com',
         roleGroup: BoardMemberRoleGroup.Directors,
         jobDescriptionRoute: RouteNames.DirectorOfAcademyJobDescription
-    },
+    }
 ];

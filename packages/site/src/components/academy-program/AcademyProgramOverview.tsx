@@ -6,7 +6,7 @@ import { SubTitle } from '../../common/components/SubTitle';
 import { AcademyContact } from './AcademyContact';
 import { RouteNames } from '../../common/routing/route-names';
 import { BoardMemberRole } from '../../common/state/board-member-role';
-import {useAcademyContacts} from './hooks';
+import { useAcademyContacts } from './hooks';
 
 export const AcademyProgramOverview: FC = () => {
     const contacts = useAcademyContacts();
