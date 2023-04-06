@@ -7,7 +7,7 @@
     "precommit": "prettier --write src",
     "prebuild": "yarn clean",
     "build": "gatsby build",
-    "postbuild": "mkdir -p ../../dist/site && cp -R ./public/ ../../dist/site && rimraf ../../dist/site/settings.json",
+    "postbuild": "mkdir -p ../../dist && cp -R ./public ../../dist/site",
     "prestart": "yarn build",
     "start": "serve ./public",
     "dev": "gatsby develop",

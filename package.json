@@ -7,9 +7,9 @@
   "scripts": {
     "precommit": "yarn workspaces run precommit",
     "prepare": "husky install",
+    "clean": "yarn workspaces run clean",
     "prebuild": "rimraf ./dist && yarn clean",
     "build": "yarn workspaces run build",
-    "clean": "yarn workspaces run clean",
     "test": "cross-env TZ=UTC yarn workspaces run test",
     "dev:backend": "yarn workspace backend run dev",
     "dev:site": "yarn workspace site run dev",
