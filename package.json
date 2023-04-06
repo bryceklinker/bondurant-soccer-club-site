@@ -18,10 +18,10 @@
     "start:backend": "yarn workspace backend run start",
     "start:site": "yarn workspace site run start",
     "start:external": "docker compose up",
-    "start": "concurrently --names \"backend,site,external\" --prefix-colors \"green,yellow,blue\" \"yarn start:backend\" \"yarn start:site\" \"yarn start:external\"",
+    "start": "concurrently --names \"site\" --prefix-colors \"yellow\" \"yarn start:site\" ",
     "wait:site": "wait-on tcp:localhost:3000 --delay=5",
     "wait:external": "wait-on tcp:localhost:10000 --delay=5",
-    "wait": "concurrently \"yarn wait:site\" \"yarn wait:external\"",
+    "wait": "concurrently \"yarn wait:site\"",
     "e2e": "concurrently --success \"first\" --kill-others --kill-signal SIGKILL \"yarn start\" \"yarn wait && yarn cypress run\"",
     "e2e:dev": "cross-env concurrently --success \"first\" --kill-others --kill-signal SIGKILL \"yarn start\" \"yarn wait && yarn cypress open\"",
     "verify": "yarn test && yarn e2e"
