@@ -33,6 +33,9 @@ jobs:
         with:
           global-json-file: packages/backend/global.json
 
+      - run: ${{ github.workspace }}/scripts/install-functions-core-tools.sh
+        name: Install Azure Functions Core Tools
+
       - run: yarn install
         name: Install Dependencies
 
