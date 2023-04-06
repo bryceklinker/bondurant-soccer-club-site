@@ -26,6 +26,7 @@ locals {
     ".webp"        = "image/webp"
     ".map"         = "application/json"
     ".webmanifest" = "application/manifest+json"
+    ".pdf"         = "application/pdf"
   }
 
   cache_control = "max-age=604800, must-revalidate"
@@ -35,7 +36,7 @@ data "azurerm_client_config" "current" {}
 
 resource "azuread_service_principal" "cdn" {
   application_id = "205478c0-bd83-4e1b-a9d6-db63a3e1e1c8"
-  use_existing = true
+  use_existing   = true
 }
 
 resource "azurerm_storage_account" "site_storage" {
@@ -61,11 +62,11 @@ resource "azurerm_storage_blob" "site_content" {
   storage_account_name   = azurerm_storage_account.site_storage.name
   storage_container_name = local.web_container_name
 
-  name         = each.key
-  source       = "${var.site_directory}/${each.value}"
-  content_type = lookup(local.mime_types, regex("\\.[^.]+$", each.value))
-  content_md5  = filemd5("${var.site_directory}/${each.value}")
-  type         = "Block"
+  name          = each.key
+  source        = "${var.site_directory}/${each.value}"
+  content_type  = lookup(local.mime_types, regex("\\.[^.]+$", each.value))
+  content_md5   = filemd5("${var.site_directory}/${each.value}")
+  type          = "Block"
   cache_control = local.cache_control
 }
 
@@ -148,29 +149,29 @@ resource "azurerm_application_insights" "web_app_insights" {
 module "function_app" {
   source = "../function_app"
 
-  name = "${var.name}-app"
+  name                                   = "${var.name}-app"
   application_insights_connection_string = azurerm_application_insights.web_app_insights.connection_string
-  function_app_directory = var.function_app_directory
-  auth_audience = var.google_client_id
-  auth_authority = var.google_authority
-  location = var.location
-  resource_group_name = var.resource_group_name
-  storage_account_access_key = azurerm_storage_account.site_storage.primary_access_key
-  storage_account_connection_string = azurerm_storage_account.site_storage.primary_connection_string
-  storage_account_id = azurerm_storage_account.site_storage.id
-  storage_account_name = azurerm_storage_account.site_storage.name
-  storage_account_web_container = local.web_container_name
+  function_app_directory                 = var.function_app_directory
+  auth_audience                          = var.google_client_id
+  auth_authority                         = var.google_authority
+  location                               = var.location
+  resource_group_name                    = var.resource_group_name
+  storage_account_access_key             = azurerm_storage_account.site_storage.primary_access_key
+  storage_account_connection_string      = azurerm_storage_account.site_storage.primary_connection_string
+  storage_account_id                     = azurerm_storage_account.site_storage.id
+  storage_account_name                   = azurerm_storage_account.site_storage.name
+  storage_account_web_container          = local.web_container_name
 }
 
 resource "azurerm_storage_blob" "settings_json" {
   storage_account_name   = azurerm_storage_account.site_storage.name
   storage_container_name = local.web_container_name
 
-  type = "Block"
-  name = "settings.json"
-  content_type = "text/json"
+  type           = "Block"
+  name           = "settings.json"
+  content_type   = "text/json"
   source_content = jsonencode({
-    "apiUrl": "${module.function_app.function_app_url}/api"
+    "apiUrl" : "${module.function_app.function_app_url}/api"
   })
   cache_control = local.cache_control
 
@@ -181,11 +182,11 @@ resource "azurerm_storage_blob" "alerts_json" {
   storage_account_name   = azurerm_storage_account.site_storage.name
   storage_container_name = local.web_container_name
 
-  type = "Block"
-  name = "db/alerts.json"
-  content_type = "text/json"
+  type           = "Block"
+  name           = "db/alerts.json"
+  content_type   = "text/json"
   source_content = jsonencode([])
-  cache_control = local.cache_control
+  cache_control  = local.cache_control
 
   lifecycle {
     ignore_changes = [content_md5]
