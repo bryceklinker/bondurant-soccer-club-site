@@ -1,6 +1,6 @@
-import { useMemo } from 'react';
+import {useMemo} from 'react';
 import {
-    ACADEMY_ADDITIONAL_REQUIREMENTS,
+    ACADEMY_ADDITIONAL_REQUIREMENTS, ACADEMY_DIRECTORS,
     ACADEMY_EQUIPMENT_ITEMS,
     ACADEMY_GOALS,
     ACADEMY_LEAGUE_FORMAT,
@@ -8,6 +8,8 @@ import {
     ACADEMY_TEAM_FORMATION,
     ACADEMY_UNIFORM_ITEMS
 } from './state';
+import {useBoardMembersInRole} from '../../common/hooks/board-members-hooks';
+import {BoardMemberRole} from '../../common/state/board-member-role';
 
 export function useAcademyProgramGoals() {
     return useMemo(() => ACADEMY_GOALS, []);
@@ -35,4 +37,9 @@ export function useAcademyUniformItems() {
 
 export function useAcademyEquipmentItems() {
     return useMemo(() => ACADEMY_EQUIPMENT_ITEMS, []);
+}
+
+export function useAcademyContacts() {
+    const academyOperations = useBoardMembersInRole(BoardMemberRole.DirectorOfAcademyOperations);
+    return useMemo(() => [...ACADEMY_DIRECTORS, ...academyOperations], [academyOperations]);
 }

@@ -1,4 +1,7 @@
-import { TitleItem } from '../../common/state/title-item';
+import {TitleItem} from '../../common/state/title-item';
+import {BoardMemberRole} from '../../common/state/board-member-role';
+import {BoardMemberRoleGroup} from '../../common/state/board-member-role-group';
+import {RouteNames} from '../../common/routing/route-names';
 
 export const ACADEMY_GOALS: Array<TitleItem> = [
     {
@@ -76,4 +79,14 @@ export const ACADEMY_EQUIPMENT_ITEMS = [
     'Shin Guards',
     'Soccer Cleats',
     'Water Bottle with name on it'
+];
+export const ACADEMY_DIRECTORS = [
+    {
+        roleTitle: 'Director of Academy',
+        role: BoardMemberRole.DirectorOfAcademy,
+        name: 'Matt Dominguez',
+        email: 'director-academy@bondurantsoccerclub.com',
+        roleGroup: BoardMemberRoleGroup.Directors,
+        jobDescriptionRoute: RouteNames.DirectorOfAcademyJobDescription
+    },
 ];

@@ -3,18 +3,13 @@ import { Section } from '../../common/components/Section';
 import { SectionTitle } from '../../common/components/SectionTitle';
 import { Paragraph } from '../../common/components/Paragraph';
 import { SubTitle } from '../../common/components/SubTitle';
-import { useBoardMembersInRole } from '../../common/hooks/board-members-hooks';
 import { AcademyContact } from './AcademyContact';
-import { NavLink } from '../../common/layout/navigation/NavLink';
 import { RouteNames } from '../../common/routing/route-names';
 import { BoardMemberRole } from '../../common/state/board-member-role';
+import {useAcademyContacts} from './hooks';
 
 export const AcademyProgramOverview: FC = () => {
-    const operations = useBoardMembersInRole(
-        BoardMemberRole.DirectorOfAcademyOperations
-    );
-    const director = useBoardMembersInRole(BoardMemberRole.DirectorOfAcademy);
-    const contacts = useMemo(() => [...operations], [operations]);
+    const contacts = useAcademyContacts();
     const contactItems = useMemo(
         () => contacts.map(c => <AcademyContact contact={c} />),
         [contacts]
