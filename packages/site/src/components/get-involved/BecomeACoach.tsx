@@ -4,7 +4,7 @@ import { ColumnFlex } from '../../common/layout/ColumnFlex';
 import { Paragraph } from '../../common/components/Paragraph';
 import { SubTitle } from '../../common/components/SubTitle';
 import { useCoachingDrills } from './hooks';
-import {SessionPlans} from './SessionPlans';
+import { SessionPlans } from './SessionPlans';
 
 export const BecomeACoach: FC = () => {
     const drills = useCoachingDrills();
