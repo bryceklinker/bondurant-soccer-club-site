@@ -2,8 +2,7 @@
 set -ex
 
 function install_azure_functions_core_tools() {
-  brew tap azure/functions
-  brew install azure-functions-core-tools@4
+  npm i -g azure-functions-core-tools@4 --unsafe-perm true
 }
 
 install_azure_functions_core_tools
