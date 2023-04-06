@@ -38,3 +38,15 @@ export const AlertModelSchema = CreateAlertModelSchema.and(
 
 export type CreateAlertModel = z.infer<typeof CreateAlertModelSchema>;
 export type AlertModel = z.infer<typeof AlertModelSchema>;
+
+export function prepareAlertForApi<T extends CreateAlertModel>(model: T): T {
+    return {
+        ...model,
+        startDate: model.startDate
+            ? new Date(model.startDate).toISOString()
+            : null,
+        expirationDate: model.expirationDate
+            ? new Date(model.expirationDate).toISOString()
+            : null
+    };
+}

@@ -33,6 +33,7 @@ export const COACHING_DRILLS: Array<LinkData> = [
         url: 'http://www.coachingsoccer101.com/drills.htm'
     }
 ];
+
 export const GET_INVOLVED_OPTIONS: Array<GetInvolvedData> = [
     {
         title: 'Director of Academy',

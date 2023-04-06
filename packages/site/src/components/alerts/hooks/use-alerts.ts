@@ -1,4 +1,4 @@
-import { AlertModel } from '../state/models';
+import { AlertModel, prepareAlertForApi } from '../state/models';
 import { useMutation, useQuery, useQueryClient } from 'react-query';
 import { useApi } from '../../../common/api/use-api';
 
@@ -33,7 +33,10 @@ export function useUpdateAlert() {
         if (!api) {
             return;
         }
-        const response = await api.put(`/alerts/${alert.id}`, alert);
+        const response = await api.put(
+            `/alerts/${alert.id}`,
+            prepareAlertForApi(alert)
+        );
         if (response.ok) await client.invalidateQueries('alerts');
         return response;
     });
@@ -49,7 +52,10 @@ export function useCreateAlert() {
                 return;
             }
 
-            const response = await api.post('/alerts', alert);
+            const response = await api.post(
+                '/alerts',
+                prepareAlertForApi(alert)
+            );
             if (response.ok) await client.invalidateQueries('alerts');
             return response;
         }
