@@ -3,7 +3,7 @@ import { FC } from 'react';
 import { SubTitle } from '../../common/components/SubTitle';
 import { ColumnFlex } from '../../common/layout/ColumnFlex';
 import { GatsbyImage } from 'gatsby-plugin-image';
-import {useFieldLayoutImage} from './hooks';
+import { useFieldLayoutImage } from './hooks';
 
 export type FieldLayoutProps = {
     data: FieldLayoutData;

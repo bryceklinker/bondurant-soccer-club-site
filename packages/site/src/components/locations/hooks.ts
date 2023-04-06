@@ -1,7 +1,7 @@
 import { useMemo } from 'react';
 import { LOCATIONS, COLLISON_SOCCER_PARK_LOCATION } from './state';
-import {IGatsbyImageData} from 'gatsby-plugin-image';
-import {graphql, useStaticQuery} from 'gatsby';
+import { IGatsbyImageData } from 'gatsby-plugin-image';
+import { graphql, useStaticQuery } from 'gatsby';
 
 export function useLocations() {
     return useMemo(() => LOCATIONS, []);
