@@ -10,6 +10,8 @@ env:
   APP_INSIGHTS_KEY: ${{ secrets.APP_INSIGHTS_KEY }}
   GOOGLE_AUTH_CLIENT_ID: ${{ secrets.GOOGLE_AUTH_CLIENT_ID }}
   GOOGLE_AUTH_CLIENT_SECRET: ${{ secrets.GOOGLE_AUTH_CLIENT_SECRET }}
+  GOOGLE_AUTH_AUDIENCE: ${{ secrets.GOOGLE_AUTH_AUDIENCE }}
+  GOOGLE_AUTH_AUTHORITY: ${{ secrets.GOOGLE_AUTH_AUTHORITY }}
   GOOGLE_AUTH_REFRESH_TOKEN: ${{ secrets.GOOGLE_AUTH_REFRESH_TOKEN }}
 jobs:
   build:
@@ -41,6 +43,12 @@ jobs:
 
       - run: yarn test
         name: Run Unit Tests
+
+      - run: ${{ github.workspace }}/scripts/write-function-app-settings.sh
+        name: Write Function App Settings
+        env:
+          GOOGLE_AUTH_AUDIENCE: ${{ env.GOOGLE_AUTH_AUDIENCE }}
+          GOOGLE_AUTH_AUTHORITY: ${{ env.GOOGLE_AUTH_AUTHORITY }}
 
       - run: yarn e2e
         name: Run E2E Tests
