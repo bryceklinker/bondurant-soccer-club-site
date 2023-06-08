@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "scripts": {
     "precommit": "dotnet csharpier .",
+    "prepare": "dotnet restore && dotnet tool restore",
     "build": "cd src/Bsc.Function && dotnet build --configuration Release --output ../../../../dist/backend",
     "dev": "cd src/Bsc.Function && nodemon",
     "test": "dotnet test",
