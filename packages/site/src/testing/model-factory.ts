@@ -42,9 +42,9 @@ function user(user: Partial<AuthUser> = {}): AuthUser {
     return {
         email: faker.internet.email(),
         name: faker.person.fullName(),
-        exp: faker.date.future({years: 2}).getTime() / 1000,
+        exp: faker.date.future({ years: 2 }).getTime() / 1000,
         family_name: faker.person.lastName(),
-        iat: faker.date.recent({days: 1}).getTime() / 1000,
+        iat: faker.date.recent({ days: 1 }).getTime() / 1000,
         given_name: faker.person.firstName(),
         sub: faker.string.uuid(),
         picture: faker.internet.url(),
