@@ -1,14 +1,19 @@
-import { FunctionComponent } from 'react';
-import { SectionTitle } from '../../common/components/SectionTitle';
-import { CollapsiblePanel } from '../../common/components/CollapsiblePanel';
-import { Section } from '../../common/components/Section';
-import { Paragraph } from '../../common/components/Paragraph';
-import { ExternalLink } from '../../common/components/ExternalLink';
-import { SubTitle } from '../../common/components/SubTitle';
-import { Numbers } from '../../common/extensions/numbers';
-import { LinkData } from '../../common/state/link-data';
-import { UniformSize } from '../../common/state/uniform-size';
-import { UniformPurchaseOption } from '../../common/state/uniform-purchase-option';
+import {FunctionComponent} from 'react';
+import {SectionTitle} from '../../common/components/SectionTitle';
+import {CollapsiblePanel} from '../../common/components/CollapsiblePanel';
+import {Section} from '../../common/components/Section';
+import {Paragraph} from '../../common/components/Paragraph';
+import {ExternalLink} from '../../common/components/ExternalLink';
+import {SubTitle} from '../../common/components/SubTitle';
+import {Numbers} from '../../common/extensions/numbers';
+import {LinkData} from '../../common/state/link-data';
+import {UniformSize} from '../../common/state/uniform-size';
+import {UniformPurchaseOption} from '../../common/state/uniform-purchase-option';
+import {StaticImage} from 'gatsby-plugin-image';
+import {ColumnFlex} from '../../common/layout/ColumnFlex';
+import {SizeChartTable} from './SizeChartTable';
+import {SizeComparisonTable} from './SizeComparisonTable';
+import {useSizeChartDownload} from './hooks';
 
 export interface UniformCostsAndSizesProps {
     sizes: Array<UniformSize>;
@@ -18,14 +23,13 @@ export interface UniformCostsAndSizesProps {
 
 export const UniformCostsAndSizes: FunctionComponent<
     UniformCostsAndSizesProps
-> = ({ directorLink, purchaseOptions, sizes }) => {
+> = ({directorLink, purchaseOptions, sizes}) => {
     const purchaseItems = purchaseOptions.map((item, index) => (
-        <PurchaseOption key={index} item={item} />
+        <PurchaseOption key={index} item={item}/>
     ));
 
-    const sizeItems = sizes.map((size, index) => (
-        <AvailableSize key={index} size={size} />
-    ));
+    const sizeChartDownload = useSizeChartDownload();
+    console.log(sizeChartDownload);
     return (
         <Section padded shadow>
             <CollapsiblePanel
@@ -60,8 +64,15 @@ export const UniformCostsAndSizes: FunctionComponent<
                     needs. Sizes available for jerseys and shorts are:
                 </Paragraph>
 
-                <SubTitle>Available Sizes</SubTitle>
-                <ul className={'list-none'}>{sizeItems}</ul>
+                <SizeChartTable/>
+                <SizeComparisonTable />
+                {
+                    sizeChartDownload && (
+                        <a href={sizeChartDownload.publicURL} download>
+                            Score Sizing Details
+                        </a>
+                    )
+                }
             </CollapsiblePanel>
         </Section>
     );
@@ -72,8 +83,8 @@ export interface PurchaseOptionProps {
 }
 
 export const PurchaseOption: FunctionComponent<PurchaseOptionProps> = ({
-    item
-}) => {
+                                                                           item
+                                                                       }) => {
     if (!item) {
         return null;
     }
@@ -82,18 +93,4 @@ export const PurchaseOption: FunctionComponent<PurchaseOptionProps> = ({
             {item.count} {item.part} = {Numbers.formatCurrency(item.cost)}
         </Paragraph>
     );
-};
-
-export interface AvailableSizeProps {
-    size?: UniformSize;
-}
-
-export const AvailableSize: FunctionComponent<AvailableSizeProps> = ({
-    size
-}) => {
-    if (!size) {
-        return null;
-    }
-
-    return <Paragraph className={'indent'}>{size}</Paragraph>;
 };
