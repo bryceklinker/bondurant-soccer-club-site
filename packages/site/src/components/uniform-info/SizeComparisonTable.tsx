@@ -1,22 +1,23 @@
-import {FC} from 'react';
-import {ColumnFlex} from '../../common/layout/ColumnFlex';
-import {SubTitle} from '../../common/components/SubTitle';
-import {Paragraph} from '../../common/components/Paragraph';
+import { FC } from 'react';
+import { ColumnFlex } from '../../common/layout/ColumnFlex';
+import { SubTitle } from '../../common/components/SubTitle';
+import { Paragraph } from '../../common/components/Paragraph';
 
 export const SizeComparisonTable: FC = () => {
     return (
         <ColumnFlex>
             <SubTitle>Sizing Comparison by age range*</SubTitle>
             <Paragraph>
-                *This comparison gives an indication of typical size by age range only, and
-                is by no means exact. Sizing may vary by manufacturer sometimes by a full inch.
+                *This comparison gives an indication of typical size by age
+                range only, and is by no means exact. Sizing may vary by
+                manufacturer sometimes by a full inch.
             </Paragraph>
             <table className={'table table-fixed'}>
                 <thead>
-                <tr>
-                    <th align={'center'}>Score® Size</th>
-                    <th align={'center'}>Age Range</th>
-                </tr>
+                    <tr>
+                        <th align={'center'}>Score® Size</th>
+                        <th align={'center'}>Age Range</th>
+                    </tr>
                 </thead>
                 <tbody>
                     <tr>
@@ -46,5 +47,5 @@ export const SizeComparisonTable: FC = () => {
                 </tbody>
             </table>
         </ColumnFlex>
-    )
-}
+    );
+};
