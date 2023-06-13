@@ -71,7 +71,6 @@ export const UniformCostsAndSizes: FunctionComponent<
 
                 <SizeChartTable />
                 <SizeComparisonTable />
-
             </CollapsiblePanel>
         </Section>
     );

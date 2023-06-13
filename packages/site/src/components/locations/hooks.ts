@@ -1,7 +1,7 @@
 import { useMemo } from 'react';
 import { LOCATIONS, COLLISON_SOCCER_PARK_LOCATION } from './state';
-import {graphql, useStaticQuery} from 'gatsby';
-import {ImageQueryResult} from '../../common/hooks/use-images-query';
+import { graphql, useStaticQuery } from 'gatsby';
+import { ImageQueryResult } from '../../common/hooks/use-images-query';
 
 export function useLocations() {
     return useMemo(() => LOCATIONS, []);

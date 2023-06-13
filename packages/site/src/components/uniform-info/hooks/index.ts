@@ -1,8 +1,8 @@
-import {useMemo} from 'react';
-import {UNIFORM_PURCHASE_OPTIONS, UNIFORM_SIZES} from '../state';
-import {LinkData} from '../../../common/state/link-data';
-import {BoardMemberData} from '../../../common/state/board-member-data';
-import {DIRECTORS_OF_EQUIPMENT} from '../../../common/state/board-members';
+import { useMemo } from 'react';
+import { UNIFORM_PURCHASE_OPTIONS, UNIFORM_SIZES } from '../state';
+import { LinkData } from '../../../common/state/link-data';
+import { BoardMemberData } from '../../../common/state/board-member-data';
+import { DIRECTORS_OF_EQUIPMENT } from '../../../common/state/board-members';
 
 export * from './use-size-chart-download-file';
 export * from './use-uniform-images';
