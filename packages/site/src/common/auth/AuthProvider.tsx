@@ -3,7 +3,6 @@ import { CredentialResponse, GoogleOAuthProvider } from '@react-oauth/google';
 
 import { SiteMetadata, useSiteMetadata } from '../hooks/useSiteMetadata';
 import {
-    AUTH_INITIAL_STATE,
     AuthActions,
     authReducer,
     initialAuthState
