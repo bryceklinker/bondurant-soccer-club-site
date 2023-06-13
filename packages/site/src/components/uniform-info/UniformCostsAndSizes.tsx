@@ -29,7 +29,6 @@ export const UniformCostsAndSizes: FunctionComponent<
     ));
 
     const sizeChartDownload = useSizeChartDownload();
-    console.log(sizeChartDownload);
     return (
         <Section padded shadow>
             <CollapsiblePanel
@@ -64,13 +63,15 @@ export const UniformCostsAndSizes: FunctionComponent<
                     needs. Sizes available for jerseys and shorts are:
                 </Paragraph>
 
-                <SizeChartTable />
-                <SizeComparisonTable />
                 {sizeChartDownload && (
                     <a href={sizeChartDownload.publicURL} download>
-                        Score Sizing Details
+                        <SubTitle>Official Score Sizing Details</SubTitle>
                     </a>
                 )}
+
+                <SizeChartTable />
+                <SizeComparisonTable />
+
             </CollapsiblePanel>
         </Section>
     );
