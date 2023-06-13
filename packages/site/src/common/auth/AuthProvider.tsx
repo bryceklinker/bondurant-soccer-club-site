@@ -2,11 +2,7 @@ import { FC, PropsWithChildren, useCallback, useMemo, useReducer } from 'react';
 import { CredentialResponse, GoogleOAuthProvider } from '@react-oauth/google';
 
 import { SiteMetadata, useSiteMetadata } from '../hooks/useSiteMetadata';
-import {
-    AuthActions,
-    authReducer,
-    initialAuthState
-} from './auth-reducer';
+import { AuthActions, authReducer, initialAuthState } from './auth-reducer';
 import { AuthContext } from './auth-context';
 
 export type AuthProviderProps = PropsWithChildren;
