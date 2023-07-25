@@ -24,6 +24,7 @@ APP_SETTINGS_JSON=$(cat <<EOF
          "AUTH_AUDIENCE": "${AUTH_AUDIENCE}"
      }
  }
+EOF
 )
 
 
