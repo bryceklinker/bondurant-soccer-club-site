@@ -11,7 +11,7 @@ export const BOARD_MEMBERS: Array<BoardMemberData> = [
         roleGroup: BoardMemberRoleGroup.Official
     },
     {
-        roleTitle: 'Interim Vice President',
+        roleTitle: 'Vice President',
         role: BoardMemberRole.VicePresident,
         name: 'Jason Greubel',
         email: 'director-east-fields@bondurantsoccerclub.com',
@@ -48,14 +48,14 @@ export const BOARD_MEMBERS: Array<BoardMemberData> = [
     {
         roleTitle: 'Director of East Fields',
         role: BoardMemberRole.DirectorOfFields,
-        name: 'Jason Greubel',
+        name: 'Tom Trammell',
         email: 'director-east-fields@bondurantsoccerclub.com',
         roleGroup: BoardMemberRoleGroup.Directors
     },
     {
         roleTitle: 'Director of West Fields',
         role: BoardMemberRole.DirectorOfFields,
-        name: 'Tom Trammell',
+        name: 'Brenton Van Hauen',
         email: 'director-west-fields@bondurantsoccerclub.com',
         roleGroup: BoardMemberRoleGroup.Directors
     },
@@ -76,7 +76,7 @@ export const BOARD_MEMBERS: Array<BoardMemberData> = [
     {
         roleTitle: 'Director of U5/U6',
         role: BoardMemberRole.DirectorOfU5U6,
-        name: 'Andrea Haselhoff',
+        name: 'Stephanie Carlson',
         email: 'director-u5.6@bondurantsoccerclub.com',
         roleGroup: BoardMemberRoleGroup.Directors
     },
