@@ -1,7 +1,5 @@
 import { AGE_GROUPS } from '../../common/state/age-groups';
 import { LocationData } from '../../common/state/location-data';
-import path from 'path';
-import { getImage, StaticImage } from 'gatsby-plugin-image';
 
 export const COLLISON_SOCCER_PARK_LOCATION: LocationData = {
     title: 'Collison Soccer Park',
@@ -18,7 +16,12 @@ export const COLLISON_SOCCER_PARK_LOCATION: LocationData = {
         {
             title: 'All Fields',
             image: 'west_complex_all_fields',
-            alt: 'Arial view of all collison soccer park fields'
+            alt: 'Arial view of all Collison soccer park fields'
+        },
+        {
+            title: 'North East Fields',
+            image: 'west_complex_north_east_fields',
+            alt: 'Arial view of northeast Collison soccer park fields'
         }
     ]
 };
