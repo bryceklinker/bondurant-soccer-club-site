@@ -15,8 +15,12 @@ export const BoardMemberGroup: FunctionComponent<BoardMemberGroupProps> = ({
     members
 }) => {
     const items = members.map((m, i) => <BoardMember key={i} member={m} />);
+    if (items.length === 0) {
+        return null;
+    }
+
     return (
-        <Section shadow padded>
+        <Section aria-label={'board member group'} shadow padded>
             <CollapsiblePanel title={<SectionTitle>{name}</SectionTitle>}>
                 {items}
             </CollapsiblePanel>

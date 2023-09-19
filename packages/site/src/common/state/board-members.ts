@@ -14,7 +14,7 @@ export const BOARD_MEMBERS: Array<BoardMemberData> = [
         roleTitle: 'Vice President',
         role: BoardMemberRole.VicePresident,
         name: 'Jason Greubel',
-        email: 'director-east-fields@bondurantsoccerclub.com',
+        email: 'vicepresident@bondurantsoccerclub.com',
         roleGroup: BoardMemberRoleGroup.Official
     },
     {
@@ -107,13 +107,6 @@ export const BOARD_MEMBERS: Array<BoardMemberData> = [
         name: 'Jamie Cornelius',
         email: 'director-academy-operations@bondurantsoccerclub.com',
         roleGroup: BoardMemberRoleGroup.Directors
-    },
-    {
-        roleTitle: 'At-Large',
-        role: BoardMemberRole.AtLarge,
-        name: 'Chan Cavan',
-        email: 'at-large-chan@bondurantsoccerclub.com',
-        roleGroup: BoardMemberRoleGroup.AtLarge
     }
 ];
 
