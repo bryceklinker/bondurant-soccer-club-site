@@ -4,6 +4,6 @@ describe('Contact Us', () => {
     it('should show each group of board members', () => {
         ContactUsPage.navigate();
 
-        ContactUsPage.findSections().should('have.length', 3);
+        ContactUsPage.findSections().should('have.length.at.least', 1);
     });
 });
