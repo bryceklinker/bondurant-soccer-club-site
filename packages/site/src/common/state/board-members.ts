@@ -77,7 +77,7 @@ export const BOARD_MEMBERS: Array<BoardMemberData> = [
         roleTitle: 'Director of U5/U6',
         role: BoardMemberRole.DirectorOfU5U6,
         name: 'Stephanie Carlson',
-        email: 'director-u5.6@bondurantsoccerclub.com',
+        email: 'u5.6.director@bondurantsoccerclub.com',
         roleGroup: BoardMemberRoleGroup.Directors
     },
     {
