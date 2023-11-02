@@ -37,34 +37,34 @@ function currentRegistrationSeason(): RegistrationSeasonData {
 export const FALL_REGISTRATION_DATES: RegistrationDatesData = {
     season: SeasonName.Fall,
     earlyBird: {
-        start: parseISO('2022-05-01'),
-        end: parseISO('2022-05-14')
+        start: parseISO('2023-05-01'),
+        end: parseISO('2023-05-14')
     },
     regular: {
-        start: parseISO('2022-05-15'),
-        end: parseISO('2022-06-14')
+        start: parseISO('2023-05-15'),
+        end: parseISO('2023-06-14')
     },
     late: {
-        start: parseISO('2022-06-15'),
-        end: parseISO('2022-06-30')
+        start: parseISO('2023-06-15'),
+        end: parseISO('2023-06-30')
     },
-    cutoff: parseISO('2022-06-30')
+    cutoff: parseISO('2023-06-30')
 };
 export const SPRING_REGISTRATION_DATES: RegistrationDatesData = {
     season: SeasonName.Spring,
     earlyBird: {
-        start: parseISO('2022-11-01'),
-        end: parseISO('2022-12-15')
+        start: parseISO('2023-11-01'),
+        end: parseISO('2023-12-15')
     },
     regular: {
-        start: parseISO('2022-12-16'),
-        end: parseISO('2022-01-31')
+        start: parseISO('2023-12-16'),
+        end: parseISO('2023-01-31')
     },
     late: {
-        start: parseISO('2023-02-01'),
-        end: parseISO('2023-02-10')
+        start: parseISO('2024-02-01'),
+        end: parseISO('2024-02-10')
     },
-    cutoff: parseISO('2023-02-10')
+    cutoff: parseISO('2024-02-10')
 };
 export const REGISTRATION_DATES: Array<RegistrationDatesData> = [
     FALL_REGISTRATION_DATES,

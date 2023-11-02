@@ -1,10 +1,6 @@
-import {FC} from 'react';
-import {SubTitle} from '../../common/components/SubTitle';
+import { FC } from 'react';
+import { SubTitle } from '../../common/components/SubTitle';
 
 export const NoScheduleAvailable: FC = () => {
-    return (
-        <SubTitle>
-            No schedule currently available
-        </SubTitle>
-    )
-}
+    return <SubTitle>No schedule currently available</SubTitle>;
+};
