@@ -1,12 +1,12 @@
 import { FC } from 'react';
 import { ImageSchedule } from './ImageSchedule';
-import { StaticImage } from 'gatsby-plugin-image';
+import {NoScheduleAvailable} from './NoScheduleAvailable';
 
 export const U5U6Schedule: FC = () => {
     const title = 'U5/U6 Schedule';
     return (
         <ImageSchedule title={title}>
-            <StaticImage src={'../../assets/u5_u6_schedule.jpg'} alt={title} />
+            <NoScheduleAvailable />
         </ImageSchedule>
     );
 };

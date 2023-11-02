@@ -6,7 +6,6 @@ import { PracticesAndGames } from './PracticesAndGames';
 import { DrillsYouCanDoAtHome } from './DrillsYouCanDoAtHome';
 import { GappedStack } from '../../common/components/GappedStack';
 import { Title } from '../../common/components/Title';
-import { Seo } from '../../common/seo/Seo';
 import { useSchedulesLink } from '../schedules/hooks';
 import { useCoachingDrills } from '../get-involved/hooks';
 
