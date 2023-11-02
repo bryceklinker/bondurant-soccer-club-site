@@ -2,12 +2,9 @@ import React, { FunctionComponent } from 'react';
 import { StaticImage } from 'gatsby-plugin-image';
 import { GappedStack } from '../../common/components/GappedStack';
 import { Title } from '../../common/components/Title';
-import { RowFlex } from '../../common/layout/RowFlex';
-import { PlainStack } from '../../common/components/PlainStack';
 import { Paragraph } from '../../common/components/Paragraph';
 import { Dates } from '../../common/extensions/dates';
 import { ExternalLink } from '../../common/components/ExternalLink';
-import { Seo } from '../../common/seo/Seo';
 import { Section } from '../../common/components/Section';
 import { ColumnFlex } from '../../common/layout/ColumnFlex';
 import {
@@ -15,6 +12,7 @@ import {
     usePicturesCompanyLink,
     usePicturesDate
 } from './hooks';
+import {NoPictureDateScheduled} from './NoPictureDateScheduled';
 
 export const PictureDayPage: FunctionComponent = () => {
     const pictureDate = usePicturesDate();
@@ -26,10 +24,7 @@ export const PictureDayPage: FunctionComponent = () => {
             <Title>Picture Day</Title>
             <Section padded className={'flex-row'}>
                 <ColumnFlex className={'flex-half'}>
-                    <StaticImage
-                        alt={'picture day schedule'}
-                        src={'../../assets/picture_day_schedule.jpg'}
-                    />
+                    <NoPictureDateScheduled />
                 </ColumnFlex>
                 <ColumnFlex>
                     <Paragraph>
