@@ -12,7 +12,7 @@ import {
     usePicturesCompanyLink,
     usePicturesDate
 } from './hooks';
-import {NoPictureDateScheduled} from './NoPictureDateScheduled';
+import { NoPictureDateScheduled } from './NoPictureDateScheduled';
 
 export const PictureDayPage: FunctionComponent = () => {
     const pictureDate = usePicturesDate();
