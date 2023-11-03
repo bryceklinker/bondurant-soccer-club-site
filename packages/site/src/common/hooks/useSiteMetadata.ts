@@ -13,19 +13,17 @@ type Site = {
 };
 
 export function useSiteMetadata() {
-    const { site } = useStaticQuery<{ site: Site }>(
-        graphql`
-            query {
-                site {
-                    siteMetadata {
-                        title
-                        description
-                        siteUrl
-                        clientId
-                    }
+    const { site } = useStaticQuery<{ site: Site }>(graphql`
+        query {
+            site {
+                siteMetadata {
+                    title
+                    description
+                    siteUrl
+                    clientId
                 }
             }
-        `
-    );
+        }
+    `);
     return site.siteMetadata;
 }
