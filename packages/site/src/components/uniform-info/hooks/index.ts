@@ -24,4 +24,4 @@ export function useDirectorOfUniformsLink(): LinkData {
         };
     }, []);
 }
-export {useAcademyUniformImages} from './use-academy-uniform-images';
+export { useAcademyUniformImages } from './use-academy-uniform-images';

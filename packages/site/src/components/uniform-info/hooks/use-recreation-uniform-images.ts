@@ -1,5 +1,5 @@
-import {graphql, useStaticQuery} from 'gatsby';
-import {ImageQueryResult} from '../../../common/hooks/use-images-query';
+import { graphql, useStaticQuery } from 'gatsby';
+import { ImageQueryResult } from '../../../common/hooks/use-images-query';
 
 export function useRecreationUniformImages() {
     const query = graphql`
@@ -22,4 +22,3 @@ export function useRecreationUniformImages() {
     const data = useStaticQuery<ImageQueryResult>(query);
     return data?.allFile?.nodes ?? [];
 }
-

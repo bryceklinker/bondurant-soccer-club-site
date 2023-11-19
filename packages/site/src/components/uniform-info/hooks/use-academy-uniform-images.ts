@@ -1,5 +1,5 @@
-import {graphql, useStaticQuery} from 'gatsby';
-import {ImageQueryResult} from '../../../common/hooks/use-images-query';
+import { graphql, useStaticQuery } from 'gatsby';
+import { ImageQueryResult } from '../../../common/hooks/use-images-query';
 
 export function useAcademyUniformImages() {
     const query = graphql`
