@@ -4,12 +4,11 @@ import {
     ModelFactory,
     render,
     screen,
-    userEvent
+    userEvent, waitFor
 } from '../../testing';
 import { EditAlertModal } from './EditAlertModal';
 import { RestRequest } from 'msw';
 import { AlertModel } from './state/models';
-import { Dates } from '../../common/extensions/dates';
 
 describe('EditAlertModal', () => {
     let saveRequest: RestRequest | null;
@@ -69,8 +68,8 @@ describe('EditAlertModal', () => {
         render(<EditAlertModal open={true} alert={alert} />);
         await userEvent.click(AlertFormHarness.saveButton());
 
-        expect(AlertFormHarness.saveButton()).toBeDisabled();
         expect(AlertFormHarness.textTextBox()).toBeDisabled();
+        expect(AlertFormHarness.saveButton()).toBeDisabled();
         expect(AlertFormHarness.severityBox()).toBeDisabled();
     });
 

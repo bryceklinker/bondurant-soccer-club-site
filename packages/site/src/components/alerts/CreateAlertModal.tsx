@@ -52,6 +52,7 @@ export const CreateAlertModal: FC<CreateAlertModalProps> = ({
             <ModalTitle>Create Alert</ModalTitle>
             <ModalBody>
                 <AlertForm
+                    disabled={formState.isSubmitting}
                     state={formState}
                     control={control}
                     onSubmit={onSubmit}

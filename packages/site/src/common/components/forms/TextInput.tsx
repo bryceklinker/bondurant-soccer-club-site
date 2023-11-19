@@ -65,15 +65,14 @@ export function ControlledTextInput<
             render={({ field, fieldState }) => (
                 <TextInput
                     type={type}
-                    disabled={state.isSubmitting}
                     errors={
                         fieldState.error?.message
                             ? [fieldState.error.message]
                             : []
                     }
                     placeholder={type === 'date' ? field.value : ''}
-                    {...textInputProps}
                     {...field}
+                    {...textInputProps}
                 />
             )}
         />

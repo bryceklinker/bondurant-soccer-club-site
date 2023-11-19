@@ -52,14 +52,13 @@ export function ControlledSelectInput<
             control={control}
             render={({ field, fieldState }) => (
                 <SelectInput
-                    disabled={state.isSubmitting}
                     errors={
                         fieldState.error?.message
                             ? [fieldState.error.message]
                             : []
                     }
-                    {...selectInputProps}
                     {...field}
+                    {...selectInputProps}
                 />
             )}
         />

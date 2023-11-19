@@ -49,6 +49,7 @@ export const EditAlertModal: FC<AlertModalProps> = ({
         <Modal open={open}>
             <ModalBody>
                 <AlertForm
+                    disabled={formState.isSubmitting}
                     state={formState}
                     control={control}
                     onSubmit={onSubmit}

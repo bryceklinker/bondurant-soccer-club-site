@@ -7,11 +7,12 @@ import { ControlledSelectInput } from '../../common/components/forms/SelectInput
 export type AlertFormModel = Omit<AlertModel, 'id'>;
 
 export type AlertFormProps = {
+    disabled: boolean;
     state: FormState<AlertFormModel>;
     control: Control<AlertFormModel>;
     onSubmit: ReturnType<UseFormHandleSubmit<AlertFormModel>>;
 };
-export const AlertForm: FC<AlertFormProps> = ({ control, state, onSubmit }) => {
+export const AlertForm: FC<AlertFormProps> = ({ disabled, control, state, onSubmit }) => {
     const severityOptions = useMemo(
         () =>
             Object.keys(AlertSeverity).map(s => (
@@ -29,6 +30,7 @@ export const AlertForm: FC<AlertFormProps> = ({ control, state, onSubmit }) => {
                 aria-label={'text'}
                 control={control}
                 state={state}
+                disabled={disabled}
             />
 
             <ControlledSelectInput
@@ -48,6 +50,7 @@ export const AlertForm: FC<AlertFormProps> = ({ control, state, onSubmit }) => {
                 name={'startDate'}
                 control={control}
                 state={state}
+                disabled={disabled}
             />
 
             <ControlledTextInput
@@ -57,6 +60,7 @@ export const AlertForm: FC<AlertFormProps> = ({ control, state, onSubmit }) => {
                 name={'expirationDate'}
                 control={control}
                 state={state}
+                disabled={disabled}
             />
         </form>
     );
