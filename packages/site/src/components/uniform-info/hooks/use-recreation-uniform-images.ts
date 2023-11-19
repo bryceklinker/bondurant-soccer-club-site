@@ -23,7 +23,6 @@ export function useRecreationUniformImages() {
     return data?.allFile?.nodes ?? [];
 }
 
-
 export function useAcademyUniformImages() {
     const query = graphql`
         query UniformImagesQuery {

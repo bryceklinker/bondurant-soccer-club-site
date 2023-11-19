@@ -4,13 +4,14 @@ import { GappedStack } from '../../common/components/GappedStack';
 import { Title } from '../../common/components/Title';
 import {
     useAcademyUniformImages,
-    useDirectorOfUniformsLink, useRecreationUniformImages,
+    useDirectorOfUniformsLink,
+    useRecreationUniformImages,
     useUniformPurchaseOptions,
     useUniformSizes
 } from './hooks';
-import {CollapsiblePanel} from '../../common/components/CollapsiblePanel';
-import {SectionTitle} from '../../common/components/SectionTitle';
-import {UniformImages} from './UniformImages';
+import { CollapsiblePanel } from '../../common/components/CollapsiblePanel';
+import { SectionTitle } from '../../common/components/SectionTitle';
+import { UniformImages } from './UniformImages';
 
 export const UniformInfoPage: FunctionComponent = () => {
     const sizes = useUniformSizes();
@@ -29,14 +30,15 @@ export const UniformInfoPage: FunctionComponent = () => {
                 directorLink={directorLink}
             />
 
-            <CollapsiblePanel title={<SectionTitle>Recreation Uniforms</SectionTitle>}>
+            <CollapsiblePanel
+                title={<SectionTitle>Recreation Uniforms</SectionTitle>}>
                 <UniformImages imageFiles={recreationImages} />
             </CollapsiblePanel>
 
-            <CollapsiblePanel title={<SectionTitle>Academy Uniforms</SectionTitle>}>
+            <CollapsiblePanel
+                title={<SectionTitle>Academy Uniforms</SectionTitle>}>
                 <UniformImages imageFiles={academyImages} />
             </CollapsiblePanel>
-
         </GappedStack>
     );
 };
