@@ -4,7 +4,8 @@ import {
     ModelFactory,
     render,
     screen,
-    userEvent, waitFor
+    userEvent,
+    waitFor
 } from '../../testing';
 import { EditAlertModal } from './EditAlertModal';
 import { RestRequest } from 'msw';

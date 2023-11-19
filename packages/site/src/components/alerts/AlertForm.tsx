@@ -12,7 +12,12 @@ export type AlertFormProps = {
     control: Control<AlertFormModel>;
     onSubmit: ReturnType<UseFormHandleSubmit<AlertFormModel>>;
 };
-export const AlertForm: FC<AlertFormProps> = ({ disabled, control, state, onSubmit }) => {
+export const AlertForm: FC<AlertFormProps> = ({
+    disabled,
+    control,
+    state,
+    onSubmit
+}) => {
     const severityOptions = useMemo(
         () =>
             Object.keys(AlertSeverity).map(s => (
