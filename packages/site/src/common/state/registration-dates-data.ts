@@ -7,4 +7,5 @@ export interface RegistrationDatesData {
     regular?: DateRange;
     late?: DateRange;
     cutoff?: Date;
+    u5_u6?: DateRange;
 }

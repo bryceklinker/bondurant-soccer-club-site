@@ -64,7 +64,11 @@ export const SPRING_REGISTRATION_DATES: RegistrationDatesData = {
         start: parseISO('2024-02-01'),
         end: parseISO('2024-02-10')
     },
-    cutoff: parseISO('2024-02-10')
+    cutoff: parseISO('2024-02-10'),
+    u5_u6: {
+        start: parseISO('2023-11-01'),
+        end: parseISO('2024-03-25')
+    }
 };
 export const REGISTRATION_DATES: Array<RegistrationDatesData> = [
     FALL_REGISTRATION_DATES,

@@ -29,6 +29,13 @@ export const RegistrationDate: FunctionComponent<RegistrationDateProps> = ({
                 <Paragraph>
                     Cutoff Date: {Dates.formatDate(date.cutoff)}
                 </Paragraph>
+                {
+                    date.u5_u6 && (
+                        <Paragraph>
+                            U5/U6: {Dates.formatDateRange(date.u5_u6)}
+                        </Paragraph>
+                    )
+                }
             </PlainStack>
         </PlainStack>
     );
