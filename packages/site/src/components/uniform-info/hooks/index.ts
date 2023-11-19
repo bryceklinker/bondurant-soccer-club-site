@@ -5,7 +5,7 @@ import { BoardMemberData } from '../../../common/state/board-member-data';
 import { DIRECTORS_OF_EQUIPMENT } from '../../../common/state/board-members';
 
 export * from './use-size-chart-download-file';
-export * from './use-uniform-images';
+export * from './use-recreation-uniform-images';
 
 export function useUniformSizes() {
     return useMemo(() => UNIFORM_SIZES, []);

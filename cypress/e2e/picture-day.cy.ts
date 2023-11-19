@@ -4,7 +4,6 @@ describe('Picture Day', () => {
     it('should show picture day information', () => {
         PictureDayPage.navigate();
 
-        PictureDayPage.findCompanyLink().should('be.visible');
-        PictureDayPage.findSchedule().should('be.visible');
+        PictureDayPage.noSchedule().should('be.visible')
     });
 });
