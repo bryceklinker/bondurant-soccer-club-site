@@ -1,7 +1,7 @@
-import React, { FunctionComponent } from 'react';
-import { UniformCostsAndSizes } from './UniformCostsAndSizes';
-import { GappedStack } from '../../common/components/GappedStack';
-import { Title } from '../../common/components/Title';
+import React, {FunctionComponent} from 'react';
+import {UniformCostsAndSizes} from './UniformCostsAndSizes';
+import {GappedStack} from '../../common/components/GappedStack';
+import {Title} from '../../common/components/Title';
 import {
     useAcademyUniformImages,
     useDirectorOfUniformsLink,
@@ -9,9 +9,10 @@ import {
     useUniformPurchaseOptions,
     useUniformSizes
 } from './hooks';
-import { CollapsiblePanel } from '../../common/components/CollapsiblePanel';
-import { SectionTitle } from '../../common/components/SectionTitle';
-import { UniformImages } from './UniformImages';
+import {CollapsiblePanel} from '../../common/components/CollapsiblePanel';
+import {SectionTitle} from '../../common/components/SectionTitle';
+import {UniformImages} from './UniformImages';
+import {Section} from '../../common/components/Section';
 
 export const UniformInfoPage: FunctionComponent = () => {
     const sizes = useUniformSizes();
@@ -29,16 +30,19 @@ export const UniformInfoPage: FunctionComponent = () => {
                 purchaseOptions={purchaseOptions}
                 directorLink={directorLink}
             />
+            <Section padded shadow>
+                <CollapsiblePanel
+                    title={<SectionTitle>Recreation Uniforms</SectionTitle>}>
+                    <UniformImages imageFiles={recreationImages}/>
+                </CollapsiblePanel>
+            </Section>
 
-            <CollapsiblePanel
-                title={<SectionTitle>Recreation Uniforms</SectionTitle>}>
-                <UniformImages imageFiles={recreationImages} />
-            </CollapsiblePanel>
-
-            <CollapsiblePanel
-                title={<SectionTitle>Academy Uniforms</SectionTitle>}>
-                <UniformImages imageFiles={academyImages} />
-            </CollapsiblePanel>
+            <Section padded shadow>
+                <CollapsiblePanel
+                    title={<SectionTitle>Academy Uniforms</SectionTitle>}>
+                    <UniformImages imageFiles={academyImages}/>
+                </CollapsiblePanel>
+            </Section>
         </GappedStack>
     );
 };
