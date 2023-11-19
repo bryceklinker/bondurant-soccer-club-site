@@ -4,6 +4,6 @@ describe('Uniform Info', () => {
     it('should show uniform information', () => {
         UniformInfoPage.navigate();
 
-        UniformInfoPage.findSections().should('have.length', 2);
+        UniformInfoPage.findSections().should('have.length', 3);
     });
 });

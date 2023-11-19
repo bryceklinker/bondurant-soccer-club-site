@@ -14,3 +14,4 @@ public/
 **/*.zip
 .env.local
 cypress.env.json
+**/*.log
