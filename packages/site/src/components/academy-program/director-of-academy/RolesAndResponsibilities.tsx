@@ -27,7 +27,8 @@ export const RolesAndResponsibilities: FC = () => {
                     Provide parent email content to Head Coaches
                 </ListItem>
                 <ListItem title={'Game Day'}>
-                    Attend matches for the weekends. Rotate or focus on a struggling team
+                    Attend matches for the weekends. Rotate or focus on a
+                    struggling team
                 </ListItem>
                 <ListItem title={'Goalkeeper Development'}>
                     Provide goalie training or coordinate with a skills coach
@@ -36,7 +37,8 @@ export const RolesAndResponsibilities: FC = () => {
                     Design and execute a winter program
                 </ListItem>
                 <ListItem title={'Education'}>
-                    Obtain and keep current Level D coach license and SafeSport certification
+                    Obtain and keep current Level D coach license and SafeSport
+                    certification
                 </ListItem>
             </BulletedList>
         </>
