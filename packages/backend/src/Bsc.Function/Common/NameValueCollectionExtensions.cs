@@ -34,7 +34,8 @@ public static class NameValueCollectionExtensions
         if (!collection.HasKeys())
             return new Dictionary<string, object?>();
 
-        return collection.Keys
+        return collection
+            .Keys
             .Cast<string?>()
             .Where(key => !string.IsNullOrWhiteSpace(key))
             .ToDictionary<string?, string, object?>(key => key, key => collection[key]);

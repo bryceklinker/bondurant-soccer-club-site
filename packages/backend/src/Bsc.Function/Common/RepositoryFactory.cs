@@ -13,10 +13,10 @@ public interface IRepositoryFactory
 }
 
 public class RepositoryFactory(
-        IAlertsConfiguration alertsConfiguration,
-        BlobServiceClient blobServiceClient,
-        ILoggerFactory loggerFactory)
-    : IRepositoryFactory
+    IAlertsConfiguration alertsConfiguration,
+    BlobServiceClient blobServiceClient,
+    ILoggerFactory loggerFactory
+) : IRepositoryFactory
 {
     public Task<IRepository<AlertModel>> CreateAlertsRepositoryAsync(
         CancellationToken cancellationToken = default

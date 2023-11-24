@@ -5,7 +5,8 @@ namespace Bsc.Function.Alerts.Commands;
 
 public record DeleteAlertCommand(Guid AlertId) : IRequest;
 
-public class DeleteAlertCommandHandler(IRepositoryFactory repositoryFactory) : IRequestHandler<DeleteAlertCommand>
+public class DeleteAlertCommandHandler(IRepositoryFactory repositoryFactory)
+    : IRequestHandler<DeleteAlertCommand>
 {
     public async Task Handle(DeleteAlertCommand request, CancellationToken cancellationToken)
     {

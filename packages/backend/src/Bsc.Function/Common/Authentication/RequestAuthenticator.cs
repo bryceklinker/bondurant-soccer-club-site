@@ -12,10 +12,11 @@ public interface IRequestAuthenticator
     Task<bool> IsAuthenticatedAsync(HttpRequestData? request);
 }
 
-public class RequestAuthenticator(IAuthConfiguration config,
-        ConfigurationManager<OpenIdConnectConfiguration> manager,
-        ILoggerFactory loggerFactory)
-    : IRequestAuthenticator
+public class RequestAuthenticator(
+    IAuthConfiguration config,
+    ConfigurationManager<OpenIdConnectConfiguration> manager,
+    ILoggerFactory loggerFactory
+) : IRequestAuthenticator
 {
     private readonly ILogger _logger = loggerFactory.CreateLogger<RequestAuthenticator>();
 

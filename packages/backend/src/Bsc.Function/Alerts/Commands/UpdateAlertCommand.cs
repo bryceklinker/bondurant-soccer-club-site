@@ -4,7 +4,8 @@ using MediatR;
 
 namespace Bsc.Function.Alerts.Commands;
 
-public class UpdateAlertCommandHandler(IRepositoryFactory repositoryFactory) : IRequestHandler<UpdateAlertCommand>
+public class UpdateAlertCommandHandler(IRepositoryFactory repositoryFactory)
+    : IRequestHandler<UpdateAlertCommand>
 {
     public async Task Handle(UpdateAlertCommand request, CancellationToken cancellationToken)
     {

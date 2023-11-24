@@ -13,11 +13,11 @@ public interface IRepository<T>
 }
 
 public class BlobStorageRepository<T>(
-        BlobServiceClient serviceClient,
-        string containerName,
-        string blobPath,
-        ILogger logger)
-    : IRepository<T>
+    BlobServiceClient serviceClient,
+    string containerName,
+    string blobPath,
+    ILogger logger
+) : IRepository<T>
     where T : class
 {
     public string ContainerName { get; } = containerName;

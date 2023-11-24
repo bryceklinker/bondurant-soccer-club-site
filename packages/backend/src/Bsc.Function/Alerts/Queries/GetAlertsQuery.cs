@@ -6,7 +6,8 @@ namespace Bsc.Function.Alerts.Queries;
 
 public record GetAlertsQuery(bool IncludeExpired = false) : IRequest<AlertModel[]>;
 
-public class GetAlertsQueryHandler(IRepositoryFactory repositoryFactory) : IRequestHandler<GetAlertsQuery, AlertModel[]>
+public class GetAlertsQueryHandler(IRepositoryFactory repositoryFactory)
+    : IRequestHandler<GetAlertsQuery, AlertModel[]>
 {
     private DateOnly Today => DateOnly.FromDateTime(DateTime.Today);
 

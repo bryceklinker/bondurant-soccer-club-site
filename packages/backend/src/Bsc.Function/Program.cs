@@ -23,16 +23,20 @@ public class Program
             )
             .ConfigureLogging(logging =>
             {
-                logging.Services.Configure<LoggerFilterOptions>(opts =>
-                {
-                    var rule = opts.Rules.FirstOrDefault(r =>
-                        r.ProviderName ==
-                        "Microsoft.Extensions.Logging.ApplicationInsights.ApplicationInsightsLoggerProvider");
-                    if (rule is not null)
+                logging
+                    .Services
+                    .Configure<LoggerFilterOptions>(opts =>
                     {
-                        opts.Rules.Remove(rule);
-                    }
-                });
+                        var rule = opts.Rules.FirstOrDefault(
+                            r =>
+                                r.ProviderName
+                                == "Microsoft.Extensions.Logging.ApplicationInsights.ApplicationInsightsLoggerProvider"
+                        );
+                        if (rule is not null)
+                        {
+                            opts.Rules.Remove(rule);
+                        }
+                    });
             })
             .Build();
         await host.RunAsync();
