@@ -15,8 +15,8 @@ export const UNIFORM_SIZES = [
     UniformSize.AXXXL
 ];
 export const UNIFORM_PURCHASE_OPTIONS: Array<UniformPurchaseOption> = [
-    { part: UniformPart.Kit, cost: 55, count: 1 },
-    { part: UniformPart.Jersey, cost: 30, count: 2 },
+    { part: UniformPart.Kit, cost: 65, count: 1 },
+    { part: UniformPart.Jersey, cost: 40, count: 2 },
     { part: UniformPart.Shorts, cost: 15, count: 1 },
     { part: UniformPart.Socks, cost: 5, count: 1 }
 ];
