@@ -12,30 +12,20 @@ public interface IRepository<T>
     Task SaveAllAsync(T[] items, CancellationToken cancellationToken = default);
 }
 
-public class BlobStorageRepository<T> : IRepository<T>
-    where T : class
-{
-    private readonly BlobServiceClient _serviceClient;
-    private readonly ILogger _logger;
-    public string ContainerName { get; }
-    public string BlobPath { get; }
-
-    public BlobContainerClient ContainerClient =>
-        _serviceClient.GetBlobContainerClient(ContainerName);
-    public BlockBlobClient BlobClient => ContainerClient.GetBlockBlobClient(BlobPath);
-
-    public BlobStorageRepository(
+public class BlobStorageRepository<T>(
         BlobServiceClient serviceClient,
         string containerName,
         string blobPath,
-        ILogger logger
-    )
-    {
-        ContainerName = containerName;
-        BlobPath = blobPath;
-        _serviceClient = serviceClient;
-        _logger = logger;
-    }
+        ILogger logger)
+    : IRepository<T>
+    where T : class
+{
+    public string ContainerName { get; } = containerName;
+    public string BlobPath { get; } = blobPath;
+
+    public BlobContainerClient ContainerClient =>
+        serviceClient.GetBlobContainerClient(ContainerName);
+    public BlockBlobClient BlobClient => ContainerClient.GetBlockBlobClient(BlobPath);
 
     public async Task<T[]> GetAllAsync(CancellationToken cancellationToken = default)
     {
@@ -54,7 +44,7 @@ public class BlobStorageRepository<T> : IRepository<T>
         {
             foreach (var result in serializerResult.Result)
             {
-                _logger.LogInformation("deserialized item {@Result}", result);
+                logger.LogInformation("deserialized item {@Result}", result);
             }
         }
 

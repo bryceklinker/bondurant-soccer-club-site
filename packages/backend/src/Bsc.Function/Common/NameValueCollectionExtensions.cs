@@ -4,7 +4,7 @@ namespace Bsc.Function.Common;
 
 public static class NameValueCollectionExtensions
 {
-    public static bool TryGetString(
+    private static bool TryGetString(
         this NameValueCollection collection,
         string key,
         out string? result

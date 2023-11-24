@@ -5,31 +5,20 @@ using Microsoft.Azure.Functions.Worker.Http;
 
 namespace Bsc.Function.Tests.Support.Fakes.AzureFunctions;
 
-public class FakeHttpRequestData : HttpRequestData
-{
-    public override Stream Body { get; }
-    public override HttpHeadersCollection Headers { get; }
-    public override IReadOnlyCollection<IHttpCookie> Cookies { get; }
-    public override Uri Url { get; }
-    public override IEnumerable<ClaimsIdentity> Identities { get; }
-    public override string Method { get; }
-
-    public FakeHttpRequestData(
+public class FakeHttpRequestData(
         Stream? body = null,
         HttpHeadersCollection? headers = null,
         Uri? uri = null,
         ClaimsIdentity[]? identities = null,
-        string method = "GET"
-    )
-        : base(new FakeFunctionContext())
-    {
-        Body = body ?? new MemoryStream();
-        Headers = headers ?? new HttpHeadersCollection();
-        Url = uri ?? new Uri("https://function.com");
-        Identities = identities ?? Array.Empty<ClaimsIdentity>();
-        Cookies = Array.Empty<IHttpCookie>();
-        Method = method;
-    }
+        string method = "GET")
+    : HttpRequestData(new FakeFunctionContext())
+{
+    public override Stream Body { get; } = body ?? new MemoryStream();
+    public override HttpHeadersCollection Headers { get; } = headers ?? new HttpHeadersCollection();
+    public override IReadOnlyCollection<IHttpCookie> Cookies { get; } = Array.Empty<IHttpCookie>();
+    public override Uri Url { get; } = uri ?? new Uri("https://function.com");
+    public override IEnumerable<ClaimsIdentity> Identities { get; } = identities ?? Array.Empty<ClaimsIdentity>();
+    public override string Method { get; } = method;
 
     public override HttpResponseData CreateResponse()
     {

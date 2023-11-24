@@ -6,23 +6,16 @@ namespace Bsc.Function.Alerts.Queries;
 
 public record GetAlertsQuery(bool IncludeExpired = false) : IRequest<AlertModel[]>;
 
-public class GetAlertsQueryHandler : IRequestHandler<GetAlertsQuery, AlertModel[]>
+public class GetAlertsQueryHandler(IRepositoryFactory repositoryFactory) : IRequestHandler<GetAlertsQuery, AlertModel[]>
 {
-    private readonly IRepositoryFactory _repositoryFactory;
-
     private DateOnly Today => DateOnly.FromDateTime(DateTime.Today);
-
-    public GetAlertsQueryHandler(IRepositoryFactory repositoryFactory)
-    {
-        _repositoryFactory = repositoryFactory;
-    }
 
     public async Task<AlertModel[]> Handle(
         GetAlertsQuery request,
         CancellationToken cancellationToken
     )
     {
-        var repository = await _repositoryFactory
+        var repository = await repositoryFactory
             .CreateAlertsRepositoryAsync(cancellationToken)
             .ConfigureAwait(false);
         IEnumerable<AlertModel> alerts = await repository

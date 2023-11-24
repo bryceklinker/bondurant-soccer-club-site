@@ -12,22 +12,12 @@ public interface IRequestAuthenticator
     Task<bool> IsAuthenticatedAsync(HttpRequestData? request);
 }
 
-public class RequestAuthenticator : IRequestAuthenticator
-{
-    private readonly ILogger _logger;
-    private readonly IAuthConfiguration _config;
-    private readonly ConfigurationManager<OpenIdConnectConfiguration> _manager;
-
-    public RequestAuthenticator(
-        IAuthConfiguration config,
+public class RequestAuthenticator(IAuthConfiguration config,
         ConfigurationManager<OpenIdConnectConfiguration> manager,
-        ILoggerFactory loggerFactory
-    )
-    {
-        _config = config;
-        _manager = manager;
-        _logger = loggerFactory.CreateLogger<RequestAuthenticator>();
-    }
+        ILoggerFactory loggerFactory)
+    : IRequestAuthenticator
+{
+    private readonly ILogger _logger = loggerFactory.CreateLogger<RequestAuthenticator>();
 
     public async Task<bool> IsAuthenticatedAsync(HttpRequestData? request)
     {
@@ -61,12 +51,12 @@ public class RequestAuthenticator : IRequestAuthenticator
     private async Task<bool> ValidateTokenAsync(string token)
     {
         var handler = new JwtSecurityTokenHandler();
-        var openIdConfig = await _manager.GetConfigurationAsync();
+        var openIdConfig = await manager.GetConfigurationAsync();
         var parameters = new TokenValidationParameters
         {
             ValidIssuers = new[] { openIdConfig.Issuer },
             IssuerSigningKeys = openIdConfig.SigningKeys,
-            ValidAudiences = new[] { _config.Audience }
+            ValidAudiences = new[] { config.Audience }
         };
         var result = await handler.ValidateTokenAsync(token, parameters).ConfigureAwait(false);
         if (!result.IsValid)

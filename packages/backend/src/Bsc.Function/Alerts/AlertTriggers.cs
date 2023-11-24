@@ -10,24 +10,15 @@ using Microsoft.Azure.Functions.Worker.Http;
 
 namespace Bsc.Function.Alerts;
 
-public class AlertTriggers
+public class AlertTriggers(IMediator mediator, IRequestAuthenticator authenticator)
 {
-    private readonly IMediator _mediator;
-    private readonly IRequestAuthenticator _authenticator;
-
-    public AlertTriggers(IMediator mediator, IRequestAuthenticator authenticator)
-    {
-        _mediator = mediator;
-        _authenticator = authenticator;
-    }
-
     [Function("GetAlerts")]
     public async Task<HttpResponseData> GetAlertsAsync(
         [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "alerts")] HttpRequestData req
     )
     {
         req.Query.TryGetBool("includeExpired", out var includeExpired);
-        var alerts = await _mediator.Send(new GetAlertsQuery(includeExpired));
+        var alerts = await mediator.Send(new GetAlertsQuery(includeExpired));
         return await req.CreateJsonResponse(alerts, cache: true);
     }
 
@@ -36,9 +27,9 @@ public class AlertTriggers
         [HttpTrigger(AuthorizationLevel.Anonymous, "post", Route = "alerts")] HttpRequestData req
     )
     {
-        await req.AuthenticateAsync(_authenticator);
+        await req.AuthenticateAsync(authenticator);
         var command = await req.ReadBodyAsJsonAsync<CreateAlertCommand>();
-        await _mediator.Send(command);
+        await mediator.Send(command);
         return req.CreateResponse(HttpStatusCode.OK);
     }
 
@@ -49,9 +40,9 @@ public class AlertTriggers
         Guid id
     )
     {
-        await req.AuthenticateAsync(_authenticator).ConfigureAwait(false);
+        await req.AuthenticateAsync(authenticator).ConfigureAwait(false);
         var command = await req.ReadBodyAsJsonAsync<UpdateAlertCommand>().ConfigureAwait(false);
-        await _mediator.Send(command with { Id = id });
+        await mediator.Send(command with { Id = id });
         return req.CreateResponse(HttpStatusCode.OK);
     }
 
@@ -62,9 +53,9 @@ public class AlertTriggers
         Guid id
     )
     {
-        await req.AuthenticateAsync(_authenticator).ConfigureAwait(false);
+        await req.AuthenticateAsync(authenticator).ConfigureAwait(false);
         var command = new DeleteAlertCommand(id);
-        await _mediator.Send(command);
+        await mediator.Send(command);
         return req.CreateResponse(HttpStatusCode.OK);
     }
 }

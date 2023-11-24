@@ -5,18 +5,11 @@ namespace Bsc.Function.Alerts.Commands;
 
 public record DeleteAlertCommand(Guid AlertId) : IRequest;
 
-public class DeleteAlertCommandHandler : IRequestHandler<DeleteAlertCommand>
+public class DeleteAlertCommandHandler(IRepositoryFactory repositoryFactory) : IRequestHandler<DeleteAlertCommand>
 {
-    private readonly IRepositoryFactory _repositoryFactory;
-
-    public DeleteAlertCommandHandler(IRepositoryFactory repositoryFactory)
-    {
-        _repositoryFactory = repositoryFactory;
-    }
-
     public async Task Handle(DeleteAlertCommand request, CancellationToken cancellationToken)
     {
-        var repository = await _repositoryFactory
+        var repository = await repositoryFactory
             .CreateAlertsRepositoryAsync(cancellationToken)
             .ConfigureAwait(false);
         var existingAlerts = await repository.GetAllAsync(cancellationToken).ConfigureAwait(false);

@@ -33,7 +33,10 @@ public class FakeOpenIdConfigurationRetriever : IConfigurationRetriever<OpenIdCo
 public class FakeConfigurationManager : ConfigurationManager<OpenIdConnectConfiguration>
 {
     private readonly IAuthConfiguration _config;
-    public static readonly SymmetricSecurityKey SigningKey = new("this-is-not-good"u8.ToArray());
+
+    public static readonly SymmetricSecurityKey SigningKey = new(
+        "this-is-not-a-good-enough-key-to-be-used-in-real-life-please-be-sure-to-use-a-much-better-key-for-reals"u8.ToArray()
+    );
 
     public FakeConfigurationManager(IAuthConfiguration config)
         : base(

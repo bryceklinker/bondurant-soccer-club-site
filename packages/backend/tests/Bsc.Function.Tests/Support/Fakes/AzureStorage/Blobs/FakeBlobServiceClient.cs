@@ -13,8 +13,8 @@ public class FakeBlobServiceClient : BlobServiceClient
 
     public FakeBlobContainerClient GetFakeBlobContainerClient(string blobContainerName)
     {
-        return _containerClientsByName.ContainsKey(blobContainerName)
-            ? _containerClientsByName[blobContainerName]
+        return _containerClientsByName.TryGetValue(blobContainerName, out var value)
+            ? value
             : _containerClientsByName[blobContainerName] = new FakeBlobContainerClient();
     }
 }

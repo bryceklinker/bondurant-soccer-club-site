@@ -19,8 +19,8 @@ public class FakeQueueServiceClient : QueueServiceClient
 
     public FakeQueueClient GetFakeQueueClient(string queueName)
     {
-        return _clientByQueueName.ContainsKey(queueName)
-            ? _clientByQueueName[queueName]
+        return _clientByQueueName.TryGetValue(queueName, out var value)
+            ? value
             : _clientByQueueName[queueName] = new FakeQueueClient();
     }
 }

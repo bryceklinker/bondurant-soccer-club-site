@@ -11,23 +11,15 @@ public interface IAlertsConfiguration
     string BlobPath { get; }
 }
 
-public class AlertsConfiguration : IAlertsConfiguration
+public class AlertsConfiguration(IConfiguration config) : IAlertsConfiguration
 {
-    public string ConnectionString { get; }
-    public string SiteContainerName { get; }
-    public string QueueName { get; }
-    public string BlobPath { get; }
+    public string ConnectionString { get; } = config.GetValue<string>(ConfigurationKeys.StorageAccountConnectionString
+    );
 
-    public AlertsConfiguration(IConfiguration config)
-    {
-        ConnectionString = config.GetValue<string>(
-            ConfigurationKeys.StorageAccountConnectionString
-        );
-        SiteContainerName = config.GetValue<string>(ConfigurationKeys.SiteContainerName);
-        QueueName = config.GetValue<string>(ConfigurationKeys.AlertsQueueName);
-        BlobPath = Path.Join(
-            config.GetValue<string>(ConfigurationKeys.DbBlobPrefix),
-            "alerts.json"
-        );
-    }
+    public string SiteContainerName { get; } = config.GetValue<string>(ConfigurationKeys.SiteContainerName);
+    public string QueueName { get; } = config.GetValue<string>(ConfigurationKeys.AlertsQueueName);
+    public string BlobPath { get; } = Path.Join(
+        config.GetValue<string>(ConfigurationKeys.DbBlobPrefix),
+        "alerts.json"
+    );
 }
