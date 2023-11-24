@@ -1,5 +1,4 @@
 import { FC } from 'react';
-import { Seo } from '../../../common/seo/Seo';
 import { GappedStack } from '../../../common/components/GappedStack';
 import { Section } from '../../../common/components/Section';
 import { Title } from '../../../common/components/Title';

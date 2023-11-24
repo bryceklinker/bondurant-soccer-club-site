@@ -84,7 +84,7 @@ export const ACADEMY_DIRECTORS = [
     {
         roleTitle: 'Director of Academy',
         role: BoardMemberRole.DirectorOfAcademy,
-        name: 'Matt Dominguez',
+        name: 'TBD',
         email: 'director-academy@bondurantsoccerclub.com',
         roleGroup: BoardMemberRoleGroup.Directors,
         jobDescriptionRoute: RouteNames.DirectorOfAcademyJobDescription
