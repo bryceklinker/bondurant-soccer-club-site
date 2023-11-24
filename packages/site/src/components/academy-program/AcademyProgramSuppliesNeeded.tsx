@@ -22,10 +22,10 @@ export const AcademyProgramSuppliesNeeded: FC = () => {
         <Section padded shadow>
             <CollapsiblePanel
                 title={<SectionTitle>Supplies Needed</SectionTitle>}>
-                <SubTitle>BSC Academy Uniform Set</SubTitle>
+                <SubTitle>BSC Academy Uniform Set includes</SubTitle>
                 <ul className={'list-disc px-4'}>{uniformItems}</ul>
 
-                <SubTitle>Other Equipment</SubTitle>
+                <SubTitle>What other equipment and gear do I need?</SubTitle>
                 <ul className={'list-disc px-4'}>{equipmentItems}</ul>
             </CollapsiblePanel>
         </Section>

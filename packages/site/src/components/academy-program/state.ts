@@ -22,7 +22,7 @@ export const ACADEMY_GOALS: Array<TitleItem> = [
     {
         title: 'Engagement',
         description:
-            ' Players are motivated by their improvement to stay involved in the game.'
+            'Players are motivated by their improvement to stay involved in the game.'
     },
     {
         title: 'Pathway Development',
@@ -54,7 +54,7 @@ export const ACADEMY_PLAYER_CHARACTERISTICS = [
 export const ACADEMY_TEAM_FORMATION = [
     'Academy teams cannot be formed on the basis of talent and must be formed as true recreational teams.',
     'Any player that registers with club for Academy will be accepted - players may not be excluded from participating in the program',
-    'Academy teams will be mixed each season to improve the developmental environment and to place the focus on the individual, not the team.s',
+    'Academy teams will be mixed each season to improve the developmental environment and to place the focus on the individual, not the team.',
     'Maximum roster size is 12 players.',
     'Free movement of academy players is allowed in academy clubs to fulfill fixture commitments.',
     'Double roster on recreational teams is not permitted.',
@@ -72,7 +72,7 @@ export const ACADEMY_UNIFORM_ITEMS = [
     'The Academy program uses 2 jerseys and 2 shorts.',
     'Numbers will be assigned to players as they enter 9U or if they are new at any time during the 4 seasons. Their number will remain the same through all 4 seasons.',
     'Players that purchase pre-owned jerseys need to inform of the number in the comments section during registration',
-    'Uniform set including 2 jerseys, 2 shorts, and 2 socks '
+    'Uniform set including 2 jerseys, 2 shorts, and 2 socks'
 ];
 export const ACADEMY_EQUIPMENT_ITEMS = [
     'Ball: 9U-10U use a size 4',
