@@ -44,7 +44,7 @@ resource "azurerm_windows_function_app" "app" {
     }
 
     application_stack {
-      dotnet_version              = "v7.0"
+      dotnet_version              = "v8.0"
       use_dotnet_isolated_runtime = true
     }
 
