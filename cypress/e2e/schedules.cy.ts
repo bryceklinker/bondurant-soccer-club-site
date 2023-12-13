@@ -4,6 +4,6 @@ describe('Schedules', () => {
     it('should show schedules', () => {
         SchedulesPage.navigate();
 
-        SchedulesPage.findSections().should('have.length', 4);
+        SchedulesPage.findSections().should('have.length', 3);
     });
 });
