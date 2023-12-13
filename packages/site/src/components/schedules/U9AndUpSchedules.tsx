@@ -1,34 +1,22 @@
-import { FunctionComponent } from 'react';
+import {FC} from 'react';
 import { Section } from '../../common/components/Section';
 import { CollapsiblePanel } from '../../common/components/CollapsiblePanel';
 import { SectionTitle } from '../../common/components/SectionTitle';
-import { ExternalLink } from '../../common/components/ExternalLink';
-import { ColumnFlex } from '../../common/layout/ColumnFlex';
-import { Paragraph } from '../../common/components/Paragraph';
-import { LinkData } from '../../common/state/link-data';
+import {SubTitle} from '../../common/components/SubTitle';
+import {BulletedList} from '../../common/components/BulletedList';
+import {ListItem} from '../../common/components/ListItem';
 
-export interface U9AndUpSchedulesProps {
-    link: LinkData;
-}
 
-export const U9AndUpSchedules: FunctionComponent<U9AndUpSchedulesProps> = ({
-    link
-}) => {
+export const U9AndUpSchedules: FC = () => {
     return (
         <Section padded shadow>
             <CollapsiblePanel
                 title={<SectionTitle>U9 and Up Schedules</SectionTitle>}>
-                <ColumnFlex>
-                    <Paragraph>
-                        U9 and up schedules can be accessed{' '}
-                        <ExternalLink href={link.url}>{link.text}</ExternalLink>
-                    </Paragraph>
-                    <Paragraph>
-                        Click the age group, click the Bondurant Soccer Club
-                        team name, and finally, scroll to the bottom of the page
-                        where you can view the schedule.
-                    </Paragraph>
-                </ColumnFlex>
+                <SubTitle>*&nbsp;Birth Years = 2014 through 2007&nbsp;*</SubTitle>
+                <BulletedList>
+                    <ListItem>This schedule is set by Iowa Soccer schedule and will be visible at the end March 2024.</ListItem>
+                    <ListItem>Season for games will start the weekend of April 6thand end the weekend of May 25th.</ListItem>
+                </BulletedList>
             </CollapsiblePanel>
         </Section>
     );

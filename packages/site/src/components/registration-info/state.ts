@@ -58,7 +58,7 @@ export const SPRING_REGISTRATION_DATES: RegistrationDatesData = {
     },
     regular: {
         start: parseISO('2023-12-16'),
-        end: parseISO('2023-01-31')
+        end: parseISO('2024-01-31')
     },
     late: {
         start: parseISO('2024-02-01'),

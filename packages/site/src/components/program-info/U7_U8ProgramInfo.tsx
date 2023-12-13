@@ -1,14 +1,14 @@
-import { FC } from 'react';
+import {FC} from 'react';
 import {Section} from '../../common/components/Section';
 import {CollapsiblePanel} from '../../common/components/CollapsiblePanel';
 import {SectionTitle} from '../../common/components/SectionTitle';
-import {U5_U6Details} from '../u5-u6-info/U5_U6Details';
+import {U7_U8ProgramDetails} from './U7_U8ProgramDetails';
 
-export const U5U6Schedule: FC = () => {
+export const U7_U8ProgramInfo: FC = () => {
     return (
         <Section padded shadow>
-            <CollapsiblePanel title={<SectionTitle>U5/U6 Schedule</SectionTitle>}>
-                <U5_U6Details includeDates />
+            <CollapsiblePanel title={<SectionTitle>U7/U8</SectionTitle>}>
+                <U7_U8ProgramDetails />
             </CollapsiblePanel>
         </Section>
     );
