@@ -6,7 +6,7 @@ import { DrillsYouCanDoAtHome } from './DrillsYouCanDoAtHome';
 import { GappedStack } from '../../common/components/GappedStack';
 import { Title } from '../../common/components/Title';
 import { useCoachingDrills } from '../get-involved/hooks';
-import {U5_U6ProgramInfo} from './U5_U6ProgramInfo';
+import { U5_U6ProgramInfo } from './U5_U6ProgramInfo';
 
 export const U5U6InfoPage: FunctionComponent = () => {
     const drillLinks = useCoachingDrills();

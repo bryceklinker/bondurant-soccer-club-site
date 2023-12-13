@@ -1,26 +1,27 @@
-import {FC} from 'react';
-import {SubTitle} from '../../common/components/SubTitle';
-import {BulletedList} from '../../common/components/BulletedList';
-import {ListItem} from '../../common/components/ListItem';
-import {Paragraph} from '../../common/components/Paragraph';
+import { FC } from 'react';
+import { SubTitle } from '../../common/components/SubTitle';
+import { BulletedList } from '../../common/components/BulletedList';
+import { ListItem } from '../../common/components/ListItem';
+import { Paragraph } from '../../common/components/Paragraph';
 
 export type U5_U6DetailsProps = {
     includeDates?: boolean;
-}
+};
 
-export const U5_U6Details: FC<U5_U6DetailsProps> = ({includeDates = false}) => {
+export const U5_U6Details: FC<U5_U6DetailsProps> = ({
+    includeDates = false
+}) => {
     return (
         <>
             <SubTitle>*&nbsp;Birth Years = 2018,2019&nbsp;*</SubTitle>
 
-            {
-                includeDates &&
+            {includeDates && (
                 <Paragraph>
                     Start date - Saturday, April 27
-                    <br/>
+                    <br />
                     End date - Thursday, May 23
                 </Paragraph>
-            }
+            )}
             <BulletedList>
                 <ListItem>All BSC teams will play each other</ListItem>
                 <ListItem>All games, no practices</ListItem>
