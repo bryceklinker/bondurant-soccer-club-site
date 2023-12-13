@@ -30,8 +30,8 @@ export const RegistrationDate: FunctionComponent<RegistrationDateProps> = ({
                     Cutoff Date: {Dates.formatDate(date.cutoff)}
                 </Paragraph>
                 {date.u5_u6 && (
-                    <Paragraph>
-                        U5/U6: {Dates.formatDateRange(date.u5_u6)}
+                    <Paragraph className={'pt-4'}>
+                        U5/U6 Registration: {Dates.formatDateRange(date.u5_u6)}
                     </Paragraph>
                 )}
             </PlainStack>
