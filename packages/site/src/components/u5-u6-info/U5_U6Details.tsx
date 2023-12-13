@@ -22,15 +22,13 @@ export const U5_U6Details: FC<U5_U6DetailsProps> = ({
                     End date - Thursday, May 23
                 </Paragraph>
             )}
-            {
-                !includeDates && (
-                    <BulletedList>
-                        <ListItem>All BSC teams will play each other</ListItem>
-                        <ListItem>All games, no practices</ListItem>
-                        <ListItem>6&nbsp;-&nbsp;6 minute quarters</ListItem>
-                    </BulletedList>
-                )
-            }
+            {!includeDates && (
+                <BulletedList>
+                    <ListItem>All BSC teams will play each other</ListItem>
+                    <ListItem>All games, no practices</ListItem>
+                    <ListItem>6&nbsp;-&nbsp;6 minute quarters</ListItem>
+                </BulletedList>
+            )}
             <Paragraph>
                 Games will be on Tuesdays, Thursdays, and Satudays
             </Paragraph>
