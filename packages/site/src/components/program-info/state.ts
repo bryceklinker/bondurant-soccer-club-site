@@ -117,11 +117,11 @@ const U9U10Program: ProgramInfo = {
             name: 'Locations',
             details: [
                 'Practices take place at the Bondurant Soccer Complex as scheduled by Coach',
-                'Home games take place at the Bondurant Soccer West Complex',
+                'Home games take place at the Collison Soccer Park',
                 'Up to 4 games may result in travel around central iowa'
             ],
             link: {
-                text: 'Bondurant West Complex',
+                text: 'Collison Socer Park',
                 url: RouteNames.Locations
             }
         },
