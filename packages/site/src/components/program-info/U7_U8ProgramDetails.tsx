@@ -16,7 +16,7 @@ export const U7_U8ProgramDetails: FC<U7_U8ProgramDetailsProps> = ({
 }) => {
     return (
         <>
-            <SubTitle>Birth Years = 2016,2017</SubTitle>
+            <SubTitle>*&nbsp;Birth Years = 2016,2017&nbsp;*</SubTitle>
             <Paragraph>
                 {includeDates && '*Starting this Spring 2024, '}
                 U7/U8 program will be all “in-house” meaning there will be no

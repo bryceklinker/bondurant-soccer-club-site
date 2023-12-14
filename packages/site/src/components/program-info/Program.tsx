@@ -8,6 +8,8 @@ import { SubTitle } from '../../common/components/SubTitle';
 import { SmartLink } from '../../common/components/SmartLink';
 import { ProgramInfoAttribute } from '../../common/state/program-info-attribute';
 import { ProgramInfo } from '../../common/state/program-info';
+import {BulletedList} from '../../common/components/BulletedList';
+import {ListItem} from '../../common/components/ListItem';
 
 export type ProgramProps = {
     program: ProgramInfo;
@@ -37,25 +39,47 @@ export type ProgramAttributeProps = {
 export const ProgramAttribute: FC<ProgramAttributeProps> = ({ attribute }) => {
     const detailItems = attribute.details
         ? attribute.details.map((detail, index) => (
-              <Paragraph key={index}>{detail}</Paragraph>
+              <ListItem key={index}>{detail}</ListItem>
           ))
         : [];
+
     return (
         <PlainStack>
             <PlainStack horizontal>
                 <SubTitle>{attribute.name}:&nbsp;</SubTitle>
-                {attribute.text ? (
-                    <Paragraph>{attribute.text}</Paragraph>
-                ) : null}
-                {attribute.link ? <SmartLink link={attribute.link} /> : null}
+                <ProgramAttributeText attribute={attribute} />
             </PlainStack>
             <PlainStack className={'indent'}>
                 {detailItems.length > 0 ? (
                     <PlainStack>
-                        <ul className={'list-none'}>{detailItems}</ul>
+                        <BulletedList>
+                            {detailItems}
+                        </BulletedList>
                     </PlainStack>
                 ) : null}
             </PlainStack>
         </PlainStack>
     );
 };
+
+export type ProgramAttributeTextProps = {
+    attribute: ProgramInfoAttribute;
+}
+
+const ProgramAttributeText: FC<ProgramAttributeTextProps> = ({attribute}) => {
+    if  (attribute.text && attribute.link) {
+        return (
+            <Paragraph>{attribute.text}&nbsp;<SmartLink link={attribute.link} /></Paragraph>
+        )
+    }
+
+    if (attribute.text) {
+        return <Paragraph>{attribute.text}</Paragraph>
+    }
+
+    if (attribute.link) {
+        return <SmartLink link={attribute.link} />
+    }
+
+    return null;
+}

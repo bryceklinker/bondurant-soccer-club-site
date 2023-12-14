@@ -3,7 +3,6 @@ import { Program } from './Program';
 import { GappedStack } from '../../common/components/GappedStack';
 import { Title } from '../../common/components/Title';
 import { usePrograms } from './hooks';
-import { U7_U8ProgramInfo } from './U7_U8ProgramInfo';
 
 export const ProgramInfoPage: FunctionComponent = () => {
     const programs = usePrograms().map((p, i) => (
@@ -13,7 +12,6 @@ export const ProgramInfoPage: FunctionComponent = () => {
         <GappedStack padded>
             <Title>Program Info</Title>
 
-            <U7_U8ProgramInfo />
             {programs}
         </GappedStack>
     );
