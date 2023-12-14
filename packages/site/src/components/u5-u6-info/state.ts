@@ -1,7 +1,7 @@
 import { ProgramInfo } from '../../common/state/program-info';
 import { AGE_GROUPS } from '../../common/state/age-groups';
 import { RouteNames } from '../../common/routing/route-names';
-import {COLLISON_SOCCER_PARK_LOCATION} from '../locations/state';
+import { COLLISON_SOCCER_PARK_LOCATION } from '../locations/state';
 
 export const U5U6ProgramInfo: ProgramInfo = {
     title: `${AGE_GROUPS.U6.name} Details`,

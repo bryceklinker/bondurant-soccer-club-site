@@ -1,7 +1,10 @@
 import { AGE_GROUPS } from '../../common/state/age-groups';
 import { RouteNames } from '../../common/routing/route-names';
 import { ProgramInfo } from '../../common/state/program-info';
-import {BONDURANT_RECREATIONAL_SPORTS_COMPLEX_LOCATION, COLLISON_SOCCER_PARK_LOCATION} from '../locations/state';
+import {
+    BONDURANT_RECREATIONAL_SPORTS_COMPLEX_LOCATION,
+    COLLISON_SOCCER_PARK_LOCATION
+} from '../locations/state';
 
 const U7U8Program: ProgramInfo = {
     title: AGE_GROUPS.U8.name,
