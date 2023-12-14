@@ -20,7 +20,7 @@ export const U9AndUpSchedules: FC = () => {
                         visible at the end March 2024.
                     </ListItem>
                     <ListItem>
-                        Season for games will start the weekend of April 6thand
+                        Season for games will start the weekend of April 6th and
                         end the weekend of May 25th.
                     </ListItem>
                 </BulletedList>
