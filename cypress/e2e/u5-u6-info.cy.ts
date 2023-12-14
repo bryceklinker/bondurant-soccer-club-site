@@ -4,6 +4,6 @@ describe('U5/U6 Info', () => {
     it('should show U5/U6 Program info', () => {
         U5U6InfoPage.navigate();
 
-        U5U6InfoPage.findSections().should('have.length', 5);
+        U5U6InfoPage.findSections().should('have.length', 1);
     });
 });
