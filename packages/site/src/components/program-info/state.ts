@@ -1,6 +1,6 @@
-import {AGE_GROUPS} from '../../common/state/age-groups';
-import {RouteNames} from '../../common/routing/route-names';
-import {ProgramInfo} from '../../common/state/program-info';
+import { AGE_GROUPS } from '../../common/state/age-groups';
+import { RouteNames } from '../../common/routing/route-names';
+import { ProgramInfo } from '../../common/state/program-info';
 
 const U7U8Program: ProgramInfo = {
     title: AGE_GROUPS.U8.name,
@@ -25,34 +25,34 @@ const U7U8Program: ProgramInfo = {
             text: '8'
         },
         {
-          name: 'Practice and Game Days & Time',
-          details: [
-              'Girls will have games on Saturday mornings between 11:00 AM - 1:00 PM',
-              'Boys will have games on Sunday afternoons between 12:00 PM - 3:00 PM'
-          ]
+            name: 'Practice and Game Days & Time',
+            details: [
+                'Girls will have games on Saturday mornings between 11:00 AM - 1:00 PM',
+                'Boys will have games on Sunday afternoons between 12:00 PM - 3:00 PM'
+            ]
         },
         {
-          name: 'Access this season\'s schedule here',
-          link: {
-              text: 'Schedules',
-              url: RouteNames.Schedules
-          }
+            name: "Access this season's schedule here",
+            link: {
+                text: 'Schedules',
+                url: RouteNames.Schedules
+            }
         },
         {
-          name: 'Game Length',
-          text: '4 - 10 minute quarters (5 minutes breaks between quarters)'
+            name: 'Game Length',
+            text: '4 - 10 minute quarters (5 minutes breaks between quarters)'
         },
         {
-          name: 'Maximum Game Roster',
-          text: '8'
+            name: 'Maximum Game Roster',
+            text: '8'
         },
         {
             name: 'Game Play',
             text: '4 v 4'
         },
         {
-          name: 'Ball Size',
-          text: '3'
+            name: 'Ball Size',
+            text: '3'
         },
         {
             name: 'Required Equipment',
@@ -63,8 +63,8 @@ const U7U8Program: ProgramInfo = {
             text: 'No'
         },
         {
-          name: 'Referee',
-          text: 'No, registered and certified referees are not needed at this level. Since there is no referee, coaches are expected to manage the game environment from the touchline using these standards of play and their best judgment.'
+            name: 'Referee',
+            text: 'No, registered and certified referees are not needed at this level. Since there is no referee, coaches are expected to manage the game environment from the touchline using these standards of play and their best judgment.'
         },
         {
             name: 'Rules',
@@ -85,7 +85,7 @@ const U7U8Program: ProgramInfo = {
                 'No player may be in the goal box unless they are going after the ball (no goalie).',
                 'Defenders should move between the goal box and the midfield line depending on where the ball is on the field (They should not be standing in the backfield waiting).',
                 'No player cards or rosters are needed at this age.',
-                'No jewelry, no metal headbands, barrettes, bobby pins, or clips in the hair.',
+                'No jewelry, no metal headbands, barrettes, bobby pins, or clips in the hair.'
             ]
         },
         {
@@ -125,7 +125,7 @@ const U9U10Program: ProgramInfo = {
                 url: RouteNames.Locations
             }
         },
-        {name: 'Number of Games', text: '7'},
+        { name: 'Number of Games', text: '7' },
         {
             name: 'Game Days/Times',
             details: [
@@ -133,11 +133,11 @@ const U9U10Program: ProgramInfo = {
                 'Coed Sundays 1:00 PM - 6:00 PM'
             ]
         },
-        {name: 'Game Length', text: '2 - 25 minute halves'},
-        {name: 'Maximum Player Roster', text: '12'},
-        {name: 'Game Play', text: '7 v 7'},
-        {name: 'Ball Size', text: '4'},
-        {name: 'Goalkeeper', text: 'Yes'},
+        { name: 'Game Length', text: '2 - 25 minute halves' },
+        { name: 'Maximum Player Roster', text: '12' },
+        { name: 'Game Play', text: '7 v 7' },
+        { name: 'Ball Size', text: '4' },
+        { name: 'Goalkeeper', text: 'Yes' },
         {
             name: 'Referee',
             details: [
@@ -169,7 +169,7 @@ const U11U12Program: ProgramInfo = {
                 url: RouteNames.Locations
             }
         },
-        {name: 'Number of Games', text: '7'},
+        { name: 'Number of Games', text: '7' },
         {
             name: 'Game Days/Times',
             details: [
@@ -177,11 +177,11 @@ const U11U12Program: ProgramInfo = {
                 'Coed Sundays 1:00 PM - 6:00 PM'
             ]
         },
-        {name: 'Game Length', text: '2 - 30 minute halves'},
-        {name: 'Maximum Player Roster', text: '16'},
-        {name: 'Game Play', text: '9 v 9'},
-        {name: 'Ball Size', text: '4'},
-        {name: 'Goalkeeper', text: 'Yes'},
+        { name: 'Game Length', text: '2 - 30 minute halves' },
+        { name: 'Maximum Player Roster', text: '16' },
+        { name: 'Game Play', text: '9 v 9' },
+        { name: 'Ball Size', text: '4' },
+        { name: 'Goalkeeper', text: 'Yes' },
         {
             name: 'Referee',
             details: [
@@ -213,7 +213,7 @@ const U13U14Program: ProgramInfo = {
                 url: RouteNames.Locations
             }
         },
-        {name: 'Number of Games', text: '7'},
+        { name: 'Number of Games', text: '7' },
         {
             name: 'Game Days/Times',
             details: [
@@ -221,14 +221,14 @@ const U13U14Program: ProgramInfo = {
                 'Coed Sundays 1:00 PM - 6:00 PM'
             ]
         },
-        {name: 'Game Length', text: '2 - 35 minute halves'},
+        { name: 'Game Length', text: '2 - 35 minute halves' },
         {
             name: 'Maximum Player Roster',
             text: '22 (only 18 can attend games at any 1 time)'
         },
-        {name: 'Game Play', text: '11 v 11'},
-        {name: 'Ball Size', text: '5'},
-        {name: 'Goalkeeper', text: 'Yes'},
+        { name: 'Game Play', text: '11 v 11' },
+        { name: 'Ball Size', text: '5' },
+        { name: 'Goalkeeper', text: 'Yes' },
         {
             name: 'Referee',
             details: [
@@ -260,7 +260,7 @@ const U15U16Program: ProgramInfo = {
                 url: RouteNames.Locations
             }
         },
-        {name: 'Number of Games', text: '7'},
+        { name: 'Number of Games', text: '7' },
         {
             name: 'Game Days/Times',
             details: [
@@ -268,14 +268,14 @@ const U15U16Program: ProgramInfo = {
                 'Coed Sundays 1:00 PM - 7:00 PM'
             ]
         },
-        {name: 'Game Length', text: '2 - 40 minute halves'},
+        { name: 'Game Length', text: '2 - 40 minute halves' },
         {
             name: 'Maximum Player Roster',
             text: '22 (only 18 can attend games at any 1 time)'
         },
-        {name: 'Game Play', text: '11 v 11'},
-        {name: 'Ball Size', text: '5'},
-        {name: 'Goalkeeper', text: 'Yes'},
+        { name: 'Game Play', text: '11 v 11' },
+        { name: 'Ball Size', text: '5' },
+        { name: 'Goalkeeper', text: 'Yes' },
         {
             name: 'Referee',
             details: [
@@ -307,7 +307,7 @@ const U17U19Program: ProgramInfo = {
                 url: RouteNames.Locations
             }
         },
-        {name: 'Number of Games', text: '7'},
+        { name: 'Number of Games', text: '7' },
         {
             name: 'Game Days/Times',
             details: [
@@ -315,14 +315,14 @@ const U17U19Program: ProgramInfo = {
                 'Coed Sundays 1:00 PM - 7:00 PM'
             ]
         },
-        {name: 'Game Length', text: '2 - 45 minute halves'},
+        { name: 'Game Length', text: '2 - 45 minute halves' },
         {
             name: 'Maximum Player Roster',
             text: '22 (only 18 can attend games at any 1 time)'
         },
-        {name: 'Game Play', text: '11 v 11'},
-        {name: 'Ball Size', text: '5'},
-        {name: 'Goalkeeper', text: 'Yes'},
+        { name: 'Game Play', text: '11 v 11' },
+        { name: 'Ball Size', text: '5' },
+        { name: 'Goalkeeper', text: 'Yes' },
         {
             name: 'Referee',
             details: [
@@ -356,7 +356,7 @@ const ShortSided: ProgramInfo = {
                 url: RouteNames.Locations
             }
         },
-        {name: 'Number of Games', text: '7'},
+        { name: 'Number of Games', text: '7' },
         {
             name: 'Game Days/Times',
             details: [
@@ -368,10 +368,10 @@ const ShortSided: ProgramInfo = {
             name: 'Game Length',
             text: 'Same as length for full sided team for division'
         },
-        {name: 'Maximum Player Roster', text: '14'},
-        {name: 'Game Play', text: '6 v 6'},
-        {name: 'Ball Size', text: '5'},
-        {name: 'Goalkeeper', text: 'Yes'},
+        { name: 'Maximum Player Roster', text: '14' },
+        { name: 'Game Play', text: '6 v 6' },
+        { name: 'Ball Size', text: '5' },
+        { name: 'Goalkeeper', text: 'Yes' },
         {
             name: 'Referee',
             details: [

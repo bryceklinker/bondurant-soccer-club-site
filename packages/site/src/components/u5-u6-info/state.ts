@@ -1,6 +1,6 @@
-import {ProgramInfo} from '../../common/state/program-info';
-import {AGE_GROUPS} from '../../common/state/age-groups';
-import {RouteNames} from '../../common/routing/route-names';
+import { ProgramInfo } from '../../common/state/program-info';
+import { AGE_GROUPS } from '../../common/state/age-groups';
+import { RouteNames } from '../../common/routing/route-names';
 
 export const U5U6ProgramInfo: ProgramInfo = {
     title: `${AGE_GROUPS.U6.name} Details`,
@@ -21,7 +21,7 @@ export const U5U6ProgramInfo: ProgramInfo = {
             ]
         },
         {
-            name: 'Access this season\'s schedule here',
+            name: "Access this season's schedule here",
             link: {
                 text: 'Schedules',
                 url: RouteNames.Schedules
@@ -74,7 +74,7 @@ export const U5U6ProgramInfo: ProgramInfo = {
                 'No player may be in the goal box unless they are going after the ball (no goalie).',
                 'Defenders should move between the goal box and the midfield line depending on where the ball is on the field (They should not be standing in the backfield waiting).',
                 'No player cards or rosters are needed at this age.',
-                'No jewelry, no metal headbands, barrettes, bobby pins, or clips in the hair.',
+                'No jewelry, no metal headbands, barrettes, bobby pins, or clips in the hair.'
             ]
         },
         {

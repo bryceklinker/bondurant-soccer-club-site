@@ -8,8 +8,8 @@ import { SubTitle } from '../../common/components/SubTitle';
 import { SmartLink } from '../../common/components/SmartLink';
 import { ProgramInfoAttribute } from '../../common/state/program-info-attribute';
 import { ProgramInfo } from '../../common/state/program-info';
-import {BulletedList} from '../../common/components/BulletedList';
-import {ListItem} from '../../common/components/ListItem';
+import { BulletedList } from '../../common/components/BulletedList';
+import { ListItem } from '../../common/components/ListItem';
 
 export type ProgramProps = {
     program: ProgramInfo;
@@ -52,9 +52,7 @@ export const ProgramAttribute: FC<ProgramAttributeProps> = ({ attribute }) => {
             <PlainStack className={'indent'}>
                 {detailItems.length > 0 ? (
                     <PlainStack>
-                        <BulletedList>
-                            {detailItems}
-                        </BulletedList>
+                        <BulletedList>{detailItems}</BulletedList>
                     </PlainStack>
                 ) : null}
             </PlainStack>
@@ -64,22 +62,25 @@ export const ProgramAttribute: FC<ProgramAttributeProps> = ({ attribute }) => {
 
 export type ProgramAttributeTextProps = {
     attribute: ProgramInfoAttribute;
-}
+};
 
-const ProgramAttributeText: FC<ProgramAttributeTextProps> = ({attribute}) => {
-    if  (attribute.text && attribute.link) {
+const ProgramAttributeText: FC<ProgramAttributeTextProps> = ({ attribute }) => {
+    if (attribute.text && attribute.link) {
         return (
-            <Paragraph>{attribute.text}&nbsp;<SmartLink link={attribute.link} /></Paragraph>
-        )
+            <Paragraph>
+                {attribute.text}&nbsp;
+                <SmartLink link={attribute.link} />
+            </Paragraph>
+        );
     }
 
     if (attribute.text) {
-        return <Paragraph>{attribute.text}</Paragraph>
+        return <Paragraph>{attribute.text}</Paragraph>;
     }
 
     if (attribute.link) {
-        return <SmartLink link={attribute.link} />
+        return <SmartLink link={attribute.link} />;
     }
 
     return null;
-}
+};
