@@ -1,6 +1,7 @@
 import { ProgramInfo } from '../../common/state/program-info';
 import { AGE_GROUPS } from '../../common/state/age-groups';
 import { RouteNames } from '../../common/routing/route-names';
+import {COLLISON_SOCCER_PARK_LOCATION} from '../locations/state';
 
 export const U5U6ProgramInfo: ProgramInfo = {
     title: `${AGE_GROUPS.U6.name} Details`,
@@ -9,7 +10,7 @@ export const U5U6ProgramInfo: ProgramInfo = {
             name: 'Locations',
             text: 'U5/U6 program will be all “in-house” meaning there will be no travel. All games will be at the',
             link: {
-                text: 'Collison Soccer Park',
+                text: COLLISON_SOCCER_PARK_LOCATION.title,
                 url: RouteNames.Locations
             }
         },

@@ -25,7 +25,7 @@ export const COLLISON_SOCCER_PARK_LOCATION: LocationData = {
         }
     ]
 };
-const BONDURANT_RECREATIONAL_SPORTS_COMPLEX_LOCATION = {
+export const BONDURANT_RECREATIONAL_SPORTS_COMPLEX_LOCATION = {
     title: 'Bondurant Recreational Sports Complex',
     ageGroups: [AGE_GROUPS.U12, AGE_GROUPS.U14, AGE_GROUPS.U16, AGE_GROUPS.U19],
     mapsUrl:

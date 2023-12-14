@@ -1,6 +1,7 @@
 import { AGE_GROUPS } from '../../common/state/age-groups';
 import { RouteNames } from '../../common/routing/route-names';
 import { ProgramInfo } from '../../common/state/program-info';
+import {BONDURANT_RECREATIONAL_SPORTS_COMPLEX_LOCATION, COLLISON_SOCCER_PARK_LOCATION} from '../locations/state';
 
 const U7U8Program: ProgramInfo = {
     title: AGE_GROUPS.U8.name,
@@ -16,7 +17,7 @@ const U7U8Program: ProgramInfo = {
             name: 'Locations',
             text: 'U7/U8 program will be all “in-house” meaning there will be no travel. All games will be at the',
             link: {
-                text: 'Collison Soccer Park',
+                text: COLLISON_SOCCER_PARK_LOCATION.title,
                 url: RouteNames.Locations
             }
         },
@@ -161,11 +162,11 @@ const U11U12Program: ProgramInfo = {
             name: 'Locations',
             details: [
                 'Practices take place at the Bondurant Soccer Complex as scheduled by Coach',
-                'Home games take place at the Bondurant Soccer East Complex',
+                `Home games take place at the ${BONDURANT_RECREATIONAL_SPORTS_COMPLEX_LOCATION.title}`,
                 'Up to 4 games may result in travel around central iowa'
             ],
             link: {
-                text: 'Bondurant East Complex',
+                text: BONDURANT_RECREATIONAL_SPORTS_COMPLEX_LOCATION.title,
                 url: RouteNames.Locations
             }
         },
@@ -205,11 +206,11 @@ const U13U14Program: ProgramInfo = {
             name: 'Locations',
             details: [
                 'Practices take place at the Bondurant Soccer Complex as scheduled by Coach',
-                'Home games take place at the Bondurant Soccer East Complex',
+                `Home games take place at the ${BONDURANT_RECREATIONAL_SPORTS_COMPLEX_LOCATION.title}`,
                 'Up to 4 games may result in travel around central iowa'
             ],
             link: {
-                text: 'Bondurant East Complex',
+                text: BONDURANT_RECREATIONAL_SPORTS_COMPLEX_LOCATION.title,
                 url: RouteNames.Locations
             }
         },
@@ -252,11 +253,11 @@ const U15U16Program: ProgramInfo = {
             name: 'Locations',
             details: [
                 'Practices take place at the Bondurant Soccer Complex as scheduled by Coach',
-                'Home games take place at the Bondurant Soccer East Complex',
+                `Home games take place at the ${BONDURANT_RECREATIONAL_SPORTS_COMPLEX_LOCATION.title}`,
                 'Up to 4 games may result in travel around central iowa'
             ],
             link: {
-                text: 'Bondurant East Complex',
+                text: BONDURANT_RECREATIONAL_SPORTS_COMPLEX_LOCATION.title,
                 url: RouteNames.Locations
             }
         },
@@ -299,11 +300,11 @@ const U17U19Program: ProgramInfo = {
             name: 'Locations',
             details: [
                 'Practices take place at the Bondurant Soccer Complex as scheduled by Coach',
-                'Home games take place at the Bondurant Soccer East Complex',
+                `Home games take place at the ${BONDURANT_RECREATIONAL_SPORTS_COMPLEX_LOCATION.title}`,
                 'Up to 4 games may result in travel around central iowa'
             ],
             link: {
-                text: 'Bondurant East Complex',
+                text: BONDURANT_RECREATIONAL_SPORTS_COMPLEX_LOCATION.title,
                 url: RouteNames.Locations
             }
         },
@@ -348,11 +349,11 @@ const ShortSided: ProgramInfo = {
             name: 'Locations',
             details: [
                 'Practices take place at the Bondurant Soccer Complex as scheduled by Coach',
-                'Home games take place at the Bondurant Soccer East Complex',
+                `Home games take place at the ${BONDURANT_RECREATIONAL_SPORTS_COMPLEX_LOCATION.title}`,
                 'Up to 4 games may result in travel around central iowa'
             ],
             link: {
-                text: 'Bondurant East Complex',
+                text: BONDURANT_RECREATIONAL_SPORTS_COMPLEX_LOCATION.title,
                 url: RouteNames.Locations
             }
         },
