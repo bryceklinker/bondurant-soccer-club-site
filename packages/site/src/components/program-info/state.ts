@@ -120,8 +120,8 @@ const U9U10Program: ProgramInfo = {
         {
             name: 'Locations',
             details: [
-                'Practices take place at the Bondurant Soccer Complex as scheduled by Coach',
-                'Home games take place at the Collison Soccer Park',
+                `Practices take place at the ${COLLISON_SOCCER_PARK_LOCATION.title} as scheduled by Coach`,
+                `Home games take place at the ${COLLISON_SOCCER_PARK_LOCATION.title}`,
                 'Up to 4 games may result in travel around central iowa'
             ],
             link: {
@@ -148,6 +148,43 @@ const U9U10Program: ProgramInfo = {
                 'Certified Center Referee',
                 '2 Certified Assistant Referees'
             ]
+        },
+        {
+            name: 'Rules',
+            details: [
+                'Every player should play a minimum of 50% of the time in each game',
+                'Results and standings should not be recorded',
+                'Any travel should be limited to no more than an hour away',
+                'Deliberate heading is not allowed in 7v7 games',
+                'If a player deliberately heads the ball in a game, an indirect free kick should be awarded to the opposing team from the spot of the offense',
+                'The build out line promotes playing the ball out of the back in a less pressured setting',
+                'When the goalkeeper has the ball in his or her hands during play from the opponent, the opposing team must move behind the build out line until the ball is put into play',
+                'Once the opposing team is behind the build out line, the goalkeeper can pass, throw or roll the ball into play (punts and drop kicks are not allowed)',
+                'After the ball is put into play by the goalkeeper, the opposing team can cross the build out line and play resumes as normal',
+                'The opposing team must also move behind the build out line during a goal kick until the ball is put into play',
+                'The build out line will also be used to denote where offside offenses can be called',
+                'Players cannot be penalized for an offside offense between the halfway line and the build out line',
+                'Players can be penalized for an offside offense between the build out line and goal line',
+                'However, the goalkeeper can put the ball into play sooner but he or she does so accepting the positioning of the opponents and the consequences of how play resumes.',
+                'Game may not start or continue if there are less than 5 players on a team',
+                'Substitutions are unlimited and can occur at any stoppage',
+            ]
+        },
+        {
+            name: 'Standard Laws of the Game',
+            details: [
+                'Law 4 – Players’ Equipment',
+                'Law 8 – Start and Restart of Play',
+                'Law 9 – Ball In and Out of Play',
+                'Law 10 – Method of Scoring',
+                'Law 11 – Offside',
+                'Law 12 – Fouls and Misconduct* (*With the exception of deliberate heading and punting)',
+                'Law 13 – Free Kicks',
+                'Law 14 – Penalty Kick',
+                'Law 15 – Throw-in',
+                'Law 16 – Goal Kick',
+                'Law 17 – Corner kick'
+            ]
         }
     ]
 };
@@ -164,7 +201,7 @@ const U11U12Program: ProgramInfo = {
         {
             name: 'Locations',
             details: [
-                'Practices take place at the Bondurant Soccer Complex as scheduled by Coach',
+                `Practices take place at the ${BONDURANT_RECREATIONAL_SPORTS_COMPLEX_LOCATION.title} as scheduled by Coach`,
                 `Home games take place at the ${BONDURANT_RECREATIONAL_SPORTS_COMPLEX_LOCATION.title}`,
                 'Up to 4 games may result in travel around central iowa'
             ],
@@ -191,6 +228,31 @@ const U11U12Program: ProgramInfo = {
             details: [
                 'Certified Center Referee',
                 '2 Certified Assistant Referees'
+            ]
+        },
+        {
+            name: 'Rules',
+            details: [
+                'All rules apply.',
+                'Any travel should be limited to day trips with limited allowances for overnight stays',
+                'Deliberate heading is not allowed in U11 games. Heading is currently allowed in U12 games without limitations but membership is empowered to limit or ban heading at this level of play',
+            ]
+        },
+        {
+            name: 'Standard Laws of the Game',
+            details: [
+                'Law 4 – Players’ Equipment',
+                'Law 5 – The Referee',
+                'Law 8 – Start and Restart of Play',
+                'Law 9 – Ball In and Out of Play',
+                'Law 10 – Method of Scoring',
+                'Law 11 – Offside',
+                'Law 12 – Fouls and Misconduct* (*With the exception of deliberate heading in U11 games)',
+                'Law 13 – Free Kicks',
+                'Law 14 – Penalty Kick',
+                'Law 15 – Throw-in',
+                'Law 16 – Goal Kick',
+                'Law 17 – Corner kick'
             ]
         }
     ]
@@ -255,7 +317,7 @@ const U15U16Program: ProgramInfo = {
         {
             name: 'Locations',
             details: [
-                'Practices take place at the Bondurant Soccer Complex as scheduled by Coach',
+                `Practices take place at the ${BONDURANT_RECREATIONAL_SPORTS_COMPLEX_LOCATION.title} as scheduled by Coach`,
                 `Home games take place at the ${BONDURANT_RECREATIONAL_SPORTS_COMPLEX_LOCATION.title}`,
                 'Up to 4 games may result in travel around central iowa'
             ],
@@ -302,7 +364,7 @@ const U17U19Program: ProgramInfo = {
         {
             name: 'Locations',
             details: [
-                'Practices take place at the Bondurant Soccer Complex as scheduled by Coach',
+                `Practices take place at the ${BONDURANT_RECREATIONAL_SPORTS_COMPLEX_LOCATION.title} as scheduled by Coach`,
                 `Home games take place at the ${BONDURANT_RECREATIONAL_SPORTS_COMPLEX_LOCATION.title}`,
                 'Up to 4 games may result in travel around central iowa'
             ],
@@ -337,7 +399,7 @@ const U17U19Program: ProgramInfo = {
     ]
 };
 const ShortSided: ProgramInfo = {
-    title: 'Short-Sided (U13 - U19',
+    title: 'Short-Sided (U13 - U19)',
     description:
         'Occasionally if there are not enough players to form a full sized team a smaller “short-sided” team is created.',
     attributes: [
@@ -351,7 +413,7 @@ const ShortSided: ProgramInfo = {
         {
             name: 'Locations',
             details: [
-                'Practices take place at the Bondurant Soccer Complex as scheduled by Coach',
+                `Practices take place at the ${BONDURANT_RECREATIONAL_SPORTS_COMPLEX_LOCATION.title} as scheduled by Coach`,
                 `Home games take place at the ${BONDURANT_RECREATIONAL_SPORTS_COMPLEX_LOCATION.title}`,
                 'Up to 4 games may result in travel around central iowa'
             ],
