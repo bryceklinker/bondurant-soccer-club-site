@@ -167,7 +167,7 @@ const U9U10Program: ProgramInfo = {
                 'Players can be penalized for an offside offense between the build out line and goal line',
                 'However, the goalkeeper can put the ball into play sooner but he or she does so accepting the positioning of the opponents and the consequences of how play resumes.',
                 'Game may not start or continue if there are less than 5 players on a team',
-                'Substitutions are unlimited and can occur at any stoppage',
+                'Substitutions are unlimited and can occur at any stoppage'
             ]
         },
         {
@@ -235,7 +235,7 @@ const U11U12Program: ProgramInfo = {
             details: [
                 'All rules apply.',
                 'Any travel should be limited to day trips with limited allowances for overnight stays',
-                'Deliberate heading is not allowed in U11 games. Heading is currently allowed in U12 games without limitations but membership is empowered to limit or ban heading at this level of play',
+                'Deliberate heading is not allowed in U11 games. Heading is currently allowed in U12 games without limitations but membership is empowered to limit or ban heading at this level of play'
             ]
         },
         {
