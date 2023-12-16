@@ -46,17 +46,17 @@ export const BOARD_MEMBERS: Array<BoardMemberData> = [
         roleGroup: BoardMemberRoleGroup.Directors
     },
     {
-        roleTitle: 'Director of East Fields',
+        roleTitle: 'Director of Fields',
         role: BoardMemberRole.DirectorOfFields,
         name: 'Tom Trammell',
-        email: 'director-east-fields@bondurantsoccerclub.com',
+        email: 'bscfields@bondurantsoccerclub.com',
         roleGroup: BoardMemberRoleGroup.Directors
     },
     {
-        roleTitle: 'Director of West Fields',
+        roleTitle: 'Director of Fields',
         role: BoardMemberRole.DirectorOfFields,
         name: 'Brenton Van Hauen',
-        email: 'director-west-fields@bondurantsoccerclub.com',
+        email: 'bscfields@bondurantsoccerclub.com',
         roleGroup: BoardMemberRoleGroup.Directors
     },
     {
