@@ -13,7 +13,7 @@ export const AcademyProgramOverview: FC = () => {
         () =>
             contacts.map(c => ({
                 url: BoardMemberData.getMailToLink([c]),
-                text: c.name
+                text: `${c.roleTitle}: ${c.name}`
             })),
         [contacts]
     );
