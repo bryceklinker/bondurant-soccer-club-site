@@ -3,10 +3,6 @@ import { ColumnFlex } from '../ColumnFlex';
 import { Transition, Dialog } from '@headlessui/react';
 import { XMarkIcon, Bars3Icon } from '@heroicons/react/20/solid';
 
-import {
-    MAIN_NAVIGATION_LINKS,
-    MORE_INFO_NAVIGATION_LINKS
-} from '../../routing/route-names';
 import { NavLink } from './NavLink';
 import { Button } from '../../components/Button';
 
@@ -14,7 +10,6 @@ import { RowFlex } from '../RowFlex';
 import { LayoutFooter } from '../footer/LayoutFooter';
 import {
     useAllNavigationLinks,
-    useVisibleLinks
 } from './hooks/useVisibleLinks';
 
 export type LayoutNavPanelProps = {

@@ -1,6 +1,6 @@
 import { ShellCommands } from './shell.commands';
 
-export const GetInvolvedPage = {
-    navigate: () => cy.visit('/get-involved'),
+export const VolunteerOpportunitiesPage = {
+    navigate: () => cy.visit('/volunteer-opportunities'),
     findSections: () => ShellCommands.getMainContent().findAllByRole('button')
 };

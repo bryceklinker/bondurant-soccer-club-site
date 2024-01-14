@@ -100,7 +100,7 @@ export const FREQUENTLY_ASKED_QUESTIONS: Array<FrequentlyAskedQuestionData> = [
         links: [
             {
                 text: 'Get Involved',
-                url: RouteNames.GetInvolved
+                url: RouteNames.VolunteerOpportunities
             }
         ]
     },

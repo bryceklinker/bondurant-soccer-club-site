@@ -74,7 +74,8 @@ const config: GatsbyConfig = {
                 icon: path.resolve(__dirname, 'src', 'assets', 'logo.ico')
             }
         },
-        ...plugins
+        ...plugins,
+        'gatsby-plugin-client-side-redirect'
     ]
 };
 

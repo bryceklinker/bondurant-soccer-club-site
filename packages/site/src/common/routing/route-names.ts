@@ -5,16 +5,14 @@ export const RouteNames = {
     AcademyProgram: '/academy-program',
     Alerts: '/alerts',
     DirectorOfAcademyJobDescription: '/academy-program/director-of-academy',
-    Concessions: '/concessions',
     ContactUs: '/contact-us',
     Documents: '/documents',
     FrequentlyAskedQuestions: '/frequently-asked-questions',
-    GetInvolved: '/get-involved',
+    VolunteerOpportunities: '/volunteer-opportunities',
     Home: '/',
     Locations: '/locations',
     PictureDay: '/picture-day',
     ProgramInfo: '/program-info',
-    RefereeInfo: '/referee-info',
     RegistrationInfo: '/registration-info',
     Schedules: '/schedules',
     SponsorshipInfo: '/sponsorship-info',
@@ -28,8 +26,8 @@ export const MAIN_NAVIGATION_LINKS: Array<LinkData> = [
         url: RouteNames.Home
     },
     {
-        text: 'Get Involved',
-        url: RouteNames.GetInvolved
+        text: 'Volunteer Opportunities',
+        url: RouteNames.VolunteerOpportunities
     },
     {
         text: 'Contact Us',
@@ -60,10 +58,6 @@ export const MORE_INFO_NAVIGATION_LINKS: Array<LinkData> = [
         requiresUser: true
     },
     {
-        text: 'Concessions',
-        url: RouteNames.Concessions
-    },
-    {
         text: 'Documents',
         url: RouteNames.Documents
     },
@@ -78,10 +72,6 @@ export const MORE_INFO_NAVIGATION_LINKS: Array<LinkData> = [
     {
         text: 'Program Info',
         url: RouteNames.ProgramInfo
-    },
-    {
-        text: 'Referee Info',
-        url: RouteNames.RefereeInfo
     },
     {
         text: 'Registration Info',

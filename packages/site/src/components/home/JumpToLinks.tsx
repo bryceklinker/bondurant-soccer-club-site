@@ -26,8 +26,8 @@ export const JumpToLinks: FC = () => {
             className={
                 'flex-none sm:gap-2 md:gap-4 sm:content-center md:content-center justify-center flex-wrap'
             }>
-            <JumpToButton to={RouteNames.GetInvolved}>
-                Get Involved
+            <JumpToButton to={RouteNames.VolunteerOpportunities}>
+                Volunteer Opportunities
             </JumpToButton>
             <JumpToButton to={RouteNames.ContactUs}>Contact Us</JumpToButton>
             <JumpToButton to={RouteNames.Locations}>Locations</JumpToButton>
