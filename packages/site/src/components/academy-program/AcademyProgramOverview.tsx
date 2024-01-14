@@ -7,17 +7,18 @@ import { AcademyContact } from './AcademyContact';
 import { RouteNames } from '../../common/routing/route-names';
 import { BoardMemberRole } from '../../common/state/board-member-role';
 import { useAcademyContacts } from './hooks';
-import {SmartLinkList} from '../../common/components/SmartLink';
-import {LinkData} from '../../common/state/link-data';
-import {BoardMemberData} from '../../common/state/board-member-data';
+import { SmartLinkList } from '../../common/components/SmartLink';
+import { LinkData } from '../../common/state/link-data';
+import { BoardMemberData } from '../../common/state/board-member-data';
 
 export const AcademyProgramOverview: FC = () => {
     const contacts = useAcademyContacts();
     const contactLinks = useMemo<LinkData[]>(
-        () => contacts.map(c => ({
-            url: BoardMemberData.getMailToLink([c]),
-            text: c.name
-        })),
+        () =>
+            contacts.map(c => ({
+                url: BoardMemberData.getMailToLink([c]),
+                text: c.name
+            })),
         [contacts]
     );
     return (
@@ -40,7 +41,6 @@ export const AcademyProgramOverview: FC = () => {
             <Paragraph className={'p-4'}>
                 <SmartLinkList links={contactLinks} />
             </Paragraph>
-
         </Section>
     );
 };
