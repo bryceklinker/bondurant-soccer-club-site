@@ -20,7 +20,7 @@ describe('Volunteer Opportunities', () => {
     })
 
     it('should redirect to volunteer opportunities', () => {
-        cy.visit('/referee-opportunities');
+        cy.visit('/referee-info');
 
         VolunteerOpportunitiesPage.findSections().should('have.length', 7);
     })
