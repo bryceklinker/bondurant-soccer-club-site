@@ -12,7 +12,7 @@ describe('LayoutNavPanel', () => {
         );
 
         await waitFor(() =>
-            expect(screen.getAllByRole('link')).toHaveLength(18)
+            expect(screen.getAllByRole('link')).toHaveLength(16)
         );
         expect(
             screen.queryByRole('link', { name: 'Alerts' })
@@ -30,7 +30,7 @@ describe('LayoutNavPanel', () => {
         );
 
         await waitFor(() =>
-            expect(screen.getAllByRole('link')).toHaveLength(19)
+            expect(screen.getAllByRole('link')).toHaveLength(17)
         );
         expect(
             screen.getByRole('link', { name: 'Alerts' })

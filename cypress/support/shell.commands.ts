@@ -3,8 +3,8 @@ export const ShellCommands = {
         cy.findByRole('link', { name: 'find us on facebook' }),
     findHomeLink: () =>
         ShellCommands.getNavbar().findByRole('link', { name: 'Home' }),
-    findGetInvolvedLink: () =>
-        ShellCommands.getNavbar().findByRole('link', { name: 'Get Involved' }),
+    findVolunteerOpportunitiesLink: () =>
+        ShellCommands.getNavbar().findByRole('link', { name: 'Volunteer Opportunities' }),
     findContactUsLink: () =>
         ShellCommands.getNavbar().findByRole('link', { name: 'Contact Us' }),
     findAboutLink: () =>
@@ -20,15 +20,11 @@ export const ShellCommands = {
             .click();
     },
     findDocumentsLink: () => cy.findByRole('menuitem', { name: 'Documents' }),
-    findConcessionsLink: () =>
-        cy.findByRole('menuitem', { name: 'Concessions' }),
     findFAQLink: () => cy.findByRole('menuitem', { name: 'FAQ' }),
     findPictureDayLink: () =>
         cy.findByRole('menuitem', { name: 'Picture Day' }),
     findProgramInfoLink: () =>
         cy.findByRole('menuitem', { name: 'Program Info' }),
-    findRefereeInfoLink: () =>
-        cy.findByRole('menuitem', { name: 'Referee Info' }),
     findRegistrationInfoLink: () =>
         cy.findByRole('menuitem', { name: 'Registration Info' }),
     findSponsorshipInfoLink: () =>

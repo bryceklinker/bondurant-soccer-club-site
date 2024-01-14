@@ -6,7 +6,7 @@ describe('Shell', () => {
         HomePage.navigate();
 
         ShellCommands.findHomeLink().should('be.visible');
-        ShellCommands.findGetInvolvedLink().should('be.visible');
+        ShellCommands.findVolunteerOpportunitiesLink().should('be.visible');
         ShellCommands.findContactUsLink().should('be.visible');
         ShellCommands.findAboutLink().should('be.visible');
         ShellCommands.findLocationsLink().should('be.visible');
@@ -18,12 +18,10 @@ describe('Shell', () => {
 
         ShellCommands.openMoreInfo();
 
-        ShellCommands.findConcessionsLink().should('be.visible');
         ShellCommands.findDocumentsLink().should('be.visible');
         ShellCommands.findFAQLink().should('be.visible');
         ShellCommands.findPictureDayLink().should('be.visible');
         ShellCommands.findProgramInfoLink().should('be.visible');
-        ShellCommands.findRefereeInfoLink().should('be.visible');
         ShellCommands.findRegistrationInfoLink().should('be.visible');
         ShellCommands.findSponsorshipInfoLink().should('be.visible');
         ShellCommands.findU5U6InfoLink().should('be.visible');

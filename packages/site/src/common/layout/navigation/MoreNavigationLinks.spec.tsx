@@ -14,7 +14,7 @@ describe('MoreNavigationLinks', () => {
         await userEvent.click(screen.getByRole('button'));
 
         await waitFor(() =>
-            expect(screen.getAllByRole('menuitem')).toHaveLength(11)
+            expect(screen.getAllByRole('menuitem')).toHaveLength(9)
         );
     });
 
@@ -26,7 +26,7 @@ describe('MoreNavigationLinks', () => {
         await userEvent.click(screen.getByRole('button'));
 
         await waitFor(() =>
-            expect(screen.getAllByRole('menuitem')).toHaveLength(12)
+            expect(screen.getAllByRole('menuitem')).toHaveLength(10)
         );
     });
 });
