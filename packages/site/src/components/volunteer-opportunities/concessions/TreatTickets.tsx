@@ -1,17 +1,17 @@
-import React, {FunctionComponent} from 'react';
-import {Paragraph} from '../../../common/components/Paragraph';
-import {RouteNames} from '../../../common/routing/route-names';
-import {LocationData} from '../../../common/state/location-data';
-import {SmartLink} from '../../../common/components/SmartLink';
-import {SubTitle} from '../../../common/components/SubTitle';
+import React, { FunctionComponent } from 'react';
+import { Paragraph } from '../../../common/components/Paragraph';
+import { RouteNames } from '../../../common/routing/route-names';
+import { LocationData } from '../../../common/state/location-data';
+import { SmartLink } from '../../../common/components/SmartLink';
+import { SubTitle } from '../../../common/components/SubTitle';
 
 export type TreatTicketsProps = {
     location: LocationData;
 };
 
 export const TreatTickets: FunctionComponent<TreatTicketsProps> = ({
-                                                                       location
-                                                                   }) => {
+    location
+}) => {
     return (
         <>
             <SubTitle>Treat Tickets</SubTitle>
@@ -26,7 +26,9 @@ export const TreatTickets: FunctionComponent<TreatTicketsProps> = ({
 
             <Paragraph>
                 The concession stand is currently only available at the{' '}
-                <SmartLink link={{text: location.title, url: RouteNames.Locations}}/>
+                <SmartLink
+                    link={{ text: location.title, url: RouteNames.Locations }}
+                />
             </Paragraph>
         </>
     );

@@ -1,6 +1,6 @@
-import {LinkData} from './link-data';
-import {BoardMemberData} from './board-member-data';
-import {DIRECTORS_OF_REFEREES} from './board-members';
+import { LinkData } from './link-data';
+import { BoardMemberData } from './board-member-data';
+import { DIRECTORS_OF_REFEREES } from './board-members';
 
 export const DIRECTOR_OF_REFEREES_CONTACT_LINK: LinkData = {
     text: 'Director of Referees',
@@ -19,4 +19,4 @@ export const REFEREE_LINKS: LinkData[] = [
         text: 'Contact the Director of Referees',
         url: DIRECTOR_OF_REFEREES_CONTACT_LINK.url
     }
-]
+];

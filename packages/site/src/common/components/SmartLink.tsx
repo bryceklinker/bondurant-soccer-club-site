@@ -1,9 +1,9 @@
-import React, {FC, FunctionComponent, useMemo} from 'react';
+import React, { FC, FunctionComponent, useMemo } from 'react';
 import { Link } from 'gatsby';
 import { ExternalLink, ExternalLinkProps } from './ExternalLink';
 import { Strings } from '../extensions/strings';
 import { LinkData } from '../state/link-data';
-import {PlainStack} from './PlainStack';
+import { PlainStack } from './PlainStack';
 
 export interface SmartLinkProps extends ExternalLinkProps {
     link: LinkData;
@@ -26,11 +26,12 @@ export const SmartLink: FunctionComponent<SmartLinkProps> = ({
 
 export type SmartLinkListProps = {
     links: LinkData[];
-}
+};
 
-export const SmartLinkList: FC<SmartLinkListProps> = ({links}) => {
-    const items = useMemo(() => links.map(l => <SmartLink link={l} />), [links]);
-    return (
-        <PlainStack className={'gap-1'}>{items}</PlainStack>
-    )
-}
+export const SmartLinkList: FC<SmartLinkListProps> = ({ links }) => {
+    const items = useMemo(
+        () => links.map(l => <SmartLink link={l} />),
+        [links]
+    );
+    return <PlainStack className={'gap-1'}>{items}</PlainStack>;
+};

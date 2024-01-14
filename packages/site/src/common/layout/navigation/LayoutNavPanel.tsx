@@ -8,9 +8,7 @@ import { Button } from '../../components/Button';
 
 import { RowFlex } from '../RowFlex';
 import { LayoutFooter } from '../footer/LayoutFooter';
-import {
-    useAllNavigationLinks,
-} from './hooks/useVisibleLinks';
+import { useAllNavigationLinks } from './hooks/useVisibleLinks';
 
 export type LayoutNavPanelProps = {
     isOpen: boolean;

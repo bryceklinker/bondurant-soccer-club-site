@@ -1,6 +1,6 @@
-import React, {FC} from 'react';
-import {TreatTickets} from './TreatTickets';
-import {ConcessionStandDutyAndSignup} from './ConcessionStandDutyAndSignup';
+import React, { FC } from 'react';
+import { TreatTickets } from './TreatTickets';
+import { ConcessionStandDutyAndSignup } from './ConcessionStandDutyAndSignup';
 import {
     useConcessionSignupLink,
     useConcessionsLocation,
@@ -11,11 +11,13 @@ export const ConcessionsOpportunities: FC = () => {
     const concessionLocation = useConcessionsLocation();
     const signupLink = useConcessionSignupLink();
     const contactLink = useDirectorOfConcessionsMailLink();
-    return <>
-        <TreatTickets location={concessionLocation} />
-        <ConcessionStandDutyAndSignup
-            signupLink={signupLink}
-            contactLink={contactLink}
-        />
-    </>
-}
+    return (
+        <>
+            <TreatTickets location={concessionLocation} />
+            <ConcessionStandDutyAndSignup
+                signupLink={signupLink}
+                contactLink={contactLink}
+            />
+        </>
+    );
+};
