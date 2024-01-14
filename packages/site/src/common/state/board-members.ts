@@ -42,7 +42,7 @@ export const BOARD_MEMBERS: Array<BoardMemberData> = [
         roleTitle: 'Director of Referees',
         role: BoardMemberRole.DirectorOfReferees,
         name: 'Mark Feld',
-        email: 'director-referees@bondurantsoccerclub.com',
+        email: 'director.referees@bondurantsoccerclub.com',
         roleGroup: BoardMemberRoleGroup.Directors
     },
     {
