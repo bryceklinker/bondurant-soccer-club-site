@@ -87,6 +87,6 @@ export const ACADEMY_DIRECTORS = [
         name: 'Mark Feld',
         email: 'director.academy@bondurantsoccerclub.com',
         roleGroup: BoardMemberRoleGroup.Directors,
-        jobDescriptionRoute: RouteNames.DirectorOfAcademyJobDescription
+        jobDescriptionRoute: RouteNames.DirectorOfAcademy
     }
 ];

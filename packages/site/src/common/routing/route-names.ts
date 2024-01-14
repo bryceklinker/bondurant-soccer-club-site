@@ -4,7 +4,7 @@ export const RouteNames = {
     About: '/about',
     AcademyProgram: '/academy-program',
     Alerts: '/alerts',
-    DirectorOfAcademyJobDescription: '/academy-program/director-of-academy',
+    DirectorOfAcademy: '/academy-program/director-of-academy',
     ContactUs: '/contact-us',
     Documents: '/documents',
     FrequentlyAskedQuestions: '/frequently-asked-questions',

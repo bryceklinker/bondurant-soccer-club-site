@@ -103,7 +103,7 @@ export const VOLUNTEER_OPPORTUNITY_OPTIONS: Array<VolunteerOpportunitiesData> =
             links: [
                 {
                     text: 'Apply Here',
-                    url: RouteNames.DirectorOfAcademyJobDescription
+                    url: RouteNames.DirectorOfAcademy
                 },
                 {
                     text: 'Learn More',

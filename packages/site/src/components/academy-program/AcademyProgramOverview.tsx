@@ -7,11 +7,17 @@ import { AcademyContact } from './AcademyContact';
 import { RouteNames } from '../../common/routing/route-names';
 import { BoardMemberRole } from '../../common/state/board-member-role';
 import { useAcademyContacts } from './hooks';
+import {SmartLinkList} from '../../common/components/SmartLink';
+import {LinkData} from '../../common/state/link-data';
+import {BoardMemberData} from '../../common/state/board-member-data';
 
 export const AcademyProgramOverview: FC = () => {
     const contacts = useAcademyContacts();
-    const contactItems = useMemo(
-        () => contacts.map(c => <AcademyContact contact={c} />),
+    const contactLinks = useMemo<LinkData[]>(
+        () => contacts.map(c => ({
+            url: BoardMemberData.getMailToLink([c]),
+            text: c.name
+        })),
         [contacts]
     );
     return (
@@ -29,6 +35,12 @@ export const AcademyProgramOverview: FC = () => {
                 developmentally appropriate competition, the players will be
                 prepared for a future in competitive soccer.
             </Paragraph>
+
+            <SectionTitle>Contacts</SectionTitle>
+            <Paragraph className={'p-4'}>
+                <SmartLinkList links={contactLinks} />
+            </Paragraph>
+
         </Section>
     );
 };
