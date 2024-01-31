@@ -10,18 +10,18 @@ describe('Volunteer', () => {
     it('should redirect to volunteer', () => {
         cy.visit('/get-involved');
 
-        VolunteerPage.findSections().should('have.length', 7);
+        cy.url().should('include', '/volunteer');
     })
 
     it('should redirect to volunteer', () => {
         cy.visit('/concessions');
 
-        VolunteerPage.findSections().should('have.length', 7);
+        cy.url().should('include', '/volunteer');
     })
 
     it('should redirect to volunteer', () => {
         cy.visit('/referee-info');
 
-        VolunteerPage.findSections().should('have.length', 7);
+        cy.url().should('include', '/volunteer');
     })
 });
