@@ -1,4 +1,4 @@
-import {FC } from 'react';
+import { FC } from 'react';
 import { VolunteerOption } from './VolunteerOption';
 import { GappedStack } from '../../common/components/GappedStack';
 import { Title } from '../../common/components/Title';

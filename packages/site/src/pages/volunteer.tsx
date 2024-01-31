@@ -14,11 +14,6 @@ export const Head = () => (
         title={'Volunteer'}
         description={'Learn how to get involved at Bondurant Soccer Club'}
         route={'volunteer'}
-        keywords={[
-            'involved',
-            'coaching',
-            'board',
-            'volunteer'
-        ]}
+        keywords={['involved', 'coaching', 'board', 'volunteer']}
     />
 );

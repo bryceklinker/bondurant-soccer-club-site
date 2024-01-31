@@ -13,9 +13,7 @@ export interface VolunteerLinkProps {
     data: LinkData;
 }
 
-export const VolunteerLink: FC<VolunteerLinkProps> = ({
-    data
-}) => {
+export const VolunteerLink: FC<VolunteerLinkProps> = ({ data }) => {
     return (
         <Paragraph>
             <SmartLink link={data} />
@@ -27,9 +25,7 @@ export interface VolunteerOptionProps {
     data: VolunteerData;
 }
 
-export const VolunteerOption: FC<
-    VolunteerOptionProps
-> = ({ data }) => {
+export const VolunteerOption: FC<VolunteerOptionProps> = ({ data }) => {
     const links = useMemo(
         () =>
             (data.links ?? []).map((l, i) => (
@@ -54,9 +50,7 @@ export const VolunteerOption: FC<
 type VolunteerDescriptionProps = {
     data: VolunteerData;
 };
-const VolunteerDescription: FC<
-    VolunteerDescriptionProps
-> = ({ data }) => {
+const VolunteerDescription: FC<VolunteerDescriptionProps> = ({ data }) => {
     if (!data.description) {
         return null;
     }
