@@ -1,13 +1,13 @@
 import { useMemo } from 'react';
-import { COACHING_DRILLS, VOLUNTEER_OPPORTUNITY_OPTIONS } from './state';
+import { COACHING_DRILLS, VOLUNTEER_OPTIONS } from './state';
 import { graphql, useStaticQuery } from 'gatsby';
 import {
     FileNode,
     StaticQueryResult
 } from '../../common/hooks/use-files-query';
 
-export function useVolunteerOpportunitiesOptions() {
-    return useMemo(() => VOLUNTEER_OPPORTUNITY_OPTIONS, []);
+export function useVolunteerOptions() {
+    return useMemo(() => VOLUNTEER_OPTIONS, []);
 }
 
 export function useCoachingDrills() {

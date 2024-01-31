@@ -8,7 +8,7 @@ export const RouteNames = {
     ContactUs: '/contact-us',
     Documents: '/documents',
     FrequentlyAskedQuestions: '/frequently-asked-questions',
-    VolunteerOpportunities: '/volunteer-opportunities',
+    Volunteer: '/volunteer',
     Home: '/',
     Locations: '/locations',
     PictureDay: '/picture-day',
@@ -26,8 +26,8 @@ export const MAIN_NAVIGATION_LINKS: Array<LinkData> = [
         url: RouteNames.Home
     },
     {
-        text: 'Volunteer Opportunities',
-        url: RouteNames.VolunteerOpportunities
+        text: 'Volunteer',
+        url: RouteNames.Volunteer
     },
     {
         text: 'Contact Us',

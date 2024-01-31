@@ -1,25 +1,24 @@
 import { Layout } from '../common/layout/Layout';
-import { VolunteerOpportunitiesPage } from '../components/volunteer-opportunities/VolunteerOpportunitiesPage';
+import { VolunteerPage } from '../components/volunteer/VolunteerPage';
 import { Seo } from '../common/seo/Seo';
 import React from 'react';
 
 export default () => (
     <Layout>
-        <VolunteerOpportunitiesPage />
+        <VolunteerPage />
     </Layout>
 );
 
 export const Head = () => (
     <Seo
-        title={'Volunteer Opportunities'}
+        title={'Volunteer'}
         description={'Learn how to get involved at Bondurant Soccer Club'}
-        route={'volunteer-opportunities'}
+        route={'volunteer'}
         keywords={[
             'involved',
             'coaching',
             'board',
-            'volunteer',
-            'opportunities'
+            'volunteer'
         ]}
     />
 );

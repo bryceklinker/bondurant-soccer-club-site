@@ -1,6 +1,6 @@
 import { TitleItem } from './title-item';
 import { LinkData } from './link-data';
 
-export interface VolunteerOpportunitiesData extends TitleItem {
+export interface VolunteerData extends TitleItem {
     links?: Array<LinkData>;
 }

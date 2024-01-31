@@ -6,14 +6,14 @@ import { SectionTitle } from '../../common/components/SectionTitle';
 import { SubTitle } from '../../common/components/SubTitle';
 import { Section } from '../../common/components/Section';
 import { LinkData } from '../../common/state/link-data';
-import { VolunteerOpportunitiesData } from '../../common/state/volunteer-opportunities-data';
+import { VolunteerData } from '../../common/state/volunteer-data';
 import { SmartLink } from '../../common/components/SmartLink';
 
-export interface VolunteerOpportunityLinkProps {
+export interface VolunteerLinkProps {
     data: LinkData;
 }
 
-export const VolunteerOpportunityLink: FC<VolunteerOpportunityLinkProps> = ({
+export const VolunteerLink: FC<VolunteerLinkProps> = ({
     data
 }) => {
     return (
@@ -23,17 +23,17 @@ export const VolunteerOpportunityLink: FC<VolunteerOpportunityLinkProps> = ({
     );
 };
 
-export interface VolunteerOpportunityOptionProps {
-    data: VolunteerOpportunitiesData;
+export interface VolunteerOptionProps {
+    data: VolunteerData;
 }
 
-export const VolunteerOpportunityOption: FC<
-    VolunteerOpportunityOptionProps
+export const VolunteerOption: FC<
+    VolunteerOptionProps
 > = ({ data }) => {
     const links = useMemo(
         () =>
             (data.links ?? []).map((l, i) => (
-                <VolunteerOpportunityLink data={l} key={i} />
+                <VolunteerLink data={l} key={i} />
             )),
         [data.links]
     );
@@ -42,7 +42,7 @@ export const VolunteerOpportunityOption: FC<
         <Section shadow padded>
             <CollapsiblePanel title={<SectionTitle>{data.title}</SectionTitle>}>
                 <ColumnFlex className={'gap-4'}>
-                    <VolunteerOpportunityDescription data={data} />
+                    <VolunteerDescription data={data} />
                     {hasLinks && <SubTitle>Links</SubTitle>}
                     {links}
                 </ColumnFlex>
@@ -51,11 +51,11 @@ export const VolunteerOpportunityOption: FC<
     );
 };
 
-type VolunteerOpportunityDescriptionProps = {
-    data: VolunteerOpportunitiesData;
+type VolunteerDescriptionProps = {
+    data: VolunteerData;
 };
-const VolunteerOpportunityDescription: FC<
-    VolunteerOpportunityDescriptionProps
+const VolunteerDescription: FC<
+    VolunteerDescriptionProps
 > = ({ data }) => {
     if (!data.description) {
         return null;

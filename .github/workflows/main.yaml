@@ -177,7 +177,7 @@ jobs:
         with:
           urls: |
             ${{ env.SITE_URL }}/
-            ${{ env.SITE_URL }}/volunteer-opportunities
+            ${{ env.SITE_URL }}/volunteer
             ${{ env.SITE_URL }}/contact-us
             ${{ env.SITE_URL }}/locations
             ${{ env.SITE_URL }}/schedules
@@ -262,7 +262,7 @@ jobs:
         with:
           urls: |
             ${{ env.SITE_URL }}/
-            ${{ env.SITE_URL }}/volunteer-opportunities
+            ${{ env.SITE_URL }}/volunteer
             ${{ env.SITE_URL }}/contact-us
             ${{ env.SITE_URL }}/locations
             ${{ env.SITE_URL }}/schedules

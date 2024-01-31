@@ -6,7 +6,7 @@ describe('Shell', () => {
         HomePage.navigate();
 
         ShellCommands.findHomeLink().should('be.visible');
-        ShellCommands.findVolunteerOpportunitiesLink().should('be.visible');
+        ShellCommands.findVolunteerLink().should('be.visible');
         ShellCommands.findContactUsLink().should('be.visible');
         ShellCommands.findAboutLink().should('be.visible');
         ShellCommands.findLocationsLink().should('be.visible');

@@ -6,17 +6,17 @@ const createPages: GatsbyNode['createPages'] = ({graphql, actions}) => {
 
     createRedirect({
         fromPath: '/get-involved',
-        toPath: RouteNames.VolunteerOpportunities,
+        toPath: RouteNames.Volunteer,
         isPermanent: true
     })
     createRedirect({
         fromPath: '/referee-info',
-        toPath: RouteNames.VolunteerOpportunities,
+        toPath: RouteNames.Volunteer,
         isPermanent: true
     })
     createRedirect({
         fromPath: '/concessions',
-        toPath: RouteNames.VolunteerOpportunities,
+        toPath: RouteNames.Volunteer,
         isPermanent: true
     })
 }

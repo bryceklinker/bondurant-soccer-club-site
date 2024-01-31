@@ -9,7 +9,7 @@ import { BecomeAReferee } from './BecomeAReferee';
 import { RouteNames } from '../../common/routing/route-names';
 import { LinkData } from '../../common/state/link-data';
 import { BoardMemberData } from '../../common/state/board-member-data';
-import { VolunteerOpportunitiesData } from '../../common/state/volunteer-opportunities-data';
+import { VolunteerData } from '../../common/state/volunteer-data';
 import { ConcessionsOpportunities } from './concessions/ConcessionsOpportunities';
 import { RefereeOpportunities } from './referees/RefereeOpportunities';
 
@@ -36,7 +36,7 @@ export const COACHING_DRILLS: Array<LinkData> = [
     }
 ];
 
-export const VOLUNTEER_OPPORTUNITY_OPTIONS: Array<VolunteerOpportunitiesData> =
+export const VOLUNTEER_OPTIONS: Array<VolunteerData> =
     [
         {
             title: "Full Season Volunteer - one child's registration fee is reimbursable",

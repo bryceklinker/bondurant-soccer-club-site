@@ -1,27 +1,27 @@
-import { VolunteerOpportunitiesPage } from '../support/volunteer-opportunities.page';
+import { VolunteerPage } from '../support/volunteer.page';
 
-describe('Volunteer Opportunities', () => {
+describe('Volunteer', () => {
     it('should show ways to get involved', () => {
-        VolunteerOpportunitiesPage.navigate();
+        VolunteerPage.navigate();
 
-        VolunteerOpportunitiesPage.findSections().should('have.length', 7);
+        VolunteerPage.findSections().should('have.length', 7);
     });
 
-    it('should redirect to volunteer opportunities', () => {
+    it('should redirect to volunteer', () => {
         cy.visit('/get-involved');
 
-        VolunteerOpportunitiesPage.findSections().should('have.length', 7);
+        VolunteerPage.findSections().should('have.length', 7);
     })
 
-    it('should redirect to volunteer opportunities', () => {
+    it('should redirect to volunteer', () => {
         cy.visit('/concessions');
 
-        VolunteerOpportunitiesPage.findSections().should('have.length', 7);
+        VolunteerPage.findSections().should('have.length', 7);
     })
 
-    it('should redirect to volunteer opportunities', () => {
+    it('should redirect to volunteer', () => {
         cy.visit('/referee-info');
 
-        VolunteerOpportunitiesPage.findSections().should('have.length', 7);
+        VolunteerPage.findSections().should('have.length', 7);
     })
 });

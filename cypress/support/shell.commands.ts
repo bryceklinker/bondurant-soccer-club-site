@@ -3,8 +3,8 @@ export const ShellCommands = {
         cy.findByRole('link', { name: 'find us on facebook' }),
     findHomeLink: () =>
         ShellCommands.getNavbar().findByRole('link', { name: 'Home' }),
-    findVolunteerOpportunitiesLink: () =>
-        ShellCommands.getNavbar().findByRole('link', { name: 'Volunteer Opportunities' }),
+    findVolunteerLink: () =>
+        ShellCommands.getNavbar().findByRole('link', { name: 'Volunteer' }),
     findContactUsLink: () =>
         ShellCommands.getNavbar().findByRole('link', { name: 'Contact Us' }),
     findAboutLink: () =>
