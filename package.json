@@ -26,8 +26,7 @@
     "e2e:dev": "cross-env concurrently --success \"first\" --kill-others --kill-signal SIGKILL \"yarn start\" \"yarn wait && yarn cypress open\"",
     "verify": "yarn test && yarn e2e"
   },
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
     "@testing-library/cypress": "10.0.1",
     "@types/react": "18.2.47",
