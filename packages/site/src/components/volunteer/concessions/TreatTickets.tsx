@@ -21,7 +21,7 @@ export const TreatTickets: FunctionComponent<TreatTicketsProps> = ({
             </Paragraph>
 
             <Paragraph>
-                Options are available from $.50 to $2. Get yours today!
+                Options are available from $1.00 to $2.00. Get yours today!
             </Paragraph>
 
             <Paragraph>

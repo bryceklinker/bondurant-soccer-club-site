@@ -1,11 +1,11 @@
-import {FC} from 'react';
-import {CollapsiblePanel} from '../../common/components/CollapsiblePanel';
-import {SubTitle} from '../../common/components/SubTitle';
-import {Paragraph} from '../../common/components/Paragraph';
-import {ColumnFlex} from '../../common/layout/ColumnFlex';
-import {ExternalLinks} from '../../common/components/ExternalLinks';
-import {SessionPlans} from './SessionPlans';
-import {useCoachingDrills} from './hooks';
+import { FC } from 'react';
+import { CollapsiblePanel } from '../../common/components/CollapsiblePanel';
+import { SubTitle } from '../../common/components/SubTitle';
+import { Paragraph } from '../../common/components/Paragraph';
+import { ColumnFlex } from '../../common/layout/ColumnFlex';
+import { ExternalLinks } from '../../common/components/ExternalLinks';
+import { SessionPlans } from './SessionPlans';
+import { useCoachingDrills } from './hooks';
 
 export const CoachPosition: FC = () => {
     const drills = useCoachingDrills();
@@ -16,7 +16,7 @@ export const CoachPosition: FC = () => {
                 contact one of our Director of Coaches. We appreciate your
                 assistance in getting the kids the coaches we need for the
                 teams.
-                <br/>
+                <br />
                 Coaches go through a background check by the Iowa Soccer League
                 and are required to take training prior to being able to
                 interact with players.
@@ -35,18 +35,18 @@ export const CoachPosition: FC = () => {
 
             <Paragraph>
                 Required Training:
-                <br/>
+                <br />
                 Concussion Training
-                <br/>
+                <br />
                 SafeSport Training
             </Paragraph>
 
             <ColumnFlex>
                 <SubTitle>Drills</SubTitle>
-                <ExternalLinks links={drills}/>
+                <ExternalLinks links={drills} />
             </ColumnFlex>
 
-            <SessionPlans/>
+            <SessionPlans />
         </CollapsiblePanel>
     );
 };

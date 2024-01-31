@@ -1,6 +1,4 @@
-import {
-    PRESIDENTS
-} from '../../common/state/board-members';
+import { PRESIDENTS } from '../../common/state/board-members';
 import { RouteNames } from '../../common/routing/route-names';
 import { LinkData } from '../../common/state/link-data';
 import { BoardMemberData } from '../../common/state/board-member-data';
@@ -33,7 +31,7 @@ export const DIRECTOR_OF_ACADEMY_LINKS: Array<LinkData> = [
         text: 'Learn More',
         url: RouteNames.AcademyProgram
     }
-]
+];
 
 export const FULL_SEASON_VOLUNTEER_LINKS: Array<LinkData> = [
     {

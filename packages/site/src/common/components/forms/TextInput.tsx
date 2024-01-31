@@ -1,8 +1,4 @@
-import {
-    FC,
-    forwardRef,
-    InputHTMLAttributes
-} from 'react';
+import { FC, forwardRef, InputHTMLAttributes } from 'react';
 import { ClassNames } from '../../extensions/class-names';
 import {
     Control,
