@@ -1,17 +1,30 @@
 import { useMemo } from 'react';
-import { COACHING_DRILLS, VOLUNTEER_OPTIONS } from './state';
+import {
+    BOARD_MEMBER_POSITION_LINKS,
+    COACHING_DRILLS,
+    DIRECTOR_OF_ACADEMY_LINKS,
+    FULL_SEASON_VOLUNTEER_LINKS
+} from './state';
 import { graphql, useStaticQuery } from 'gatsby';
 import {
     FileNode,
     StaticQueryResult
 } from '../../common/hooks/use-files-query';
 
-export function useVolunteerOptions() {
-    return useMemo(() => VOLUNTEER_OPTIONS, []);
-}
-
 export function useCoachingDrills() {
     return useMemo(() => COACHING_DRILLS, []);
+}
+
+export function useDirectorOfAcademyLinks() {
+    return useMemo(() => DIRECTOR_OF_ACADEMY_LINKS, []);
+}
+
+export function useFullSeasonVolunteerLinks() {
+    return useMemo(() => FULL_SEASON_VOLUNTEER_LINKS, []);
+}
+
+export function useBoardMemberPositionLinks() {
+    return useMemo(() => BOARD_MEMBER_POSITION_LINKS, []);
 }
 
 export function useSessionPlans() {

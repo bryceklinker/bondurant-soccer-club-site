@@ -3,7 +3,6 @@ import {
     FakeServer,
     ModelFactory,
     render,
-    screen,
     userEvent,
     waitFor,
     waitForElementToBeEnabled

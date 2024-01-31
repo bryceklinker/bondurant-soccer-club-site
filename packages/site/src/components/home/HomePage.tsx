@@ -3,7 +3,6 @@ import { Headline } from './Headline';
 import { JumpToLinks } from './JumpToLinks';
 import { Description } from './Description';
 import { GappedStack } from '../../common/components/GappedStack';
-import { Seo } from '../../common/seo/Seo';
 import {
     useCurrentSeason,
     useMaxRegistrationBirthYear,

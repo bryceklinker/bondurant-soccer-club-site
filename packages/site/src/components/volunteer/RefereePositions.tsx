@@ -1,23 +1,19 @@
-import { FC } from 'react';
-import { SubTitle } from '../../../common/components/SubTitle';
-import { Paragraph } from '../../../common/components/Paragraph';
-import { SmartLink, SmartLinkList } from '../../../common/components/SmartLink';
-import {
-    refereeHooks,
-    useDirectorOfRefereesContact
-} from '../../../common/hooks/referee-hooks';
+import {FC} from 'react';
+import {CollapsiblePanel} from '../../common/components/CollapsiblePanel';
+import {SubTitle} from '../../common/components/SubTitle';
+import {Paragraph} from '../../common/components/Paragraph';
+import {SmartLink, SmartLinkList} from '../../common/components/SmartLink';
+import {refereeHooks, useDirectorOfRefereesContact} from '../../common/hooks/referee-hooks';
 
-export const RefereeOpportunities: FC = () => {
+export const RefereePositions: FC = () => {
     const directorOfReferees = useDirectorOfRefereesContact();
     const refereeLinks = refereeHooks();
     return (
-        <>
-            <SubTitle>Become A Referee</SubTitle>
+        <CollapsiblePanel title={<SubTitle>Become A Referee</SubTitle>}>
             <Paragraph>
                 To become a referee, you must take classes in person and online
                 and be at least 13 years old. If you are interested in being a
-                referee for the Bondurant Soccer Club contact the{' '}
-                <SmartLink link={directorOfReferees} />
+                referee for the Bondurant Soccer Club contact the <SmartLink link={directorOfReferees} />
             </Paragraph>
 
             <SubTitle>Referee Required Training</SubTitle>
@@ -107,6 +103,6 @@ export const RefereeOpportunities: FC = () => {
 
             <SubTitle>Links</SubTitle>
             <SmartLinkList links={refereeLinks} />
-        </>
+        </CollapsiblePanel>
     );
 };

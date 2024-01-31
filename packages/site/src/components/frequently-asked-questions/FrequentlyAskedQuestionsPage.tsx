@@ -7,7 +7,6 @@ import { Paragraph } from '../../common/components/Paragraph';
 import { SmartLink } from '../../common/components/SmartLink';
 import { SubTitle } from '../../common/components/SubTitle';
 import { PlainStack } from '../../common/components/PlainStack';
-import { Seo } from '../../common/seo/Seo';
 import {
     useCoachFrequentlyAskedQuestions,
     useFrequentlyAskedQuestions,

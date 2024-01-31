@@ -1,7 +1,7 @@
 import { SettingsModel } from '../settings/settings-model';
 import { useSettings } from '../settings/use-settings';
 import { useMemo } from 'react';
-import { useAccessToken, useAuthUser } from '../auth/auth-hooks';
+import { useAccessToken } from '../auth/auth-hooks';
 
 export type Api = {
     get: (path: string) => Promise<Response>;

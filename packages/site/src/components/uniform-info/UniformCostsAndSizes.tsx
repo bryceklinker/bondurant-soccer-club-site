@@ -9,8 +9,6 @@ import { Numbers } from '../../common/extensions/numbers';
 import { LinkData } from '../../common/state/link-data';
 import { UniformSize } from '../../common/state/uniform-size';
 import { UniformPurchaseOption } from '../../common/state/uniform-purchase-option';
-import { StaticImage } from 'gatsby-plugin-image';
-import { ColumnFlex } from '../../common/layout/ColumnFlex';
 import { SizeChartTable } from './SizeChartTable';
 import { SizeComparisonTable } from './SizeComparisonTable';
 import { useSizeChartDownload } from './hooks';

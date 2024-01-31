@@ -1,21 +1,22 @@
-import { FC } from 'react';
-import { ExternalLinks } from '../../common/components/ExternalLinks';
-import { ColumnFlex } from '../../common/layout/ColumnFlex';
-import { Paragraph } from '../../common/components/Paragraph';
-import { SubTitle } from '../../common/components/SubTitle';
-import { useCoachingDrills } from './hooks';
-import { SessionPlans } from './SessionPlans';
+import {FC} from 'react';
+import {CollapsiblePanel} from '../../common/components/CollapsiblePanel';
+import {SubTitle} from '../../common/components/SubTitle';
+import {Paragraph} from '../../common/components/Paragraph';
+import {ColumnFlex} from '../../common/layout/ColumnFlex';
+import {ExternalLinks} from '../../common/components/ExternalLinks';
+import {SessionPlans} from './SessionPlans';
+import {useCoachingDrills} from './hooks';
 
-export const BecomeACoach: FC = () => {
+export const CoachPosition: FC = () => {
     const drills = useCoachingDrills();
     return (
-        <ColumnFlex className={'gap-4'}>
+        <CollapsiblePanel title={<SubTitle>Become A Coach</SubTitle>}>
             <Paragraph>
                 If you are interested in Coaching or assisting a coach, please
                 contact one of our Director of Coaches. We appreciate your
                 assistance in getting the kids the coaches we need for the
                 teams.
-                <br />
+                <br/>
                 Coaches go through a background check by the Iowa Soccer League
                 and are required to take training prior to being able to
                 interact with players.
@@ -34,18 +35,18 @@ export const BecomeACoach: FC = () => {
 
             <Paragraph>
                 Required Training:
-                <br />
+                <br/>
                 Concussion Training
-                <br />
+                <br/>
                 SafeSport Training
             </Paragraph>
 
             <ColumnFlex>
                 <SubTitle>Drills</SubTitle>
-                <ExternalLinks links={drills} />
+                <ExternalLinks links={drills}/>
             </ColumnFlex>
 
-            <SessionPlans />
-        </ColumnFlex>
+            <SessionPlans/>
+        </CollapsiblePanel>
     );
 };

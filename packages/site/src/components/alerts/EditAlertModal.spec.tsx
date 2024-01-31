@@ -3,9 +3,7 @@ import {
     FakeServer,
     ModelFactory,
     render,
-    screen,
-    userEvent,
-    waitFor
+    userEvent
 } from '../../testing';
 import { EditAlertModal } from './EditAlertModal';
 import { RestRequest } from 'msw';

@@ -1,4 +1,4 @@
-import { FC, useCallback, useState } from 'react';
+import { FC, useCallback } from 'react';
 import { Modal } from '../../common/components/modals/Modal';
 import { AlertModel } from './state/models';
 import { ModalTitle } from '../../common/components/modals/ModalTitle';
