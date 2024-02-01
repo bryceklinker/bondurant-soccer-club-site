@@ -2,6 +2,7 @@ import { PRESIDENTS } from '../../common/state/board-members';
 import { RouteNames } from '../../common/routing/route-names';
 import { LinkData } from '../../common/state/link-data';
 import { BoardMemberData } from '../../common/state/board-member-data';
+import {CONCESSION_SIGNUP_LINK} from './concessions/state';
 
 export const COACHING_DRILLS: Array<LinkData> = [
     {
@@ -35,8 +36,12 @@ export const DIRECTOR_OF_ACADEMY_LINKS: Array<LinkData> = [
 
 export const SINGLE_TIME_VOLUNTEER_LINKS: Array<LinkData> = [
     {
-        text: 'Sign up here',
+        text: 'Single time volunteer sign up',
         url: 'https://www.signupgenius.com/go/10C094AABAC28A6F5C61-46996327-single'
+    },
+    {
+        text: 'Concession volunteer sign up',
+        url: CONCESSION_SIGNUP_LINK.url
     }
 ];
 
