@@ -4,7 +4,7 @@ describe('Volunteer', () => {
     it('should show ways to get involved', () => {
         VolunteerPage.navigate();
 
-        VolunteerPage.findSections().should('have.length', 2);
+        VolunteerPage.findSections().should('have.length', 7);
     });
 
     it('should redirect to volunteer', () => {

@@ -3,7 +3,7 @@ import {
     BOARD_MEMBER_POSITION_LINKS,
     COACHING_DRILLS,
     DIRECTOR_OF_ACADEMY_LINKS,
-    FULL_SEASON_VOLUNTEER_LINKS
+    FULL_SEASON_VOLUNTEER_LINKS, SINGLE_TIME_VOLUNTEER_LINKS
 } from './state';
 import { graphql, useStaticQuery } from 'gatsby';
 import {
@@ -25,6 +25,10 @@ export function useFullSeasonVolunteerLinks() {
 
 export function useBoardMemberPositionLinks() {
     return useMemo(() => BOARD_MEMBER_POSITION_LINKS, []);
+}
+
+export function useSingleTimeVolunteerLinks() {
+    return useMemo(() => SINGLE_TIME_VOLUNTEER_LINKS, []);
 }
 
 export function useSessionPlans() {

@@ -8,6 +8,8 @@ import {
     useDirectorOfConcessionsMailLink
 } from './hooks';
 import { ConcessionStandDutyAndSignup } from './ConcessionStandDutyAndSignup';
+import {Section} from '../../../common/components/Section';
+import {SectionTitle} from '../../../common/components/SectionTitle';
 
 export const ConcessionManagementPosition: FC = () => {
     const concessionLocation = useConcessionsLocation();
@@ -15,12 +17,14 @@ export const ConcessionManagementPosition: FC = () => {
     const contactLink = useDirectorOfConcessionsMailLink();
 
     return (
-        <CollapsiblePanel title={<SubTitle>Concession Management</SubTitle>}>
-            <TreatTickets location={concessionLocation} />
-            <ConcessionStandDutyAndSignup
-                signupLink={signupLink}
-                contactLink={contactLink}
-            />
-        </CollapsiblePanel>
+        <Section padded shadow>
+            <CollapsiblePanel title={<SectionTitle>Concession Management</SectionTitle>}>
+                <TreatTickets location={concessionLocation} />
+                <ConcessionStandDutyAndSignup
+                    signupLink={signupLink}
+                    contactLink={contactLink}
+                />
+            </CollapsiblePanel>
+        </Section>
     );
 };
