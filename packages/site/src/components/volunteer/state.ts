@@ -38,7 +38,7 @@ export const SINGLE_TIME_VOLUNTEER_LINKS: Array<LinkData> = [
         text: 'Sign up here',
         url: 'https://www.signupgenius.com/go/10C094AABAC28A6F5C61-46996327-single'
     }
-]
+];
 
 export const FULL_SEASON_VOLUNTEER_LINKS: Array<LinkData> = [
     {
