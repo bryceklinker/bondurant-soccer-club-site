@@ -2,7 +2,7 @@ import { PRESIDENTS } from '../../common/state/board-members';
 import { RouteNames } from '../../common/routing/route-names';
 import { LinkData } from '../../common/state/link-data';
 import { BoardMemberData } from '../../common/state/board-member-data';
-import {CONCESSION_SIGNUP_LINK} from './concessions/state';
+import { CONCESSION_SIGNUP_LINK } from './concessions/state';
 
 export const COACHING_DRILLS: Array<LinkData> = [
     {
