@@ -4,7 +4,7 @@ import {
     COACHING_DRILLS,
     DIRECTOR_OF_ACADEMY_LINKS,
     FULL_SEASON_VOLUNTEER_LINKS,
-    SINGLE_TIME_VOLUNTEER_LINKS
+    SINGLE_TIME_VOLUNTEER_LINKS, VOLUNTEER_REIMBURSEMENT_TEXT
 } from './state';
 import { graphql, useStaticQuery } from 'gatsby';
 import {
@@ -30,6 +30,10 @@ export function useBoardMemberPositionLinks() {
 
 export function useSingleTimeVolunteerLinks() {
     return useMemo(() => SINGLE_TIME_VOLUNTEER_LINKS, []);
+}
+
+export function useVolunteerReimbursementText() {
+    return useMemo(() => VOLUNTEER_REIMBURSEMENT_TEXT, []);
 }
 
 export function useSessionPlans() {

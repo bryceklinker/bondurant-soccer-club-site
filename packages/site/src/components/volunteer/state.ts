@@ -62,3 +62,5 @@ export const BOARD_MEMBER_POSITION_LINKS: Array<LinkData> = [
         url: RouteNames.ContactUs
     }
 ];
+
+export const VOLUNTEER_REIMBURSEMENT_TEXT = 'All reimbursements will be made at the end of each season and will be credited to the CC used for registration.'
