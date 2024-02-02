@@ -63,4 +63,5 @@ export const BOARD_MEMBER_POSITION_LINKS: Array<LinkData> = [
     }
 ];
 
-export const VOLUNTEER_REIMBURSEMENT_TEXT = 'All reimbursements will be made at the end of each season and will be credited to the CC used for registration.'
+export const VOLUNTEER_REIMBURSEMENT_TEXT =
+    'All reimbursements will be made at the end of each season and will be credited to the CC used for registration.';
