@@ -22,9 +22,9 @@ export const CoachPosition: FC = () => {
                 }>
                 <Paragraph>
                     If you are interested in Coaching or assisting a coach,
-                    please contact Director of Coaches. We appreciate
-                    your assistance in getting the kids the coaches we need for
-                    the teams.
+                    please contact Director of Coaches. We appreciate your
+                    assistance in getting the kids the coaches we need for the
+                    teams.
                     <br />
                     Coaches go through a background check by the Iowa Soccer
                     League and are required to take training prior to being able

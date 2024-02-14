@@ -16,7 +16,8 @@ export const ConcessionStandDutyAndSignup: FunctionComponent<
         <>
             <SubTitle>Concession Stand Duty and Signup</SubTitle>
             <Paragraph>
-                Click here to schedule your spot: <SmartLink link={signupLink} />
+                Click here to schedule your spot:{' '}
+                <SmartLink link={signupLink} />
             </Paragraph>
 
             <Paragraph>
