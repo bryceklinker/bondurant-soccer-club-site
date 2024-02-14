@@ -1,7 +1,7 @@
 import { AGE_GROUPS } from '../../common/state/age-groups';
 import { LocationData } from '../../common/state/location-data';
-import {LinkData} from '../../common/state/link-data';
-import {RouteNames} from '../../common/routing/route-names';
+import { LinkData } from '../../common/state/link-data';
+import { RouteNames } from '../../common/routing/route-names';
 
 export const COLLISON_SOCCER_PARK_LOCATION: LocationData = {
     title: 'Collison Soccer Park',
@@ -55,7 +55,7 @@ export const BONDURANT_RECREATIONAL_SPORTS_COMPLEX_LOCATION = {
 export const COLLISON_SOCCER_PARK_LINK: LinkData = {
     text: COLLISON_SOCCER_PARK_LOCATION.title,
     url: RouteNames.Locations
-}
+};
 export const LOCATIONS: Array<LocationData> = [
     BONDURANT_RECREATIONAL_SPORTS_COMPLEX_LOCATION,
     COLLISON_SOCCER_PARK_LOCATION

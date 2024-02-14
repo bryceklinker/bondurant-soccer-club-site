@@ -17,7 +17,9 @@ export const U5_U6Details: FC<U5_U6DetailsProps> = ({
 }) => {
     return (
         <>
-            {includeTitle && (<SubTitle>*&nbsp;Birth Years = 2018,2019&nbsp;*</SubTitle>)}
+            {includeTitle && (
+                <SubTitle>*&nbsp;Birth Years = 2018,2019&nbsp;*</SubTitle>
+            )}
 
             {includeDates && (
                 <Paragraph>

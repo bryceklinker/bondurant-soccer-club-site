@@ -1,5 +1,5 @@
-import {LinkData} from '../../common/state/link-data';
-import {RouteNames} from '../../common/routing/route-names';
+import { LinkData } from '../../common/state/link-data';
+import { RouteNames } from '../../common/routing/route-names';
 
 export const U9_AND_UP_SCHEDULE_LINK: LinkData = {
     text: 'here',
