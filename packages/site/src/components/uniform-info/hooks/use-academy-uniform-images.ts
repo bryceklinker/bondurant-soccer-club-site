@@ -1,5 +1,7 @@
 import { graphql, useStaticQuery } from 'gatsby';
 import { ImageQueryResult } from '../../../common/hooks/use-images-query';
+import {useMemo} from 'react';
+import {Arrays} from '../../../common/extensions/arrays';
 
 export function useAcademyUniformImages() {
     const query = graphql`
@@ -20,5 +22,6 @@ export function useAcademyUniformImages() {
         }
     `;
     const data = useStaticQuery<ImageQueryResult>(query);
-    return data?.allFile?.nodes ?? [];
+    const nodes = data?.allFile?.nodes ?? [];
+    return useMemo(() => Arrays.sortBy(nodes, i => i.name), [nodes]);
 }

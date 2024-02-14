@@ -13,7 +13,7 @@ export const UniformImages: FC<UniformImagesProps> = ({ imageFiles }) => {
     const images = useMemo(
         () =>
             imageFiles.map(file => (
-                <ColumnFlex className={'items-center min-w-[45%]'}>
+                <ColumnFlex className={'items-center min-w-[50%]'}>
                     <GatsbyImage
                         alt={file.name}
                         image={file.childImageSharp.gatsbyImageData}
