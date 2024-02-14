@@ -47,14 +47,14 @@ export const SINGLE_TIME_VOLUNTEER_LINKS: Array<LinkData> = [
 
 export const FULL_SEASON_VOLUNTEER_LINKS: Array<LinkData> = [
     {
-        text: 'Sing up here',
+        text: 'Sign up here',
         url: 'https://www.signupgenius.com/go/10C094AABAC28A6F5C61-bscvolunteer'
     }
 ];
 
 export const BOARD_MEMBER_POSITION_LINKS: Array<LinkData> = [
     {
-        text: 'Contact',
+        text: 'Contact Club President',
         url: BoardMemberData.getMailToLink(PRESIDENTS)
     },
     {

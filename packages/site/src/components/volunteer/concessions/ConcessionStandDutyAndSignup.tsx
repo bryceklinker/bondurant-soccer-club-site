@@ -16,8 +16,7 @@ export const ConcessionStandDutyAndSignup: FunctionComponent<
         <>
             <SubTitle>Concession Stand Duty and Signup</SubTitle>
             <Paragraph>
-                Click here to schedule your volunteering spot for the Fall 2021
-                Concession Season: <SmartLink link={signupLink} />
+                Click here to schedule your spot: <SmartLink link={signupLink} />
             </Paragraph>
 
             <Paragraph>

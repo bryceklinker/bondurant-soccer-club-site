@@ -22,7 +22,7 @@ export const CoachPosition: FC = () => {
                 }>
                 <Paragraph>
                     If you are interested in Coaching or assisting a coach,
-                    please contact one of our Director of Coaches. We appreciate
+                    please contact Director of Coaches. We appreciate
                     your assistance in getting the kids the coaches we need for
                     the teams.
                     <br />
