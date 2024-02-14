@@ -15,8 +15,13 @@ function groupBy<TItem>(
     return Object.keys(groups).map(key => ({ key, items: groups[key] }));
 }
 
-function sortBy<TItem>(items: Array<TItem>, key: (i: TItem) => string): Array<TItem> {
-    return items.toSorted((first, second) => key(first).localeCompare(key(second)));
+function sortBy<TItem>(
+    items: Array<TItem>,
+    key: (i: TItem) => string
+): Array<TItem> {
+    return items.toSorted((first, second) =>
+        key(first).localeCompare(key(second))
+    );
 }
 
 export const Arrays = {
