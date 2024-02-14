@@ -5,15 +5,19 @@ import { ListItem } from '../../common/components/ListItem';
 import { Paragraph } from '../../common/components/Paragraph';
 
 export type U5_U6DetailsProps = {
+    includeDescription?: boolean;
     includeDates?: boolean;
+    includeTitle?: boolean;
 };
 
 export const U5_U6Details: FC<U5_U6DetailsProps> = ({
-    includeDates = false
+    includeDescription = false,
+    includeDates = false,
+    includeTitle = true
 }) => {
     return (
         <>
-            <SubTitle>*&nbsp;Birth Years = 2018,2019&nbsp;*</SubTitle>
+            {includeTitle && (<SubTitle>*&nbsp;Birth Years = 2018,2019&nbsp;*</SubTitle>)}
 
             {includeDates && (
                 <Paragraph>
@@ -22,7 +26,7 @@ export const U5_U6Details: FC<U5_U6DetailsProps> = ({
                     End date - Thursday, May 23
                 </Paragraph>
             )}
-            {!includeDates && (
+            {includeDescription && (
                 <BulletedList>
                     <ListItem>All BSC teams will play each other</ListItem>
                     <ListItem>All games, no practices</ListItem>
@@ -30,7 +34,7 @@ export const U5_U6Details: FC<U5_U6DetailsProps> = ({
                 </BulletedList>
             )}
             <Paragraph>
-                Games will be on Tuesdays, Thursdays, and Satudays
+                Games will be on Tuesdays, Thursdays, and Saturdays
             </Paragraph>
 
             <Paragraph>
