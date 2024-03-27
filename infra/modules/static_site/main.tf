@@ -180,7 +180,7 @@ resource "azurerm_storage_blob" "settings_json" {
   source_content = jsonencode({
     "apiUrl" : "${module.function_app.function_app_url}/api"
   })
-  cache_control = lookup(local.cache_control, '.json', local.default_cache_control)
+  cache_control = lookup(local.cache_control, ".json", local.default_cache_control)
 
   depends_on = [module.function_app]
 }
