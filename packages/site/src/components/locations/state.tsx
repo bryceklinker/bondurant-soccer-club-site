@@ -17,13 +17,8 @@ export const COLLISON_SOCCER_PARK_LOCATION: LocationData = {
     fieldLayouts: [
         {
             title: 'All Fields',
-            image: 'west_complex_all_fields',
+            image: 'collison_soccer_park',
             alt: 'Arial view of all Collison soccer park fields'
-        },
-        {
-            title: 'North East Fields',
-            image: 'west_complex_north_east_fields',
-            alt: 'Arial view of northeast Collison soccer park fields'
         }
     ]
 };
@@ -41,14 +36,9 @@ export const BONDURANT_RECREATIONAL_SPORTS_COMPLEX_LOCATION = {
     },
     fieldLayouts: [
         {
-            title: 'North to South View',
-            image: 'east_complex_north_to_south',
+            title: 'All Fields',
+            image: 'bsc_east_complex',
             alt: 'Arial view from north looking south'
-        },
-        {
-            title: 'South to North View',
-            image: 'east_complex_south_to_north',
-            alt: 'Arial view from south looking north'
         }
     ]
 };

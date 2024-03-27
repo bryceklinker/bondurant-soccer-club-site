@@ -17,7 +17,7 @@ export function useFieldLayoutImage(name: string) {
             allFile(
                 filter: {
                     relativeDirectory: { eq: "field-layouts" }
-                    extension: { eq: "jpeg" }
+                    extension: { eq: "png" }
                 }
             ) {
                 nodes {
