@@ -12,6 +12,7 @@ locals {
     "application/xml"
   ]
 
+  default_mime_type = "application/octet-stream"
   mime_types = {
     ".json"        = "application/json"
     ".js"          = "application/javascript"
@@ -29,7 +30,13 @@ locals {
     ".pdf"         = "application/pdf"
   }
 
-  cache_control = "max-age=604800, must-revalidate"
+  default_cache_control = "max-age=604800, must-revalidate"
+  cache_control = {
+    ".json" = "max-age=3600, must-revalidate"
+    ".js" = "max-age=3600, must-revalidate"
+    ".css" = "max-age=3600, must-revalidate"
+    ".html" = "max-age=60, must-revalidate"
+  }
 }
 
 data "azurerm_client_config" "current" {}
@@ -64,10 +71,10 @@ resource "azurerm_storage_blob" "site_content" {
 
   name          = each.key
   source        = "${var.site_directory}/${each.value}"
-  content_type  = lookup(local.mime_types, regex("\\.[^.]+$", each.value))
+  content_type  = lookup(local.mime_types, regex("\\.[^.]+$", each.value), local.default_mime_type)
   content_md5   = filemd5("${var.site_directory}/${each.value}")
   type          = "Block"
-  cache_control = local.cache_control
+  cache_control = lookup(local.cache_control, regex("\\.[^.]+$", each.value), local.default_cache_control)
 }
 
 resource "azurerm_cdn_profile" "cdn_profile" {
@@ -173,7 +180,7 @@ resource "azurerm_storage_blob" "settings_json" {
   source_content = jsonencode({
     "apiUrl" : "${module.function_app.function_app_url}/api"
   })
-  cache_control = local.cache_control
+  cache_control = lookup(local.cache_control, '.json', local.default_cache_control)
 
   depends_on = [module.function_app]
 }
@@ -186,7 +193,7 @@ resource "azurerm_storage_blob" "alerts_json" {
   name           = "db/alerts.json"
   content_type   = "text/json"
   source_content = jsonencode([])
-  cache_control  = local.cache_control
+  cache_control  = lookup(local.cache_control, ".json", local.default_cache_control)
 
   lifecycle {
     ignore_changes = [content_md5]
