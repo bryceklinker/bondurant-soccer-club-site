@@ -62,7 +62,7 @@ export const BOARD_MEMBERS: Array<BoardMemberData> = [
     {
         roleTitle: 'Director of Communications',
         role: BoardMemberRole.DirectorOfCommunications,
-        name: 'Nicole Van Houten',
+        name: 'TBD',
         email: 'director-communications@bondurantsoccerclub.com',
         roleGroup: BoardMemberRoleGroup.Directors
     },
